@@ -148,6 +148,90 @@ def importance_score(article: dict) -> int:
 
 
 # ──────────────────────────────────────────────────────────────────────────
+# Deterministic narrative enrichment — gives readers a 20-sec "read"
+# without needing an LLM
+# ──────────────────────────────────────────────────────────────────────────
+_CATEGORY_WHY = {
+    "M&A":            "Deal activity reshapes the {segment} competitive landscape.",
+    "Product Launch": "New {segment} offering — potential competitive pressure on MSCI's roadmap.",
+    "Partnership":    "Strategic alliance may alter distribution or data access in {segment}.",
+    "Earnings":       "Financial print signals competitor health and client-spend implications.",
+    "Regulatory":     "Regulatory development affecting {segment} market structure.",
+    "Leadership":     "Key personnel change may shift strategic direction.",
+    "Strategy":       "Strategic move by {competitor} — watch for follow-through.",
+    "General":        "News mention involving {competitor} in {segment}.",
+}
+
+
+def derive_signals(article: dict) -> list[str]:
+    """Structured tags — compact chips rendered next to the headline."""
+    tags: list[str] = []
+    text = f"{article.get('title', '')} {article.get('summary', '')}".lower()
+    cat = article.get("category", "General")
+
+    if "msci" in text:
+        tags.append("Mentions MSCI")
+    if any(k in text for k in ("index", "benchmark", "etf")):
+        tags.append("Index / ETF")
+    if any(k in text for k in ("esg", "sustainab", "climate", "net zero")):
+        tags.append("ESG / Climate")
+    if cat not in ("General", "Strategy"):
+        tags.append(cat)
+
+    pub = article.get("published")
+    if pub:
+        try:
+            dt = datetime.fromisoformat(pub.replace("Z", "+00:00"))
+            age_days = (datetime.now(timezone.utc) - dt).days
+            if age_days <= 1:
+                tags.append("Breaking (<24h)")
+            elif age_days <= 3:
+                tags.append("Recent (<3d)")
+        except Exception:
+            pass
+
+    if article.get("importance_score", 0) >= 75:
+        tags.append("High priority")
+
+    # Dedupe while preserving order
+    seen = set()
+    out = []
+    for t in tags:
+        if t not in seen:
+            seen.add(t)
+            out.append(t)
+    return out
+
+
+def derive_why_it_matters(article: dict) -> str:
+    """One-sentence so-what, deterministic and safe for compliance."""
+    cat = article.get("category", "General")
+    segment = article.get("segment") or "the sector"
+    competitor = article.get("competitor") or "the company"
+    base = _CATEGORY_WHY.get(cat, _CATEGORY_WHY["General"]).format(
+        segment=segment, competitor=competitor,
+    )
+    text = f"{article.get('title','')} {article.get('summary','')}".lower()
+    extras = []
+    if "msci" in text:
+        extras.append("Article specifically references MSCI.")
+    if any(k in text for k in ("index", "benchmark")) and cat != "Product Launch":
+        extras.append("Index/benchmark angle present.")
+    if extras:
+        return (base + " " + " ".join(extras)).strip()
+    return base
+
+
+def derive_key_points(summary: str, max_points: int = 3) -> list[str]:
+    """Naive sentence splitter — gives 2-3 tight bullets for a quick read."""
+    if not summary:
+        return []
+    sentences = re.split(r"(?<=[.!?])\s+", summary.strip())
+    points = [s.strip() for s in sentences if len(s.split()) >= 6]
+    return points[:max_points]
+
+
+# ──────────────────────────────────────────────────────────────────────────
 # Data-source fetchers
 # ──────────────────────────────────────────────────────────────────────────
 def fetch_finnhub(ticker: str, competitor: str, segment: str,
@@ -193,6 +277,8 @@ def fetch_finnhub(ticker: str, competitor: str, segment: str,
             "ticker": ticker,
             "segment": segment,
             "origin": "finnhub",
+            "related": (it.get("related") or "").strip(),
+            "finnhub_category": (it.get("category") or "").strip(),
         })
     return out
 
@@ -256,17 +342,33 @@ def fetch_rss(feed_url: str, competitor: str, ticker: str, segment: str,
 
         published = _parse_rss_date(date_el.text if date_el is not None else "")
 
+        # Best-effort image extraction from common RSS/Atom patterns
+        image = ""
+        thumb_el = it.find("thumbnail")
+        if thumb_el is not None:
+            image = thumb_el.get("url") or (thumb_el.text or "").strip()
+        if not image:
+            content_el = it.find("content")
+            if content_el is not None and content_el.get("url"):
+                image = content_el.get("url")
+        if not image:
+            enc_el = it.find("enclosure")
+            if enc_el is not None and (enc_el.get("type") or "").startswith("image/"):
+                image = enc_el.get("url") or ""
+
         out.append({
             "title": title,
             "url": url_,
             "source": competitor,  # RSS from the company itself
             "summary": summary,
             "published": published,
-            "image": "",
+            "image": image,
             "competitor": competitor,
             "ticker": ticker,
             "segment": segment,
             "origin": "rss",
+            "related": "",
+            "finnhub_category": "",
         })
     return out
 
@@ -298,6 +400,13 @@ def enrich(article: dict) -> dict:
     article["importance"] = score_to_label(score)
     article["impact_level"] = score_to_label(score)  # dashboard reads both fields
     article["id"] = article_id(article)
+    # Narrative enrichment (for the 20-sec read)
+    article["signals"] = derive_signals(article)
+    article["why_it_matters"] = derive_why_it_matters(article)
+    article["key_points"] = derive_key_points(article.get("summary", ""))
+    # Approximate reading time (180 wpm baseline)
+    words = len((article.get("summary") or "").split())
+    article["reading_time"] = f"{max(1, round(words / 180))} min read" if words else "<1 min read"
     return article
 
 
