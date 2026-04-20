@@ -308,6 +308,50 @@ body {
 .detail-source a { font-size: 12px; color: var(--accent); text-decoration: none; font-weight: 600; transition: opacity 0.15s; }
 .detail-source a:hover { opacity: 0.75; }
 
+/* ─── REVAMPED DETAIL PANEL — MSCI lens blocks ─── */
+.detail-hero { display: flex; gap: 14px; margin-bottom: 14px; }
+.detail-thumb { flex: 0 0 auto; width: 132px; height: 88px; border-radius: var(--radius); background: var(--bg-root) center/cover no-repeat; border: 1px solid var(--border); }
+.detail-hero-body { flex: 1; min-width: 0; }
+.section-heading { font-size: 10px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1.3px; font-weight: 700; margin: 18px 0 8px; display: flex; align-items: center; gap: 6px; }
+.section-heading::after { content: ""; flex: 1; height: 1px; background: var(--border); margin-left: 4px; }
+.lens-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 6px; }
+.lens-card { padding: 12px 14px; background: var(--bg-root); border: 1px solid var(--border); border-radius: var(--radius); }
+.lens-card-label { font-size: 9.5px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1.1px; font-weight: 700; margin-bottom: 6px; }
+.lens-card-value { font-size: 15px; font-weight: 700; color: var(--text-primary); margin-bottom: 6px; letter-spacing: -0.1px; }
+.lens-card-desc { font-size: 11.5px; color: var(--text-secondary); line-height: 1.5; }
+.lens-chips { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 6px; }
+.lens-chip { font-size: 11px; font-weight: 600; color: var(--accent); background: var(--accent-glow); border: 1px solid var(--accent); padding: 3px 9px; border-radius: 12px; letter-spacing: 0.2px; cursor: pointer; transition: all 0.12s; }
+.lens-chip:hover { filter: brightness(1.1); }
+.lens-chip.neutral { color: var(--text-secondary); background: var(--bg-raised); border-color: var(--border); cursor: default; }
+.lens-chip.msci { color: #fff; background: var(--msci-teal); border-color: var(--msci-teal); }
+.competitive-card { padding: 12px 14px; background: linear-gradient(135deg, rgba(20,184,166,0.06), rgba(26,63,214,0.06)); border: 1px solid var(--border); border-left: 3px solid var(--teal); border-radius: var(--radius); margin-bottom: 6px; }
+.competitive-card-head { font-size: 10.5px; color: var(--teal); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; display: flex; align-items: center; gap: 6px; }
+.competitive-card-body { font-size: 13px; line-height: 1.6; color: var(--text-primary); }
+.competitive-card-body b { color: var(--text-primary); font-weight: 700; }
+.msci-mention-card { padding: 12px 14px; background: rgba(0,167,152,0.08); border: 1px solid rgba(0,167,152,0.35); border-radius: var(--radius); margin-bottom: 6px; }
+.msci-mention-head { font-size: 10.5px; color: var(--teal); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; display: flex; align-items: center; gap: 6px; }
+.ticker-card { padding: 10px 12px; background: var(--bg-root); border: 1px solid var(--border); border-radius: var(--radius); margin-bottom: 6px; }
+.ticker-row { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+.ticker-label { font-size: 10px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; font-weight: 700; margin-right: 4px; }
+.ticker-pill { font-size: 11px; font-family: var(--mono); font-weight: 700; color: var(--accent); background: var(--accent-glow); border: 1px solid var(--accent); padding: 2px 8px; border-radius: 4px; cursor: pointer; transition: all 0.12s; letter-spacing: 0.3px; text-decoration: none; }
+.ticker-pill:hover { filter: brightness(1.15); }
+.ticker-pill.primary { color: #fff; background: var(--accent); }
+.related-list { display: flex; flex-direction: column; gap: 5px; }
+.related-item { display: flex; align-items: center; gap: 10px; padding: 8px 10px; background: var(--bg-root); border: 1px solid var(--border); border-radius: var(--radius); cursor: pointer; transition: all 0.12s; }
+.related-item:hover { border-color: var(--accent); background: var(--bg-hover); }
+.related-item-icon { font-size: 12px; color: var(--text-muted); flex-shrink: 0; }
+.related-item-body { flex: 1; min-width: 0; }
+.related-item-title { font-size: 12px; font-weight: 600; color: var(--text-primary); line-height: 1.35; margin-bottom: 2px; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; }
+.related-item-meta { font-size: 10px; color: var(--text-muted); }
+.related-item-dot { opacity: 0.4; }
+.detail-actions { display: flex; gap: 8px; flex-wrap: wrap; margin: 18px 0 8px; }
+.detail-action-btn { display: inline-flex; align-items: center; gap: 6px; padding: 8px 14px; font-size: 12px; font-weight: 600; border-radius: 6px; cursor: pointer; font-family: var(--font); transition: all 0.15s; text-decoration: none; border: 1px solid transparent; }
+.detail-action-btn.primary { background: var(--accent); color: #fff; }
+.detail-action-btn.primary:hover { filter: brightness(1.1); }
+.detail-action-btn.ghost { background: transparent; color: var(--text-secondary); border-color: var(--border); }
+.detail-action-btn.ghost:hover { border-color: var(--accent); color: var(--accent); }
+@media (max-width: 1100px) { .lens-grid { grid-template-columns: 1fr; } .detail-thumb { width: 100px; height: 68px; } }
+
 /* ─── BRAND INTEL SECTION ─── */
 .brand-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 14px 20px; overflow-y: auto; }
 .brand-card { background: var(--bg-surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px; }
@@ -601,7 +645,7 @@ let finCompany = "BlackRock";
 
 // ─── STATE ───
 let state = {
-  selected: null, search: "", detailTab: "sectors",
+  selected: null, search: "",
   selectedClient: null, selectedMsci: null,
   filterComp: "All", filterCat: "All", filterImp: "All",
   filterImpact: "All", filterSentiment: "All", filterSource: "All",
@@ -949,6 +993,126 @@ function getActiveFilterCount() {
 }
 
 // ═══════════════════════════════════════════════
+// DETAIL PANEL — derivations (fill gaps the scraper doesn't yet populate)
+// ═══════════════════════════════════════════════
+const MSCI_PRODUCT_CATALOG = [
+  // Probe the article text for explicit MSCI product mentions so the detail
+  // panel can surface "article references MSCI X by name" — high-signal for
+  // competitive intel because direct mentions often imply a win/loss.
+  { key: "MSCI ACWI",          rx: /\bMSCI\s+ACWI\b/i },
+  { key: "MSCI World",         rx: /\bMSCI\s+World\b/i },
+  { key: "MSCI Emerging Markets", rx: /\bMSCI\s+(EM|Emerging\s+Markets)\b/i },
+  { key: "MSCI USA",           rx: /\bMSCI\s+USA\b/i },
+  { key: "MSCI Europe",        rx: /\bMSCI\s+Europe\b/i },
+  { key: "MSCI ESG Ratings",   rx: /\bMSCI\s+ESG\s+Ratings?\b/i },
+  { key: "MSCI ESG",           rx: /\bMSCI\s+ESG\b/i },
+  { key: "MSCI Climate",       rx: /\bMSCI\s+Climate\b/i },
+  { key: "MSCI Private Capital", rx: /\bMSCI\s+Private\s+Capital\b/i },
+  { key: "Burgiss",            rx: /\bBurgiss\b/i },
+  { key: "RiskMetrics",        rx: /\bRisk[- ]?Metrics\b/i },
+  { key: "Barra",              rx: /\bBarra(One)?\b/i },
+  { key: "BarraOne",           rx: /\bBarraOne\b/i },
+  { key: "MSCI Real Assets",   rx: /\bMSCI\s+Real\s+Assets\b/i },
+  { key: "MSCI IPD",           rx: /\bMSCI[- ]?IPD\b/i },
+  { key: "Wealth Manager",     rx: /\bMSCI\s+Wealth\s+Manager\b/i },
+];
+
+// Map a product line to a one-line description for the MSCI lens card.
+// Intentionally short — the card area is tight in the detail panel.
+const PRODUCT_LINE_DESC = {
+  "Index":           "Flagship index franchise (ACWI, World, EM). Licensing + ETF AUM-linked revenue.",
+  "Analytics":       "Risk + performance analytics (RiskMetrics, Barra, BarraOne). Multi-asset stack.",
+  "Sustainability":  "ESG ratings, screens, and stewardship intelligence for asset managers.",
+  "Climate":         "Climate VaR, transition pathways, physical/transition risk, Scope 1-3 data.",
+  "Private Capital": "Private-market intelligence via Burgiss/PrivatePulse — LP/GP benchmarks.",
+  "Real Assets":     "IPD real-estate benchmarks and infrastructure coverage.",
+  "Wealth":          "Wealth Manager solutions — SMAs, model portfolios, direct indexing.",
+  "Non-core":        "No direct MSCI product-line linkage detected in the article.",
+};
+const SEGMENT_DESC = {
+  "Asset Managers": "MSCI's largest buyer group — indexing + analytics + ESG.",
+  "Asset Owners":   "Pensions, sovereigns, endowments. Licensing + custom benchmarks.",
+  "Hedge Funds":    "Factor analytics + risk platforms.",
+  "Wealth Managers":"SMA tooling, direct indexing, advisor workstations.",
+  "Banks":          "Regulatory + market-risk analytics, indices for structured products.",
+  "Insurance":      "Climate VaR, regulatory capital analytics (Solvency II, etc.).",
+  "Corporates":     "ESG disclosure tooling and transition planning support.",
+  "Private Market Sponsors": "Burgiss benchmarking and PE/VC valuation data.",
+};
+
+// One-line competitive angle per (category, competitor). Concrete, not fluffy —
+// tells the MSCI reader "why I should care about THIS competitor doing THIS".
+function competitiveAngle(item) {
+  const cat  = item.category || "General";
+  const comp = item.competitor || "this competitor";
+  const pl   = item.product_line || "";
+  const segs = (Array.isArray(item.segments) ? item.segments : []).filter(s => s !== "Non-core");
+  const segTxt = segs.length ? segs.slice(0,2).join(" & ") : "multiple client segments";
+
+  if (cat === "M&A")                    return `${comp} is consolidating capability. Watch for overlap with MSCI's ${pl||"franchise"} and potential displacement risk in ${segTxt}.`;
+  if (cat === "Partnership")            return `${comp} is extending distribution. Monitor whether the partner is an MSCI client — partnership could re-route spend.`;
+  if (cat === "Product Launch")         return `${comp} is shipping new capability in ${pl||"an adjacent space"}. Map feature parity vs. MSCI's stack and flag any pricing pressure.`;
+  if (cat === "Technology / AI")        return `${comp} is adding AI/tech depth. Track whether this addresses a gap MSCI doesn't yet offer — or a feature MSCI should accelerate.`;
+  if (cat === "ESG / Sustainability")   return `Direct overlap with MSCI ESG Ratings. Watch for RFP activity and ratings-methodology differentiation.`;
+  if (cat === "Climate / Physical Risk") return `Climate franchise signal. Compare against MSCI Climate VaR and transition-pathway coverage.`;
+  if (cat === "Indices / Benchmarks")   return `Core franchise overlap. Licensing / AUM impact — monitor ETF issuer follow-through.`;
+  if (cat === "ETF / Fund Flows")       return `ETF flow signal reads through to index licensing revenue. Cross-reference to MSCI vs. rival-benchmark share.`;
+  if (cat === "Private Assets / Alternatives") return `Adjacent to MSCI Burgiss / PrivatePulse. Watch for ${segTxt} client-adoption momentum.`;
+  if (cat === "Fixed Income / Credit")  return `Credit analytics adjacency. Evaluate against MSCI's fixed-income coverage gaps.`;
+  if (cat === "Risk / Analytics")       return `Direct competition for RiskMetrics / BarraOne. Feature parity and performance matter.`;
+  if (cat === "Data / Market Data")     return `Market-data move — pricing or distribution read-through for MSCI's data licensing.`;
+  if (cat === "Client Wins / Market Share") return `Potential displacement in ${segTxt}. If a named client is an MSCI account, escalate.`;
+  if (cat === "Regulatory")             return `Regulatory-driven demand signal. May expand MSCI's TAM in compliance analytics.`;
+  if (cat === "Leadership")             return `Leadership move — watch for strategic pivot that changes competitive stance.`;
+  if (cat === "Earnings")               return `Financial print — read segment commentary for client-spend direction affecting MSCI revenue.`;
+  return `Track ${comp}'s activity in ${segTxt} for read-through to MSCI's ${pl||"product lines"}.`;
+}
+
+// Parse Finnhub's `related` field (comma-separated tickers) plus self-ticker.
+function extractTickers(item) {
+  const set = new Set();
+  if (item.ticker) set.add(item.ticker.toUpperCase());
+  if (typeof item.related === "string") {
+    item.related.split(/[,\s]+/).forEach(t => {
+      const clean = t.replace(/[^A-Z0-9.]/gi, "").toUpperCase();
+      if (clean && clean.length <= 8) set.add(clean);
+    });
+  }
+  return Array.from(set);
+}
+
+// Find MSCI products mentioned verbatim in the article title/summary.
+function detectMsciProducts(item) {
+  const text = (item.title||"") + " " + (item.summary||"");
+  const seen = new Set();
+  const out = [];
+  for (const p of MSCI_PRODUCT_CATALOG) {
+    if (p.rx.test(text) && !seen.has(p.key)) { seen.add(p.key); out.push(p.key); }
+  }
+  return out;
+}
+
+// Pull up to `n` related articles: same competitor first, then same category.
+// Excludes the current article and anything older than 90 days.
+function findRelatedArticles(item, n = 4) {
+  const cutoff = Date.now() - 90*24*3600*1000;
+  const others = DATA.filter(d =>
+    d.id !== item.id &&
+    new Date(d.published).getTime() >= cutoff &&
+    !d.non_core
+  );
+  const sameComp = others.filter(d => d.competitor === item.competitor);
+  const sameCat  = others.filter(d => d.category === item.category && d.competitor !== item.competitor);
+  const combined = [];
+  const seen = new Set();
+  const sortByRecent = (a,b) => new Date(b.published) - new Date(a.published);
+  for (const d of [...sameComp.sort(sortByRecent), ...sameCat.sort(sortByRecent)]) {
+    if (!seen.has(d.id)) { seen.add(d.id); combined.push(d); if (combined.length >= n) break; }
+  }
+  return combined;
+}
+
+// ═══════════════════════════════════════════════
 // RENDER: COMPETITOR NEWS (Section 1)
 // ═══════════════════════════════════════════════
 function renderNews() {
@@ -1058,7 +1222,6 @@ function renderNews() {
         if (e.target.closest(".news-card-open")) return;
         const id=card.dataset.id;
         state.selected=DATA.find(d=>String(d.id)===id);
-        state.detailTab="sectors";
         renderNews();
       });
     });
@@ -1075,63 +1238,147 @@ function renderNews() {
   if(feedEl){feedEl.classList.add("collapsed");feedEl.classList.remove("expanded");}
   detail.style.display="block";
   const s=state.selected;
+  // ── Derive all extra context the revamped detail panel needs ──
+  const tickers     = extractTickers(s);
+  const msciProds   = detectMsciProducts(s);
+  const angle       = competitiveAngle(s);
+  const related     = findRelatedArticles(s, 4);
+  const plKey       = s.product_line || "Non-core";
+  const plDesc      = PRODUCT_LINE_DESC[plKey] || "";
+  const segList     = Array.isArray(s.segments) ? s.segments.filter(x => x) : [];
+  const segChips    = segList.length
+    ? segList.map(sg => `<span class="lens-chip" data-seg="${esc(sg)}" title="${esc(SEGMENT_DESC[sg]||"")}">${esc(sg)}</span>`).join("")
+    : `<span class="lens-chip neutral" title="No specific client segment detected">Not tagged</span>`;
+  const hasSummary  = s.summary && s.summary.trim().length > 20;
+  const hasPoints   = s.key_points && s.key_points.length > 0;
+  const bodyBlock   = (hasPoints && (!hasSummary || s.summary.length < 200))
+    ? `<ul class="detail-keypoints">${s.key_points.map(p=>`<li>${esc(p)}</li>`).join("")}</ul>`
+    : (hasSummary
+        ? `<div class="detail-summary">${esc(s.summary)}</div>`
+        : `<div class="detail-summary"><span style="color:var(--text-dim);font-style:italic">No summary text available from the source API. ${s.url?`<a href="${esc(s.url)}" target="_blank" rel="noopener noreferrer" style="color:var(--accent-light);text-decoration:underline">Read the full article on ${esc(s.source||"the source website")} →</a>`:"No source URL available."}</span></div>`);
+  const primaryTicker = s.ticker ? s.ticker.toUpperCase() : "";
+  const finnhubLink = t => `https://finnhub.io/stock/${encodeURIComponent(t)}`;
+
   detail.innerHTML=`
     <button class="detail-close" id="detailClose">✕</button>
     <div class="detail-inner">
-      <div class="detail-badges">
-        <span class="detail-badge" style="color:var(--accent);background:var(--accent-glow)">${esc(s.competitor)}</span>
-        <span class="detail-badge" style="color:${impColor(s.importance)};background:${impBg(s.importance)};text-transform:uppercase;letter-spacing:0.6px;font-size:10px;">${s.importance}</span>
-        <span class="detail-badge" style="color:${sentimentColor(s.sentiment)};background:${sentimentColor(s.sentiment)}18">${s.sentiment} (${Math.round((s.confidence||0.5)*100)}%)</span>
-      </div>
-      <h2 class="detail-headline">${esc(s.title)}</h2>
-      <div class="detail-meta">
-        <span style="display:inline-flex;align-items:center;gap:6px">${sourceIcon(s.url)}${esc(s.source)}</span>
-        <span>${new Date(s.published).toLocaleDateString("en-US",{month:"short",day:"numeric",year:"numeric",hour:"2-digit",minute:"2-digit"})}</span>
-        <span>${esc(s.reading_time||"~1 min read")}</span>
-        <span>${esc(s.region||"Global")}</span>
-        <span class="detail-meta-cat">${esc(s.category)}</span>
-        ${s.related?`<span style="color:var(--text-dim);font-family:var(--mono)">Related: ${esc(s.related)}</span>`:""}
-      </div>
-      ${s.why_it_matters?`<div class="detail-why"><div class="detail-why-label">Why it<br>matters</div><div class="detail-why-body">${esc(s.why_it_matters)}</div></div>`:""}
-      ${(s.signals&&s.signals.length)?`<div class="detail-signals">${s.signals.map(sig=>`<span class="signal-chip">${esc(sig)}</span>`).join("")}</div>`:""}
-      ${(() => {
-        const hasSummary = s.summary && s.summary.trim().length > 20;
-        const hasPoints = s.key_points && s.key_points.length > 0;
-        if (hasPoints && (!hasSummary || s.summary.length < 200)) {
-          // Short summary — show bullets for a scan-friendly read
-          return `<ul class="detail-keypoints">${s.key_points.map(p=>`<li>${esc(p)}</li>`).join("")}</ul>`;
-        }
-        if (hasSummary) {
-          return `<div class="detail-summary">${esc(s.summary)}</div>`;
-        }
-        return `<div class="detail-summary"><span style="color:var(--text-dim);font-style:italic">No summary text available from the source API. ${s.url?`<a href="${esc(s.url)}" target="_blank" rel="noopener noreferrer" style="color:var(--accent-light);text-decoration:underline">Read the full article on ${esc(s.source||"the source website")} →</a>`:"No source URL available."}</span></div>`;
-      })()}
-      ${s.url?`<a href="${esc(s.url)}" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:6px;margin-bottom:16px;padding:8px 14px;background:var(--accent-light);color:#0b0d12;border-radius:6px;font-size:12px;font-weight:600;text-decoration:none">Open original article ↗</a>`:""}
-      <div class="tabs">
-        <button class="tab ${state.detailTab==="sectors"?"active":""}" data-tab="sectors">◉ Sector impact</button>
-        <button class="tab ${state.detailTab==="stocks"?"active":""}" data-tab="stocks">◆ Stock impact</button>
-        <button class="tab ${state.detailTab==="msci"?"active":""}" data-tab="msci">⚡ MSCI impact</button>
-      </div>
-      <div id="tabContent"></div>
-      <div class="detail-source"><a href="${s.url}" target="_blank" rel="noopener noreferrer">Read original article →</a></div>
-    </div>`;
-  renderTabContent(s);
-  document.getElementById("detailClose").addEventListener("click",()=>{state.selected=null;renderNews();});
-  detail.querySelectorAll(".tab").forEach(tab=>{tab.addEventListener("click",()=>{state.detailTab=tab.dataset.tab;detail.querySelectorAll(".tab").forEach(t=>t.className="tab"+(t.dataset.tab===state.detailTab?" active":""));renderTabContent(s);});});
-  detail.scrollTo({top:0,behavior:"smooth"});
-}
 
-function renderTabContent(s) {
-  const tc=document.getElementById("tabContent");
-  if(state.detailTab==="sectors"){
-    const si=s.sector_impact||[];
-    tc.innerHTML=`<div class="impact-list">${si.map(si=>`<div class="sector-card" style="border-left-color:${dirColor(si.direction)}"><div class="sector-top"><div class="sector-name-row"><span class="sector-arrow" style="color:${dirColor(si.direction)}">${dirIcon(si.direction)}</span><span class="sector-name">${esc(si.sector)}</span></div><span class="sector-magnitude" style="color:${impColor(si.magnitude)};background:${impBg(si.magnitude)}">${si.magnitude}</span></div><div class="sector-note">${esc(si.note)}</div></div>`).join("")||'<div style="color:var(--text-dim);padding:20px;text-align:center">No sector impact data available</div>'}</div>`;
-  } else if(state.detailTab==="stocks"){
-    const si=s.stock_impact||[];
-    tc.innerHTML=`<div class="impact-list">${si.map(si=>`<div class="stock-card"><div class="stock-ticker" style="color:${dirColor(si.direction)}">${dirIcon(si.direction)} ${esc(si.ticker)}</div><div class="stock-note">${esc(si.note)}</div></div>`).join("")||'<div style="color:var(--text-dim);padding:20px;text-align:center">No stock impact data available</div>'}</div>`;
-  } else {
-    tc.innerHTML=`<div class="msci-card"><div class="msci-header"><span class="msci-header-icon">⚡</span><span class="msci-header-label">MSCI business impact</span></div><div class="msci-body">${esc(s.msci_impact||"No impact assessment available.")}</div>${s.what_to_watch?`<div style="margin-top:12px;padding:12px;background:rgba(20,184,166,0.05);border:1px solid rgba(20,184,166,0.1);border-radius:8px"><div style="font-size:11px;font-weight:600;color:#14b8a6;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px">What to watch</div><div style="font-size:13px;color:var(--text-secondary);line-height:1.6">${esc(s.what_to_watch)}</div></div>`:""}<div class="msci-disclaimer"><span style="font-size:14px">⚠</span><span>Auto-generated assessment. Validate with domain experts.</span></div></div>`;
-  }
+      <!-- HERO: thumbnail + badges + headline + meta -->
+      <div class="detail-hero">
+        ${s.image?`<div class="detail-thumb" style="background-image:url('${esc(s.image)}')"></div>`:""}
+        <div class="detail-hero-body">
+          <div class="detail-badges">
+            <span class="detail-badge" style="color:var(--accent);background:var(--accent-glow);cursor:pointer" data-filter-comp="${esc(s.competitor)}" title="Filter feed by ${esc(s.competitor)}">${esc(s.competitor)}</span>
+            <span class="detail-badge" style="color:${impColor(s.importance)};background:${impBg(s.importance)};text-transform:uppercase;letter-spacing:0.6px;font-size:10px;">${s.importance}</span>
+            <span class="detail-badge" style="color:${sentimentColor(s.sentiment)};background:${sentimentColor(s.sentiment)}18">${s.sentiment} (${Math.round((s.confidence||0.5)*100)}%)</span>
+            ${s.non_core?`<span class="detail-badge" style="color:#DB7C00;background:rgba(219,124,0,0.14);border:1px solid rgba(219,124,0,0.3);font-size:10px;letter-spacing:0.6px">Non-core</span>`:`<span class="detail-badge" style="color:#118A5E;background:rgba(17,138,94,0.14);border:1px solid rgba(17,138,94,0.3);font-size:10px;letter-spacing:0.6px">Core</span>`}
+          </div>
+          <h2 class="detail-headline" style="margin-top:6px">${esc(s.title)}</h2>
+          <div class="detail-meta">
+            <span style="display:inline-flex;align-items:center;gap:6px">${sourceIcon(s.url)}${esc(s.source)}</span>
+            <span>${new Date(s.published).toLocaleDateString("en-US",{month:"short",day:"numeric",year:"numeric",hour:"2-digit",minute:"2-digit"})}</span>
+            <span>${esc(s.reading_time||"~1 min read")}</span>
+            <span>${esc(s.region||"Global")}</span>
+            <span class="detail-meta-cat">${esc(s.category)}</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- WHY IT MATTERS -->
+      ${s.why_it_matters?`<div class="detail-why"><div class="detail-why-label">Why it<br>matters</div><div class="detail-why-body">${esc(s.why_it_matters)}</div></div>`:""}
+
+      <!-- SUMMARY / KEY POINTS -->
+      ${bodyBlock}
+
+      <!-- SIGNALS -->
+      ${(s.signals&&s.signals.length)?`<div class="detail-signals" style="margin-top:6px">${s.signals.map(sig=>`<span class="signal-chip">${esc(sig)}</span>`).join("")}</div>`:""}
+
+      <!-- ═══ MSCI LENS ═══ -->
+      <div class="section-heading">MSCI Lens</div>
+      <div class="lens-grid">
+        <div class="lens-card">
+          <div class="lens-card-label">Product Line</div>
+          <div class="lens-card-value" style="color:${plKey==="Non-core"?"var(--text-muted)":"var(--accent)"}">${esc(plKey)}</div>
+          <div class="lens-card-desc">${esc(plDesc)}</div>
+        </div>
+        <div class="lens-card">
+          <div class="lens-card-label">Client Segments</div>
+          <div class="lens-chips" style="margin-top:2px;margin-bottom:6px">${segChips}</div>
+          <div class="lens-card-desc">${segList.length && segList[0] && SEGMENT_DESC[segList[0]] ? esc(SEGMENT_DESC[segList[0]]) : "Segments where this signal may read through to MSCI revenue or positioning."}</div>
+        </div>
+      </div>
+
+      <!-- MSCI PRODUCT MENTIONS (conditional) -->
+      ${msciProds.length?`
+        <div class="msci-mention-card">
+          <div class="msci-mention-head"><span>⚡</span><span>MSCI products named in this article</span></div>
+          <div class="lens-chips">${msciProds.map(p=>`<span class="lens-chip msci">${esc(p)}</span>`).join("")}</div>
+          <div style="font-size:11.5px;color:var(--text-secondary);line-height:1.5;margin-top:8px">Direct mentions are high-signal for competitive intel — they often indicate a client win, a comparison, or a loss. Verify context in the source article.</div>
+        </div>`:""}
+
+      <!-- COMPETITIVE ANGLE -->
+      <div class="competitive-card">
+        <div class="competitive-card-head"><span>◆</span><span>Competitive angle for MSCI</span></div>
+        <div class="competitive-card-body">${esc(angle)}</div>
+      </div>
+
+      <!-- TICKERS (from Finnhub related field + primary) -->
+      ${tickers.length?`
+        <div class="section-heading">Tickers mentioned</div>
+        <div class="ticker-card">
+          <div class="ticker-row">
+            <span class="ticker-label">Finnhub</span>
+            ${tickers.map(t=>`<a class="ticker-pill${t===primaryTicker?" primary":""}" href="${finnhubLink(t)}" target="_blank" rel="noopener noreferrer" title="View ${esc(t)} on Finnhub">${esc(t)}</a>`).join("")}
+          </div>
+        </div>`:""}
+
+      <!-- RELATED COVERAGE -->
+      ${related.length?`
+        <div class="section-heading">Related coverage · last 90 days</div>
+        <div class="related-list">
+          ${related.map(r=>`
+            <div class="related-item" data-related-id="${esc(r.id)}">
+              <span class="related-item-icon">${r.competitor===s.competitor?"▸":"◦"}</span>
+              <div class="related-item-body">
+                <div class="related-item-title">${esc(r.title)}</div>
+                <div class="related-item-meta">${esc(r.competitor)} <span class="related-item-dot">·</span> ${esc(r.category)} <span class="related-item-dot">·</span> ${new Date(r.published).toLocaleDateString("en-US",{month:"short",day:"numeric"})}</div>
+              </div>
+            </div>`).join("")}
+        </div>`:""}
+
+      <!-- ACTIONS -->
+      <div class="detail-actions">
+        ${s.url?`<a class="detail-action-btn primary" href="${esc(s.url)}" target="_blank" rel="noopener noreferrer">Open original ↗</a>`:""}
+        <button class="detail-action-btn ghost" id="filterByComp" title="Filter the feed by ${esc(s.competitor)}">Filter feed: ${esc(s.competitor)}</button>
+        ${s.category?`<button class="detail-action-btn ghost" id="filterByCat" title="Filter the feed by ${esc(s.category)}">Filter: ${esc(s.category)}</button>`:""}
+      </div>
+
+      <!-- Disclaimer -->
+      <div class="msci-disclaimer" style="margin-top:10px"><span style="font-size:14px">⚠</span><span>Auto-derived signals based on article metadata and MSCI taxonomy. Validate against source before acting.</span></div>
+    </div>`;
+
+  // ── Wire up interactivity ──
+  document.getElementById("detailClose").addEventListener("click",()=>{state.selected=null;renderNews();});
+  const filterCompBtn = document.getElementById("filterByComp");
+  if (filterCompBtn) filterCompBtn.addEventListener("click",()=>{ state.filterComp = s.competitor; state.selected = null; renderNews(); renderCharts(); });
+  const filterCatBtn = document.getElementById("filterByCat");
+  if (filterCatBtn) filterCatBtn.addEventListener("click",()=>{ state.filterCat = s.category; state.selected = null; renderNews(); renderCharts(); });
+  // Clicking a segment chip cross-filters the feed
+  detail.querySelectorAll(".lens-chip[data-seg]").forEach(chip=>{
+    chip.addEventListener("click",()=>{ state.filterSegment = chip.dataset.seg; state.selected = null; renderNews(); renderCharts(); });
+  });
+  // Clicking the competitor badge in the hero
+  const compBadge = detail.querySelector("[data-filter-comp]");
+  if (compBadge) compBadge.addEventListener("click",()=>{ state.filterComp = compBadge.dataset.filterComp; state.selected = null; renderNews(); renderCharts(); });
+  // Related-coverage item → drill into that article
+  detail.querySelectorAll(".related-item[data-related-id]").forEach(item=>{
+    item.addEventListener("click",()=>{
+      const rid = item.dataset.relatedId;
+      const found = DATA.find(d => String(d.id) === String(rid));
+      if (found) { state.selected = found; renderNews(); }
+    });
+  });
+  detail.scrollTo({top:0,behavior:"smooth"});
 }
 
 // ─── CHARTS (pure SVG/HTML) ───
