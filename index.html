@@ -170,8 +170,8 @@ body {
 /* ─── NEWS SECTION COMPACT HEADER ─── */
 .news-header-wrap { flex-shrink: 0; display: flex; flex-direction: column; }
 
-/* ─── SEARCH & FILTER — single-line toolbar ─── */
-.toolbar { padding: 8px 20px; display: flex; align-items: center; gap: 8px; border-bottom: 1px solid var(--border); background: var(--bg-surface); flex-shrink: 0; z-index: 10; flex-wrap: nowrap; overflow-x: auto; }
+/* ─── SEARCH & FILTER — toolbar (wraps to 2 lines on narrow laptops) ─── */
+.toolbar { padding: 8px 20px; display: flex; align-items: center; gap: 10px 14px; border-bottom: 1px solid var(--border); background: var(--bg-surface); flex-shrink: 0; z-index: 10; flex-wrap: wrap; }
 .toolbar::-webkit-scrollbar { height: 3px; }
 .search-box { flex: 1 1 220px; min-width: 180px; max-width: 320px; display: flex; align-items: center; background: var(--bg-root); border: 1px solid var(--border); border-radius: var(--radius); padding: 0 10px; transition: border-color 0.15s; }
 .search-box:focus-within { border-color: var(--accent); }
@@ -182,9 +182,12 @@ body {
 .search-clear:hover { opacity: 0.8; }
 .result-count { font-size: 10.5px; color: var(--text-muted); white-space: nowrap; font-family: var(--mono); flex-shrink: 0; }
 
-/* ─── FILTER PANEL (inline, single line) ─── */
-.filter-panel { display: flex; gap: 6px; align-items: center; flex-wrap: nowrap; flex-shrink: 0; }
+/* ─── FILTER PANEL (inline, wraps) ─── */
+.filter-panel { display: flex; gap: 6px 10px; align-items: center; flex-wrap: wrap; flex-grow: 1; }
 .filter-panel.inline { padding: 0; background: transparent; border: 0; }
+.noncore-toggle { display: inline-flex; align-items: center; gap: 6px; font-size: 10.5px; color: var(--text-muted); cursor: pointer; user-select: none; padding: 4px 8px; border: 1px solid var(--border); border-radius: 6px; }
+.noncore-toggle input { accent-color: var(--accent); }
+.noncore-toggle.on { color: var(--accent); border-color: var(--accent); background: var(--accent-glow); }
 .filter-group { display: flex; flex-direction: column; gap: 2px; }
 .filter-label { font-size: 8.5px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.9px; font-weight: 600; }
 .filter-select { background: var(--bg-root); border: 1px solid var(--border); border-radius: 6px; padding: 5px 22px 5px 8px; color: var(--text-primary); font-size: 11.5px; outline: none; cursor: pointer; font-family: var(--font); appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 12 12'%3E%3Cpath d='M3 5l3 3 3-3' stroke='%23999999' stroke-width='1.4' fill='none'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 6px center; transition: border-color 0.15s; }
@@ -196,30 +199,39 @@ body {
 .clear-btn { background: transparent; border: 1px solid var(--negative); color: var(--negative); border-radius: 6px; padding: 5px 10px; font-size: 10.5px; cursor: pointer; font-family: var(--font); font-weight: 500; transition: all 0.15s; white-space: nowrap; }
 .clear-btn:hover { background: var(--negative); color: #fff; }
 
-/* ─── ANALYTICS PANEL (compact horizontal) ─── */
+/* ─── ANALYTICS PANEL — two modes: compact horizontal OR vertical right-rail ─── */
 .analytics-panel { display: flex; gap: 8px; padding: 8px 20px; border-bottom: 1px solid var(--border); background: var(--bg-surface); flex-shrink: 0; z-index: 10; overflow-x: auto; }
+.analytics-panel.rail { flex-direction: column; padding: 10px 12px; gap: 8px; border-bottom: 0; border-left: 1px solid var(--border); background: var(--bg-surface); overflow-y: auto; overflow-x: hidden; height: 100%; }
+.analytics-panel.rail::-webkit-scrollbar { width: 4px; }
+.analytics-panel.rail::-webkit-scrollbar-thumb { background: var(--track); border-radius: 2px; }
 .chart-card { flex: 1; min-width: 180px; padding: 8px 10px; background: var(--bg-raised); border: 1px solid var(--border); border-radius: var(--radius); transition: all 0.15s; }
+.analytics-panel.rail .chart-card { flex: 0 0 auto; min-width: 0; width: 100%; padding: 7px 10px; }
 .chart-card.filtering { border-color: var(--accent); background: var(--accent-glow); }
 .chart-card-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 5px; }
 .chart-card-title { font-size: 9px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1.0px; font-weight: 600; }
 .chart-body-slim { min-height: 56px; max-height: 120px; overflow-y: auto; overflow-x: hidden; }
+.analytics-panel.rail .chart-body-slim { max-height: 108px; }
 .chart-body-slim::-webkit-scrollbar { width: 3px; }
 .chart-body-slim::-webkit-scrollbar-thumb { background: var(--track); border-radius: 2px; }
 .chart-filter-badge { font-size: 9.5px; font-weight: 600; color: var(--accent); background: var(--accent-glow); padding: 2px 7px; border-radius: 10px; cursor: pointer; display: none; align-items: center; gap: 4px; border: 1px solid var(--accent); max-width: 120px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .chart-filter-badge:hover { filter: brightness(1.12); }
 .chart-filter-badge.active { display: inline-flex; }
+.rail-section-title { font-size: 8.5px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1.2px; font-weight: 700; padding: 4px 2px 2px; }
 
 /* ─── MAIN LAYOUT ─── */
 .main { display: flex; flex: 1; overflow: hidden; position: relative; z-index: 5; }
+.right-rail { flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; overflow: hidden; background: var(--bg-surface); }
 
 /* ─── SECTION PANELS ─── */
 .section-panel { display: none; flex: 1; overflow: hidden; flex-direction: column; }
 .section-panel.active { display: flex; }
 
-/* ─── NEWS FEED ─── */
-.feed { overflow-y: auto; overflow-x: hidden; transition: width 0.3s ease; flex-shrink: 0; }
-.feed.expanded { width: 100%; }
-.feed.collapsed { width: 580px; border-right: 1px solid var(--border); }
+/* ─── NEWS FEED — always a fixed-width rail so ≥5 cards are visible on laptop ─── */
+.feed { overflow-y: auto; overflow-x: hidden; transition: width 0.25s ease; flex-shrink: 0; }
+.feed.expanded { width: 440px; border-right: 1px solid var(--border); }
+.feed.collapsed { width: 440px; border-right: 1px solid var(--border); }
+@media (max-width: 1180px) { .feed.expanded, .feed.collapsed { width: 400px; } }
+@media (max-width: 900px)  { .feed.expanded, .feed.collapsed { width: 340px; } }
 .feed-empty { padding: 80px 40px; text-align: center; }
 .feed-empty-icon { font-size: 44px; opacity: 0.15; margin-bottom: 16px; }
 .feed-empty-title { font-size: 15px; color: var(--text-muted); margin-bottom: 6px; }
@@ -260,7 +272,8 @@ body {
 .news-card-date { font-size: 10px; color: var(--text-muted); margin-top: 5px; font-family: var(--mono); letter-spacing: 0.3px; }
 
 /* ─── DETAIL PANEL ─── */
-.detail { flex: 1; overflow-y: auto; background: var(--bg-surface); border-left: 1px solid var(--border); display: none; }
+.detail { flex: 1; overflow-y: auto; background: var(--bg-surface); border-left: 0; display: none; }
+.right-rail .detail { border-left: 0; }
 .detail-close { position: absolute; top: 14px; right: 14px; background: var(--bg-root); border: 1px solid var(--border); border-radius: 6px; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; cursor: pointer; color: var(--text-muted); font-size: 13px; z-index: 5; font-family: var(--font); transition: all 0.15s; }
 .detail-close:hover { background: var(--bg-hover); color: var(--text-primary); }
 .detail-inner { padding: 20px 24px; position: relative; }
@@ -481,18 +494,25 @@ body {
       <div class="filter-panel inline" id="filterPanel"></div>
       <div class="result-count" id="resultCount"></div>
     </div>
-    <div class="analytics-panel" id="analyticsPanel">
-      <div class="chart-card" id="chartCardComp"><div class="chart-card-header"><span class="chart-card-title">Competitor</span><span class="chart-filter-badge" id="chartBadgeComp"></span></div><div id="chartCompetitor" class="chart-body-slim"></div></div>
-      <div class="chart-card" id="chartCardSrc"><div class="chart-card-header"><span class="chart-card-title">Source</span><span class="chart-filter-badge" id="chartBadgeSrc"></span></div><div id="chartSource" class="chart-body-slim"></div></div>
-      <div class="chart-card" id="chartCardSent"><div class="chart-card-header"><span class="chart-card-title">Sentiment</span><span class="chart-filter-badge" id="chartBadgeSent"></span></div><div id="chartSentiment" class="chart-body-slim"></div></div>
-      <div class="chart-card" id="chartCardImp"><div class="chart-card-header"><span class="chart-card-title">Importance</span><span class="chart-filter-badge" id="chartBadgeImp"></span></div><div id="chartImportance" class="chart-body-slim"></div></div>
-      <div class="chart-card" id="chartCardCat"><div class="chart-card-header"><span class="chart-card-title">Category</span><span class="chart-filter-badge" id="chartBadgeCat"></span></div><div id="chartCategory" class="chart-body-slim"></div></div>
-      <div class="chart-card" id="chartCardDay"><div class="chart-card-header"><span class="chart-card-title">Last 14 days</span><span class="chart-filter-badge" id="chartBadgeDay"></span></div><div id="chartDaily" class="chart-body-slim"></div></div>
-    </div>
   </div>
   <div class="main">
     <div class="feed expanded" id="feed"></div>
-    <div class="detail" id="detail" style="display:none;"></div>
+    <aside class="right-rail" id="rightRail">
+      <div class="analytics-panel rail" id="analyticsPanel">
+        <div class="rail-section-title">MSCI lens</div>
+        <div class="chart-card" id="chartCardPL"><div class="chart-card-header"><span class="chart-card-title">Product line</span><span class="chart-filter-badge" id="chartBadgePL"></span></div><div id="chartProductLine" class="chart-body-slim"></div></div>
+        <div class="chart-card" id="chartCardSeg"><div class="chart-card-header"><span class="chart-card-title">Client segment</span><span class="chart-filter-badge" id="chartBadgeSeg"></span></div><div id="chartSegment" class="chart-body-slim"></div></div>
+        <div class="rail-section-title">Market</div>
+        <div class="chart-card" id="chartCardComp"><div class="chart-card-header"><span class="chart-card-title">Competitor</span><span class="chart-filter-badge" id="chartBadgeComp"></span></div><div id="chartCompetitor" class="chart-body-slim"></div></div>
+        <div class="chart-card" id="chartCardCat"><div class="chart-card-header"><span class="chart-card-title">Category</span><span class="chart-filter-badge" id="chartBadgeCat"></span></div><div id="chartCategory" class="chart-body-slim"></div></div>
+        <div class="chart-card" id="chartCardSrc"><div class="chart-card-header"><span class="chart-card-title">Source</span><span class="chart-filter-badge" id="chartBadgeSrc"></span></div><div id="chartSource" class="chart-body-slim"></div></div>
+        <div class="rail-section-title">Signal</div>
+        <div class="chart-card" id="chartCardSent"><div class="chart-card-header"><span class="chart-card-title">Sentiment</span><span class="chart-filter-badge" id="chartBadgeSent"></span></div><div id="chartSentiment" class="chart-body-slim"></div></div>
+        <div class="chart-card" id="chartCardImp"><div class="chart-card-header"><span class="chart-card-title">Importance</span><span class="chart-filter-badge" id="chartBadgeImp"></span></div><div id="chartImportance" class="chart-body-slim"></div></div>
+        <div class="chart-card" id="chartCardDay"><div class="chart-card-header"><span class="chart-card-title">Last 14 days</span><span class="chart-filter-badge" id="chartBadgeDay"></span></div><div id="chartDaily" class="chart-body-slim"></div></div>
+      </div>
+      <div class="detail" id="detail" style="display:none;"></div>
+    </aside>
   </div>
 </div>
 
@@ -589,6 +609,10 @@ let state = {
   selectedClient: null, selectedMsci: null,
   filterComp: "All", filterCat: "All", filterImp: "All",
   filterImpact: "All", filterSentiment: "All", filterSource: "All",
+  filterProductLine: "All", filterSegment: "All",
+  // When false (default) we hide articles tagged as "Non-core" (no MSCI product-line
+  // OR client-segment match). Opt-in to see everything.
+  includeNonCore: false,
   filterDateFrom: "", filterDateTo: "",
   // Per-section quarter filters. "All" = no quarter filter.
   quarterNews: "All", quarterClients: "All", quarterMsci: "All",
@@ -631,6 +655,80 @@ const CATEGORIES = [
 ];
 const IMPORTANCE_LEVELS = ["Critical","High","Medium","Low"];
 const IMPACT_LEVELS = ["High","Medium","Low"];
+
+// ─── MSCI CANONICAL TAXONOMY ───────────────────────────────────────────────
+// Source: msci.com "Our Solutions" + "Who We Serve" pages.
+// Used by BOTH the filter UI and the client-side re-classifier below.
+const PRODUCT_LINES = [
+  "Index",
+  "Analytics",
+  "Sustainability",
+  "Climate",
+  "Private Capital",
+  "Real Assets",
+  "Wealth"
+];
+const SEGMENTS = [
+  "Asset Managers",
+  "Asset Owners",
+  "Hedge Funds",
+  "Wealth Managers",
+  "Banks",
+  "Insurance",
+  "Corporates",
+  "Private Market Sponsors"
+];
+
+// Keyword rules for the client-side re-classifier. First bucket that matches wins.
+// Keep these broad enough to catch typical press-release language, but tight
+// enough that generic macro headlines don't capture a product-line label.
+const PRODUCT_LINE_KEYWORDS = {
+  "Index":           [/\bindex(es|ing)?\b/i, /\bbenchmark/i, /\bETF\b/i, /\bfactor\b/i, /\brebalanc/i, /\bindex licensing\b/i],
+  "Analytics":       [/\banalytics?\b/i, /\brisk model/i, /\bfactor model/i, /\bbarra\b/i, /\brisk(metrics)?\b/i, /\bscenario\b/i, /\bstress test/i, /\bVaR\b/i, /\bperformance attribution/i],
+  "Sustainability":  [/\bESG\b/i, /\bsustainab/i, /\bstewardship/i, /\bimpact invest/i, /\btransition (finance|plan)/i, /\bSFDR\b/i, /\bCSRD\b/i],
+  "Climate":         [/\bclimate\b/i, /\bnet[- ]zero\b/i, /\bdecarbon/i, /\bemissions?\b/i, /\bscope ?[123]\b/i, /\bTCFD\b/i, /\bTNFD\b/i, /\bphysical risk/i, /\btransition risk/i],
+  "Private Capital": [/\bprivate (equity|credit|markets|capital|assets)\b/i, /\balternatives?\b/i, /\bsecondaries\b/i, /\bventure capital\b/i, /\bLP\/GP\b/i, /\bhedge fund\b/i, /\bBurgiss\b/i],
+  "Real Assets":     [/\breal estate\b/i, /\bREIT\b/i, /\binfrastructure\b/i, /\bproperty (market|investor)/i, /\bMSCI[- ]IPD\b/i, /\breal asset/i],
+  "Wealth":          [/\bwealth (management|manager|advisor|platform)\b/i, /\bfinancial advisor/i, /\bSMA\b/i, /\bmodel portfolio/i, /\bdirect indexing\b/i]
+};
+const SEGMENT_KEYWORDS = {
+  "Asset Managers":          [/\basset manager/i, /\bfund manager/i, /\bmutual fund\b/i, /\bBlackRock\b/i, /\bVanguard\b/i, /\bState Street\b/i, /\bFidelity\b/i, /\bInvesco\b/i, /\bSchwab\b/i, /\bAmundi\b/i],
+  "Asset Owners":            [/\basset owner/i, /\bpension (fund|plan)/i, /\bsovereign wealth/i, /\bendowment\b/i, /\bfoundation\b/i, /\bCalPERS\b/i, /\bCPP(IB)?\b/i, /\bGIC\b/i, /\bNorges\b/i, /\bADIA\b/i],
+  "Hedge Funds":             [/\bhedge fund/i, /\bmulti[- ]strategy\b/i, /\bCitadel\b/i, /\bMillennium\b/i, /\bBridgewater\b/i, /\bPoint72\b/i, /\bElliott\b/i, /\bBalyasny\b/i],
+  "Wealth Managers":         [/\bwealth manager/i, /\bprivate bank/i, /\bfinancial advisor/i, /\bRIA\b/i, /\bMorgan Stanley Wealth/i, /\bUBS\b/i, /\bRaymond James\b/i, /\bEdward Jones\b/i],
+  "Banks":                   [/\bbank\b/i, /\bJPMorgan\b/i, /\bGoldman( Sachs)?\b/i, /\bCitigroup\b/i, /\bDeutsche Bank\b/i, /\bBarclays\b/i, /\bHSBC\b/i, /\bBNP Paribas\b/i, /\bWells Fargo\b/i],
+  "Insurance":               [/\binsurance\b/i, /\binsurer\b/i, /\bAllianz\b/i, /\bAXA\b/i, /\bMetLife\b/i, /\bPrudential\b/i, /\bAIG\b/i, /\bMunich Re\b/i, /\bSwiss Re\b/i, /\breinsur/i],
+  "Corporates":              [/\bcorporat(e|ion)\b/i, /\bissuer\b/i, /\bCFO\b/i, /\btreasur(y|er)\b/i, /\bcompany disclosure/i],
+  "Private Market Sponsors": [/\bprivate equity (firm|sponsor|fund)/i, /\bKKR\b/i, /\bBlackstone\b/i, /\bApollo( Global)?\b/i, /\bCarlyle\b/i, /\bBain Capital\b/i, /\bBrookfield\b/i, /\bGP stake/i, /\bgeneral partner/i]
+};
+
+/**
+ * Tag an article with MSCI-specific product_line + segments based on title/summary.
+ * Non-destructive: returns the same item, adding fields in place so the scraper's
+ * own tags (if any) win. Also sets `mscI_relevant` and `nonCore` flags so the
+ * feed can hide off-topic items by default.
+ */
+function classifyMsciTaxonomy(item) {
+  const text = ((item.title || "") + " " + (item.summary || "") + " " + (item.category || "") + " " + (item.segment || "")).toLowerCase();
+  // Product line — first match wins (index, climate, ESG have priority)
+  if (!item.product_line) {
+    for (const [pl, pats] of Object.entries(PRODUCT_LINE_KEYWORDS)) {
+      if (pats.some(rx => rx.test(text))) { item.product_line = pl; break; }
+    }
+  }
+  // Segments — can be multiple; keep array for future multi-select UI
+  if (!Array.isArray(item.segments) || !item.segments.length) {
+    const hits = [];
+    for (const [seg, pats] of Object.entries(SEGMENT_KEYWORDS)) {
+      if (pats.some(rx => rx.test(text))) hits.push(seg);
+    }
+    item.segments = hits;
+  }
+  item.product_line = item.product_line || "Non-core";
+  if (!item.segments.length) item.segments = ["Non-core"];
+  item.non_core = (item.product_line === "Non-core" && item.segments[0] === "Non-core");
+  return item;
+}
 
 // ─── Theme helpers ───
 // Resolve a CSS variable defined on :root, with a literal fallback for rare
@@ -703,6 +801,10 @@ async function loadAllData() {
   try { const r=await fetch("data/brand_intelligence.json?t="+Date.now()); if(r.ok){TRENDS_DATA=await r.json();console.log("✓ Brand Intelligence loaded");} } catch(e){ TRENDS_DATA={}; }
   // Top Client Earnings (quarterly financials)
   try { const r=await fetch("data/top_client_earnings.json?t="+Date.now()); if(r.ok){QUARTERLY_DATA=await r.json();console.log("✓ Top Client Earnings:",(QUARTERLY_DATA.quarters||[]).length,"quarters,",Object.keys(QUARTERLY_DATA.clients||{}).length,"clients");} } catch(e){ QUARTERLY_DATA={quarters:[],clients:{},current_quarter:null}; }
+
+  // Tag each news article with MSCI Product Line + Segment (non-destructive —
+  // if the scraper already populated them, we keep those values)
+  if (Array.isArray(DATA)) DATA = DATA.map(classifyMsciTaxonomy);
 
   // Default each section's quarter to the current quarter once data is loaded
   if (QUARTERLY_DATA.current_quarter && state.quarterEarnings===null) state.quarterEarnings = QUARTERLY_DATA.current_quarter;
@@ -801,40 +903,53 @@ function renderActiveSection() {
 }
 
 // ─── FILTERING ───
+function _matchesBase(item) {
+  if(!itemMatchesQuarter(item,state.quarterNews,"published"))return false;
+  // MSCI-relevance gate: hide non-core articles unless explicitly toggled on.
+  if(!state.includeNonCore && item.non_core)return false;
+  if(state.search){
+    const q=state.search.toLowerCase();
+    if(!item.title.toLowerCase().includes(q)
+       && !item.competitor.toLowerCase().includes(q)
+       && !(item.summary||"").toLowerCase().includes(q))return false;
+  }
+  if(state.filterDateFrom){const d=new Date(item.published).toISOString().split("T")[0];if(d<state.filterDateFrom)return false;}
+  if(state.filterDateTo){const d=new Date(item.published).toISOString().split("T")[0];if(d>state.filterDateTo)return false;}
+  return true;
+}
+function _matchesField(item, key) {
+  switch(key) {
+    case "filterComp":        return state.filterComp==="All"        || item.competitor===state.filterComp;
+    case "filterCat":         return state.filterCat==="All"         || (item.category||"").includes(state.filterCat);
+    case "filterImp":         return state.filterImp==="All"         || item.importance===state.filterImp;
+    case "filterImpact":      return state.filterImpact==="All"      || item.impact_level===state.filterImpact;
+    case "filterSentiment":   return state.filterSentiment==="All"   || item.sentiment===state.filterSentiment;
+    case "filterSource":      return state.filterSource==="All"      || (item.source||"Unknown")===state.filterSource;
+    case "filterProductLine": return state.filterProductLine==="All" || item.product_line===state.filterProductLine;
+    case "filterSegment":     return state.filterSegment==="All"     || (Array.isArray(item.segments) && item.segments.includes(state.filterSegment));
+    default: return true;
+  }
+}
+const _FILTER_KEYS = ["filterComp","filterCat","filterImp","filterImpact","filterSentiment","filterSource","filterProductLine","filterSegment"];
+
 function getFiltered() {
   return DATA.filter(item => {
-    if(!itemMatchesQuarter(item,state.quarterNews,"published"))return false;
-    if(state.search){const q=state.search.toLowerCase();if(!item.title.toLowerCase().includes(q)&&!item.competitor.toLowerCase().includes(q)&&!(item.summary||"").toLowerCase().includes(q))return false;}
-    if(state.filterComp!=="All"&&item.competitor!==state.filterComp)return false;
-    if(state.filterCat!=="All"&&!item.category.includes(state.filterCat))return false;
-    if(state.filterImp!=="All"&&item.importance!==state.filterImp)return false;
-    if(state.filterImpact!=="All"&&item.impact_level!==state.filterImpact)return false;
-    if(state.filterSentiment!=="All"&&item.sentiment!==state.filterSentiment)return false;
-    if(state.filterSource!=="All"&&(item.source||"Unknown")!==state.filterSource)return false;
-    if(state.filterDateFrom){const d=new Date(item.published).toISOString().split("T")[0];if(d<state.filterDateFrom)return false;}
-    if(state.filterDateTo){const d=new Date(item.published).toISOString().split("T")[0];if(d>state.filterDateTo)return false;}
+    if(!_matchesBase(item))return false;
+    for(const k of _FILTER_KEYS) if(!_matchesField(item,k))return false;
     return true;
   }).sort((a,b)=>new Date(b.published)-new Date(a.published));
 }
 
 function getFilteredExcept(excludeKey) {
   return DATA.filter(item => {
-    if(!itemMatchesQuarter(item,state.quarterNews,"published"))return false;
-    if(state.search){const q=state.search.toLowerCase();if(!item.title.toLowerCase().includes(q)&&!item.competitor.toLowerCase().includes(q)&&!(item.summary||"").toLowerCase().includes(q))return false;}
-    if(excludeKey!=="filterComp"&&state.filterComp!=="All"&&item.competitor!==state.filterComp)return false;
-    if(excludeKey!=="filterCat"&&state.filterCat!=="All"&&!item.category.includes(state.filterCat))return false;
-    if(excludeKey!=="filterImp"&&state.filterImp!=="All"&&item.importance!==state.filterImp)return false;
-    if(excludeKey!=="filterImpact"&&state.filterImpact!=="All"&&item.impact_level!==state.filterImpact)return false;
-    if(excludeKey!=="filterSentiment"&&state.filterSentiment!=="All"&&item.sentiment!==state.filterSentiment)return false;
-    if(excludeKey!=="filterSource"&&state.filterSource!=="All"&&(item.source||"Unknown")!==state.filterSource)return false;
-    if(state.filterDateFrom){const d=new Date(item.published).toISOString().split("T")[0];if(d<state.filterDateFrom)return false;}
-    if(state.filterDateTo){const d=new Date(item.published).toISOString().split("T")[0];if(d>state.filterDateTo)return false;}
+    if(!_matchesBase(item))return false;
+    for(const k of _FILTER_KEYS) if(k!==excludeKey && !_matchesField(item,k))return false;
     return true;
   });
 }
 
 function getActiveFilterCount() {
-  return[state.filterComp,state.filterCat,state.filterImp,state.filterImpact,state.filterSentiment,state.filterSource].filter(f=>f!=="All").length+(state.filterDateFrom?1:0)+(state.filterDateTo?1:0);
+  return[state.filterComp,state.filterCat,state.filterImp,state.filterImpact,state.filterSentiment,state.filterSource,state.filterProductLine,state.filterSegment].filter(f=>f!=="All").length+(state.filterDateFrom?1:0)+(state.filterDateTo?1:0);
 }
 
 // ═══════════════════════════════════════════════
@@ -852,12 +967,16 @@ function renderNews() {
   const qFiltered = state.quarterNews==="All" ? DATA : DATA.filter(a=>itemMatchesQuarter(a,state.quarterNews,"published"));
   document.getElementById("quarterMetaNews").textContent = `${qFiltered.length} of ${DATA.length} articles in ${state.quarterNews==="All"?"all quarters":state.quarterNews}`;
 
-  // Stats — inline chips (compact) scoped to the selected quarter
+  // Stats — inline chips (compact) scoped to the selected quarter.
+  // We compute `filteredForStats` here so the FILTERED chip reflects every
+  // active filter (search, PL, segment, etc.) — not just quarter.
+  const filteredForStats = getFiltered();
   const critical=qFiltered.filter(d=>d.importance==="Critical").length;
   const negative=qFiltered.filter(d=>d.sentiment==="Negative").length;
   const comps=new Set(qFiltered.map(d=>d.competitor)).size;
   document.getElementById("statsBar").innerHTML=[
     {label:"Alerts",value:qFiltered.length,color:"#60a5fa",icon:"◉"},
+    {label:"Filtered",value:filteredForStats.length,color:cssVar("--accent","#1A3FD6"),icon:"▤"},
     {label:"Critical",value:critical,color:"#ef4444",icon:"⚠"},
     {label:"Negative",value:negative,color:"#f59e0b",icon:"▼"},
     {label:"Competitors",value:comps,color:"#8b5cf6",icon:"◆"}
@@ -867,17 +986,24 @@ function renderNews() {
   const ac=getActiveFilterCount();
   const fp=document.getElementById("filterPanel");
   fp.innerHTML=`
+    <div class="filter-group"><span class="filter-label">Product line</span><select class="filter-select" data-filter="pl"><option value="All">All</option>${PRODUCT_LINES.map(c=>`<option value="${esc(c)}" ${state.filterProductLine===c?"selected":""}>${esc(c)}</option>`).join("")}${state.includeNonCore?'<option value="Non-core" '+(state.filterProductLine==="Non-core"?"selected":"")+'>Non-core</option>':""}</select></div>
+    <div class="filter-group"><span class="filter-label">Segment</span><select class="filter-select" data-filter="seg"><option value="All">All</option>${SEGMENTS.map(c=>`<option value="${esc(c)}" ${state.filterSegment===c?"selected":""}>${esc(c)}</option>`).join("")}${state.includeNonCore?'<option value="Non-core" '+(state.filterSegment==="Non-core"?"selected":"")+'>Non-core</option>':""}</select></div>
     <div class="filter-group"><span class="filter-label">Competitor</span><select class="filter-select" data-filter="comp"><option value="All">All</option>${COMPETITORS.map(c=>`<option value="${esc(c)}" ${state.filterComp===c?"selected":""}>${esc(c)}</option>`).join("")}</select></div>
     <div class="filter-group"><span class="filter-label">Category</span><select class="filter-select" data-filter="cat"><option value="All">All</option>${CATEGORIES.map(c=>`<option value="${esc(c)}" ${state.filterCat===c?"selected":""}>${esc(c)}</option>`).join("")}</select></div>
     <div class="filter-group"><span class="filter-label">Importance</span><select class="filter-select" data-filter="imp"><option value="All">All</option>${IMPORTANCE_LEVELS.map(c=>`<option value="${c}" ${state.filterImp===c?"selected":""}>${c}</option>`).join("")}</select></div>
     <div class="filter-group"><span class="filter-label">Impact</span><select class="filter-select" data-filter="impact"><option value="All">All</option>${IMPACT_LEVELS.map(c=>`<option value="${c}" ${state.filterImpact===c?"selected":""}>${c}</option>`).join("")}</select></div>
     <div class="filter-group"><span class="filter-label">Date from</span><input type="date" class="filter-date" data-filter="dateFrom" value="${state.filterDateFrom}"></div>
     <div class="filter-group"><span class="filter-label">Date to</span><input type="date" class="filter-date" data-filter="dateTo" value="${state.filterDateTo}"></div>
+    <label class="noncore-toggle ${state.includeNonCore?"on":""}" title="Include articles that don't map to any MSCI product line or client segment">
+      <input type="checkbox" id="nonCoreToggle" ${state.includeNonCore?"checked":""}/> Include non-core
+    </label>
     ${ac>0?`<button class="clear-btn" id="clearFilters">Clear all</button>`:""}`;
-  fp.querySelectorAll(".filter-select").forEach(sel=>{sel.addEventListener("change",e=>{const f=e.target.dataset.filter;if(f==="comp")state.filterComp=e.target.value;if(f==="cat")state.filterCat=e.target.value;if(f==="imp")state.filterImp=e.target.value;if(f==="impact")state.filterImpact=e.target.value;renderNews();});});
+  fp.querySelectorAll(".filter-select").forEach(sel=>{sel.addEventListener("change",e=>{const f=e.target.dataset.filter;if(f==="comp")state.filterComp=e.target.value;if(f==="cat")state.filterCat=e.target.value;if(f==="imp")state.filterImp=e.target.value;if(f==="impact")state.filterImpact=e.target.value;if(f==="pl")state.filterProductLine=e.target.value;if(f==="seg")state.filterSegment=e.target.value;renderNews();});});
   fp.querySelectorAll(".filter-date").forEach(inp=>{inp.addEventListener("change",e=>{if(e.target.dataset.filter==="dateFrom")state.filterDateFrom=e.target.value;if(e.target.dataset.filter==="dateTo")state.filterDateTo=e.target.value;renderNews();});});
+  const nct=document.getElementById("nonCoreToggle");
+  if(nct)nct.addEventListener("change",e=>{state.includeNonCore=e.target.checked;renderNews();});
   const cb=document.getElementById("clearFilters");
-  if(cb)cb.addEventListener("click",()=>{state.filterComp="All";state.filterCat="All";state.filterImp="All";state.filterImpact="All";state.filterSentiment="All";state.filterSource="All";state.filterDateFrom="";state.filterDateTo="";renderNews();});
+  if(cb)cb.addEventListener("click",()=>{state.filterComp="All";state.filterCat="All";state.filterImp="All";state.filterImpact="All";state.filterSentiment="All";state.filterSource="All";state.filterProductLine="All";state.filterSegment="All";state.filterDateFrom="";state.filterDateTo="";renderNews();});
 
   // Search
   const sc=document.getElementById("searchClear");
@@ -913,12 +1039,12 @@ function renderNews() {
               ${item.ticker?`<span class="meta-ticker" title="Primary ticker">${esc(item.ticker)}</span>`:""}
               <span class="meta-dot">·</span>
               <span>${esc(item.category)}</span>
-              ${item.segment?`<span class="meta-dot">·</span><span class="meta-region" title="Competitor segment">${esc(item.segment)}</span>`:""}
+              ${item.product_line && item.product_line!=="Non-core"?`<span class="meta-dot">·</span><span class="meta-region" title="MSCI product line">${esc(item.product_line)}</span>`:""}
+              ${Array.isArray(item.segments) && item.segments.length && item.segments[0]!=="Non-core"?`<span class="meta-dot">·</span><span class="meta-region" title="Client segment">${esc(item.segments.slice(0,2).join(", "))}</span>`:""}
               ${item.sentiment?`<span class="meta-dot">·</span><span style="color:${sentimentColor(item.sentiment)}">${dirIcon(item.sentiment==="Positive"?"positive":item.sentiment==="Negative"?"negative":"neutral")} ${item.sentiment}${item.confidence?` <span class="meta-conf" title="Sentiment confidence">${Math.round(item.confidence*100)}%</span>`:""}</span>`:""}
               ${item.impact_level?`<span class="meta-dot">·</span><span class="meta-impact" style="color:${impColor(item.impact_level)};background:${impBg(item.impact_level)}" title="Impact level">${esc(item.impact_level)}</span>`:""}
-              ${Array.isArray(item.signals)&&item.signals.length?`<span class="meta-dot">·</span><span class="meta-signal" title="Top signal">${esc(item.signals[0])}</span>`:""}
               ${item.reading_time?`<span class="meta-dot">·</span><span title="Approx. reading time">${esc(item.reading_time)}</span>`:""}
-              ${item.origin?`<span class="meta-dot">·</span><span class="meta-origin" title="Source origin">${esc(item.origin)}</span>`:""}
+              ${item.non_core?`<span class="meta-dot">·</span><span class="meta-origin" title="No direct MSCI product-line or segment match" style="color:var(--negative)">non-core</span>`:""}
             </div>
           </div>
         </div>
@@ -939,9 +1065,15 @@ function renderNews() {
     });
   }
 
-  // Detail panel
+  // Right-rail: analytics by default, detail panel when an article is selected
   const detail=document.getElementById("detail");
-  if(!state.selected){detail.style.display="none";return;}
+  const analyticsPanel=document.getElementById("analyticsPanel");
+  if(!state.selected){
+    detail.style.display="none";
+    if(analyticsPanel)analyticsPanel.style.display="flex";
+    return;
+  }
+  if(analyticsPanel)analyticsPanel.style.display="none";
   detail.style.display="block";
   const s=state.selected;
   detail.innerHTML=`
@@ -1143,16 +1275,25 @@ function renderCharts() {
   const xc={};catF.forEach(a=>{const p=(a.category||"General").split(" / ")[0];xc[p]=(xc[p]||0)+1;});
   barChart("chartCategory",Object.entries(xc).sort((a,b)=>b[1]-a[1]).map(([k,v])=>({label:k.length>14?k.slice(0,14)+"…":k,fullLabel:k,value:v})),VIZ_PALETTE[6],"filterCat"); // Violet
 
-  // Daily — ignore date filter for the chart itself so the bars always show context
+  // MSCI Product Line — always in fixed taxonomy order so the bar chart reads left→right
+  const plF=getFilteredExcept("filterProductLine");
+  const plCounts={};PRODUCT_LINES.forEach(p=>plCounts[p]=0);
+  plF.forEach(a=>{if(a.product_line && a.product_line!=="Non-core" && plCounts[a.product_line]!==undefined) plCounts[a.product_line]++;});
+  barChart("chartProductLine",PRODUCT_LINES.map(k=>({label:k,fullLabel:k,value:plCounts[k]})),cssVar("--msci-primary-blue","#1A3FD6"),"filterProductLine");
+
+  // Client Segment — fixed order, stacks by count
+  const segF=getFilteredExcept("filterSegment");
+  const segCounts={};SEGMENTS.forEach(s=>segCounts[s]=0);
+  segF.forEach(a=>{if(Array.isArray(a.segments)) a.segments.forEach(s=>{if(segCounts[s]!==undefined) segCounts[s]++;});});
+  barChart("chartSegment",SEGMENTS.map(k=>({label:k,fullLabel:k,value:segCounts[k]})),cssVar("--msci-teal","#00A798"),"filterSegment");
+
+  // Daily — apply all filters EXCEPT the date filter itself, so the
+  // 14-day bars always show the surrounding context of whatever's currently selected.
   const dayF=DATA.filter(item=>{
     if(!itemMatchesQuarter(item,state.quarterNews,"published"))return false;
+    if(!state.includeNonCore && item.non_core)return false;
     if(state.search){const q=state.search.toLowerCase();if(!item.title.toLowerCase().includes(q)&&!item.competitor.toLowerCase().includes(q)&&!(item.summary||"").toLowerCase().includes(q))return false;}
-    if(state.filterComp!=="All"&&item.competitor!==state.filterComp)return false;
-    if(state.filterCat!=="All"&&!item.category.includes(state.filterCat))return false;
-    if(state.filterImp!=="All"&&item.importance!==state.filterImp)return false;
-    if(state.filterImpact!=="All"&&item.impact_level!==state.filterImpact)return false;
-    if(state.filterSentiment!=="All"&&item.sentiment!==state.filterSentiment)return false;
-    if(state.filterSource!=="All"&&(item.source||"Unknown")!==state.filterSource)return false;
+    for(const k of _FILTER_KEYS) if(!_matchesField(item,k)) return false;
     return true;
   });
   dailyChart("chartDaily", dayF);
@@ -1164,6 +1305,8 @@ function renderCharts() {
   setBadge("chartBadgeSent","chartCardSent","filterSentiment");
   setBadge("chartBadgeImp","chartCardImp","filterImp");
   setBadge("chartBadgeCat","chartCardCat","filterCat");
+  setBadge("chartBadgePL","chartCardPL","filterProductLine");
+  setBadge("chartBadgeSeg","chartCardSeg","filterSegment");
   // Day badge — only show when a single day is pinned
   const dayBadge=document.getElementById("chartBadgeDay"),dayCard=document.getElementById("chartCardDay");
   if(dayBadge&&dayCard){

@@ -171,6 +171,93 @@ def classify_category(text: str) -> str:
     return "General"
 
 
+# ──────────────────────────────────────────────────────────────────────────
+# MSCI canonical taxonomy — Product Line + Client Segment
+# Source: msci.com "Our Solutions" + "Who We Serve" pages. Keep this list in
+# sync with PRODUCT_LINES / SEGMENTS in index.html.
+# ──────────────────────────────────────────────────────────────────────────
+PRODUCT_LINE_KEYWORDS = {
+    "Index":           [r"\bindex(es|ing)?\b", r"\bbenchmark", r"\bETF\b",
+                        r"\bfactor\b", r"\brebalanc", r"\bindex licensing\b"],
+    "Analytics":       [r"\banalytics?\b", r"\brisk model", r"\bfactor model",
+                        r"\bbarra\b", r"\brisk(metrics)?\b", r"\bscenario\b",
+                        r"\bstress test", r"\bVaR\b", r"\bperformance attribution"],
+    "Sustainability":  [r"\bESG\b", r"\bsustainab", r"\bstewardship",
+                        r"\bimpact invest", r"\btransition (finance|plan)",
+                        r"\bSFDR\b", r"\bCSRD\b"],
+    "Climate":         [r"\bclimate\b", r"\bnet[- ]zero\b", r"\bdecarbon",
+                        r"\bemissions?\b", r"\bscope ?[123]\b", r"\bTCFD\b",
+                        r"\bTNFD\b", r"\bphysical risk", r"\btransition risk"],
+    "Private Capital": [r"\bprivate (equity|credit|markets|capital|assets)\b",
+                        r"\balternatives?\b", r"\bsecondaries\b",
+                        r"\bventure capital\b", r"\bLP/GP\b", r"\bhedge fund\b",
+                        r"\bBurgiss\b"],
+    "Real Assets":     [r"\breal estate\b", r"\bREIT\b", r"\binfrastructure\b",
+                        r"\bproperty (market|investor)", r"\bMSCI[- ]IPD\b",
+                        r"\breal asset"],
+    "Wealth":          [r"\bwealth (management|manager|advisor|platform)\b",
+                        r"\bfinancial advisor", r"\bSMA\b",
+                        r"\bmodel portfolio", r"\bdirect indexing\b"],
+}
+
+SEGMENT_KEYWORDS = {
+    "Asset Managers":          [r"\basset manager", r"\bfund manager",
+                                r"\bmutual fund\b", r"\bBlackRock\b",
+                                r"\bVanguard\b", r"\bState Street\b",
+                                r"\bFidelity\b", r"\bInvesco\b",
+                                r"\bSchwab\b", r"\bAmundi\b"],
+    "Asset Owners":            [r"\basset owner", r"\bpension (fund|plan)",
+                                r"\bsovereign wealth", r"\bendowment\b",
+                                r"\bfoundation\b", r"\bCalPERS\b",
+                                r"\bCPP(IB)?\b", r"\bGIC\b", r"\bNorges\b",
+                                r"\bADIA\b"],
+    "Hedge Funds":             [r"\bhedge fund", r"\bmulti[- ]strategy\b",
+                                r"\bCitadel\b", r"\bMillennium\b",
+                                r"\bBridgewater\b", r"\bPoint72\b",
+                                r"\bElliott\b", r"\bBalyasny\b"],
+    "Wealth Managers":         [r"\bwealth manager", r"\bprivate bank",
+                                r"\bfinancial advisor", r"\bRIA\b",
+                                r"\bMorgan Stanley Wealth", r"\bUBS\b",
+                                r"\bRaymond James\b", r"\bEdward Jones\b"],
+    "Banks":                   [r"\bbank\b", r"\bJPMorgan\b",
+                                r"\bGoldman( Sachs)?\b", r"\bCitigroup\b",
+                                r"\bDeutsche Bank\b", r"\bBarclays\b",
+                                r"\bHSBC\b", r"\bBNP Paribas\b",
+                                r"\bWells Fargo\b"],
+    "Insurance":               [r"\binsurance\b", r"\binsurer\b",
+                                r"\bAllianz\b", r"\bAXA\b", r"\bMetLife\b",
+                                r"\bPrudential\b", r"\bAIG\b",
+                                r"\bMunich Re\b", r"\bSwiss Re\b",
+                                r"\breinsur"],
+    "Corporates":              [r"\bcorporat(e|ion)\b", r"\bissuer\b",
+                                r"\bCFO\b", r"\btreasur(y|er)\b",
+                                r"\bcompany disclosure"],
+    "Private Market Sponsors": [r"\bprivate equity (firm|sponsor|fund)",
+                                r"\bKKR\b", r"\bBlackstone\b",
+                                r"\bApollo( Global)?\b", r"\bCarlyle\b",
+                                r"\bBain Capital\b", r"\bBrookfield\b",
+                                r"\bGP stake", r"\bgeneral partner"],
+}
+
+
+def classify_product_line(text: str) -> str:
+    for pl, patterns in PRODUCT_LINE_KEYWORDS.items():
+        for pat in patterns:
+            if re.search(pat, text, flags=re.IGNORECASE):
+                return pl
+    return "Non-core"
+
+
+def classify_segments(text: str) -> list[str]:
+    hits: list[str] = []
+    for seg, patterns in SEGMENT_KEYWORDS.items():
+        for pat in patterns:
+            if re.search(pat, text, flags=re.IGNORECASE):
+                hits.append(seg)
+                break
+    return hits or ["Non-core"]
+
+
 def classify_sentiment(text: str) -> str:
     low = text.lower()
     pos = sum(1 for w in POSITIVE_WORDS if w in low)
@@ -474,6 +561,14 @@ def enrich(article: dict) -> dict:
     text = f"{article.get('title', '')} {article.get('summary', '')}"
     article["category"] = classify_category(text)
     article["sentiment"] = classify_sentiment(text)
+    # MSCI canonical taxonomy — derived from title+summary so front-end
+    # can skip client-side re-classification when these are already populated.
+    article["product_line"] = classify_product_line(text)
+    article["segments"] = classify_segments(text)
+    article["non_core"] = (
+        article["product_line"] == "Non-core"
+        and article["segments"] == ["Non-core"]
+    )
     score = importance_score(article)
     article["importance_score"] = score
     article["importance"] = score_to_label(score)
