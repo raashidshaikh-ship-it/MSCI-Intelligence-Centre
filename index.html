@@ -1,0 +1,1147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MSCI Intelligence Dashboard</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg-root: #06090f;
+  --bg-surface: #0a0e18;
+  --bg-raised: #0f1525;
+  --bg-card: #111827;
+  --bg-hover: rgba(255,255,255,0.025);
+  --bg-selected: rgba(59,130,246,0.08);
+  --border: rgba(255,255,255,0.06);
+  --border-hover: rgba(255,255,255,0.12);
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --text-dim: #475569;
+  --accent: #3b82f6;
+  --accent-light: #60a5fa;
+  --accent-glow: rgba(59,130,246,0.15);
+  --purple: #8b5cf6;
+  --purple-light: #c4b5fd;
+  --positive: #22c55e;
+  --negative: #ef4444;
+  --warning: #f59e0b;
+  --neutral: #94a3b8;
+  --teal: #14b8a6;
+  --pink: #ec4899;
+  --font: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --mono: 'JetBrains Mono', monospace;
+  --radius: 10px;
+  --radius-lg: 14px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: var(--font); background: var(--bg-root); color: var(--text-primary); height: 100vh; overflow: hidden; display: flex; flex-direction: column; }
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.07); border-radius: 4px; }
+
+/* Ambient effects */
+.ambient { position: fixed; pointer-events: none; z-index: 0; border-radius: 50%; }
+.ambient-1 { top: -200px; right: -150px; width: 600px; height: 600px; background: radial-gradient(circle, rgba(59,130,246,0.06) 0%, transparent 65%); }
+.ambient-2 { bottom: -300px; left: -100px; width: 500px; height: 500px; background: radial-gradient(circle, rgba(139,92,246,0.04) 0%, transparent 65%); }
+.ambient-3 { top: 50%; left: 40%; width: 400px; height: 400px; background: radial-gradient(circle, rgba(20,184,166,0.03) 0%, transparent 60%); transform: translate(-50%,-50%); }
+
+/* Radar pulse animation */
+@keyframes radar { 0% { transform: scale(0.8); opacity: 0.8; } 50% { transform: scale(1.1); opacity: 0.3; } 100% { transform: scale(0.8); opacity: 0.8; } }
+@keyframes glow-pulse { 0%,100% { box-shadow: 0 0 8px rgba(59,130,246,0.2); } 50% { box-shadow: 0 0 20px rgba(59,130,246,0.4); } }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes slideDown { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes live-pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.3; } }
+
+/* ─── HEADER ─── */
+.header { display: flex; align-items: center; justify-content: space-between; padding: 12px 24px; border-bottom: 1px solid var(--border); background: rgba(6,9,15,0.95); backdrop-filter: blur(24px); z-index: 30; flex-shrink: 0; }
+.header-left { display: flex; align-items: center; gap: 14px; }
+.logo { width: 40px; height: 40px; border-radius: 10px; background: linear-gradient(135deg, #1a56db, #7c3aed, #0d9488); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800; color: #fff; letter-spacing: 0.5px; animation: glow-pulse 3s ease-in-out infinite; position: relative; overflow: hidden; }
+.logo::after { content: ''; position: absolute; inset: -2px; border-radius: 12px; background: linear-gradient(135deg, rgba(59,130,246,0.3), rgba(124,58,237,0.3), rgba(20,184,166,0.3)); z-index: -1; animation: radar 3s ease-in-out infinite; }
+.logo-text h1 { font-size: 16px; font-weight: 700; letter-spacing: -0.3px; background: linear-gradient(135deg, #60a5fa, #c4b5fd, #5eead4); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.logo-text span { font-size: 10px; color: var(--text-muted); letter-spacing: 2.5px; text-transform: uppercase; font-weight: 500; }
+.header-right { display: flex; align-items: center; gap: 12px; }
+.live-badge { display: flex; align-items: center; gap: 6px; background: rgba(34,197,94,0.08); border: 1px solid rgba(34,197,94,0.18); padding: 5px 14px; border-radius: 20px; font-size: 11px; color: var(--positive); font-weight: 500; }
+.live-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--positive); animation: live-pulse 2s ease-in-out infinite; }
+.header-date { font-size: 11px; color: var(--text-dim); }
+
+/* ─── NAV TABS ─── */
+.nav-tabs { display: flex; gap: 2px; padding: 0 24px; background: rgba(10,14,24,0.9); border-bottom: 1px solid var(--border); flex-shrink: 0; z-index: 20; overflow-x: auto; }
+.nav-tab { padding: 12px 18px; font-size: 12px; font-weight: 500; color: var(--text-muted); cursor: pointer; border-bottom: 2px solid transparent; transition: all 0.2s; white-space: nowrap; display: flex; align-items: center; gap: 6px; }
+.nav-tab:hover { color: var(--text-secondary); background: rgba(255,255,255,0.02); }
+.nav-tab.active { color: var(--accent-light); border-bottom-color: var(--accent); background: rgba(59,130,246,0.04); }
+.nav-tab .tab-count { font-size: 10px; font-family: var(--mono); background: rgba(255,255,255,0.06); padding: 1px 6px; border-radius: 8px; }
+.nav-tab.active .tab-count { background: rgba(59,130,246,0.15); color: var(--accent-light); }
+.nav-tab-icon { font-size: 14px; }
+
+/* ─── STATS BAR ─── */
+.stats-bar { display: flex; gap: 1px; background: rgba(255,255,255,0.02); border-bottom: 1px solid var(--border); flex-shrink: 0; z-index: 10; }
+.stat-card { flex: 1; padding: 12px 20px; background: rgba(10,14,24,0.5); display: flex; align-items: center; gap: 12px; transition: background 0.2s; cursor: default; }
+.stat-card:hover { background: rgba(10,14,24,0.8); }
+.stat-icon { font-size: 16px; opacity: 0.4; }
+.stat-value { font-size: 22px; font-weight: 700; letter-spacing: -1px; font-family: var(--mono); line-height: 1; }
+.stat-label { font-size: 9px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1.2px; font-weight: 500; margin-top: 2px; }
+
+/* ─── SEARCH & FILTER ─── */
+.toolbar { padding: 10px 24px; display: flex; align-items: center; gap: 10px; border-bottom: 1px solid rgba(255,255,255,0.03); background: rgba(6,9,15,0.75); flex-shrink: 0; z-index: 10; }
+.search-box { flex: 1; display: flex; align-items: center; background: rgba(255,255,255,0.035); border: 1px solid rgba(255,255,255,0.07); border-radius: var(--radius); padding: 0 14px; transition: border-color 0.2s; }
+.search-box:focus-within { border-color: rgba(59,130,246,0.35); }
+.search-icon { font-size: 14px; opacity: 0.35; }
+.search-box input { background: none; border: none; outline: none; color: var(--text-primary); padding: 9px 10px; font-size: 13px; width: 100%; font-family: var(--font); }
+.search-box input::placeholder { color: var(--text-dim); }
+.search-clear { cursor: pointer; opacity: 0.35; font-size: 11px; padding: 4px; }
+.search-clear:hover { opacity: 0.7; }
+.result-count { font-size: 11px; color: var(--text-dim); white-space: nowrap; font-family: var(--mono); }
+
+/* ─── FILTER PANEL ─── */
+.filter-panel { padding: 10px 24px; display: flex; gap: 12px; flex-wrap: wrap; border-bottom: 1px solid rgba(255,255,255,0.03); background: rgba(10,14,24,0.55); flex-shrink: 0; z-index: 10; align-items: flex-end; animation: slideDown 0.2s ease; }
+.filter-group { display: flex; flex-direction: column; gap: 4px; }
+.filter-label { font-size: 9px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1.2px; font-weight: 500; }
+.filter-select { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); border-radius: 6px; padding: 6px 28px 6px 10px; color: var(--text-primary); font-size: 12px; outline: none; cursor: pointer; font-family: var(--font); appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M3 5l3 3 3-3' stroke='%2364748b' stroke-width='1.5' fill='none'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 8px center; transition: border-color 0.2s; }
+.filter-select:hover { border-color: rgba(255,255,255,0.14); }
+.filter-select option { background: #1e293b; color: var(--text-primary); }
+.filter-date { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); border-radius: 6px; padding: 5px 10px; color: var(--text-primary); font-size: 12px; outline: none; cursor: pointer; font-family: var(--font); color-scheme: dark; }
+.clear-btn { background: none; border: 1px solid rgba(239,68,68,0.25); color: var(--negative); border-radius: 6px; padding: 6px 12px; font-size: 11px; cursor: pointer; font-family: var(--font); font-weight: 500; transition: all 0.2s; }
+.clear-btn:hover { background: rgba(239,68,68,0.08); }
+
+/* ─── ANALYTICS PANEL ─── */
+.analytics-panel { display: flex; gap: 10px; padding: 12px 24px; border-bottom: 1px solid var(--border); background: rgba(10,14,24,0.4); flex-shrink: 0; z-index: 10; overflow-x: auto; }
+.chart-card { flex: 1; min-width: 180px; padding: 12px 14px; background: rgba(255,255,255,0.015); border: 1px solid var(--border); border-radius: var(--radius-lg); transition: all 0.2s; }
+.chart-card.filtering { border-color: rgba(59,130,246,0.3); background: rgba(59,130,246,0.03); }
+.chart-card-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
+.chart-card-title { font-size: 9px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1.2px; font-weight: 600; }
+.chart-filter-badge { font-size: 10px; font-weight: 600; color: #93c5fd; background: rgba(59,130,246,0.15); padding: 2px 8px; border-radius: 10px; cursor: pointer; display: none; align-items: center; gap: 4px; border: 1px solid rgba(59,130,246,0.25); }
+.chart-filter-badge:hover { background: rgba(59,130,246,0.25); }
+.chart-filter-badge.active { display: inline-flex; }
+
+/* ─── MAIN LAYOUT ─── */
+.main { display: flex; flex: 1; overflow: hidden; position: relative; z-index: 5; }
+
+/* ─── SECTION PANELS ─── */
+.section-panel { display: none; flex: 1; overflow: hidden; flex-direction: column; }
+.section-panel.active { display: flex; }
+
+/* ─── NEWS FEED ─── */
+.feed { overflow-y: auto; overflow-x: hidden; transition: width 0.3s ease; flex-shrink: 0; }
+.feed.expanded { width: 100%; }
+.feed.collapsed { width: 440px; border-right: 1px solid var(--border); }
+.feed-empty { padding: 80px 40px; text-align: center; }
+.feed-empty-icon { font-size: 44px; opacity: 0.15; margin-bottom: 16px; }
+.feed-empty-title { font-size: 15px; color: var(--text-muted); margin-bottom: 6px; }
+.feed-empty-sub { font-size: 12px; color: var(--text-dim); }
+
+/* ─── NEWS CARD ─── */
+.news-card { padding: 16px 22px; border-bottom: 1px solid rgba(255,255,255,0.03); cursor: pointer; border-left: 3px solid transparent; transition: all 0.15s; animation: fadeIn 0.3s ease; }
+.news-card:hover { background: var(--bg-hover); }
+.news-card.selected { background: var(--bg-selected); border-left-color: var(--accent); }
+.news-card-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px; }
+.news-card-badges { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.badge-competitor { font-size: 10px; font-weight: 600; color: var(--purple-light); background: rgba(139,92,246,0.1); padding: 2px 8px; border-radius: 4px; }
+.badge-importance { font-size: 10px; font-weight: 600; padding: 2px 8px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.5px; }
+.news-card-time { font-size: 11px; color: var(--text-dim); white-space: nowrap; }
+.news-card-headline { font-size: 14px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; color: var(--text-primary); }
+.news-card-meta { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; font-size: 11px; color: var(--text-muted); }
+.meta-dot { opacity: 0.3; }
+.meta-impact { font-size: 10px; padding: 1px 7px; border-radius: 4px; font-weight: 500; }
+.news-card-date { font-size: 10px; color: var(--text-dim); margin-top: 5px; font-family: var(--mono); letter-spacing: 0.3px; }
+
+/* ─── DETAIL PANEL ─── */
+.detail { flex: 1; overflow-y: auto; background: var(--bg-surface); border-left: 1px solid var(--border); display: none; }
+.detail-close { position: absolute; top: 16px; right: 16px; background: rgba(255,255,255,0.05); border: 1px solid var(--border); border-radius: 8px; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; cursor: pointer; color: var(--text-muted); font-size: 14px; z-index: 5; font-family: var(--font); transition: all 0.2s; }
+.detail-close:hover { background: rgba(255,255,255,0.1); color: var(--text-primary); }
+.detail-inner { padding: 24px 28px; position: relative; }
+.detail-badges { display: flex; gap: 8px; margin-bottom: 16px; flex-wrap: wrap; }
+.detail-badge { font-size: 11px; font-weight: 500; padding: 4px 12px; border-radius: 6px; }
+.detail-headline { font-size: 22px; font-weight: 700; line-height: 1.3; margin-bottom: 14px; letter-spacing: -0.3px; }
+.detail-meta { display: flex; flex-wrap: wrap; gap: 8px 16px; font-size: 12px; color: var(--text-muted); margin-bottom: 18px; padding-bottom: 18px; border-bottom: 1px solid var(--border); }
+.detail-meta-cat { color: var(--accent-light); font-weight: 500; }
+.detail-summary { font-size: 14px; line-height: 1.7; color: var(--text-secondary); padding: 18px; background: rgba(255,255,255,0.02); border-radius: var(--radius); border: 1px solid var(--border); margin-bottom: 22px; }
+.tabs { display: flex; gap: 0; border-bottom: 1px solid var(--border); margin-bottom: 18px; }
+.tab { flex: 1; padding: 11px 8px; text-align: center; font-size: 12px; font-weight: 500; color: var(--text-muted); cursor: pointer; border-bottom: 2px solid transparent; transition: all 0.2s; background: none; border-top: none; border-left: none; border-right: none; font-family: var(--font); }
+.tab:hover { color: var(--text-secondary); background: rgba(255,255,255,0.02); }
+.tab.active { color: var(--accent-light); border-bottom-color: var(--accent); background: rgba(59,130,246,0.04); }
+.impact-list { display: flex; flex-direction: column; gap: 10px; }
+.sector-card { padding: 14px 16px; background: rgba(255,255,255,0.015); border-radius: var(--radius); border-left: 3px solid var(--neutral); }
+.sector-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
+.sector-name-row { display: flex; align-items: center; gap: 8px; }
+.sector-arrow { font-size: 12px; }
+.sector-name { font-size: 14px; font-weight: 600; }
+.sector-magnitude { font-size: 10px; font-weight: 600; padding: 2px 10px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.5px; }
+.sector-note { font-size: 12px; color: var(--text-muted); line-height: 1.5; }
+.stock-card { padding: 12px 16px; background: rgba(255,255,255,0.015); border-radius: var(--radius); }
+.stock-ticker { font-size: 15px; font-weight: 700; font-family: var(--mono); margin-bottom: 4px; }
+.stock-note { font-size: 12px; color: var(--text-muted); line-height: 1.4; }
+.msci-card { padding: 18px; background: rgba(59,130,246,0.03); border: 1px solid rgba(59,130,246,0.1); border-radius: var(--radius); }
+.msci-header { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; }
+.msci-header-icon { font-size: 16px; }
+.msci-header-label { font-size: 12px; font-weight: 600; color: var(--accent-light); text-transform: uppercase; letter-spacing: 1px; }
+.msci-body { font-size: 14px; line-height: 1.7; color: var(--text-secondary); margin-bottom: 14px; }
+.msci-disclaimer { display: flex; align-items: flex-start; gap: 8px; font-size: 11px; color: var(--text-dim); padding-top: 12px; border-top: 1px solid rgba(59,130,246,0.08); }
+.detail-source { margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--border); }
+.detail-source a { font-size: 12px; color: var(--accent-light); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+.detail-source a:hover { color: #93c5fd; }
+
+/* ─── BRAND INTEL SECTION ─── */
+.brand-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding: 16px 24px; overflow-y: auto; }
+.brand-card { background: rgba(255,255,255,0.015); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 16px; }
+.brand-card-title { font-size: 10px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1.2px; font-weight: 600; margin-bottom: 12px; }
+.brand-card.full-width { grid-column: 1 / -1; }
+.query-item { display: flex; justify-content: space-between; align-items: center; padding: 8px 12px; border-radius: 6px; margin-bottom: 4px; background: rgba(255,255,255,0.02); }
+.query-text { font-size: 13px; color: var(--text-primary); }
+.query-value { font-size: 12px; font-family: var(--mono); color: var(--text-muted); }
+.query-growth { font-size: 11px; font-family: var(--mono); color: var(--positive); font-weight: 600; }
+.region-bar { display: flex; align-items: center; gap: 8px; margin-bottom: 5px; }
+.region-name { width: 100px; font-size: 11px; color: var(--text-secondary); text-align: right; }
+.region-fill { height: 12px; border-radius: 3px; transition: width 0.4s ease; }
+
+/* ─── CLIENT ACTIVITY SECTION ─── */
+.client-card { padding: 16px 22px; border-bottom: 1px solid rgba(255,255,255,0.03); animation: fadeIn 0.3s ease; }
+.client-card-badges { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; margin-bottom: 6px; }
+.badge-client { font-size: 10px; font-weight: 600; color: var(--teal); background: rgba(20,184,166,0.1); padding: 2px 8px; border-radius: 4px; }
+.badge-activity { font-size: 10px; font-weight: 500; color: var(--warning); background: rgba(245,158,11,0.1); padding: 2px 8px; border-radius: 4px; }
+.badge-opp { font-size: 10px; font-weight: 600; padding: 2px 8px; border-radius: 4px; }
+.badge-msci-linked { font-size: 10px; font-weight: 600; color: var(--positive); background: rgba(34,197,94,0.1); padding: 2px 8px; border-radius: 4px; }
+.client-headline { font-size: 14px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+.client-meta { font-size: 11px; color: var(--text-muted); margin-bottom: 4px; }
+.client-signal { font-size: 12px; color: var(--accent-light); font-style: italic; margin-top: 6px; }
+.client-date { font-size: 10px; color: var(--text-dim); font-family: var(--mono); margin-top: 4px; }
+
+/* ─── MSCI PRODUCTS SECTION ─── */
+.product-card { padding: 16px 22px; border-bottom: 1px solid rgba(255,255,255,0.03); animation: fadeIn 0.3s ease; }
+.badge-product-line { font-size: 10px; font-weight: 600; color: var(--pink); background: rgba(236,72,153,0.1); padding: 2px 8px; border-radius: 4px; }
+.badge-launch-type { font-size: 10px; font-weight: 500; color: var(--accent-light); background: rgba(59,130,246,0.1); padding: 2px 8px; border-radius: 4px; }
+.product-headline { font-size: 14px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+.product-meta { font-size: 11px; color: var(--text-muted); margin-bottom: 4px; }
+.product-edge { font-size: 12px; color: var(--positive); margin-top: 6px; }
+.product-date { font-size: 10px; color: var(--text-dim); font-family: var(--mono); margin-top: 4px; }
+
+/* ─── SUB-TABS (for MSCI section) ─── */
+.sub-tabs { display: flex; gap: 0; border-bottom: 1px solid var(--border); flex-shrink: 0; }
+.sub-tab { padding: 10px 20px; font-size: 12px; font-weight: 500; color: var(--text-muted); cursor: pointer; border-bottom: 2px solid transparent; transition: all 0.2s; }
+.sub-tab:hover { color: var(--text-secondary); }
+.sub-tab.active { color: var(--accent-light); border-bottom-color: var(--accent); }
+
+/* ─── QUARTER TOGGLE (per section) ─── */
+.quarter-bar { display: flex; align-items: center; gap: 12px; padding: 8px 24px; background: rgba(10,14,24,0.55); border-bottom: 1px solid rgba(255,255,255,0.03); flex-shrink: 0; z-index: 10; }
+.quarter-bar-label { font-size: 9px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1.4px; font-weight: 600; }
+.quarter-toggle { display: flex; gap: 4px; background: rgba(255,255,255,0.035); border: 1px solid rgba(255,255,255,0.06); border-radius: 8px; padding: 3px; }
+.quarter-pill { padding: 5px 12px; font-size: 11px; font-weight: 600; color: var(--text-muted); cursor: pointer; border-radius: 6px; font-family: var(--mono); letter-spacing: 0.3px; transition: all 0.15s; user-select: none; }
+.quarter-pill:hover { color: var(--text-secondary); background: rgba(255,255,255,0.03); }
+.quarter-pill.active { color: #fff; background: linear-gradient(135deg, var(--accent), #2563eb); box-shadow: 0 0 14px rgba(59,130,246,0.25); }
+.quarter-pill.all { font-weight: 500; letter-spacing: 1px; }
+.quarter-meta { font-size: 10px; color: var(--text-dim); font-family: var(--mono); margin-left: auto; }
+
+/* ─── FINANCIALS SECTION ─── */
+.financials-wrap { flex: 1; overflow-y: auto; padding: 16px 24px 40px; }
+.fin-company-tabs { display: flex; gap: 4px; flex-wrap: wrap; margin-bottom: 14px; }
+.fin-company-tab { padding: 6px 14px; font-size: 12px; font-weight: 500; color: var(--text-muted); cursor: pointer; border-radius: 6px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); transition: all 0.15s; }
+.fin-company-tab:hover { color: var(--text-secondary); border-color: rgba(255,255,255,0.12); }
+.fin-company-tab.active { color: #f1f5f9; background: rgba(59,130,246,0.1); border-color: rgba(59,130,246,0.3); }
+.fin-company-tab.msci { background: linear-gradient(135deg, rgba(59,130,246,0.08), rgba(20,184,166,0.08)); }
+.fin-company-tab.msci.active { background: linear-gradient(135deg, rgba(59,130,246,0.2), rgba(20,184,166,0.15)); border-color: rgba(20,184,166,0.35); }
+.fin-hero { background: linear-gradient(135deg, rgba(10,14,24,0.6), rgba(15,21,37,0.6)); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 18px 22px; margin-bottom: 14px; display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+.fin-hero-left { flex: 1; }
+.fin-hero-name { font-size: 18px; font-weight: 700; letter-spacing: -0.3px; margin-bottom: 4px; }
+.fin-hero-seg { font-size: 11px; color: var(--text-muted); }
+.fin-hero-right { display: flex; gap: 10px; }
+.fin-hero-pill { padding: 5px 12px; font-size: 11px; font-family: var(--mono); background: rgba(255,255,255,0.04); border: 1px solid var(--border); border-radius: 6px; color: var(--text-secondary); }
+.fin-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 10px; margin-bottom: 16px; }
+.fin-card { padding: 14px 16px; background: rgba(255,255,255,0.015); border: 1px solid var(--border); border-radius: var(--radius-lg); transition: all 0.2s; }
+.fin-card:hover { border-color: rgba(59,130,246,0.2); background: rgba(59,130,246,0.02); }
+.fin-card-label { font-size: 9px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1.3px; font-weight: 600; margin-bottom: 8px; }
+.fin-card-value { font-size: 22px; font-weight: 700; letter-spacing: -0.6px; font-family: var(--mono); color: var(--text-primary); line-height: 1; }
+.fin-card-value.null { color: var(--text-dim); font-size: 15px; font-weight: 500; font-style: italic; letter-spacing: 0; }
+.fin-card-delta { font-size: 11px; font-family: var(--mono); margin-top: 6px; display: flex; align-items: center; gap: 4px; }
+.fin-card-sub { font-size: 10px; color: var(--text-dim); margin-top: 4px; }
+.fin-trend-card { grid-column: 1/-1; padding: 16px 20px; background: rgba(255,255,255,0.015); border: 1px solid var(--border); border-radius: var(--radius-lg); margin-bottom: 14px; }
+.fin-trend-title { font-size: 10px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1.3px; font-weight: 600; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center; }
+.fin-src-list { font-size: 11px; color: var(--text-dim); padding: 12px 16px; background: rgba(255,255,255,0.015); border: 1px solid var(--border); border-radius: var(--radius); margin-top: 10px; }
+.fin-src-list a { color: var(--accent-light); text-decoration: none; font-size: 10px; font-family: var(--mono); }
+.fin-src-list a:hover { text-decoration: underline; }
+.fin-src-list-title { font-size: 9px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1.3px; font-weight: 600; margin-bottom: 6px; }
+
+/* Responsive */
+@media (max-width: 900px) {
+  .feed.collapsed { width: 100%; border-right: none; }
+  .detail { position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 100; background: var(--bg-root); }
+  .stats-bar { flex-wrap: wrap; }
+  .stat-card { flex: 1 1 50%; }
+  .brand-grid { grid-template-columns: 1fr; }
+  .quarter-bar { flex-wrap: wrap; }
+  .quarter-meta { margin-left: 0; width: 100%; }
+}
+</style>
+</head>
+<body>
+<div class="ambient ambient-1"></div>
+<div class="ambient ambient-2"></div>
+<div class="ambient ambient-3"></div>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="header-left">
+    <div class="logo">MSCI</div>
+    <div class="logo-text">
+      <h1>Intelligence Command Center</h1>
+      <span>Data Analytics & Insights</span>
+    </div>
+  </div>
+  <div class="header-right">
+    <div class="live-badge"><div class="live-dot"></div> Live Feed</div>
+    <div class="header-date" id="headerDate"></div>
+  </div>
+</header>
+
+<!-- NAV TABS -->
+<div class="nav-tabs" id="navTabs">
+  <div class="nav-tab active" data-section="news"><span class="nav-tab-icon">◉</span> Top News <span class="tab-count" id="tabCountNews">0</span></div>
+  <div class="nav-tab" data-section="clients"><span class="nav-tab-icon">◆</span> Client Activity <span class="tab-count" id="tabCountClients">0</span></div>
+  <div class="nav-tab" data-section="msci"><span class="nav-tab-icon">⚡</span> MSCI Products & Wins <span class="tab-count" id="tabCountMsci">0</span></div>
+  <div class="nav-tab" data-section="brand"><span class="nav-tab-icon">◎</span> Brand Intelligence</div>
+  <div class="nav-tab" data-section="earnings"><span class="nav-tab-icon">📊</span> Top Client Earnings <span class="tab-count" id="tabCountEarnings">0</span></div>
+</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- SECTION 1: COMPETITOR NEWS                 -->
+<!-- ═══════════════════════════════════════════ -->
+<div class="section-panel active" id="sectionNews">
+  <div class="quarter-bar">
+    <span class="quarter-bar-label">Quarter</span>
+    <div class="quarter-toggle" id="quarterToggleNews"></div>
+    <span class="quarter-meta" id="quarterMetaNews"></span>
+  </div>
+  <div class="stats-bar" id="statsBar"></div>
+  <div class="toolbar">
+    <div class="search-box">
+      <span class="search-icon">⌕</span>
+      <input id="searchInput" type="text" placeholder="Search headlines, competitors, or keywords...">
+      <span class="search-clear" id="searchClear" style="display:none;">✕</span>
+    </div>
+    <div class="result-count" id="resultCount"></div>
+  </div>
+  <div class="filter-panel" id="filterPanel"></div>
+  <div class="analytics-panel" id="analyticsPanel">
+    <div class="chart-card" id="chartCardComp"><div class="chart-card-header"><span class="chart-card-title">By competitor</span><span class="chart-filter-badge" id="chartBadgeComp"></span></div><div id="chartCompetitor" style="min-height:100px"></div></div>
+    <div class="chart-card" id="chartCardSent"><div class="chart-card-header"><span class="chart-card-title">Sentiment</span><span class="chart-filter-badge" id="chartBadgeSent"></span></div><div id="chartSentiment" style="min-height:100px"></div></div>
+    <div class="chart-card" id="chartCardImp"><div class="chart-card-header"><span class="chart-card-title">Importance</span><span class="chart-filter-badge" id="chartBadgeImp"></span></div><div id="chartImportance" style="min-height:100px"></div></div>
+    <div class="chart-card" id="chartCardCat"><div class="chart-card-header"><span class="chart-card-title">By category</span><span class="chart-filter-badge" id="chartBadgeCat"></span></div><div id="chartCategory" style="min-height:100px"></div></div>
+  </div>
+  <div class="main">
+    <div class="feed expanded" id="feed"></div>
+    <div class="detail" id="detail" style="display:none;"></div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- SECTION 2: CLIENT ACTIVITY                 -->
+<!-- ═══════════════════════════════════════════ -->
+<div class="section-panel" id="sectionClients">
+  <div class="quarter-bar">
+    <span class="quarter-bar-label">Quarter</span>
+    <div class="quarter-toggle" id="quarterToggleClients"></div>
+    <span class="quarter-meta" id="quarterMetaClients"></span>
+  </div>
+  <div class="stats-bar" id="clientStatsBar"></div>
+  <div class="toolbar">
+    <div class="search-box">
+      <span class="search-icon">⌕</span>
+      <input id="clientSearchInput" type="text" placeholder="Search clients, activities, or opportunities...">
+    </div>
+    <div class="result-count" id="clientResultCount"></div>
+  </div>
+  <div class="main">
+    <div class="feed expanded" id="clientFeed" style="overflow-y:auto"></div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- SECTION 3: MSCI PRODUCTS & WINS            -->
+<!-- ═══════════════════════════════════════════ -->
+<div class="section-panel" id="sectionMsci">
+  <div class="quarter-bar">
+    <span class="quarter-bar-label">Quarter</span>
+    <div class="quarter-toggle" id="quarterToggleMsci"></div>
+    <span class="quarter-meta" id="quarterMetaMsci"></span>
+  </div>
+  <div class="stats-bar" id="msciStatsBar"></div>
+  <div class="sub-tabs" id="msciSubTabs">
+    <div class="sub-tab active" data-sub="products">Products & Launches</div>
+    <div class="sub-tab" data-sub="wins">Client Wins</div>
+    <div class="sub-tab" data-sub="milestones">Milestones</div>
+  </div>
+  <div class="main">
+    <div class="feed expanded" id="msciFeed" style="overflow-y:auto"></div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- SECTION 4: BRAND INTELLIGENCE              -->
+<!-- ═══════════════════════════════════════════ -->
+<div class="section-panel" id="sectionBrand">
+  <div class="quarter-bar">
+    <span class="quarter-bar-label">Quarter</span>
+    <div class="quarter-toggle" id="quarterToggleBrand"></div>
+    <span class="quarter-meta" id="quarterMetaBrand"></span>
+  </div>
+  <div class="brand-grid" id="brandGrid">
+    <div class="brand-card full-width"><div class="brand-card-title">MSCI vs competitors — search interest (90 days)</div><div id="brandTrendChart" style="min-height:160px"></div></div>
+    <div class="brand-card"><div class="brand-card-title">Top 10 searches for MSCI</div><div id="topQueries"></div></div>
+    <div class="brand-card"><div class="brand-card-title">Rising searches (demand signals)</div><div id="risingQueries"></div></div>
+    <div class="brand-card full-width"><div class="brand-card-title">Regional interest</div><div id="regionalInterest"></div></div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- SECTION 5: TOP CLIENT EARNINGS             -->
+<!-- ═══════════════════════════════════════════ -->
+<div class="section-panel" id="sectionEarnings">
+  <div class="quarter-bar">
+    <span class="quarter-bar-label">Quarter</span>
+    <div class="quarter-toggle" id="quarterToggleEarnings"></div>
+    <span class="quarter-meta" id="quarterMetaEarnings"></span>
+  </div>
+  <div class="financials-wrap">
+    <div class="fin-company-tabs" id="finCompanyTabs"></div>
+    <div id="finContent"></div>
+  </div>
+</div>
+
+<script>
+// ═══════════════════════════════════════════════════════════════
+// MSCI INTELLIGENCE COMMAND CENTER — JavaScript Engine
+// ═══════════════════════════════════════════════════════════════
+
+let DATA = [], CLIENT_DATA = [], MSCI_DATA = {products:[],wins:[],milestones:[]}, TRENDS_DATA = {};
+let QUARTERLY_DATA = {quarters:[], companies:{}, current_quarter:null};
+let activeSection = "news";
+let msciSubTab = "products";
+let finCompany = "MSCI";
+
+// ─── STATE ───
+let state = {
+  selected: null, search: "", detailTab: "sectors",
+  filterComp: "All", filterCat: "All", filterImp: "All",
+  filterImpact: "All", filterSentiment: "All",
+  filterDateFrom: "", filterDateTo: "",
+  // Per-section quarter filters. "All" = no quarter filter.
+  quarterNews: "All", quarterClients: "All", quarterMsci: "All",
+  quarterBrand: "All", quarterEarnings: null,
+};
+
+// ─── SAMPLE DATA (fallback) ───
+const SAMPLE_DATA = [
+  {id:1,title:"S&P Global Launches AI-Powered ESG Scoring Platform",competitor:"S&P Global",segment:"Indices / Ratings / Data",source:"Reuters",published:"2026-04-17T14:30:00Z",summary:"S&P Global unveiled a new AI-driven ESG scoring platform.",category:"Technology / AI",region:"Global",sentiment:"Negative",confidence:0.78,word_count:1240,reading_time:"5 min",url:"#",importance:"Critical",impact_level:"High",sector_impact:[{sector:"ESG & Climate",direction:"negative",magnitude:"High",note:"Direct competition to MSCI ESG Ratings"}],stock_impact:[{ticker:"SPGI",direction:"positive",note:"Revenue expansion"},{ticker:"MSCI",direction:"negative",note:"Competitive pressure"}],msci_impact:"S&P's AI ESG platform directly competes with MSCI ESG Ratings.",what_to_watch:"Track client adoption and MSCI's AI roadmap response."},
+  {id:2,title:"Bloomberg Acquires Climate Analytics Startup for $2.1B",competitor:"Bloomberg",segment:"Data / Analytics / Indices",source:"Financial Times",published:"2026-04-17T09:15:00Z",summary:"Bloomberg agreed to acquire ClimateLens for $2.1 billion.",category:"M&A / Partnerships",region:"US",sentiment:"Negative",confidence:0.85,word_count:980,reading_time:"4 min",url:"#",importance:"Critical",impact_level:"High",sector_impact:[{sector:"ESG & Climate",direction:"negative",magnitude:"High",note:"Bloomberg building integrated climate analytics"}],stock_impact:[{ticker:"MSCI",direction:"negative",note:"Competitive threat to Climate Solutions"}],msci_impact:"Bloomberg's $2.1B climate bet signals aggressive expansion.",what_to_watch:"Watch for regulatory approvals and integration timeline."},
+];
+
+const COMPETITORS = ["S&P Global","FTSE Russell","Bloomberg","Morningstar","FactSet","Moody's","London Stock Exchange Group","Refinitiv","ISS","Qontigo","Verisk","Intercontinental Exchange"];
+const CATEGORIES = ["Technology / AI","M&A / Partnerships","ESG / Sustainability","Indices / Benchmarks","Earnings / Financials","Product Launch","Client Wins / Market Share","Regulation / Compliance","Leadership / Talent","Market Data / Analytics"];
+const IMPORTANCE_LEVELS = ["Critical","High","Medium","Low"];
+const IMPACT_LEVELS = ["High","Medium","Low"];
+
+// ─── HELPERS ───
+function timeAgo(d) { const h=Math.floor((Date.now()-new Date(d))/3600000); if(h<1)return"Just now"; if(h<24)return h+"h ago"; const days=Math.floor(h/24); return days===1?"Yesterday":days+"d ago"; }
+function sentimentColor(s) { return{Positive:"#22c55e",Negative:"#ef4444",Mixed:"#f59e0b",Neutral:"#94a3b8"}[s]||"#94a3b8"; }
+function dirIcon(d) { return{positive:"▲",negative:"▼",neutral:"●"}[d]||"●"; }
+function dirColor(d) { return{positive:"#22c55e",negative:"#ef4444",neutral:"#94a3b8"}[d]||"#94a3b8"; }
+function impColor(i) { return{Critical:"#ef4444",High:"#f59e0b",Medium:"#60a5fa",Low:"#94a3b8"}[i]||"#94a3b8"; }
+function impBg(i) { return{Critical:"rgba(239,68,68,0.12)",High:"rgba(245,158,11,0.12)",Medium:"rgba(59,130,246,0.1)",Low:"rgba(100,116,139,0.08)"}[i]||"rgba(100,116,139,0.08)"; }
+function esc(s) { if(!s)return""; const d=document.createElement("div"); d.textContent=s; return d.innerHTML; }
+function oppColor(o) { return{Upsell:"#22c55e","Cross-sell":"#14b8a6",Defend:"#f59e0b","New Client":"#8b5cf6",Monitor:"#94a3b8"}[o]||"#94a3b8"; }
+function oppBg(o) { return{Upsell:"rgba(34,197,94,0.1)","Cross-sell":"rgba(20,184,166,0.1)",Defend:"rgba(245,158,11,0.1)","New Client":"rgba(139,92,246,0.1)",Monitor:"rgba(100,116,139,0.08)"}[o]||"rgba(100,116,139,0.08)"; }
+
+// ─── DATA LOADERS ───
+async function loadAllData() {
+  // News
+  try { const r=await fetch("data/top_news.json?t="+Date.now()); if(r.ok){const j=await r.json();DATA=j.articles||[];console.log("✓ Top News:",DATA.length);} } catch(e){ DATA=SAMPLE_DATA; }
+  // Client Activity
+  try { const r=await fetch("data/client_activity.json?t="+Date.now()); if(r.ok){const j=await r.json();CLIENT_DATA=j.activities||[];console.log("✓ Client Activity:",CLIENT_DATA.length);} } catch(e){ CLIENT_DATA=[]; }
+  // MSCI Products & Wins
+  try { const r=await fetch("data/msci_products_wins.json?t="+Date.now()); if(r.ok){const j=await r.json();MSCI_DATA={products:j.products||[],wins:j.wins||[],milestones:j.milestones||[]};console.log("✓ MSCI Products & Wins:",MSCI_DATA.products.length+MSCI_DATA.wins.length+MSCI_DATA.milestones.length);} } catch(e){ MSCI_DATA={products:[],wins:[],milestones:[]}; }
+  // Brand Intelligence
+  try { const r=await fetch("data/brand_intelligence.json?t="+Date.now()); if(r.ok){TRENDS_DATA=await r.json();console.log("✓ Brand Intelligence loaded");} } catch(e){ TRENDS_DATA={}; }
+  // Top Client Earnings (quarterly financials)
+  try { const r=await fetch("data/top_client_earnings.json?t="+Date.now()); if(r.ok){QUARTERLY_DATA=await r.json();console.log("✓ Top Client Earnings:",(QUARTERLY_DATA.quarters||[]).length,"quarters");} } catch(e){ QUARTERLY_DATA={quarters:[],companies:{},current_quarter:null}; }
+
+  // Default each section's quarter to the current quarter once data is loaded
+  if (QUARTERLY_DATA.current_quarter && state.quarterEarnings===null) state.quarterEarnings = QUARTERLY_DATA.current_quarter;
+
+  updateTabCounts();
+  renderActiveSection();
+}
+
+// ─── QUARTER HELPERS ───
+function dateToQuarter(iso) {
+  if (!iso) return null;
+  const d = new Date(iso);
+  if (isNaN(d)) return null;
+  return "Q" + (Math.floor(d.getMonth()/3)+1) + " " + d.getFullYear();
+}
+function itemMatchesQuarter(item, quarter, dateField) {
+  if (!quarter || quarter === "All") return true;
+  const q = dateToQuarter(item[dateField||"published"]);
+  return q === quarter;
+}
+function fmtUsd(v) {
+  if (v === null || v === undefined) return null;
+  const abs = Math.abs(v);
+  if (abs >= 1e12) return "$" + (v/1e12).toFixed(2) + "T";
+  if (abs >= 1e9)  return "$" + (v/1e9).toFixed(2)  + "B";
+  if (abs >= 1e6)  return "$" + (v/1e6).toFixed(1)  + "M";
+  if (abs >= 1e3)  return "$" + (v/1e3).toFixed(1)  + "K";
+  return "$" + v.toFixed(0);
+}
+function fmtPct(v) { return v===null||v===undefined?null:(v>0?"+":"")+v.toFixed(2)+"%"; }
+function deltaColor(v) { if (v===null||v===undefined) return "var(--text-dim)"; return v>0?"#22c55e":v<0?"#ef4444":"#94a3b8"; }
+function deltaArrow(v) { if (v===null||v===undefined) return ""; return v>0?"▲":v<0?"▼":"●"; }
+
+// Render a quarter-pill toggle into a given container element
+function renderQuarterToggle(containerId, stateKey, onChange, {includeAll = true} = {}) {
+  const c = document.getElementById(containerId);
+  if (!c) return;
+  const quarters = QUARTERLY_DATA.quarters || [];
+  if (!quarters.length) { c.innerHTML = '<span style="font-size:10px;color:var(--text-dim);padding:4px 8px">No quarters loaded yet</span>'; return; }
+  const selected = state[stateKey];
+  let html = "";
+  if (includeAll) html += `<div class="quarter-pill all ${selected==="All"?"active":""}" data-q="All">All</div>`;
+  for (const q of quarters) html += `<div class="quarter-pill ${selected===q?"active":""}" data-q="${q}">${q}</div>`;
+  c.innerHTML = html;
+  c.querySelectorAll(".quarter-pill").forEach(p=>{
+    p.addEventListener("click",()=>{ state[stateKey] = p.dataset.q; if (onChange) onChange(); });
+  });
+}
+
+function updateTabCounts() {
+  document.getElementById("tabCountNews").textContent = DATA.length;
+  document.getElementById("tabCountClients").textContent = CLIENT_DATA.length;
+  const msciTotal = (MSCI_DATA.products?.length||0)+(MSCI_DATA.wins?.length||0)+(MSCI_DATA.milestones?.length||0);
+  document.getElementById("tabCountMsci").textContent = msciTotal;
+  const earningsCount = Object.keys(QUARTERLY_DATA.companies||{}).length;
+  const earningsEl = document.getElementById("tabCountEarnings");
+  if (earningsEl) earningsEl.textContent = earningsCount;
+}
+
+// ─── SECTION NAVIGATION ───
+document.getElementById("navTabs").addEventListener("click", e => {
+  const tab = e.target.closest(".nav-tab");
+  if (!tab) return;
+  activeSection = tab.dataset.section;
+  document.querySelectorAll(".nav-tab").forEach(t => t.classList.toggle("active", t.dataset.section === activeSection));
+  document.querySelectorAll(".section-panel").forEach(p => p.classList.remove("active"));
+  const sectionMap = {news:"sectionNews",clients:"sectionClients",msci:"sectionMsci",brand:"sectionBrand",earnings:"sectionEarnings"};
+  document.getElementById(sectionMap[activeSection])?.classList.add("active");
+  renderActiveSection();
+});
+
+function renderActiveSection() {
+  document.getElementById("headerDate").textContent = new Date().toLocaleDateString("en-US",{weekday:"short",month:"short",day:"numeric"});
+  if (activeSection === "news") renderNews();
+  else if (activeSection === "clients") renderClients();
+  else if (activeSection === "msci") renderMsci();
+  else if (activeSection === "brand") renderBrand();
+  else if (activeSection === "earnings") renderEarnings();
+}
+
+// ─── FILTERING ───
+function getFiltered() {
+  return DATA.filter(item => {
+    if(!itemMatchesQuarter(item,state.quarterNews,"published"))return false;
+    if(state.search){const q=state.search.toLowerCase();if(!item.title.toLowerCase().includes(q)&&!item.competitor.toLowerCase().includes(q)&&!(item.summary||"").toLowerCase().includes(q))return false;}
+    if(state.filterComp!=="All"&&item.competitor!==state.filterComp)return false;
+    if(state.filterCat!=="All"&&!item.category.includes(state.filterCat))return false;
+    if(state.filterImp!=="All"&&item.importance!==state.filterImp)return false;
+    if(state.filterImpact!=="All"&&item.impact_level!==state.filterImpact)return false;
+    if(state.filterSentiment!=="All"&&item.sentiment!==state.filterSentiment)return false;
+    if(state.filterDateFrom){const d=new Date(item.published).toISOString().split("T")[0];if(d<state.filterDateFrom)return false;}
+    if(state.filterDateTo){const d=new Date(item.published).toISOString().split("T")[0];if(d>state.filterDateTo)return false;}
+    return true;
+  }).sort((a,b)=>new Date(b.published)-new Date(a.published));
+}
+
+function getFilteredExcept(excludeKey) {
+  return DATA.filter(item => {
+    if(!itemMatchesQuarter(item,state.quarterNews,"published"))return false;
+    if(state.search){const q=state.search.toLowerCase();if(!item.title.toLowerCase().includes(q)&&!item.competitor.toLowerCase().includes(q)&&!(item.summary||"").toLowerCase().includes(q))return false;}
+    if(excludeKey!=="filterComp"&&state.filterComp!=="All"&&item.competitor!==state.filterComp)return false;
+    if(excludeKey!=="filterCat"&&state.filterCat!=="All"&&!item.category.includes(state.filterCat))return false;
+    if(excludeKey!=="filterImp"&&state.filterImp!=="All"&&item.importance!==state.filterImp)return false;
+    if(excludeKey!=="filterImpact"&&state.filterImpact!=="All"&&item.impact_level!==state.filterImpact)return false;
+    if(excludeKey!=="filterSentiment"&&state.filterSentiment!=="All"&&item.sentiment!==state.filterSentiment)return false;
+    if(state.filterDateFrom){const d=new Date(item.published).toISOString().split("T")[0];if(d<state.filterDateFrom)return false;}
+    if(state.filterDateTo){const d=new Date(item.published).toISOString().split("T")[0];if(d>state.filterDateTo)return false;}
+    return true;
+  });
+}
+
+function getActiveFilterCount() {
+  return[state.filterComp,state.filterCat,state.filterImp,state.filterImpact,state.filterSentiment].filter(f=>f!=="All").length+(state.filterDateFrom?1:0)+(state.filterDateTo?1:0);
+}
+
+// ═══════════════════════════════════════════════
+// RENDER: COMPETITOR NEWS (Section 1)
+// ═══════════════════════════════════════════════
+function renderNews() {
+  // Quarter toggle
+  renderQuarterToggle("quarterToggleNews","quarterNews",()=>renderNews());
+  const qFiltered = state.quarterNews==="All" ? DATA : DATA.filter(a=>itemMatchesQuarter(a,state.quarterNews,"published"));
+  document.getElementById("quarterMetaNews").textContent = `${qFiltered.length} of ${DATA.length} articles in ${state.quarterNews==="All"?"all quarters":state.quarterNews}`;
+
+  // Stats — scoped to the selected quarter
+  const critical=qFiltered.filter(d=>d.importance==="Critical").length;
+  const negative=qFiltered.filter(d=>d.sentiment==="Negative").length;
+  const comps=new Set(qFiltered.map(d=>d.competitor)).size;
+  document.getElementById("statsBar").innerHTML=[
+    {label:"Total alerts",value:qFiltered.length,color:"#60a5fa",icon:"◉"},
+    {label:"Critical",value:critical,color:"#ef4444",icon:"⚠"},
+    {label:"Negative",value:negative,color:"#f59e0b",icon:"▼"},
+    {label:"Competitors",value:comps,color:"#8b5cf6",icon:"◆"}
+  ].map(s=>`<div class="stat-card"><div class="stat-icon">${s.icon}</div><div><div class="stat-value" style="color:${s.color}">${s.value}</div><div class="stat-label">${s.label}</div></div></div>`).join("");
+
+  // Filters
+  const ac=getActiveFilterCount();
+  const fp=document.getElementById("filterPanel");
+  fp.innerHTML=`
+    <div class="filter-group"><span class="filter-label">Competitor</span><select class="filter-select" data-filter="comp"><option value="All">All</option>${COMPETITORS.map(c=>`<option value="${esc(c)}" ${state.filterComp===c?"selected":""}>${esc(c)}</option>`).join("")}</select></div>
+    <div class="filter-group"><span class="filter-label">Category</span><select class="filter-select" data-filter="cat"><option value="All">All</option>${CATEGORIES.map(c=>`<option value="${esc(c)}" ${state.filterCat===c?"selected":""}>${esc(c)}</option>`).join("")}</select></div>
+    <div class="filter-group"><span class="filter-label">Importance</span><select class="filter-select" data-filter="imp"><option value="All">All</option>${IMPORTANCE_LEVELS.map(c=>`<option value="${c}" ${state.filterImp===c?"selected":""}>${c}</option>`).join("")}</select></div>
+    <div class="filter-group"><span class="filter-label">Impact</span><select class="filter-select" data-filter="impact"><option value="All">All</option>${IMPACT_LEVELS.map(c=>`<option value="${c}" ${state.filterImpact===c?"selected":""}>${c}</option>`).join("")}</select></div>
+    <div class="filter-group"><span class="filter-label">Date from</span><input type="date" class="filter-date" data-filter="dateFrom" value="${state.filterDateFrom}"></div>
+    <div class="filter-group"><span class="filter-label">Date to</span><input type="date" class="filter-date" data-filter="dateTo" value="${state.filterDateTo}"></div>
+    ${ac>0?`<button class="clear-btn" id="clearFilters">Clear all</button>`:""}`;
+  fp.querySelectorAll(".filter-select").forEach(sel=>{sel.addEventListener("change",e=>{const f=e.target.dataset.filter;if(f==="comp")state.filterComp=e.target.value;if(f==="cat")state.filterCat=e.target.value;if(f==="imp")state.filterImp=e.target.value;if(f==="impact")state.filterImpact=e.target.value;renderNews();});});
+  fp.querySelectorAll(".filter-date").forEach(inp=>{inp.addEventListener("change",e=>{if(e.target.dataset.filter==="dateFrom")state.filterDateFrom=e.target.value;if(e.target.dataset.filter==="dateTo")state.filterDateTo=e.target.value;renderNews();});});
+  const cb=document.getElementById("clearFilters");
+  if(cb)cb.addEventListener("click",()=>{state.filterComp="All";state.filterCat="All";state.filterImp="All";state.filterImpact="All";state.filterSentiment="All";state.filterDateFrom="";state.filterDateTo="";renderNews();});
+
+  // Search
+  const sc=document.getElementById("searchClear");
+  sc.style.display=state.search?"block":"none";
+
+  // Charts
+  renderCharts();
+
+  // Feed
+  const filtered=getFiltered();
+  document.getElementById("resultCount").textContent=`${filtered.length} of ${DATA.length} stories`;
+  const feed=document.getElementById("feed");
+  feed.className="feed "+(state.selected?"collapsed":"expanded");
+  if(!filtered.length){
+    feed.innerHTML=`<div class="feed-empty"><div class="feed-empty-icon">⊘</div><div class="feed-empty-title">No stories match your filters</div><div class="feed-empty-sub">Try adjusting your search or filter criteria</div></div>`;
+  } else {
+    feed.innerHTML=filtered.map(item=>`
+      <div class="news-card ${state.selected?.id===item.id?"selected":""}" data-id="${item.id}">
+        <div class="news-card-top">
+          <div class="news-card-badges">
+            <span class="badge-competitor">${esc(item.competitor)}</span>
+            <span class="badge-importance" style="color:${impColor(item.importance)};background:${impBg(item.importance)}">${item.importance}</span>
+          </div>
+          <span class="news-card-time">${timeAgo(item.published)}</span>
+        </div>
+        <div class="news-card-headline">${esc(item.title)}</div>
+        <div class="news-card-meta">
+          <span>${esc(item.source)}</span><span class="meta-dot">·</span>
+          <span>${esc(item.category)}</span><span class="meta-dot">·</span>
+          <span style="color:${sentimentColor(item.sentiment)}">${dirIcon(item.sentiment==="Positive"?"positive":item.sentiment==="Negative"?"negative":"neutral")} ${item.sentiment}</span><span class="meta-dot">·</span>
+          <span class="meta-impact" style="color:${impColor(item.impact_level)};background:${impBg(item.impact_level)}">Impact: ${item.impact_level}</span>
+        </div>
+        <div class="news-card-date">${new Date(item.published).toLocaleDateString("en-US",{weekday:"short",month:"short",day:"numeric",year:"numeric",hour:"2-digit",minute:"2-digit"})}</div>
+      </div>`).join("");
+    feed.querySelectorAll(".news-card").forEach(card=>{card.addEventListener("click",()=>{const id=card.dataset.id;state.selected=DATA.find(d=>String(d.id)===id);state.detailTab="sectors";renderNews();});});
+  }
+
+  // Detail panel
+  const detail=document.getElementById("detail");
+  if(!state.selected){detail.style.display="none";return;}
+  detail.style.display="block";
+  const s=state.selected;
+  detail.innerHTML=`
+    <button class="detail-close" id="detailClose">✕</button>
+    <div class="detail-inner">
+      <div class="detail-badges">
+        <span class="detail-badge" style="color:var(--purple-light);background:rgba(139,92,246,0.12)">${esc(s.competitor)}</span>
+        <span class="detail-badge" style="color:${impColor(s.importance)};background:${impBg(s.importance)};text-transform:uppercase;letter-spacing:0.6px;font-size:10px;">${s.importance}</span>
+        <span class="detail-badge" style="color:${sentimentColor(s.sentiment)};background:${sentimentColor(s.sentiment)}18">${s.sentiment} (${Math.round((s.confidence||0.5)*100)}%)</span>
+      </div>
+      <h2 class="detail-headline">${esc(s.title)}</h2>
+      <div class="detail-meta">
+        <span>${esc(s.source)}</span>
+        <span>${new Date(s.published).toLocaleDateString("en-US",{month:"short",day:"numeric",year:"numeric",hour:"2-digit",minute:"2-digit"})}</span>
+        <span>${s.reading_time||"N/A"}</span>
+        <span>${esc(s.region||"Global")}</span>
+        <span class="detail-meta-cat">${esc(s.category)}</span>
+      </div>
+      <div class="detail-summary">${esc(s.summary||"Summary not available.")}</div>
+      <div class="tabs">
+        <button class="tab ${state.detailTab==="sectors"?"active":""}" data-tab="sectors">◉ Sector impact</button>
+        <button class="tab ${state.detailTab==="stocks"?"active":""}" data-tab="stocks">◆ Stock impact</button>
+        <button class="tab ${state.detailTab==="msci"?"active":""}" data-tab="msci">⚡ MSCI impact</button>
+      </div>
+      <div id="tabContent"></div>
+      <div class="detail-source"><a href="${s.url}" target="_blank" rel="noopener noreferrer">Read original article →</a></div>
+    </div>`;
+  renderTabContent(s);
+  document.getElementById("detailClose").addEventListener("click",()=>{state.selected=null;renderNews();});
+  detail.querySelectorAll(".tab").forEach(tab=>{tab.addEventListener("click",()=>{state.detailTab=tab.dataset.tab;detail.querySelectorAll(".tab").forEach(t=>t.className="tab"+(t.dataset.tab===state.detailTab?" active":""));renderTabContent(s);});});
+  detail.scrollTo({top:0,behavior:"smooth"});
+}
+
+function renderTabContent(s) {
+  const tc=document.getElementById("tabContent");
+  if(state.detailTab==="sectors"){
+    const si=s.sector_impact||[];
+    tc.innerHTML=`<div class="impact-list">${si.map(si=>`<div class="sector-card" style="border-left-color:${dirColor(si.direction)}"><div class="sector-top"><div class="sector-name-row"><span class="sector-arrow" style="color:${dirColor(si.direction)}">${dirIcon(si.direction)}</span><span class="sector-name">${esc(si.sector)}</span></div><span class="sector-magnitude" style="color:${impColor(si.magnitude)};background:${impBg(si.magnitude)}">${si.magnitude}</span></div><div class="sector-note">${esc(si.note)}</div></div>`).join("")||'<div style="color:var(--text-dim);padding:20px;text-align:center">No sector impact data available</div>'}</div>`;
+  } else if(state.detailTab==="stocks"){
+    const si=s.stock_impact||[];
+    tc.innerHTML=`<div class="impact-list">${si.map(si=>`<div class="stock-card"><div class="stock-ticker" style="color:${dirColor(si.direction)}">${dirIcon(si.direction)} ${esc(si.ticker)}</div><div class="stock-note">${esc(si.note)}</div></div>`).join("")||'<div style="color:var(--text-dim);padding:20px;text-align:center">No stock impact data available</div>'}</div>`;
+  } else {
+    tc.innerHTML=`<div class="msci-card"><div class="msci-header"><span class="msci-header-icon">⚡</span><span class="msci-header-label">MSCI business impact</span></div><div class="msci-body">${esc(s.msci_impact||"No impact assessment available.")}</div>${s.what_to_watch?`<div style="margin-top:12px;padding:12px;background:rgba(20,184,166,0.05);border:1px solid rgba(20,184,166,0.1);border-radius:8px"><div style="font-size:11px;font-weight:600;color:#14b8a6;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px">What to watch</div><div style="font-size:13px;color:var(--text-secondary);line-height:1.6">${esc(s.what_to_watch)}</div></div>`:""}<div class="msci-disclaimer"><span style="font-size:14px">⚠</span><span>Auto-generated assessment. Validate with domain experts.</span></div></div>`;
+  }
+}
+
+// ─── CHARTS (pure SVG/HTML) ───
+function renderCharts() {
+  if(!DATA.length) return;
+  function barChart(id,data,color,filterKey) {
+    const el=document.getElementById(id);if(!el)return;
+    const max=Math.max(...data.map(d=>d.value),1);
+    const hasActive=state[filterKey]&&state[filterKey]!=="All";
+    el.innerHTML=data.slice(0,7).map(d=>{
+      const pct=Math.round((d.value/max)*100);
+      const isActive=state[filterKey]===d.fullLabel;
+      const barColor=hasActive?(isActive?color:"rgba(255,255,255,0.06)"):color;
+      const labelColor=hasActive&&!isActive?"#475569":"#94a3b8";
+      return`<div class="chart-bar-row" data-fk="${filterKey}" data-v="${esc(d.fullLabel)}" style="display:flex;align-items:center;gap:6px;margin-bottom:3px;padding:3px 6px;border-radius:5px;cursor:pointer;background:${isActive?"rgba(59,130,246,0.08)":"transparent"};border:1px solid ${isActive?"rgba(59,130,246,0.25)":"transparent"};transition:all 0.15s">
+        <div style="width:80px;font-size:10px;color:${isActive?"#f1f5f9":labelColor};text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex-shrink:0;font-weight:${isActive?"600":"400"}">${esc(d.label)}</div>
+        <div style="flex:1;height:12px;background:rgba(255,255,255,0.04);border-radius:3px;overflow:hidden"><div style="width:${pct}%;height:100%;background:${barColor};border-radius:3px;transition:width 0.4s"></div></div>
+        <div style="width:20px;font-size:10px;color:${hasActive&&!isActive?"#334155":"#64748b"};font-family:var(--mono);text-align:right">${d.value}</div>
+      </div>`;
+    }).join("");
+    el.querySelectorAll(".chart-bar-row").forEach(row=>{
+      row.addEventListener("click",()=>{const k=row.dataset.fk,v=row.dataset.v;state[k]=state[k]===v?"All":v;renderNews();});
+      row.addEventListener("mouseenter",()=>{if(state[row.dataset.fk]!==row.dataset.v)row.style.background="rgba(255,255,255,0.03)";});
+      row.addEventListener("mouseleave",()=>{if(state[row.dataset.fk]!==row.dataset.v)row.style.background="transparent";});
+    });
+  }
+  function doughnutChart(id,data,filterKey) {
+    const el=document.getElementById(id);if(!el)return;
+    const total=data.reduce((s,d)=>s+d.value,0);
+    if(!total){el.innerHTML='<div style="font-size:11px;color:#475569;text-align:center;padding:24px">No data</div>';return;}
+    const r=38,cx=48,cy=48,gap=0.04;let cum=0;
+    const activeLabel=state[filterKey];
+    const paths=data.filter(d=>d.value>0).map(d=>{
+      const frac=d.value/total;const sa=cum*2*Math.PI-Math.PI/2+gap;cum+=frac;const ea=cum*2*Math.PI-Math.PI/2-gap;
+      const x1=cx+r*Math.cos(sa),y1=cy+r*Math.sin(sa),x2=cx+r*Math.cos(ea),y2=cy+r*Math.sin(ea);
+      const lg=frac>0.5?1:0;const isA=activeLabel===d.label;const op=(activeLabel&&activeLabel!=="All"&&!isA)?"0.25":"0.85";
+      return`<path d="M${cx} ${cy} L${x1} ${y1} A${r} ${r} 0 ${lg} 1 ${x2} ${y2} Z" fill="${d.color}" opacity="${op}" style="cursor:pointer" data-l="${esc(d.label)}"/>`;
+    }).join("");
+    const legend=data.filter(d=>d.value>0).map(d=>{
+      const isA=activeLabel===d.label;const tc=(activeLabel&&activeLabel!=="All"&&!isA)?"#475569":"#94a3b8";
+      return`<div class="chart-legend-item" data-l="${esc(d.label)}" style="display:flex;align-items:center;gap:4px;font-size:10px;color:${tc};cursor:pointer;padding:1px 3px;border-radius:3px;${isA?"background:rgba(255,255,255,0.06)":""}"><div style="width:7px;height:7px;border-radius:2px;background:${d.color};flex-shrink:0"></div>${esc(d.label)} <span style="color:#64748b;font-family:var(--mono)">${d.value}</span></div>`;
+    }).join("");
+    el.innerHTML=`<div style="display:flex;align-items:center;gap:10px"><svg width="96" height="96" viewBox="0 0 96 96">${paths}<circle cx="${cx}" cy="${cy}" r="22" fill="#0a0e18"/><text x="${cx}" y="${cy+1}" text-anchor="middle" dominant-baseline="central" fill="#f1f5f9" font-size="13" font-weight="700" font-family="var(--mono)">${total}</text></svg><div style="display:flex;flex-direction:column;gap:3px">${legend}</div></div>`;
+    el.querySelectorAll("path[data-l]").forEach(p=>{p.addEventListener("click",()=>{const v=p.dataset.l;state[filterKey]=state[filterKey]===v?"All":v;renderNews();});});
+    el.querySelectorAll(".chart-legend-item").forEach(i=>{i.addEventListener("click",()=>{const v=i.dataset.l;state[filterKey]=state[filterKey]===v?"All":v;renderNews();});});
+  }
+  // Cross-filtered data
+  const compF=getFilteredExcept("filterComp");
+  const cc={};compF.forEach(a=>cc[a.competitor]=(cc[a.competitor]||0)+1);
+  barChart("chartCompetitor",Object.entries(cc).sort((a,b)=>b[1]-a[1]).map(([k,v])=>({label:k.length>13?k.slice(0,13)+"…":k,fullLabel:k,value:v})),"#3b82f6","filterComp");
+
+  const sentF=getFilteredExcept("filterSentiment");
+  const sc2={Positive:0,Negative:0,Mixed:0,Neutral:0};sentF.forEach(a=>sc2[a.sentiment]=(sc2[a.sentiment]||0)+1);
+  doughnutChart("chartSentiment",[{label:"Positive",value:sc2.Positive,color:"#22c55e"},{label:"Negative",value:sc2.Negative,color:"#ef4444"},{label:"Mixed",value:sc2.Mixed,color:"#f59e0b"},{label:"Neutral",value:sc2.Neutral,color:"#64748b"}],"filterSentiment");
+
+  const impF=getFilteredExcept("filterImp");
+  const ic={Critical:0,High:0,Medium:0,Low:0};impF.forEach(a=>ic[a.importance]=(ic[a.importance]||0)+1);
+  doughnutChart("chartImportance",[{label:"Critical",value:ic.Critical,color:"#ef4444"},{label:"High",value:ic.High,color:"#f59e0b"},{label:"Medium",value:ic.Medium,color:"#60a5fa"},{label:"Low",value:ic.Low,color:"#94a3b8"}],"filterImp");
+
+  const catF=getFilteredExcept("filterCat");
+  const xc={};catF.forEach(a=>{const p=a.category.split(" / ")[0];xc[p]=(xc[p]||0)+1;});
+  barChart("chartCategory",Object.entries(xc).sort((a,b)=>b[1]-a[1]).map(([k,v])=>({label:k.length>14?k.slice(0,14)+"…":k,fullLabel:k,value:v})),"#8b5cf6","filterCat");
+
+  // Badges
+  function setBadge(bid,cid,fk){const b=document.getElementById(bid),c=document.getElementById(cid),v=state[fk];if(b&&c){if(v&&v!=="All"){b.className="chart-filter-badge active";b.innerHTML=esc(v)+' <span style="font-size:11px;opacity:0.7">✕</span>';b.onclick=()=>{state[fk]="All";renderNews();};c.classList.add("filtering");}else{b.className="chart-filter-badge";b.innerHTML="";c.classList.remove("filtering");}}}
+  setBadge("chartBadgeComp","chartCardComp","filterComp");
+  setBadge("chartBadgeSent","chartCardSent","filterSentiment");
+  setBadge("chartBadgeImp","chartCardImp","filterImp");
+  setBadge("chartBadgeCat","chartCardCat","filterCat");
+}
+
+// ═══════════════════════════════════════════════
+// RENDER: CLIENT ACTIVITY (Section 2)
+// ═══════════════════════════════════════════════
+function renderClients() {
+  // Quarter toggle
+  renderQuarterToggle("quarterToggleClients","quarterClients",()=>renderClients());
+  const qScoped = state.quarterClients==="All" ? CLIENT_DATA : CLIENT_DATA.filter(a=>itemMatchesQuarter(a,state.quarterClients,"published"));
+  document.getElementById("quarterMetaClients").textContent = `${qScoped.length} of ${CLIENT_DATA.length} activities in ${state.quarterClients==="All"?"all quarters":state.quarterClients}`;
+
+  const searchVal=(document.getElementById("clientSearchInput")?.value||"").toLowerCase();
+  const filtered=qScoped.filter(a=>{
+    if(searchVal&&!a.title.toLowerCase().includes(searchVal)&&!a.client.toLowerCase().includes(searchVal))return false;
+    return true;
+  }).sort((a,b)=>new Date(b.published)-new Date(a.published));
+
+  // Stats — scoped to the selected quarter
+  const linked=qScoped.filter(d=>d.msci_linked).length;
+  const highPri=qScoped.filter(d=>d.priority==="Critical"||d.priority==="High").length;
+  const clients=new Set(qScoped.map(d=>d.client)).size;
+  document.getElementById("clientStatsBar").innerHTML=[
+    {label:"Activities",value:qScoped.length,color:"#14b8a6",icon:"◆"},
+    {label:"MSCI-linked",value:linked,color:"#22c55e",icon:"◉"},
+    {label:"High priority",value:highPri,color:"#f59e0b",icon:"⚠"},
+    {label:"Clients tracked",value:clients,color:"#8b5cf6",icon:"◎"}
+  ].map(s=>`<div class="stat-card"><div class="stat-icon">${s.icon}</div><div><div class="stat-value" style="color:${s.color}">${s.value}</div><div class="stat-label">${s.label}</div></div></div>`).join("");
+
+  document.getElementById("clientResultCount").textContent=`${filtered.length} activities`;
+
+  const feed=document.getElementById("clientFeed");
+  if(!filtered.length){
+    feed.innerHTML=`<div class="feed-empty"><div class="feed-empty-icon">◆</div><div class="feed-empty-title">No client activity data yet</div><div class="feed-empty-sub">Data will appear after the next scraper run</div></div>`;
+    return;
+  }
+  feed.innerHTML=filtered.map(a=>`
+    <div class="client-card">
+      <div class="client-card-badges">
+        <span class="badge-client">${esc(a.client)}</span>
+        <span class="badge-activity">${esc(a.activity_type||"General")}</span>
+        ${a.msci_linked?`<span class="badge-msci-linked">MSCI ✓</span>`:""}
+        <span class="badge-opp" style="color:${oppColor(a.opportunity_type)};background:${oppBg(a.opportunity_type)}">${esc(a.opportunity_type||"Monitor")}</span>
+        <span class="badge-importance" style="color:${impColor(a.priority)};background:${impBg(a.priority)}">${a.priority||"Medium"}</span>
+      </div>
+      <div class="client-headline">${esc(a.title)}</div>
+      <div class="client-meta">${esc(a.source||"")} · ${esc(a.client_type||"")} ${a.deal_value&&a.deal_value!=="N/A"?` · <strong>${esc(a.deal_value)}</strong>`:""} ${a.msci_product&&a.msci_product!=="N/A"?` · ${esc(a.msci_product)}`:""}</div>
+      ${a.opportunity_signal?`<div class="client-signal">💡 ${esc(a.opportunity_signal)}</div>`:""}
+      <div class="client-date">${a.published?new Date(a.published).toLocaleDateString("en-US",{weekday:"short",month:"short",day:"numeric",year:"numeric"}):"N/A"}</div>
+    </div>`).join("");
+}
+
+// ═══════════════════════════════════════════════
+// RENDER: MSCI PRODUCTS & WINS (Section 3)
+// ═══════════════════════════════════════════════
+function renderMsci() {
+  // Quarter toggle
+  renderQuarterToggle("quarterToggleMsci","quarterMsci",()=>renderMsci());
+  const filterByQ = (arr) => state.quarterMsci==="All" ? (arr||[]) : (arr||[]).filter(a=>itemMatchesQuarter(a,state.quarterMsci,"published"));
+  const qProducts = filterByQ(MSCI_DATA.products);
+  const qWins = filterByQ(MSCI_DATA.wins);
+  const qMilestones = filterByQ(MSCI_DATA.milestones);
+  const totalAll = (MSCI_DATA.products?.length||0)+(MSCI_DATA.wins?.length||0)+(MSCI_DATA.milestones?.length||0);
+  const totalQ = qProducts.length+qWins.length+qMilestones.length;
+  document.getElementById("quarterMetaMsci").textContent = `${totalQ} of ${totalAll} items in ${state.quarterMsci==="All"?"all quarters":state.quarterMsci}`;
+
+  const totalP=qProducts.length,totalW=qWins.length,totalM=qMilestones.length;
+  document.getElementById("msciStatsBar").innerHTML=[
+    {label:"Products",value:totalP,color:"#ec4899",icon:"⚡"},
+    {label:"Client wins",value:totalW,color:"#22c55e",icon:"◉"},
+    {label:"Milestones",value:totalM,color:"#60a5fa",icon:"◎"},
+    {label:"Total items",value:totalP+totalW+totalM,color:"#8b5cf6",icon:"◆"}
+  ].map(s=>`<div class="stat-card"><div class="stat-icon">${s.icon}</div><div><div class="stat-value" style="color:${s.color}">${s.value}</div><div class="stat-label">${s.label}</div></div></div>`).join("");
+
+  // Sub-tabs
+  document.querySelectorAll("#msciSubTabs .sub-tab").forEach(t=>{
+    t.classList.toggle("active",t.dataset.sub===msciSubTab);
+    t.onclick=()=>{msciSubTab=t.dataset.sub;renderMsci();};
+  });
+
+  const items=(msciSubTab==="products"?qProducts:msciSubTab==="wins"?qWins:qMilestones)||[];
+  const feed=document.getElementById("msciFeed");
+  if(!items.length){
+    feed.innerHTML=`<div class="feed-empty"><div class="feed-empty-icon">⚡</div><div class="feed-empty-title">No ${msciSubTab} data yet</div><div class="feed-empty-sub">Data will appear after the next scraper run</div></div>`;
+    return;
+  }
+  feed.innerHTML=items.sort((a,b)=>new Date(b.published||0)-new Date(a.published||0)).map(a=>`
+    <div class="product-card">
+      <div class="client-card-badges">
+        <span class="badge-product-line">${esc(a.product_line||"General")}</span>
+        <span class="badge-launch-type">${esc(a.launch_type||"Announcement")}</span>
+        ${a.deal_value&&a.deal_value!=="N/A"?`<span style="font-size:10px;font-weight:600;color:#22c55e;background:rgba(34,197,94,0.1);padding:2px 8px;border-radius:4px">${esc(a.deal_value)}</span>`:""}
+      </div>
+      <div class="product-headline">${esc(a.title)}</div>
+      <div class="product-meta">${esc(a.source||"")} ${a.summary?` · ${esc(a.summary).slice(0,120)}...`:""}</div>
+      ${a.competitive_edge&&a.competitive_edge!=="N/A"?`<div class="product-edge">🏆 ${esc(a.competitive_edge)}</div>`:""}
+      <div class="product-date">${a.published?new Date(a.published).toLocaleDateString("en-US",{weekday:"short",month:"short",day:"numeric",year:"numeric"}):"N/A"}</div>
+    </div>`).join("");
+}
+
+// ═══════════════════════════════════════════════
+// RENDER: BRAND INTELLIGENCE (Section 4)
+// ═══════════════════════════════════════════════
+function renderBrand() {
+  // Quarter toggle
+  renderQuarterToggle("quarterToggleBrand","quarterBrand",()=>renderBrand());
+  const trendAll = TRENDS_DATA.brand_trend||[];
+  const trend = state.quarterBrand==="All" ? trendAll : trendAll.filter(t=>itemMatchesQuarter(t,state.quarterBrand,"date"));
+  document.getElementById("quarterMetaBrand").textContent = `${trend.length} of ${trendAll.length} data points in ${state.quarterBrand==="All"?"all quarters":state.quarterBrand}`;
+
+  // Trend chart
+  const trendEl=document.getElementById("brandTrendChart");
+  if(trend.length>2){
+    const brands=["MSCI","S&P Global","FTSE Russell","Bloomberg Terminal","Morningstar"];
+    const colors=["#3b82f6","#ef4444","#f59e0b","#22c55e","#8b5cf6"];
+    const maxVal=Math.max(...trend.flatMap(t=>brands.map(b=>t[b]||0)),1);
+    const w=600,h=140,padL=40,padR=10,padT=10,padB=25;
+    const plotW=w-padL-padR,plotH=h-padT-padB;
+    let svg=`<svg viewBox="0 0 ${w} ${h}" width="100%" style="display:block">`;
+    // Grid lines
+    for(let i=0;i<=4;i++){const y=padT+(plotH/4)*i;svg+=`<line x1="${padL}" y1="${y}" x2="${w-padR}" y2="${y}" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/><text x="${padL-6}" y="${y+4}" fill="#475569" font-size="9" text-anchor="end" font-family="var(--mono)">${Math.round(maxVal*(1-i/4))}</text>`;}
+    // X-axis labels
+    const step=Math.max(1,Math.floor(trend.length/6));
+    trend.forEach((t,i)=>{if(i%step===0){const x=padL+(plotW/(trend.length-1))*i;svg+=`<text x="${x}" y="${h-4}" fill="#475569" font-size="8" text-anchor="middle" font-family="var(--mono)">${t.date?.slice(5)||""}</text>`;}});
+    // Lines
+    brands.forEach((brand,bi)=>{
+      const pts=trend.map((t,i)=>{const x=padL+(plotW/(trend.length-1))*i;const y=padT+plotH-(((t[brand]||0)/maxVal)*plotH);return`${x},${y}`;}).join(" ");
+      svg+=`<polyline points="${pts}" fill="none" stroke="${colors[bi]}" stroke-width="${bi===0?"2":"1"}" opacity="${bi===0?"1":"0.5"}"/>`;
+    });
+    svg+=`</svg>`;
+    // Legend
+    const legend=brands.map((b,i)=>`<span style="display:inline-flex;align-items:center;gap:4px;font-size:10px;color:${i===0?"#f1f5f9":"#94a3b8"}"><span style="width:8px;height:3px;background:${colors[i]};border-radius:1px;display:inline-block"></span>${b}</span>`).join('<span style="color:#334155;font-size:10px"> · </span>');
+    trendEl.innerHTML=svg+`<div style="margin-top:8px;text-align:center">${legend}</div>`;
+  } else {
+    trendEl.innerHTML='<div style="color:#475569;text-align:center;padding:40px;font-size:13px">Trend data will appear after the next scraper run</div>';
+  }
+
+  // Top queries
+  const topEl=document.getElementById("topQueries");
+  const topQ=TRENDS_DATA.top_queries||[];
+  if(topQ.length){
+    topEl.innerHTML=topQ.map(q=>`<div class="query-item"><span class="query-text">${esc(q.query)}</span><span class="query-value">${q.volume_index}</span></div>`).join("");
+  } else {
+    topEl.innerHTML='<div style="color:#475569;padding:20px;text-align:center;font-size:12px">Awaiting data</div>';
+  }
+
+  // Rising queries
+  const risingEl=document.getElementById("risingQueries");
+  const risingQ=TRENDS_DATA.rising_queries||[];
+  if(risingQ.length){
+    risingEl.innerHTML=risingQ.map(q=>`<div class="query-item"><span class="query-text">${esc(q.query)}</span><span class="query-growth">↑ ${esc(q.growth)}</span></div>`).join("");
+  } else {
+    risingEl.innerHTML='<div style="color:#475569;padding:20px;text-align:center;font-size:12px">Awaiting data</div>';
+  }
+
+  // Regional interest
+  const regionEl=document.getElementById("regionalInterest");
+  const regions=TRENDS_DATA.regional_interest||[];
+  if(regions.length){
+    const maxR=Math.max(...regions.map(r=>r.interest),1);
+    const colors=["#3b82f6","#8b5cf6","#14b8a6","#ec4899","#f59e0b"];
+    regionEl.innerHTML=regions.slice(0,10).map((r,i)=>{
+      const pct=Math.round((r.interest/maxR)*100);
+      return`<div class="region-bar"><div class="region-name">${esc(r.country)}</div><div style="flex:1;height:12px;background:rgba(255,255,255,0.04);border-radius:3px;overflow:hidden"><div class="region-fill" style="width:${pct}%;background:${colors[i%5]}"></div></div><div style="width:28px;font-size:10px;font-family:var(--mono);color:#64748b;text-align:right">${r.interest}</div></div>`;
+    }).join("");
+  } else {
+    regionEl.innerHTML='<div style="color:#475569;padding:20px;text-align:center;font-size:12px">Awaiting data</div>';
+  }
+}
+
+// ═══════════════════════════════════════════════
+// RENDER: TOP CLIENT EARNINGS (Section 5)
+// ═══════════════════════════════════════════════
+// Metric layout — order, label, formatter, key
+const FIN_METRICS = [
+  {key:"revenue_usd",          label:"Revenue",               fmt:"usd"},
+  {key:"yoy_revenue_growth_pct",label:"YoY revenue growth",   fmt:"pct"},
+  {key:"operating_income_usd", label:"Operating income",      fmt:"usd"},
+  {key:"net_income_usd",       label:"Net income",            fmt:"usd"},
+  {key:"aum_benchmarked_usd",  label:"AUM benchmarked",       fmt:"usd",  msciOnly:true},
+  {key:"run_rate_usd",         label:"Run rate (total)",      fmt:"usd",  msciOnly:true},
+  {key:"subscription_run_rate_usd",label:"Subscription run rate",fmt:"usd",msciOnly:true},
+  {key:"asset_based_run_rate_usd", label:"Asset-based run rate", fmt:"usd", msciOnly:true},
+  {key:"retention_rate_pct",   label:"Retention rate",        fmt:"pctAbs",msciOnly:true},
+  {key:"organic_growth_pct",   label:"Organic growth",        fmt:"pct",  msciOnly:true},
+  {key:"net_inflows_usd",      label:"Net inflows",           fmt:"usd",  msciOnly:true},
+  {key:"client_count",         label:"Client count",          fmt:"num",  msciOnly:true},
+  {key:"client_revenue_usd",   label:"Client revenue",        fmt:"usd",  msciOnly:true},
+];
+
+function fmtFin(v, mode) {
+  if (v === null || v === undefined) return null;
+  if (mode==="usd") return fmtUsd(v);
+  if (mode==="pct") return fmtPct(v);
+  if (mode==="pctAbs") return v.toFixed(1)+"%";
+  if (mode==="num") return v.toLocaleString("en-US");
+  return String(v);
+}
+
+function renderEarnings() {
+  const companiesObj = QUARTERLY_DATA.companies || {};
+  const companyKeys = Object.keys(companiesObj);
+
+  // Quarter toggle (no "All" — earnings are per-quarter only)
+  renderQuarterToggle("quarterToggleEarnings","quarterEarnings",()=>renderEarnings(),{includeAll:false});
+  const currentQ = state.quarterEarnings || QUARTERLY_DATA.current_quarter || (QUARTERLY_DATA.quarters||[])[0] || null;
+  document.getElementById("quarterMetaEarnings").textContent = currentQ
+    ? `Viewing ${companyKeys.length} companies · ${currentQ}`
+    : "No quarterly data loaded";
+
+  // Company tabs — MSCI first, then peers
+  const tabsEl = document.getElementById("finCompanyTabs");
+  if (!companyKeys.length) {
+    tabsEl.innerHTML = "";
+    document.getElementById("finContent").innerHTML =
+      `<div class="feed-empty" style="padding:60px 20px"><div class="feed-empty-icon">📊</div>`+
+      `<div class="feed-empty-title">Top Client Earnings data will appear after the next scraper run</div>`+
+      `<div class="feed-empty-sub">Run <code>python scraper/top_client_earnings_scraper.py</code> to populate this section</div></div>`;
+    return;
+  }
+  const ordered = companyKeys.slice().sort((a,b)=>{
+    const am=companiesObj[a].is_msci?0:1, bm=companiesObj[b].is_msci?0:1;
+    return am-bm || a.localeCompare(b);
+  });
+  if (!ordered.includes(finCompany)) finCompany = ordered[0];
+  tabsEl.innerHTML = ordered.map(key=>{
+    const c=companiesObj[key];
+    const isActive = key===finCompany ? " active" : "";
+    const isMsci = c.is_msci ? " msci" : "";
+    return `<div class="fin-company-tab${isActive}${isMsci}" data-company="${esc(key)}">${esc(c.name||key)}<span style="opacity:0.55;margin-left:6px;font-size:10px;font-family:var(--mono)">${esc(c.ticker||"")}</span></div>`;
+  }).join("");
+  tabsEl.querySelectorAll(".fin-company-tab").forEach(t=>{
+    t.onclick=()=>{ finCompany=t.dataset.company; renderEarnings(); };
+  });
+
+  // Build the company panel
+  const co = companiesObj[finCompany];
+  const quarters = QUARTERLY_DATA.quarters || [];
+  const qData = (co.quarters||{})[currentQ] || {};
+  const prevIdx = quarters.indexOf(currentQ)-1;
+  const prevQ = prevIdx>=0 ? quarters[prevIdx] : null;
+  const prevData = prevQ ? ((co.quarters||{})[prevQ] || {}) : {};
+
+  // Hero
+  let html = `
+    <div class="fin-hero">
+      <div class="fin-hero-left">
+        <div class="fin-hero-name">${esc(co.name||finCompany)} ${co.is_msci?'<span style="color:#14b8a6;font-size:11px;font-weight:600;margin-left:6px">MSCI</span>':""}</div>
+        <div class="fin-hero-seg">${esc(co.segment||"")} · Ticker ${esc(co.ticker||"—")}${co.cik?` · CIK ${esc(co.cik)}`:""}</div>
+      </div>
+      <div class="fin-hero-right">
+        <div class="fin-hero-pill">${esc(currentQ)}</div>
+        ${prevQ?`<div class="fin-hero-pill" style="opacity:0.7">vs ${esc(prevQ)}</div>`:""}
+      </div>
+    </div>`;
+
+  // Metric cards
+  html += `<div class="fin-grid">`;
+  const relevantMetrics = FIN_METRICS.filter(m=>!m.msciOnly || co.is_msci);
+  for (const m of relevantMetrics) {
+    const v = qData[m.key];
+    const pv = prevData[m.key];
+    const shown = fmtFin(v, m.fmt);
+    let delta = "";
+    if (v!==null && v!==undefined && pv!==null && pv!==undefined && pv!==0) {
+      const ch = ((v-pv)/Math.abs(pv))*100;
+      delta = `<div class="fin-card-delta" style="color:${deltaColor(ch)}">${deltaArrow(ch)} ${fmtPct(ch)} QoQ</div>`;
+    }
+    html += `
+      <div class="fin-card">
+        <div class="fin-card-label">${esc(m.label)}</div>
+        <div class="fin-card-value ${shown===null?"null":""}">${shown===null?"No data":shown}</div>
+        ${delta}
+      </div>`;
+  }
+  html += `</div>`;
+
+  // Trend chart (revenue across quarters — filter out nulls)
+  const points = quarters.map(q=>{
+    const d = (co.quarters||{})[q] || {};
+    return {q, v: (d.revenue_usd===undefined ? null : d.revenue_usd)};
+  });
+  const hasAnyPoint = points.some(p=>p.v!==null && p.v!==undefined);
+  if (hasAnyPoint) {
+    const valid = points.filter(p=>p.v!==null && p.v!==undefined);
+    const maxV = Math.max(...valid.map(p=>p.v), 1);
+    const minV = Math.min(...valid.map(p=>p.v), 0);
+    const range = maxV-minV || 1;
+    const w=700, h=160, padL=60, padR=20, padT=20, padB=30;
+    const plotW=w-padL-padR, plotH=h-padT-padB;
+    let svg = `<svg viewBox="0 0 ${w} ${h}" width="100%" style="display:block">`;
+    // Grid & y labels
+    for (let i=0;i<=4;i++){
+      const y = padT+(plotH/4)*i;
+      const val = maxV - (range*i/4);
+      svg += `<line x1="${padL}" y1="${y}" x2="${w-padR}" y2="${y}" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/>`;
+      svg += `<text x="${padL-8}" y="${y+4}" fill="#475569" font-size="9" text-anchor="end" font-family="var(--mono)">${fmtUsd(val)||""}</text>`;
+    }
+    // X axis labels + markers
+    const step = plotW/Math.max(1, points.length-1);
+    points.forEach((p,i)=>{
+      const x = padL + step*i;
+      svg += `<text x="${x}" y="${h-8}" fill="${p.q===currentQ?"#f1f5f9":"#64748b"}" font-size="10" font-weight="${p.q===currentQ?"700":"500"}" text-anchor="middle" font-family="var(--mono)">${p.q}</text>`;
+    });
+    // Line (connect valid points only)
+    const segs = [];
+    let seg = [];
+    points.forEach((p,i)=>{
+      if (p.v===null||p.v===undefined) { if (seg.length>1) segs.push(seg); seg=[]; return; }
+      const x = padL + step*i;
+      const y = padT + plotH - ((p.v-minV)/range)*plotH;
+      seg.push([x,y,p,i]);
+    });
+    if (seg.length>1) segs.push(seg);
+    segs.forEach(s=>{
+      const pts = s.map(([x,y])=>`${x},${y}`).join(" ");
+      svg += `<polyline points="${pts}" fill="none" stroke="url(#finGrad)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>`;
+    });
+    // Points
+    points.forEach((p,i)=>{
+      if (p.v===null||p.v===undefined) return;
+      const x = padL + step*i;
+      const y = padT + plotH - ((p.v-minV)/range)*plotH;
+      const isCur = p.q===currentQ;
+      svg += `<circle cx="${x}" cy="${y}" r="${isCur?5:3.5}" fill="${isCur?"#14b8a6":"#3b82f6"}" stroke="#0a0e18" stroke-width="1.5"/>`;
+      if (isCur) svg += `<text x="${x}" y="${y-10}" fill="#14b8a6" font-size="10" font-weight="700" text-anchor="middle" font-family="var(--mono)">${fmtUsd(p.v)||""}</text>`;
+    });
+    // Gradient def
+    svg += `<defs><linearGradient id="finGrad" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#3b82f6"/><stop offset="100%" stop-color="#14b8a6"/></linearGradient></defs>`;
+    svg += `</svg>`;
+    html += `<div class="fin-trend-card">
+      <div class="fin-trend-title"><span>Revenue trend — ${esc(co.name||finCompany)}</span><span style="color:#64748b;font-weight:500">${valid.length} of ${points.length} quarters reported</span></div>
+      ${svg}
+    </div>`;
+  } else {
+    html += `<div class="fin-trend-card">
+      <div class="fin-trend-title"><span>Revenue trend — ${esc(co.name||finCompany)}</span></div>
+      <div style="color:#475569;text-align:center;padding:30px;font-size:12px">No revenue data yet across any quarter — waiting for scraper run</div>
+    </div>`;
+  }
+
+  // Sources list
+  const sources = qData.sources || [];
+  const notes = qData.notes || [];
+  html += `<div class="fin-src-list">
+    <div class="fin-src-list-title">Sources & provenance — ${esc(currentQ)}</div>`;
+  if (sources.length) {
+    const seen = new Set();
+    const rows = sources.filter(s=>{ const k=(s.url||"")+(s.metric||""); if(seen.has(k))return false; seen.add(k); return true; });
+    html += `<div style="display:grid;grid-template-columns:140px 1fr auto;gap:6px 14px;align-items:center">`;
+    rows.forEach(s=>{
+      html += `<div style="font-family:var(--mono);font-size:10px;color:#94a3b8">${esc(s.metric||"—")}</div>
+               <div style="font-size:11px;color:#cbd5e1">${esc(s.type||"source")}${s.accessed?` · <span style="color:#64748b">accessed ${esc(s.accessed.slice(0,10))}</span>`:""}</div>
+               <div>${s.url?`<a href="${esc(s.url)}" target="_blank" rel="noopener">open ↗</a>`:'<span style="color:#475569">—</span>'}</div>`;
+    });
+    html += `</div>`;
+  } else {
+    html += `<div style="color:#475569;padding:4px 0">No source metadata recorded for this quarter yet.</div>`;
+  }
+  if (notes.length) {
+    html += `<div style="margin-top:8px;padding-top:8px;border-top:1px solid rgba(255,255,255,0.04)">`;
+    notes.forEach(n=>{ html += `<div style="font-size:10px;color:#64748b;margin-top:2px">• ${esc(n)}</div>`; });
+    html += `</div>`;
+  }
+  html += `</div>`;
+
+  document.getElementById("finContent").innerHTML = html;
+}
+
+// ─── EVENT BINDINGS ───
+document.getElementById("searchInput").addEventListener("input",e=>{state.search=e.target.value;renderNews();});
+document.getElementById("searchClear").addEventListener("click",()=>{state.search="";document.getElementById("searchInput").value="";renderNews();});
+document.getElementById("clientSearchInput")?.addEventListener("input",()=>renderClients());
+
+// ─── INIT ───
+loadAllData();
+setInterval(loadAllData,5*60*1000);
+</script>
+</body>
+</html>

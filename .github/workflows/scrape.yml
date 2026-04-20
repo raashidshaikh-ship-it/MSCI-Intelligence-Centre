@@ -1,0 +1,53 @@
+name: Scrape Intelligence Data
+
+on:
+  schedule:
+    - cron: '0 */8 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install -r scraper/requirements.txt
+
+      - name: Run Top News scraper
+        run: python scraper/top_news_scraper.py
+
+      - name: Run Client Activity scraper
+        run: python scraper/client_activity_scraper.py
+
+      - name: Run MSCI Products & Wins scraper
+        run: python scraper/msci_products_wins_scraper.py
+
+      - name: Run Brand Intelligence scraper
+        run: python scraper/brand_intelligence_scraper.py
+        continue-on-error: true
+
+      - name: Run Top Client Earnings scraper
+        env:
+          # SEC requires a descriptive User-Agent with contact info.
+          # Override in repo Settings → Secrets and variables → Actions if desired.
+          SEC_USER_AGENT: "MSCI Competitor Intel raashid.shaikh@msci.com"
+        run: python scraper/top_client_earnings_scraper.py
+        continue-on-error: true
+
+      - name: Commit & push updated data
+        run: |
+          git config user.name "GitHub Actions Bot"
+          git config user.email "actions@github.com"
+          git add data/
+          git diff --cached --quiet || git commit -m "Auto-update intelligence data $(date -u +'%Y-%m-%d %H:%M UTC')"
+          git push
