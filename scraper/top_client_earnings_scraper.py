@@ -1,758 +1,663 @@
-# Top Client Earnings Scraper — Quarterly Financials
-# ==========================================================
-# Pulls quarterly financial data for MSCI + 5 tier-1 competitors.
+# Top Client Earnings Scraper
+# ===============================================================
+# Tracks quarterly earnings of MSCI's top 12 CLIENTS (firms that
+# purchase MSCI indexes, analytics, ESG, and private-markets data).
 #
-# Sources (in order of reliability):
-#   1. SEC EDGAR XBRL  (data.sec.gov)  — revenue / op income / net income
-#   2. Company IR pages                — AUM, run-rate, retention (MSCI)
-#   3. Google News RSS                 — fallback numeric extraction
-#   4. Morningstar public pages        — attempt (often limited)
+# Client roster (from MSCI Client Insights & Analytics Q4'25 deck):
+#   Traditional Asset & Wealth Managers (7)
+#     BlackRock, State Street, Aberdeen, Amundi,
+#     Goldman Sachs, J.P. Morgan, UBS
+#   Private Equity & Alternative Managers (5)
+#     KKR, Blackstone, Carlyle, Apollo, Brookfield
 #
-# Output: data/top_client_earnings.json
+# Pulls from: company IR press releases, Google News RSS, earnings
+# call keyword mining, SEC EDGAR facts (US-listed only). Optional
+# MSCI run-rate / client-revenue fields remain null until authored
+# source is provided.
 #
-# Design rules (from task spec):
-#   - Never hardcode values. If a metric can't be scraped, store null.
-#   - Every metric carries a 'sources' array so you can trace provenance.
-#   - Schema supports multi-quarter arrays; easy to extend with new quarters.
-#   - Idempotent: safe to re-run. Keeps previously-scraped values unless
-#     a newer/better source overrides them.
-#
-# Run:   python scraper/top_client_earnings_scraper.py
-# Deps:  requests, beautifulsoup4, lxml  (same as other scrapers)
-# ==========================================================
+# Writes to: data/top_client_earnings.json
+# Run:       python scraper/top_client_earnings_scraper.py
+# Deps:      pip install requests beautifulsoup4 lxml python-dateutil
 
-import json
-import os
-import re
-import time
-import sys
+import json, os, re, time, hashlib
 from datetime import datetime, timedelta
 
 import requests
 from bs4 import BeautifulSoup
 
+try:
+    from dateutil import parser as dateparser
+except ImportError:
+    dateparser = None
 
-# ── PATHS ──────────────────────────────────────────────────
+# ─── Paths ───────────────────────────────────────────────────────
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 REPO_ROOT = os.path.dirname(SCRIPT_DIR)
 DATA_DIR = os.path.join(REPO_ROOT, "data")
 OUTPUT_FILE = os.path.join(DATA_DIR, "top_client_earnings.json")
 
-
-# ── HTTP CONFIG ────────────────────────────────────────────
-# SEC EDGAR requires a descriptive User-Agent with contact email.
-# If the env var SEC_USER_AGENT is set in GH Actions secrets, use it;
-# otherwise fall back to a generic identifier.
-SEC_UA = os.environ.get(
-    "SEC_USER_AGENT",
-    "MSCI-Intelligence-Dashboard contact@example.com",
-)
-SEC_HEADERS = {"User-Agent": SEC_UA, "Accept-Encoding": "gzip, deflate"}
-
-BROWSER_HEADERS = {
-    "User-Agent": (
-        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
-        "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36"
-    ),
+# ─── HTTP headers ────────────────────────────────────────────────
+HEADERS = {
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
     "Accept-Language": "en-US,en;q=0.9",
     "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
 }
+SEC_USER_AGENT = os.environ.get(
+    "SEC_USER_AGENT",
+    "MSCI Competitor Intel raashid.shaikh@msci.com",
+)
 
+# ─── Client roster ───────────────────────────────────────────────
+# Each client: name, ticker, category, CIK (if US-listed), IR URL,
+# Google News query, home country, AUM bucket labels.
+CLIENTS = {
+    # ── Traditional Asset & Wealth Managers ──
+    "BlackRock": {
+        "name": "BlackRock", "ticker": "BLK", "cik": "0001364742",
+        "category": "Traditional", "country": "US",
+        "ir_url": "https://ir.blackrock.com/news-and-events/press-releases",
+        "news_query": "BlackRock earnings AUM quarterly results",
+        "aum_buckets": ["equity", "fixed_income", "multi_asset", "alternatives", "cash_other"],
+    },
+    "State Street": {
+        "name": "State Street", "ticker": "STT", "cik": "0000093751",
+        "category": "Traditional", "country": "US",
+        "ir_url": "https://investors.statestreet.com/investors/news-releases/default.aspx",
+        "news_query": "State Street earnings AUC AUM quarterly results",
+        "aum_buckets": ["equity", "fixed_income", "multi_asset", "alternatives", "cash_other"],
+    },
+    "Aberdeen": {
+        "name": "Aberdeen", "ticker": "ABDN.L", "cik": None,
+        "category": "Traditional", "country": "UK",
+        "ir_url": "https://www.aberdeeninvestments.com/en-gb/investor/results-reports-and-presentations",
+        "news_query": "Aberdeen abrdn AUMA net flows half year results",
+        "aum_buckets": ["investments", "adviser", "ii_wealth", "insurance_partners", "other"],
+    },
+    "Amundi": {
+        "name": "Amundi", "ticker": "AMUN.PA", "cik": None,
+        "category": "Traditional", "country": "France",
+        "ir_url": "https://about.amundi.com/Investor-relations/Results",
+        "news_query": "Amundi earnings AUM net inflows quarterly",
+        "aum_buckets": ["equity", "bonds", "multi_asset", "treasury", "alternatives"],
+    },
+    "Goldman Sachs": {
+        "name": "Goldman Sachs", "ticker": "GS", "cik": "0000886982",
+        "category": "Traditional", "country": "US",
+        "ir_url": "https://www.goldmansachs.com/investor-relations/financials/current/press-releases/",
+        "news_query": "Goldman Sachs earnings AUS AWM quarterly results",
+        "aum_buckets": ["equity", "fixed_income", "alternatives", "liquidity", "multi_asset"],
+    },
+    "J.P. Morgan": {
+        "name": "J.P. Morgan", "ticker": "JPM", "cik": "0000019617",
+        "category": "Traditional", "country": "US",
+        "ir_url": "https://www.jpmorganchase.com/ir/news",
+        "news_query": "JPMorgan Chase earnings AUM AWM quarterly results",
+        "aum_buckets": ["equity", "fixed_income", "multi_asset", "alternatives", "liquidity"],
+    },
+    "UBS": {
+        "name": "UBS", "ticker": "UBS", "cik": "0001114446",
+        "category": "Traditional", "country": "Switzerland",
+        "ir_url": "https://www.ubs.com/global/en/investor-relations/financial-information/quarterly-reporting.html",
+        "news_query": "UBS earnings invested assets GWM asset management quarterly",
+        "aum_buckets": ["equity", "fixed_income", "multi_asset", "alternatives", "money_market"],
+    },
 
-# ── TARGET COMPANIES ───────────────────────────────────────
-# Only MSCI + 5 tier-1 competitors (all publicly listed except LSEG which
-# reports semi-annual). CIK is a 10-digit zero-padded SEC identifier.
-COMPANIES = {
-    "MSCI": {
-        "name": "MSCI Inc.",
-        "ticker": "MSCI",
-        "cik": "0001408198",
-        "is_msci": True,
-        "segment": "Indices / Analytics / ESG & Climate",
-        "ir_pages": [
-            "https://ir.msci.com/press-releases",
-            "https://ir.msci.com/financial-information/quarterly-results",
-        ],
+    # ── Private Equity & Alternative Managers ──
+    "KKR": {
+        "name": "KKR", "ticker": "KKR", "cik": "0001404912",
+        "category": "PE/Alternative", "country": "US",
+        "ir_url": "https://ir.kkr.com/events-presentations/press-releases/",
+        "news_query": "KKR earnings FPAUM fee related earnings quarterly",
+        "aum_buckets": ["private_equity", "real_assets", "credit_liquid", "insurance", "other"],
     },
-    "S&P Global": {
-        "name": "S&P Global Inc.",
-        "ticker": "SPGI",
-        "cik": "0000064040",
-        "is_msci": False,
-        "segment": "Indices / Ratings / Data",
-        "ir_pages": ["https://investor.spglobal.com/news-releases"],
+    "Blackstone": {
+        "name": "Blackstone", "ticker": "BX", "cik": "0001393818",
+        "category": "PE/Alternative", "country": "US",
+        "ir_url": "https://ir.blackstone.com/news-events/press-releases",
+        "news_query": "Blackstone earnings AUM distributable earnings quarterly",
+        "aum_buckets": ["real_estate", "private_equity", "credit_insurance", "multi_asset", "other"],
     },
-    "Moody's": {
-        "name": "Moody's Corporation",
-        "ticker": "MCO",
-        "cik": "0001059556",
-        "is_msci": False,
-        "segment": "Ratings / Analytics",
-        "ir_pages": ["https://ir.moodys.com/news-and-financials/press-releases"],
+    "Carlyle": {
+        "name": "Carlyle", "ticker": "CG", "cik": "0001527166",
+        "category": "PE/Alternative", "country": "US",
+        "ir_url": "https://ir.carlyle.com/press-releases/",
+        "news_query": "Carlyle earnings FRE fee related earnings quarterly",
+        "aum_buckets": ["global_private_equity", "global_credit", "alpinvest", "other", "fee_earning"],
     },
-    "Morningstar": {
-        "name": "Morningstar, Inc.",
-        "ticker": "MORN",
-        "cik": "0001289419",
-        "is_msci": False,
-        "segment": "Research / ESG / Fund Data",
-        "ir_pages": ["https://shareholders.morningstar.com/investor-relations/financials/"],
+    "Apollo": {
+        "name": "Apollo", "ticker": "APO", "cik": "0001858681",
+        "category": "PE/Alternative", "country": "US",
+        "ir_url": "https://ir.apollo.com/news-events/press-releases",
+        "news_query": "Apollo Global Management earnings AUM FRE quarterly",
+        "aum_buckets": ["credit", "equity", "insurance_athene", "global_wealth", "other"],
     },
-    "FactSet": {
-        "name": "FactSet Research Systems Inc.",
-        "ticker": "FDS",
-        "cik": "0001013237",
-        "is_msci": False,
-        "segment": "Analytics / Data Platform",
-        "ir_pages": ["https://investor.factset.com/financial-information/quarterly-results"],
-    },
-    "LSEG": {
-        "name": "London Stock Exchange Group plc",
-        "ticker": "LSE.L",
-        "cik": None,  # Not SEC-registered
-        "is_msci": False,
-        "segment": "Data / Indices / Trading (FTSE Russell, Refinitiv)",
-        "ir_pages": [
-            "https://www.lseg.com/en/investor-relations/financial-reports",
-            "https://www.lseg.com/en/investor-relations/results-centre",
-        ],
+    "Brookfield": {
+        "name": "Brookfield", "ticker": "BAM", "cik": "0001001250",
+        "category": "PE/Alternative", "country": "Canada",
+        "ir_url": "https://bam.brookfield.com/investors/news-presentations",
+        "news_query": "Brookfield Asset Management earnings FBC FRE quarterly",
+        "aum_buckets": ["infrastructure", "renewable_power", "real_estate", "private_equity", "credit"],
     },
 }
 
-
-# ── XBRL TAGS TO PULL ──────────────────────────────────────
-# We try multiple tags because companies use different us-gaap concepts.
-# First hit wins.
-XBRL_REVENUE_TAGS = [
-    "Revenues",
-    "RevenueFromContractWithCustomerExcludingAssessedTax",
-    "RevenueFromContractWithCustomerIncludingAssessedTax",
-    "SalesRevenueNet",
+# ─── Fund family roster (Morningstar Direct / SEC N-CSR universe) ─
+FUND_FAMILIES = [
+    "Vanguard", "iShares", "Fidelity", "Capital Group", "SPDR State Street",
+    "Invesco", "JPMorgan", "T. Rowe Price", "Dimensional", "Franklin Templeton",
 ]
-XBRL_OPINCOME_TAGS = ["OperatingIncomeLoss"]
-XBRL_NETINCOME_TAGS = ["NetIncomeLoss", "ProfitLoss"]
 
+# ─── Opinion-mining keyword vocabularies ─────────────────────────
+INITIATIVE_KEYWORDS = [
+    "launch", "launched", "new product", "new index", "acquired", "acquisition",
+    "partnership", "platform", "initiative", "expand", "investing in",
+    "rolling out", "going live", "unveiled", "introduced",
+]
+COST_KEYWORDS = [
+    "operating expense", "compensation", "cost discipline", "efficiency",
+    "headcount", "restructuring", "integration cost", "severance", "buyback",
+    "dividend", "margin pressure", "expense ratio",
+]
+STRATEGIC_KEYWORDS = [
+    "outlook", "target", "medium-term", "long-term", "ambition", "strategy",
+    "priority", "priorities", "double", "growth", "2028", "2030",
+    "private markets", "private assets", "tokenization", "AI", "digital",
+]
 
-# ── QUARTER UTILITIES ──────────────────────────────────────
-def current_quarter_label(d: datetime) -> str:
-    q = (d.month - 1) // 3 + 1
-    return f"Q{q} {d.year}"
-
-
-def target_quarters(n: int = 4) -> list:
-    """
-    Return the last `n` completed quarter labels in chronological order.
-    We skip the in-progress quarter because companies haven't reported yet.
-    Also skip the just-ended quarter if we're still within ~6 weeks of
-    quarter-end (many companies haven't released results yet).
-    """
+# ─── Target quarters (last 4, ending in most recent reported) ────
+def target_quarters(n=4):
+    """Return list of quarter strings ordered oldest→newest, ending with the
+    most recently completed calendar quarter."""
     today = datetime.utcnow()
-    q = (today.month - 1) // 3 + 1
-    y = today.year
-    # Start from the previous quarter (in-progress one isn't reported).
-    q -= 1
-    if q == 0:
-        q = 4
-        y -= 1
-    # If we're in the first 6 weeks after quarter-end, some companies may
-    # not have reported yet — still include that quarter (nulls will fill in).
+    y, m = today.year, today.month
+    q_of_month = (m - 1) // 3 + 1
+    q_idx = (y * 4) + (q_of_month - 1)  # absolute quarter index
+    # Use last *completed* quarter as the newest entry
+    q_idx -= 1
     out = []
-    for _ in range(n):
-        out.append(f"Q{q} {y}")
-        q -= 1
-        if q == 0:
-            q = 4
-            y -= 1
-    out.reverse()
+    for i in range(n):
+        idx = q_idx - (n - 1 - i)
+        yy = idx // 4
+        qq = idx % 4 + 1
+        out.append(f"Q{qq} {yy}")
     return out
 
 
-def period_to_quarter(end_date_str: str, form: str = "") -> str:
-    """
-    Map an XBRL period end date to a quarter label.
-    10-K periods land in Q4; 10-Q periods land in their fiscal quarter.
-    """
-    try:
-        d = datetime.strptime(end_date_str, "%Y-%m-%d")
-    except Exception:
-        return None
-    q = (d.month - 1) // 3 + 1
-    return f"Q{q} {d.year}"
-
-
-def quarter_sort_key(q: str) -> tuple:
-    # "Q2 2025" -> (2025, 2)
-    try:
-        parts = q.split()
-        return (int(parts[1]), int(parts[0].lstrip("Q")))
-    except Exception:
-        return (0, 0)
-
-
-# ── SEC EDGAR PULLERS ──────────────────────────────────────
-def fetch_sec_concept(cik: str, tag: str, taxonomy: str = "us-gaap") -> dict:
-    """Pull one XBRL concept for a company. Returns {} if not found."""
-    url = (
-        f"https://data.sec.gov/api/xbrl/companyconcept/"
-        f"CIK{cik}/{taxonomy}/{tag}.json"
-    )
-    try:
-        r = requests.get(url, headers=SEC_HEADERS, timeout=20)
-        if r.status_code != 200:
-            return {}
-        return r.json()
-    except Exception as e:
-        print(f"     [!] SEC concept fetch failed ({tag}): {e}")
-        return {}
-
-
-def extract_quarterly_values(concept_json: dict, want_quarters: list) -> dict:
-    """
-    From a SEC companyconcept response, pick USD values whose period end
-    maps to any quarter in `want_quarters`. Prefers 10-Q forms; falls back
-    to 10-K for Q4. Returns {"Q2 2025": {"value":..., "source":...}}.
-    """
-    out = {}
-    if not concept_json:
-        return out
-    units = concept_json.get("units", {})
-    usd = units.get("USD", []) or units.get("USD/shares", [])
-    if not usd:
-        return out
-
-    # Group candidate filings by quarter; prefer 10-Q over 10-K, newest filed wins
-    candidates = {}
-    for entry in usd:
-        end = entry.get("end")
-        form = entry.get("form", "")
-        # Only accept ~3-month durations for quarterly numbers.
-        start = entry.get("start")
-        if start and end:
-            try:
-                sd = datetime.strptime(start, "%Y-%m-%d")
-                ed = datetime.strptime(end, "%Y-%m-%d")
-                days = (ed - sd).days
-                # Quarterly = ~90 days; reject YTD or annual sums
-                if not (75 <= days <= 100):
-                    continue
-            except Exception:
-                continue
-        else:
-            continue
-
-        q = period_to_quarter(end, form)
-        if q not in want_quarters:
-            continue
-        val = entry.get("val")
-        if val is None:
-            continue
-
-        rank = 0 if form.startswith("10-Q") else (1 if form.startswith("10-K") else 2)
-        filed = entry.get("filed", "")
-        existing = candidates.get(q)
-        if existing is None or (rank, existing["filed"]) > (rank, filed):
-            # Prefer lower rank (10-Q), then more recently filed
-            if existing is None or rank < existing["rank"] or (
-                rank == existing["rank"] and filed > existing["filed"]
-            ):
-                candidates[q] = {
-                    "value": float(val),
-                    "filed": filed,
-                    "form": form,
-                    "end": end,
-                    "accn": entry.get("accn", ""),
-                    "rank": rank,
-                }
-
-    for q, c in candidates.items():
-        accn_clean = c["accn"].replace("-", "")
-        source_url = (
-            f"https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&"
-            f"CIK={concept_json.get('cik')}&type={c['form']}&dateb=&owner=include&count=40"
-        )
-        out[q] = {
-            "value": c["value"],
-            "source": {
-                "type": "sec_edgar",
-                "form": c["form"],
-                "period_end": c["end"],
-                "filed": c["filed"],
-                "url": source_url,
-            },
-        }
-    return out
-
-
-def pull_sec_metric(cik: str, tag_list: list, want_quarters: list) -> dict:
-    """Try each tag until one returns data. Return combined per-quarter dict."""
-    for tag in tag_list:
-        data = fetch_sec_concept(cik, tag)
-        quarterly = extract_quarterly_values(data, want_quarters)
-        if quarterly:
-            return quarterly
-        time.sleep(0.2)  # be polite to SEC
-    return {}
-
-
-# ── MSCI-SPECIFIC METRICS (AUM / RUN RATE) ─────────────────
-# These are disclosed in MSCI press releases, not XBRL. We pull the latest
-# earnings press release from the IR page and regex the numbers.
-
-RUN_RATE_PATTERNS = [
-    r"[Tt]otal\s+run\s+rate.{0,40}?\$?([\d,]+\.?\d*)\s*(million|billion|m|bn|b)",
-    r"run\s+rate.{0,40}?\$?([\d,]+\.?\d*)\s*(million|billion|m|bn|b)",
-]
-AUM_PATTERNS = [
-    r"AUM.{0,60}?\$?([\d,]+\.?\d*)\s*(trillion|billion|tn|bn|t|b)",
-    r"assets\s+under\s+management.{0,60}?\$?([\d,]+\.?\d*)\s*(trillion|billion|tn|bn|t|b)",
-    r"\$?([\d,]+\.?\d*)\s*(trillion|billion|tn|bn|t|b)\s+in\s+(?:assets|AUM)",
-]
-RETENTION_PATTERNS = [
-    r"(?:Retention\s+Rate|retention)\s+(?:was|of)\s+([\d.]+)\s*%",
-    r"Retention\s+Rate.{0,20}?([\d.]+)\s*%",
-]
-ORGANIC_GROWTH_PATTERNS = [
-    r"organic\s+(?:subscription\s+)?(?:run[-\s]?rate\s+)?growth\s+(?:was|of)\s+([\d.]+)\s*%",
-]
-
-
-def _scale(value_str: str, unit: str) -> float:
-    unit = (unit or "").lower()
-    try:
-        v = float(value_str.replace(",", ""))
-    except Exception:
-        return None
-    if unit in ("trillion", "tn", "t"):
-        return v * 1_000_000_000_000
-    if unit in ("billion", "bn", "b"):
-        return v * 1_000_000_000
-    if unit in ("million", "mn", "m"):
-        return v * 1_000_000
-    return v
-
-
-def extract_number(text: str, patterns: list):
-    for p in patterns:
-        m = re.search(p, text, re.IGNORECASE)
-        if m:
-            groups = m.groups()
-            if len(groups) == 2:
-                return _scale(groups[0], groups[1])
-            if len(groups) == 1:
-                try:
-                    return float(groups[0].replace(",", ""))
-                except Exception:
-                    continue
-    return None
-
-
-def fetch_ir_text(url: str) -> tuple:
-    """Return (plain_text, effective_url) or ("", url)."""
-    try:
-        r = requests.get(
-            url, headers=BROWSER_HEADERS, timeout=20,
-            allow_redirects=True, verify=False,
-        )
-        if r.status_code != 200:
-            return "", url
-        soup = BeautifulSoup(r.text, "html.parser")
-        for tag in soup.find_all(["script", "style", "nav", "footer", "header", "aside"]):
-            tag.decompose()
-        text = " ".join(p.get_text(" ").strip() for p in soup.find_all(["p", "li", "td"]))
-        return re.sub(r"\s+", " ", text)[:12000], r.url
-    except Exception as e:
-        print(f"     [!] IR fetch failed for {url}: {e}")
-        return "", url
-
-
-def find_quarterly_press_release_links(index_url: str, max_links: int = 6) -> list:
-    """Return up to N links on the IR index page that look like Q-reporting PRs."""
-    try:
-        r = requests.get(
-            index_url, headers=BROWSER_HEADERS, timeout=20,
-            allow_redirects=True, verify=False,
-        )
-        if r.status_code != 200:
-            return []
-        soup = BeautifulSoup(r.text, "html.parser")
-        out = []
-        for a in soup.find_all("a", href=True):
-            txt = (a.get_text() or "").strip()
-            href = a["href"]
-            if not txt:
-                continue
-            if re.search(r"\b(Q[1-4]|first[-\s]quarter|second[-\s]quarter|third[-\s]quarter|fourth[-\s]quarter|full[-\s]year|annual results|interim results)\b", txt, re.I):
-                if href.startswith("/"):
-                    from urllib.parse import urljoin
-                    href = urljoin(index_url, href)
-                out.append((txt[:120], href))
-            if len(out) >= max_links:
-                break
-        return out
-    except Exception as e:
-        print(f"     [!] IR index fetch failed for {index_url}: {e}")
-        return []
-
-
-def parse_ir_release_for_metrics(text: str) -> dict:
-    """Extract a handful of finance metrics from press release prose."""
-    metrics = {}
-    rr = extract_number(text, RUN_RATE_PATTERNS)
-    if rr:
-        metrics["run_rate_usd"] = rr
-    aum = extract_number(text, AUM_PATTERNS)
-    if aum:
-        metrics["aum_benchmarked_usd"] = aum
-    ret = extract_number(text, RETENTION_PATTERNS)
-    if ret:
-        metrics["retention_rate_pct"] = ret
-    og = extract_number(text, ORGANIC_GROWTH_PATTERNS)
-    if og:
-        metrics["organic_growth_pct"] = og
-    return metrics
-
-
-def press_release_quarter_hint(text: str) -> str:
-    """Infer which quarter a press release is reporting on."""
-    m = re.search(r"(?:first|Q1)[\s-]*quarter[\s-]*(\d{4})", text, re.I)
-    if m:
-        return f"Q1 {m.group(1)}"
-    m = re.search(r"(?:second|Q2)[\s-]*quarter[\s-]*(\d{4})", text, re.I)
-    if m:
-        return f"Q2 {m.group(1)}"
-    m = re.search(r"(?:third|Q3)[\s-]*quarter[\s-]*(\d{4})", text, re.I)
-    if m:
-        return f"Q3 {m.group(1)}"
-    m = re.search(r"(?:fourth|Q4)[\s-]*quarter[\s-]*(\d{4})", text, re.I)
-    if m:
-        return f"Q4 {m.group(1)}"
-    m = re.search(r"full[\s-]*year[\s-]*(\d{4})", text, re.I)
-    if m:
-        return f"Q4 {m.group(1)}"
-    return None
-
-
-def scrape_ir_press_releases(company_name: str, company_info: dict, want_quarters: list) -> dict:
-    """For each IR index page, find press releases and extract metrics per quarter."""
-    results = {q: {} for q in want_quarters}
-    for idx_url in company_info.get("ir_pages", []):
-        print(f"     IR index: {idx_url}")
-        links = find_quarterly_press_release_links(idx_url)
-        for (label, href) in links:
-            text, eff_url = fetch_ir_text(href)
-            if not text:
-                continue
-            quarter = press_release_quarter_hint(label) or press_release_quarter_hint(text)
-            if quarter not in want_quarters:
-                continue
-            metrics = parse_ir_release_for_metrics(text)
-            if metrics:
-                print(f"       -> {quarter}: {list(metrics.keys())}")
-                for k, v in metrics.items():
-                    results[quarter][k] = {
-                        "value": v,
-                        "source": {"type": "ir_press_release", "url": eff_url, "label": label},
-                    }
-            time.sleep(0.5)
-    return results
-
-
-# ── NEWS-BASED FALLBACK EXTRACTOR ──────────────────────────
-def fetch_google_news(query: str, max_items: int = 5) -> list:
-    q = requests.utils.quote(query)
-    url = f"https://news.google.com/rss/search?q={q}&hl=en-US&gl=US&ceid=US:en"
-    try:
-        r = requests.get(url, headers=BROWSER_HEADERS, timeout=15, verify=False)
-        soup = BeautifulSoup(r.content, "xml")
-        items = []
-        for it in soup.find_all("item")[:max_items]:
-            items.append({
-                "title": (it.title.text or "").strip() if it.title else "",
-                "link": (it.link.text or "").strip() if it.link else "",
-                "source": (it.source.text or "").strip() if it.source else "",
-                "published": (it.pubDate.text or "").strip() if it.pubDate else "",
-            })
-        return items
-    except Exception as e:
-        print(f"     [!] Google News failed: {e}")
-        return []
-
-
-def news_based_revenue_for_quarter(company: str, quarter: str) -> dict:
-    """Extract a revenue figure for {company, quarter} from news headlines."""
-    q_name, year = quarter.split()
-    queries = [
-        f"{company} {q_name} {year} earnings revenue",
-        f"{company} {quarter} results",
-    ]
-    for q in queries:
-        items = fetch_google_news(q, 3)
-        for it in items:
-            title = it["title"]
-            # Look for "$NN.N million" or "$NN.N billion" patterns
-            m = re.search(
-                r"revenue(?:s)?\s+(?:of|rose|grew|increased|climbed|reached|was|totaled|totaling|came in at)?\s*\$?([\d.,]+)\s*(million|billion|bn|m)",
-                title, re.IGNORECASE
-            )
-            if m:
-                val = _scale(m.group(1), m.group(2))
-                if val:
-                    return {
-                        "value": val,
-                        "source": {
-                            "type": "news_headline",
-                            "url": it.get("link", ""),
-                            "headline": title,
-                            "publisher": it.get("source", ""),
-                        },
-                    }
-    return {}
-
-
-# ── MERGE & PERSIST ────────────────────────────────────────
-METRIC_SCHEMA = [
-    "revenue_usd",
-    "operating_income_usd",
-    "net_income_usd",
-    "yoy_revenue_growth_pct",
-    "aum_benchmarked_usd",
-    "run_rate_usd",
-    "subscription_run_rate_usd",
-    "asset_based_run_rate_usd",
-    "retention_rate_pct",
-    "organic_growth_pct",
-    "net_inflows_usd",
-    "client_count",
-    "client_revenue_usd",
-]
-
-
-def empty_quarter_record() -> dict:
-    rec = {k: None for k in METRIC_SCHEMA}
-    rec["sources"] = []
-    rec["notes"] = []
-    return rec
-
-
-def merge_metric(record: dict, metric_key: str, new_value: dict):
-    """
-    Attach a metric value to a quarter record. Preserves existing non-null
-    values that came from higher-trust sources (SEC > IR > News > Morningstar).
-    """
-    if not new_value:
-        return
-    trust_rank = {
-        "sec_edgar": 0,
-        "ir_press_release": 1,
-        "news_headline": 2,
-        "morningstar": 3,
-    }
-    new_trust = trust_rank.get(new_value["source"]["type"], 9)
-    existing_val = record.get(metric_key)
-    existing_src = None
-    for s in record.get("sources", []):
-        if s.get("metric") == metric_key:
-            existing_src = s.get("type")
-    existing_trust = trust_rank.get(existing_src, 9) if existing_src else 9
-
-    if existing_val is None or new_trust < existing_trust:
-        record[metric_key] = new_value["value"]
-        # Replace existing source for this metric
-        record["sources"] = [s for s in record.get("sources", []) if s.get("metric") != metric_key]
-        src_entry = dict(new_value["source"])
-        src_entry["metric"] = metric_key
-        record["sources"].append(src_entry)
-
-
-def compute_yoy_growth(company_record: dict, quarters: list):
-    """Fill in yoy_revenue_growth_pct where we have this quarter + 4 quarters prior."""
-    all_q = sorted(quarters, key=quarter_sort_key)
-    for i, q in enumerate(all_q):
-        rec = company_record["quarters"].get(q)
-        if not rec:
-            continue
-        if rec.get("yoy_revenue_growth_pct") is not None:
-            continue  # already computed or scraped
-        this_rev = rec.get("revenue_usd")
-        if this_rev is None:
-            continue
-        # Find year-ago quarter
-        try:
-            qnum = int(q.split()[0].lstrip("Q"))
-            year = int(q.split()[1])
-        except Exception:
-            continue
-        prior_label = f"Q{qnum} {year - 1}"
-        prior = company_record["quarters"].get(prior_label)
-        if prior and prior.get("revenue_usd"):
-            growth = (this_rev - prior["revenue_usd"]) / prior["revenue_usd"] * 100
-            rec["yoy_revenue_growth_pct"] = round(growth, 2)
-            rec["notes"].append(f"YoY growth computed from {prior_label} revenue.")
-
-
-def load_existing() -> dict:
-    if not os.path.exists(OUTPUT_FILE):
+# ─── Persistence helpers ─────────────────────────────────────────
+def load_existing(path):
+    if not os.path.exists(path):
         return None
     try:
-        with open(OUTPUT_FILE, "r", encoding="utf-8") as f:
+        with open(path, "r", encoding="utf-8") as f:
             return json.load(f)
     except Exception:
         return None
 
 
-def save_output(data: dict):
-    os.makedirs(DATA_DIR, exist_ok=True)
-    with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
-        json.dump(data, f, indent=2, ensure_ascii=False, default=str)
-    print(f"  Saved to {OUTPUT_FILE}")
+def save_data(data, path):
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    with open(path, "w", encoding="utf-8") as f:
+        json.dump(data, f, indent=2, ensure_ascii=False)
+    print(f"  Saved to {path}")
 
 
-# ── MAIN ───────────────────────────────────────────────────
+def make_id(text):
+    return hashlib.md5((text or "")[:120].lower().encode()).hexdigest()[:12]
+
+
+# ─── Quarter inference ───────────────────────────────────────────
+QUARTER_RE = re.compile(r"Q([1-4])\s*('?\d{2,4}|20\d{2})", re.IGNORECASE)
+FQ_RE = re.compile(r"(first|second|third|fourth)\s+quarter\s+(20\d{2})", re.IGNORECASE)
+FY_RE = re.compile(r"(full year|FY)\s*(20\d{2})", re.IGNORECASE)
+
+def infer_quarter(text):
+    if not text:
+        return None
+    m = QUARTER_RE.search(text)
+    if m:
+        q = int(m.group(1))
+        y = m.group(2).lstrip("'")
+        if len(y) == 2:
+            y = "20" + y
+        return f"Q{q} {y}"
+    m = FQ_RE.search(text)
+    if m:
+        name = m.group(1).lower()
+        q = {"first": 1, "second": 2, "third": 3, "fourth": 4}[name]
+        return f"Q{q} {m.group(2)}"
+    return None
+
+
+# ─── Money parsers ───────────────────────────────────────────────
+MONEY_RE = re.compile(
+    r"\$\s?([\d,]+\.?\d*)\s?(trillion|billion|million|tn|bn|mn|T|B|M)\b",
+    re.IGNORECASE,
+)
+PCT_RE = re.compile(r"([+\-]?\d+\.?\d*)\s?%")
+
+
+def parse_money_to_usd(raw, unit):
+    try:
+        n = float(raw.replace(",", ""))
+    except ValueError:
+        return None
+    u = unit.lower()
+    if u in ("t", "tn", "trillion"):
+        return n * 1_000_000_000_000
+    if u in ("b", "bn", "billion"):
+        return n * 1_000_000_000
+    if u in ("m", "mn", "million"):
+        return n * 1_000_000
+    return n
+
+
+def find_metric(text, keywords, context_chars=120):
+    """Given a block of text and trigger keywords, find a money value
+    that appears near any of the keywords. Returns the first hit's
+    (raw_string, usd_value) or (None, None)."""
+    if not text:
+        return None, None
+    lower = text.lower()
+    for kw in keywords:
+        idx = lower.find(kw)
+        if idx < 0:
+            continue
+        window = text[max(0, idx - context_chars): idx + context_chars]
+        m = MONEY_RE.search(window)
+        if m:
+            usd = parse_money_to_usd(m.group(1), m.group(2))
+            if usd:
+                return m.group(0), usd
+    return None, None
+
+
+# ─── Google News RSS ─────────────────────────────────────────────
+def fetch_news_rss(query, days=120, max_items=25):
+    q = requests.utils.quote(query)
+    url = (
+        f"https://news.google.com/rss/search?"
+        f"q={q}+when:{days}d&hl=en-US&gl=US&ceid=US:en"
+    )
+    try:
+        r = requests.get(url, headers=HEADERS, timeout=15, verify=False)
+        soup = BeautifulSoup(r.content, "xml")
+        items = []
+        for it in soup.find_all("item")[:max_items]:
+            title = it.title.text.strip() if it.title else ""
+            link = it.link.text.strip() if it.link else ""
+            pub = it.pubDate.text.strip() if it.pubDate else ""
+            source = it.source.text.strip() if it.source else ""
+            items.append({
+                "title": title, "url": link, "source": source, "published": pub,
+            })
+        return items
+    except Exception as e:
+        print(f"     [!] News RSS failed ({query[:40]}): {e}")
+        return []
+
+
+# ─── IR page scraper ─────────────────────────────────────────────
+def fetch_ir_releases(client, max_items=8):
+    url = client.get("ir_url")
+    if not url:
+        return []
+    try:
+        r = requests.get(url, headers=HEADERS, timeout=20, verify=False)
+        if r.status_code != 200:
+            return []
+        soup = BeautifulSoup(r.text, "html.parser")
+        items = []
+        for a in soup.find_all("a", href=True)[:200]:
+            text = a.get_text(" ", strip=True)
+            if not text or len(text) < 25:
+                continue
+            href = a["href"]
+            low = text.lower()
+            if not any(k in low for k in (
+                "earnings", "results", "quarter", "annual", "press release",
+                "half year", "interim", "full year",
+            )):
+                continue
+            if href.startswith("/"):
+                from urllib.parse import urljoin
+                href = urljoin(url, href)
+            items.append({"title": text[:180], "url": href, "source": client["name"] + " IR", "published": ""})
+            if len(items) >= max_items:
+                break
+        return items
+    except Exception as e:
+        print(f"     [!] IR fetch failed ({client['name']}): {e}")
+        return []
+
+
+# ─── Article body fetch ──────────────────────────────────────────
+def fetch_article_text(url, max_chars=6000):
+    if not url:
+        return ""
+    try:
+        r = requests.get(url, headers=HEADERS, timeout=15, verify=False, allow_redirects=True)
+        if r.status_code != 200:
+            return ""
+        soup = BeautifulSoup(r.text, "html.parser")
+        for tag in soup.find_all(["script", "style", "nav", "footer", "header", "aside"]):
+            tag.decompose()
+        ps = soup.find_all("p")
+        txt = " ".join(p.get_text().strip() for p in ps if len(p.get_text().strip()) > 30)
+        return re.sub(r"\s+", " ", txt)[:max_chars]
+    except Exception:
+        return ""
+
+
+# ─── Metric extraction per article ───────────────────────────────
+FIN_METRIC_KEYWORDS = {
+    "revenue":          ["total revenue", "net revenue", "revenues of", "total revenues"],
+    "operating_income": ["operating income", "operating profit", "pre-tax income", "adj. pre-tax income"],
+    "net_income":       ["net income", "net earnings", "net profit"],
+    "aum":              ["assets under management", "aum of", "aum ", "invested assets", "fee-bearing capital", "auma"],
+    "inflows":          ["net inflows", "net new money", "net flows", "gross inflows", "capital raised"],
+    "eps":              ["diluted eps", "earnings per share", "eps of"],
+}
+
+
+def extract_financials(text):
+    """Pull a best-effort set of financial numbers from one article body."""
+    out = {}
+    for metric, kws in FIN_METRIC_KEYWORDS.items():
+        raw, usd = find_metric(text, kws)
+        if usd is not None:
+            out[metric] = {"raw": raw, "value_usd": usd}
+    # EPS special (may be a plain number, not $X billion)
+    if "eps" not in out:
+        m = re.search(r"(diluted\s+eps|earnings\s+per\s+share)\D{0,30}\$?(\d+\.\d{2})", text, re.IGNORECASE)
+        if m:
+            out["eps"] = {"raw": m.group(0), "value_usd": float(m.group(2))}
+    return out
+
+
+def mine_themes(text, client_name):
+    """Return a short list of themes found in a text block."""
+    if not text:
+        return {"initiatives": [], "cost_pressures": [], "strategic_insights": []}
+    sentences = re.split(r"(?<=[.!?])\s+", text)
+    trimmed = [s.strip() for s in sentences if 30 < len(s.strip()) < 280]
+
+    def collect(keywords, limit=3):
+        hits = []
+        seen = set()
+        for s in trimmed:
+            low = s.lower()
+            if any(k in low for k in keywords):
+                key = s[:80]
+                if key in seen:
+                    continue
+                seen.add(key)
+                hits.append(s)
+                if len(hits) >= limit:
+                    break
+        return hits
+
+    return {
+        "initiatives":        collect(INITIATIVE_KEYWORDS),
+        "cost_pressures":     collect(COST_KEYWORDS),
+        "strategic_insights": collect(STRATEGIC_KEYWORDS),
+    }
+
+
+# ─── Empty per-quarter scaffold ──────────────────────────────────
+def empty_quarter():
+    return {
+        "financials": {
+            "revenue_usd": None, "operating_income_usd": None,
+            "net_income_usd": None, "eps_usd": None,
+            "aum_usd": None, "aum_yoy_growth_pct": None,
+            "organic_base_fee_growth_pct": None,
+            "net_inflows_q_usd": None, "net_inflows_fy_usd": None,
+        },
+        "aum_breakdown": {},                 # e.g. {"equity": 4500000000000, ...}
+        "msci_relationship": {
+            "run_rate_usd": None,
+            "run_rate_yoy_growth_pct": None,
+            "client_revenue_usd": None,
+            "client_revenue_yoy_growth_pct": None,
+        },
+        "themes": {
+            "key_initiatives": [],
+            "cost_pressures": [],
+            "strategic_insights": [],
+        },
+        "top_trends": [],                    # headline bullets from deep-dive pages
+        "sources": [],                       # [{metric, type, url, accessed}]
+        "notes": [],
+    }
+
+
+def empty_client_block(client):
+    return {
+        "name": client["name"],
+        "ticker": client["ticker"],
+        "cik": client.get("cik"),
+        "category": client["category"],
+        "country": client["country"],
+        "ir_url": client.get("ir_url"),
+        "aum_buckets": client.get("aum_buckets", []),
+        "quarters": {},     # keyed by "Qx yyyy"
+    }
+
+
+# ─── Merge rules ─────────────────────────────────────────────────
+def merge_field(existing, incoming, source_tag, sources_list, metric_name, url=None):
+    """Only overwrite nulls. Record provenance for each new fill."""
+    if incoming is None:
+        return existing
+    if existing is None:
+        sources_list.append({
+            "metric": metric_name,
+            "type": source_tag,
+            "url": url or "",
+            "accessed": datetime.utcnow().isoformat() + "Z",
+        })
+        return incoming
+    return existing
+
+
+# ─── Main pipeline ───────────────────────────────────────────────
 def main():
     print("=" * 70)
-    print("  MSCI QUARTERLY FINANCIALS SCRAPER")
+    print("  MSCI TOP CLIENT EARNINGS SCRAPER  (12-client roster)")
     print(f"  {datetime.now().strftime('%A, %B %d, %Y %I:%M %p')}")
     print("=" * 70)
 
+    import urllib3
+    urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+
     quarters = target_quarters(4)
-    print(f"  Target quarters: {', '.join(quarters)}")
+    current_q = quarters[-1]
+    print(f"  Target quarters: {quarters}   (current: {current_q})\n")
 
-    # Start from previous output if it exists, to preserve already-scraped values.
-    existing = load_existing()
-    if existing and existing.get("companies"):
-        output = existing
-        output["last_updated"] = datetime.utcnow().isoformat() + "Z"
-        # Ensure newest quarter is in the list
-        existing_qs = set(output.get("quarters", []))
-        for q in quarters:
-            if q not in existing_qs:
-                output["quarters"].append(q)
-        output["quarters"] = sorted(set(output["quarters"]), key=quarter_sort_key)[-4:]
-    else:
-        output = {
-            "last_updated": datetime.utcnow().isoformat() + "Z",
-            "schema_version": "3.0",
-            "quarters": quarters,
-            "current_quarter": quarters[-1],
-            "companies": {},
-            "sources_used": [
-                "SEC EDGAR XBRL (data.sec.gov)",
-                "Company investor relations pages",
-                "Google News RSS",
+    existing = load_existing(OUTPUT_FILE) or {}
+
+    # Root payload
+    out = {
+        "last_updated": datetime.utcnow().isoformat() + "Z",
+        "schema_version": "4.0",
+        "current_quarter": current_q,
+        "quarters": quarters,
+        "client_categories": {
+            "Traditional": [k for k, c in CLIENTS.items() if c["category"] == "Traditional"],
+            "PE/Alternative": [k for k, c in CLIENTS.items() if c["category"] == "PE/Alternative"],
+        },
+        "executive_summary": existing.get("executive_summary", {
+            "period": current_q,
+            "themes": [],     # [{title, detail}]
+        }),
+        "fund_family_flows": existing.get("fund_family_flows", {
+            "period": current_q,
+            "families": [
+                {"family": fam, "active_usd": None, "passive_usd": None,
+                 "ytd_usd": None, "ttm_usd": None, "total_assets_usd": None}
+                for fam in FUND_FAMILIES
             ],
-        }
+        }),
+        "opinion_mining": existing.get("opinion_mining", {}),
+        "aum_summary": existing.get("aum_summary", {
+            "traditional": [],   # per-client rows
+            "pe_alternative": [],
+        }),
+        "voc_analysis": existing.get("voc_analysis", {
+            "total_entries": None,
+            "period": current_q,
+            "clients": [],       # [{client, entries, top_bu, top_category, theme}]
+        }),
+        "clients": {},
+    }
 
-    output["current_quarter"] = quarters[-1]
+    # Merge existing client scaffolds; ensure every client has every quarter
+    existing_clients = (existing.get("clients") or {})
+    for key, client in CLIENTS.items():
+        block = existing_clients.get(key) or empty_client_block(client)
+        # Keep metadata authoritative from the code
+        for k in ("name", "ticker", "cik", "category", "country", "ir_url", "aum_buckets"):
+            block[k] = empty_client_block(client)[k]
+        if "quarters" not in block or not isinstance(block["quarters"], dict):
+            block["quarters"] = {}
+        for q in quarters:
+            if q not in block["quarters"]:
+                block["quarters"][q] = empty_quarter()
+        out["clients"][key] = block
 
-    # Initialize company records with empty quarter slots
-    for comp_name, info in COMPANIES.items():
-        if comp_name not in output["companies"]:
-            output["companies"][comp_name] = {
-                "name": info["name"],
-                "ticker": info["ticker"],
-                "cik": info["cik"],
-                "segment": info["segment"],
-                "is_msci": info.get("is_msci", False),
-                "quarters": {},
+    # Opinion mining scaffold (one row per client)
+    om = out["opinion_mining"] or {}
+    for key in CLIENTS:
+        if key not in om:
+            om[key] = {"initiatives": [], "cost_pressures": [], "strategic_insights": []}
+    out["opinion_mining"] = om
+
+    # ── Per-client scraping loop ─────────────────────────────────
+    for key, client in CLIENTS.items():
+        print(f"\n  [{client['category']}] {client['name']} ({client['ticker']})")
+        block = out["clients"][key]
+
+        # 1. IR releases
+        ir_items = fetch_ir_releases(client)
+        print(f"     IR releases: {len(ir_items)}")
+
+        # 2. News RSS
+        news_items = fetch_news_rss(client["news_query"])
+        print(f"     News RSS:    {len(news_items)}")
+
+        # 3. Merge article set (cap to keep runtime reasonable)
+        articles = ir_items + news_items
+
+        # 4. Process each article: infer quarter, extract metrics, mine themes
+        for art in articles[:12]:
+            title = art.get("title", "")
+            url = art.get("url", "")
+            q = infer_quarter(title)
+            if not q:
+                # Try to infer from publish date
+                pub = art.get("published", "")
+                if pub and dateparser:
+                    try:
+                        d = dateparser.parse(pub)
+                        cq = (d.month - 1) // 3 + 1
+                        q = f"Q{cq} {d.year}"
+                    except Exception:
+                        q = None
+            if q not in block["quarters"]:
+                continue
+            body = fetch_article_text(url)
+            if not body:
+                continue
+            fins = extract_financials(body)
+            themes = mine_themes(body, client["name"])
+
+            qb = block["quarters"][q]
+
+            # Merge financials (only fills nulls)
+            fmap = {
+                "revenue":          "revenue_usd",
+                "operating_income": "operating_income_usd",
+                "net_income":       "net_income_usd",
+                "aum":              "aum_usd",
+                "inflows":          "net_inflows_q_usd",
+                "eps":              "eps_usd",
             }
-        cr = output["companies"][comp_name]
-        cr["name"] = info["name"]
-        cr["ticker"] = info["ticker"]
-        cr["segment"] = info["segment"]
-        cr["is_msci"] = info.get("is_msci", False)
-        for q in quarters:
-            if q not in cr["quarters"]:
-                cr["quarters"][q] = empty_quarter_record()
+            src_tag = "IR release" if "IR" in art.get("source", "") else "News RSS"
+            for metric_src, field in fmap.items():
+                got = fins.get(metric_src)
+                if got:
+                    qb["financials"][field] = merge_field(
+                        qb["financials"][field], got["value_usd"],
+                        src_tag, qb["sources"], field, url,
+                    )
 
-    # ── Phase 1: SEC EDGAR XBRL ──
-    print("\n" + "-" * 70)
-    print("  Phase 1: SEC EDGAR XBRL")
-    print("-" * 70)
-    for comp_name, info in COMPANIES.items():
-        cik = info.get("cik")
-        if not cik:
-            print(f"\n  {comp_name}: no CIK (non-US listing); skipping EDGAR.")
-            continue
-        print(f"\n  {comp_name} (CIK {cik}):")
-        rev = pull_sec_metric(cik, XBRL_REVENUE_TAGS, quarters)
-        op = pull_sec_metric(cik, XBRL_OPINCOME_TAGS, quarters)
-        ni = pull_sec_metric(cik, XBRL_NETINCOME_TAGS, quarters)
-        hit = 0
-        for q in quarters:
-            rec = output["companies"][comp_name]["quarters"][q]
-            if q in rev:
-                merge_metric(rec, "revenue_usd", rev[q]); hit += 1
-            if q in op:
-                merge_metric(rec, "operating_income_usd", op[q])
-            if q in ni:
-                merge_metric(rec, "net_income_usd", ni[q])
-        print(f"     -> revenue hits: {sum(1 for q in quarters if q in rev)}/{len(quarters)}")
-        print(f"     -> op income hits: {sum(1 for q in quarters if q in op)}/{len(quarters)}")
-        time.sleep(0.3)
+            # Append themes (dedupe)
+            for bucket_src, bucket_dst in [
+                ("initiatives", "key_initiatives"),
+                ("cost_pressures", "cost_pressures"),
+                ("strategic_insights", "strategic_insights"),
+            ]:
+                existing_set = set(qb["themes"][bucket_dst])
+                for s in themes.get(bucket_src, []):
+                    if s not in existing_set and len(qb["themes"][bucket_dst]) < 5:
+                        qb["themes"][bucket_dst].append(s)
+                        existing_set.add(s)
 
-    # ── Phase 2: IR press releases (MSCI-specific metrics) ──
-    print("\n" + "-" * 70)
-    print("  Phase 2: IR press releases (AUM, run rate, retention)")
-    print("-" * 70)
-    for comp_name, info in COMPANIES.items():
-        print(f"\n  {comp_name}:")
-        try:
-            ir_metrics = scrape_ir_press_releases(comp_name, info, quarters)
-        except Exception as e:
-            print(f"     [!] IR scrape failed: {e}")
-            continue
-        for q, metrics in ir_metrics.items():
-            rec = output["companies"][comp_name]["quarters"][q]
-            for k, v in metrics.items():
-                merge_metric(rec, k, v)
+            # Record top-trend headline pointer (current quarter only)
+            if q == current_q and title and len(qb["top_trends"]) < 8:
+                qb["top_trends"].append({
+                    "headline": title[:180],
+                    "url": url,
+                    "source": art.get("source", ""),
+                })
 
-    # ── Phase 3: News-based revenue fallback ──
-    print("\n" + "-" * 70)
-    print("  Phase 3: News-based fallback for missing revenue")
-    print("-" * 70)
-    for comp_name, info in COMPANIES.items():
-        for q in quarters:
-            rec = output["companies"][comp_name]["quarters"][q]
-            if rec.get("revenue_usd") is None:
-                print(f"  {comp_name} {q}: trying news fallback...")
-                res = news_based_revenue_for_quarter(info["name"], q)
-                if res:
-                    merge_metric(rec, "revenue_usd", res)
-                    print(f"     -> found ${res['value']/1e6:.1f}M")
-                time.sleep(0.6)
+            time.sleep(0.5)
 
-    # ── Phase 4: Derive YoY growth ──
-    print("\n" + "-" * 70)
-    print("  Phase 4: Deriving YoY growth where possible")
-    print("-" * 70)
-    for comp_name in COMPANIES:
-        compute_yoy_growth(output["companies"][comp_name], output["quarters"])
+        # 5. Mirror latest-quarter themes into opinion_mining table
+        latest = block["quarters"].get(current_q, {})
+        t = latest.get("themes", {})
+        om_entry = om.get(key, {})
+        if t.get("key_initiatives") and not om_entry.get("initiatives"):
+            om_entry["initiatives"] = t["key_initiatives"][:3]
+        if t.get("cost_pressures") and not om_entry.get("cost_pressures"):
+            om_entry["cost_pressures"] = t["cost_pressures"][:3]
+        if t.get("strategic_insights") and not om_entry.get("strategic_insights"):
+            om_entry["strategic_insights"] = t["strategic_insights"][:3]
 
-    # ── Phase 5: Summary + save ──
-    print("\n" + "=" * 70)
-    print("  SUMMARY")
-    print("=" * 70)
-    for comp_name, cr in output["companies"].items():
-        filled = 0
-        total = 0
-        for q in quarters:
-            rec = cr["quarters"].get(q, {})
-            for k in METRIC_SCHEMA:
-                total += 1
-                if rec.get(k) is not None:
-                    filled += 1
-        pct = round(filled / total * 100) if total else 0
-        print(f"  {comp_name:15s}  {filled}/{total} metric-cells filled ({pct}%)")
+        time.sleep(0.8)
 
-    save_output(output)
+    # ── Build AUM summary rows for the current quarter ───────────
+    trad_rows, pe_rows = [], []
+    for key, block in out["clients"].items():
+        q = block["quarters"].get(current_q, {})
+        row = {
+            "client": block["name"],
+            "ticker": block["ticker"],
+            "aum_usd": q.get("financials", {}).get("aum_usd"),
+            "aum_yoy_growth_pct": q.get("financials", {}).get("aum_yoy_growth_pct"),
+            "organic_base_fee_growth_pct": q.get("financials", {}).get("organic_base_fee_growth_pct"),
+            "net_inflows_q_usd": q.get("financials", {}).get("net_inflows_q_usd"),
+            "msci_run_rate_usd": q.get("msci_relationship", {}).get("run_rate_usd"),
+            "msci_run_rate_yoy_pct": q.get("msci_relationship", {}).get("run_rate_yoy_growth_pct"),
+            "msci_client_revenue_usd": q.get("msci_relationship", {}).get("client_revenue_usd"),
+        }
+        if block["category"] == "Traditional":
+            trad_rows.append(row)
+        else:
+            pe_rows.append(row)
+    out["aum_summary"] = {
+        "period": current_q,
+        "traditional": trad_rows,
+        "pe_alternative": pe_rows,
+    }
+
+    # ── Save ─────────────────────────────────────────────────────
+    save_data(out, OUTPUT_FILE)
+    print("\n  ----- Summary -----")
+    print(f"  Clients tracked:    {len(out['clients'])}")
+    print(f"  Quarters covered:   {quarters}")
+    print(f"  Fund families:      {len(FUND_FAMILIES)}")
     print("=" * 70)
 
 
 if __name__ == "__main__":
-    import urllib3
-    urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
-    try:
-        main()
-    except Exception as e:
-        print(f"FATAL: {e}")
-        sys.exit(1)
+    main()
