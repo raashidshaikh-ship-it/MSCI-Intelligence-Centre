@@ -626,26 +626,46 @@ def main():
         time.sleep(0.8)
 
     # ── Build AUM summary rows for the current quarter ───────────
+    # IMPORTANT: this section MERGES into existing aum_summary rather than
+    # overwriting it. Manually-curated PDF-sourced rows are preserved;
+    # scraper-derived values only fill nulls.
+    existing_aum = existing.get("aum_summary", {}) or {}
+    existing_trad = {r.get("client"): r for r in (existing_aum.get("traditional") or [])}
+    existing_pe   = {r.get("client"): r for r in (existing_aum.get("pe_alternative") or [])}
+
+    def _merge_aum_row(existing_row, scraped_row):
+        """Return a row where existing non-null values win; scraped values only fill nulls."""
+        if not existing_row:
+            return scraped_row
+        merged = dict(existing_row)
+        for k, v in scraped_row.items():
+            if merged.get(k) in (None, "", "N/A") and v not in (None, "", "N/A"):
+                merged[k] = v
+        return merged
+
     trad_rows, pe_rows = [], []
     for key, block in out["clients"].items():
-        q = block["quarters"].get(current_q, {})
-        row = {
+        q = block["quarters"].get(current_q, {}) or {}
+        fins = q.get("financials", {}) or {}
+        rel  = q.get("msci_relationship", {}) or {}
+        scraped = {
             "client": block["name"],
             "ticker": block["ticker"],
-            "aum_usd": q.get("financials", {}).get("aum_usd"),
-            "aum_yoy_growth_pct": q.get("financials", {}).get("aum_yoy_growth_pct"),
-            "organic_base_fee_growth_pct": q.get("financials", {}).get("organic_base_fee_growth_pct"),
-            "net_inflows_q_usd": q.get("financials", {}).get("net_inflows_q_usd"),
-            "msci_run_rate_usd": q.get("msci_relationship", {}).get("run_rate_usd"),
-            "msci_run_rate_yoy_pct": q.get("msci_relationship", {}).get("run_rate_yoy_growth_pct"),
-            "msci_client_revenue_usd": q.get("msci_relationship", {}).get("client_revenue_usd"),
+            "aum_usd": fins.get("aum_usd"),
+            "aum_yoy_growth_pct": fins.get("aum_yoy_growth_pct"),
+            "organic_base_fee_growth_pct": fins.get("organic_base_fee_growth_pct"),
+            "net_inflows_q_usd": fins.get("net_inflows_q_usd"),
+            "msci_run_rate_usd": rel.get("run_rate_usd"),
+            "msci_run_rate_yoy_pct": rel.get("run_rate_yoy_growth_pct"),
+            "msci_client_revenue_usd": rel.get("client_revenue_usd"),
         }
         if block["category"] == "Traditional":
-            trad_rows.append(row)
+            trad_rows.append(_merge_aum_row(existing_trad.get(block["name"]), scraped))
         else:
-            pe_rows.append(row)
+            pe_rows.append(_merge_aum_row(existing_pe.get(block["name"]), scraped))
+
     out["aum_summary"] = {
-        "period": current_q,
+        "period": existing_aum.get("period") or current_q,
         "traditional": trad_rows,
         "pe_alternative": pe_rows,
     }

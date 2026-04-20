@@ -220,7 +220,8 @@ body { font-family: var(--font); background: var(--bg-root); color: var(--text-p
 .region-fill { height: 12px; border-radius: 3px; transition: width 0.4s ease; }
 
 /* ─── CLIENT ACTIVITY SECTION ─── */
-.client-card { padding: 16px 22px; border-bottom: 1px solid rgba(255,255,255,0.03); animation: fadeIn 0.3s ease; }
+.client-card { padding: 16px 22px; border-bottom: 1px solid rgba(255,255,255,0.03); animation: fadeIn 0.3s ease; cursor: pointer; transition: background 0.15s ease; }
+.client-card:hover { background: rgba(255,255,255,0.03); }
 .client-card-badges { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; margin-bottom: 6px; }
 .badge-client { font-size: 10px; font-weight: 600; color: var(--teal); background: rgba(20,184,166,0.1); padding: 2px 8px; border-radius: 4px; }
 .badge-activity { font-size: 10px; font-weight: 500; color: var(--warning); background: rgba(245,158,11,0.1); padding: 2px 8px; border-radius: 4px; }
@@ -232,7 +233,8 @@ body { font-family: var(--font); background: var(--bg-root); color: var(--text-p
 .client-date { font-size: 10px; color: var(--text-dim); font-family: var(--mono); margin-top: 4px; }
 
 /* ─── MSCI PRODUCTS SECTION ─── */
-.product-card { padding: 16px 22px; border-bottom: 1px solid rgba(255,255,255,0.03); animation: fadeIn 0.3s ease; }
+.product-card { padding: 16px 22px; border-bottom: 1px solid rgba(255,255,255,0.03); animation: fadeIn 0.3s ease; cursor: pointer; transition: background 0.15s ease; }
+.product-card:hover { background: rgba(255,255,255,0.03); }
 .badge-product-line { font-size: 10px; font-weight: 600; color: var(--pink); background: rgba(236,72,153,0.1); padding: 2px 8px; border-radius: 4px; }
 .badge-launch-type { font-size: 10px; font-weight: 500; color: var(--accent-light); background: rgba(59,130,246,0.1); padding: 2px 8px; border-radius: 4px; }
 .product-headline { font-size: 14px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
@@ -419,7 +421,8 @@ body { font-family: var(--font); background: var(--bg-root); color: var(--text-p
     <div class="result-count" id="clientResultCount"></div>
   </div>
   <div class="main">
-    <div class="feed expanded" id="clientFeed" style="overflow-y:auto"></div>
+    <div class="feed" id="clientFeed" style="overflow-y:auto"></div>
+    <div class="detail" id="clientDetail" style="display:none;"></div>
   </div>
 </div>
 
@@ -439,7 +442,8 @@ body { font-family: var(--font); background: var(--bg-root); color: var(--text-p
     <div class="sub-tab" data-sub="milestones">Milestones</div>
   </div>
   <div class="main">
-    <div class="feed expanded" id="msciFeed" style="overflow-y:auto"></div>
+    <div class="feed" id="msciFeed" style="overflow-y:auto"></div>
+    <div class="detail" id="msciDetail" style="display:none;"></div>
   </div>
 </div>
 
@@ -489,6 +493,7 @@ let finCompany = "BlackRock";
 // ─── STATE ───
 let state = {
   selected: null, search: "", detailTab: "sectors",
+  selectedClient: null, selectedMsci: null,
   filterComp: "All", filterCat: "All", filterImp: "All",
   filterImpact: "All", filterSentiment: "All",
   filterDateFrom: "", filterDateTo: "",
@@ -571,10 +576,16 @@ function deltaColor(v) { if (v===null||v===undefined) return "var(--text-dim)"; 
 function deltaArrow(v) { if (v===null||v===undefined) return ""; return v>0?"▲":v<0?"▼":"●"; }
 
 // Render a quarter-pill toggle into a given container element
-function renderQuarterToggle(containerId, stateKey, onChange, {includeAll = true, quarters = null} = {}) {
+function renderQuarterToggle(containerId, stateKey, onChange, {includeAll = true, quarters = null, strict = false} = {}) {
   const c = document.getElementById(containerId);
   if (!c) return;
-  const qs = (quarters && quarters.length) ? quarters : (QUARTERLY_DATA.quarters || []);
+  // When strict=true, never fall back to global QUARTERLY_DATA quarters — use only what was passed.
+  let qs;
+  if (strict) {
+    qs = quarters || [];
+  } else {
+    qs = (quarters && quarters.length) ? quarters : (QUARTERLY_DATA.quarters || []);
+  }
   if (!qs.length) { c.innerHTML = '<span style="font-size:10px;color:var(--text-dim);padding:4px 8px">No quarters loaded yet</span>'; return; }
   // If the currently selected quarter isn't in the available list, fall back to "All" (or first quarter when All is disabled)
   let selected = state[stateKey];
@@ -662,8 +673,13 @@ function getActiveFilterCount() {
 // ═══════════════════════════════════════════════
 function renderNews() {
   // Quarter toggle — derive quarters from actual article dates, not from the earnings JSON
-  const newsQuarters = quartersFromData(DATA, "published");
-  renderQuarterToggle("quarterToggleNews","quarterNews",()=>renderNews(),{quarters:newsQuarters});
+  let newsQuarters = quartersFromData(DATA, "published");
+  if (!newsQuarters.length) {
+    // Fallback: show the current quarter so users aren't confused by earnings quarters leaking in.
+    const now = new Date();
+    newsQuarters = ["Q" + (Math.floor(now.getMonth()/3)+1) + " " + now.getFullYear()];
+  }
+  renderQuarterToggle("quarterToggleNews","quarterNews",()=>renderNews(),{quarters:newsQuarters, strict:true});
   const qFiltered = state.quarterNews==="All" ? DATA : DATA.filter(a=>itemMatchesQuarter(a,state.quarterNews,"published"));
   document.getElementById("quarterMetaNews").textContent = `${qFiltered.length} of ${DATA.length} articles in ${state.quarterNews==="All"?"all quarters":state.quarterNews}`;
 
@@ -714,20 +730,30 @@ function renderNews() {
         <div class="news-card-top">
           <div class="news-card-badges">
             <span class="badge-competitor">${esc(item.competitor)}</span>
-            <span class="badge-importance" style="color:${impColor(item.importance)};background:${impBg(item.importance)}">${item.importance}</span>
+            ${item.importance?`<span class="badge-importance" style="color:${impColor(item.importance)};background:${impBg(item.importance)}">${esc(item.importance)}</span>`:""}
           </div>
           <span class="news-card-time">${timeAgo(item.published)}</span>
         </div>
         <div class="news-card-headline">${esc(item.title)}</div>
         <div class="news-card-meta">
           <span>${esc(item.source)}</span><span class="meta-dot">·</span>
-          <span>${esc(item.category)}</span><span class="meta-dot">·</span>
-          <span style="color:${sentimentColor(item.sentiment)}">${dirIcon(item.sentiment==="Positive"?"positive":item.sentiment==="Negative"?"negative":"neutral")} ${item.sentiment}</span><span class="meta-dot">·</span>
-          <span class="meta-impact" style="color:${impColor(item.impact_level)};background:${impBg(item.impact_level)}">Impact: ${item.impact_level}</span>
+          <span>${esc(item.category)}</span>${item.sentiment?`<span class="meta-dot">·</span><span style="color:${sentimentColor(item.sentiment)}">${dirIcon(item.sentiment==="Positive"?"positive":item.sentiment==="Negative"?"negative":"neutral")} ${item.sentiment}</span>`:""}${item.impact_level?`<span class="meta-dot">·</span><span class="meta-impact" style="color:${impColor(item.impact_level)};background:${impBg(item.impact_level)}">Impact: ${esc(item.impact_level)}</span>`:""}
         </div>
-        <div class="news-card-date">${new Date(item.published).toLocaleDateString("en-US",{weekday:"short",month:"short",day:"numeric",year:"numeric",hour:"2-digit",minute:"2-digit"})}</div>
+        <div class="news-card-footer" style="display:flex;align-items:center;justify-content:space-between;margin-top:6px">
+          <div class="news-card-date">${item.published?new Date(item.published).toLocaleDateString("en-US",{weekday:"short",month:"short",day:"numeric",year:"numeric",hour:"2-digit",minute:"2-digit"}):""}</div>
+          ${item.url?`<a class="news-card-open" href="${esc(item.url)}" target="_blank" rel="noopener noreferrer" title="Open original source" style="font-size:11px;color:var(--accent-light);text-decoration:none;padding:4px 10px;border:1px solid rgba(59,130,246,0.25);border-radius:6px;background:rgba(59,130,246,0.08)">Open source ↗</a>`:""}
+        </div>
       </div>`).join("");
-    feed.querySelectorAll(".news-card").forEach(card=>{card.addEventListener("click",()=>{const id=card.dataset.id;state.selected=DATA.find(d=>String(d.id)===id);state.detailTab="sectors";renderNews();});});
+    feed.querySelectorAll(".news-card").forEach(card=>{
+      card.addEventListener("click",(e)=>{
+        // Let the "Open source" link do its own thing — don't hijack into the detail panel.
+        if (e.target.closest(".news-card-open")) return;
+        const id=card.dataset.id;
+        state.selected=DATA.find(d=>String(d.id)===id);
+        state.detailTab="sectors";
+        renderNews();
+      });
+    });
   }
 
   // Detail panel
@@ -751,7 +777,8 @@ function renderNews() {
         <span>${esc(s.region||"Global")}</span>
         <span class="detail-meta-cat">${esc(s.category)}</span>
       </div>
-      <div class="detail-summary">${esc(s.summary||"Summary not available.")}</div>
+      <div class="detail-summary">${s.summary?esc(s.summary):`<span style="color:var(--text-dim);font-style:italic">No summary text available from the source API. ${s.url?`<a href="${esc(s.url)}" target="_blank" rel="noopener noreferrer" style="color:var(--accent-light);text-decoration:underline">Read the full article on ${esc(s.source||"the source website")} →</a>`:"No source URL available."}</span>`}</div>
+      ${s.url?`<a href="${esc(s.url)}" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:6px;margin-bottom:16px;padding:8px 14px;background:var(--accent-light);color:#0b0d12;border-radius:6px;font-size:12px;font-weight:600;text-decoration:none">Open original article ↗</a>`:""}
       <div class="tabs">
         <button class="tab ${state.detailTab==="sectors"?"active":""}" data-tab="sectors">◉ Sector impact</button>
         <button class="tab ${state.detailTab==="stocks"?"active":""}" data-tab="stocks">◆ Stock impact</button>
@@ -877,12 +904,18 @@ function renderClients() {
   document.getElementById("clientResultCount").textContent=`${filtered.length} activities`;
 
   const feed=document.getElementById("clientFeed");
+  const detail=document.getElementById("clientDetail");
   if(!filtered.length){
     feed.innerHTML=`<div class="feed-empty"><div class="feed-empty-icon">◆</div><div class="feed-empty-title">No client activity data yet</div><div class="feed-empty-sub">Data will appear after the next scraper run</div></div>`;
+    if(detail){detail.style.display="none";detail.innerHTML="";}
+    feed.classList.add("expanded");feed.classList.remove("collapsed");
+    state.selectedClient=null;
     return;
   }
-  feed.innerHTML=filtered.map(a=>`
-    <div class="client-card">
+  // Give each card a stable id (index+title hash) so click re-selects correctly
+  const withIds = filtered.map((a,i)=>({...a, __cid: (a.id||`${i}-${(a.title||"").slice(0,40)}`)}));
+  feed.innerHTML=withIds.map(a=>`
+    <div class="client-card" data-cid="${esc(a.__cid)}">
       <div class="client-card-badges">
         <span class="badge-client">${esc(a.client)}</span>
         <span class="badge-activity">${esc(a.activity_type||"General")}</span>
@@ -895,6 +928,59 @@ function renderClients() {
       ${a.opportunity_signal?`<div class="client-signal">💡 ${esc(a.opportunity_signal)}</div>`:""}
       <div class="client-date">${a.published?new Date(a.published).toLocaleDateString("en-US",{weekday:"short",month:"short",day:"numeric",year:"numeric"}):"N/A"}</div>
     </div>`).join("");
+
+  // Card click → open detail panel
+  feed.querySelectorAll(".client-card").forEach(card=>{
+    card.addEventListener("click",()=>{
+      const cid=card.dataset.cid;
+      state.selectedClient = withIds.find(x=>String(x.__cid)===cid) || null;
+      renderClientDetail();
+    });
+  });
+  renderClientDetail();
+}
+
+function renderClientDetail() {
+  const detail=document.getElementById("clientDetail");
+  const feed=document.getElementById("clientFeed");
+  if(!detail) return;
+  const s=state.selectedClient;
+  if(!s){detail.style.display="none";detail.innerHTML="";if(feed){feed.classList.add("expanded");feed.classList.remove("collapsed");}return;}
+  if(feed){feed.classList.add("collapsed");feed.classList.remove("expanded");}
+  detail.style.display="block";
+  const oppBadge = `<span class="detail-badge" style="color:${oppColor(s.opportunity_type)};background:${oppBg(s.opportunity_type)}">${esc(s.opportunity_type||"Monitor")}</span>`;
+  const priBadge = `<span class="detail-badge" style="color:${impColor(s.priority)};background:${impBg(s.priority)}">${esc(s.priority||"Medium")}</span>`;
+  detail.innerHTML=`
+    <button class="detail-close" id="clientDetailClose">✕</button>
+    <div class="detail-inner">
+      <div class="detail-badges">
+        <span class="detail-badge" style="color:#14b8a6;background:rgba(20,184,166,0.12)">${esc(s.client||"")}</span>
+        <span class="detail-badge" style="color:#94a3b8;background:rgba(148,163,184,0.12)">${esc(s.activity_type||"General")}</span>
+        ${s.msci_linked?`<span class="detail-badge" style="color:#22c55e;background:rgba(34,197,94,0.12)">MSCI ✓</span>`:""}
+        ${oppBadge}
+        ${priBadge}
+      </div>
+      <h2 class="detail-headline">${esc(s.title||"")}</h2>
+      <div class="detail-meta">
+        <span>${esc(s.source||"Source unknown")}</span>
+        ${s.published?`<span>${new Date(s.published).toLocaleDateString("en-US",{month:"short",day:"numeric",year:"numeric"})}</span>`:""}
+        ${s.client_type?`<span>${esc(s.client_type)}</span>`:""}
+        ${s.deal_value&&s.deal_value!=="N/A"?`<span class="detail-meta-cat">${esc(s.deal_value)}</span>`:""}
+      </div>
+      <div class="detail-summary">${esc(s.summary||s.opportunity_signal||"No detailed summary available yet.")}</div>
+
+      <div class="msci-card" style="margin-top:14px">
+        <div class="msci-header"><span class="msci-header-icon">⚡</span><span class="msci-header-label">MSCI Impact</span></div>
+        <div class="msci-body">${esc(s.msci_impact||(s.msci_linked?"This activity is flagged as MSCI-linked but no impact assessment was generated. Review source for commercial implications.":"No direct MSCI product linkage was detected. Keep monitoring for product adoption or displacement signals."))}</div>
+        ${s.msci_product&&s.msci_product!=="N/A"?`<div style="margin-top:10px;padding:10px;background:rgba(20,184,166,0.05);border:1px solid rgba(20,184,166,0.15);border-radius:8px"><div style="font-size:11px;font-weight:600;color:#14b8a6;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px">MSCI product</div><div style="font-size:13px;color:var(--text-secondary)">${esc(s.msci_product)}</div></div>`:""}
+      </div>
+
+      ${s.opportunity_signal?`<div style="margin-top:14px;padding:12px;background:rgba(245,158,11,0.05);border:1px solid rgba(245,158,11,0.15);border-radius:8px"><div style="font-size:11px;font-weight:600;color:#f59e0b;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px">Opportunity Signal</div><div style="font-size:13px;color:var(--text-secondary);line-height:1.6">💡 ${esc(s.opportunity_signal)}</div></div>`:""}
+
+      ${s.url?`<div class="detail-source"><a href="${esc(s.url)}" target="_blank" rel="noopener noreferrer">Read original source →</a></div>`:""}
+    </div>`;
+  document.getElementById("clientDetailClose").addEventListener("click",()=>{state.selectedClient=null;renderClientDetail();});
+  detail.scrollTo({top:0,behavior:"smooth"});
 }
 
 // ═══════════════════════════════════════════════
@@ -928,12 +1014,19 @@ function renderMsci() {
 
   const items=(msciSubTab==="products"?qProducts:msciSubTab==="wins"?qWins:qMilestones)||[];
   const feed=document.getElementById("msciFeed");
+  const detail=document.getElementById("msciDetail");
   if(!items.length){
     feed.innerHTML=`<div class="feed-empty"><div class="feed-empty-icon">⚡</div><div class="feed-empty-title">No ${msciSubTab} data yet</div><div class="feed-empty-sub">Data will appear after the next scraper run</div></div>`;
+    if(detail){detail.style.display="none";detail.innerHTML="";}
+    feed.classList.add("expanded");feed.classList.remove("collapsed");
+    state.selectedMsci=null;
     return;
   }
-  feed.innerHTML=items.sort((a,b)=>new Date(b.published||0)-new Date(a.published||0)).map(a=>`
-    <div class="product-card">
+  // Give each card a stable id so click re-selects correctly
+  const sorted=items.slice().sort((a,b)=>new Date(b.published||0)-new Date(a.published||0));
+  const withIds=sorted.map((a,i)=>({...a, __mid:(a.id||`${msciSubTab}-${i}-${(a.title||"").slice(0,40)}`)}));
+  feed.innerHTML=withIds.map(a=>`
+    <div class="product-card" data-mid="${esc(a.__mid)}">
       <div class="client-card-badges">
         <span class="badge-product-line">${esc(a.product_line||"General")}</span>
         <span class="badge-launch-type">${esc(a.launch_type||"Announcement")}</span>
@@ -944,6 +1037,51 @@ function renderMsci() {
       ${a.competitive_edge&&a.competitive_edge!=="N/A"?`<div class="product-edge">🏆 ${esc(a.competitive_edge)}</div>`:""}
       <div class="product-date">${a.published?new Date(a.published).toLocaleDateString("en-US",{weekday:"short",month:"short",day:"numeric",year:"numeric"}):"N/A"}</div>
     </div>`).join("");
+
+  // Card click → open detail panel
+  feed.querySelectorAll(".product-card").forEach(card=>{
+    card.addEventListener("click",()=>{
+      const mid=card.dataset.mid;
+      state.selectedMsci = withIds.find(x=>String(x.__mid)===mid) || null;
+      renderMsciDetail();
+    });
+  });
+  renderMsciDetail();
+}
+
+function renderMsciDetail() {
+  const detail=document.getElementById("msciDetail");
+  const feed=document.getElementById("msciFeed");
+  if(!detail) return;
+  const s=state.selectedMsci;
+  if(!s){detail.style.display="none";detail.innerHTML="";if(feed){feed.classList.add("expanded");feed.classList.remove("collapsed");}return;}
+  if(feed){feed.classList.add("collapsed");feed.classList.remove("expanded");}
+  detail.style.display="block";
+  detail.innerHTML=`
+    <button class="detail-close" id="msciDetailClose">✕</button>
+    <div class="detail-inner">
+      <div class="detail-badges">
+        <span class="detail-badge" style="color:#ec4899;background:rgba(236,72,153,0.12)">${esc(s.product_line||"General")}</span>
+        <span class="detail-badge" style="color:#94a3b8;background:rgba(148,163,184,0.12)">${esc(s.launch_type||"Announcement")}</span>
+        ${s.deal_value&&s.deal_value!=="N/A"?`<span class="detail-badge" style="color:#22c55e;background:rgba(34,197,94,0.12)">${esc(s.deal_value)}</span>`:""}
+        ${s.client_name&&s.client_name!=="N/A"?`<span class="detail-badge" style="color:#14b8a6;background:rgba(20,184,166,0.12)">${esc(s.client_name)}</span>`:""}
+      </div>
+      <h2 class="detail-headline">${esc(s.title||"")}</h2>
+      <div class="detail-meta">
+        <span>${esc(s.source||"Source unknown")}</span>
+        ${s.published?`<span>${new Date(s.published).toLocaleDateString("en-US",{month:"short",day:"numeric",year:"numeric"})}</span>`:""}
+        ${s.region&&s.region!=="N/A"?`<span>${esc(s.region)}</span>`:""}
+      </div>
+      <div class="detail-summary">${esc(s.summary||s.competitive_edge||"No detailed summary available yet.")}</div>
+
+      ${s.competitive_edge&&s.competitive_edge!=="N/A"?`<div class="msci-card" style="margin-top:14px"><div class="msci-header"><span class="msci-header-icon">🏆</span><span class="msci-header-label">Competitive edge</span></div><div class="msci-body">${esc(s.competitive_edge)}</div></div>`:""}
+
+      ${s.impact&&s.impact!=="N/A"?`<div style="margin-top:14px;padding:12px;background:rgba(245,158,11,0.05);border:1px solid rgba(245,158,11,0.15);border-radius:8px"><div style="font-size:11px;font-weight:600;color:#f59e0b;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px">Strategic impact</div><div style="font-size:13px;color:var(--text-secondary);line-height:1.6">${esc(s.impact)}</div></div>`:""}
+
+      ${s.url?`<div class="detail-source"><a href="${esc(s.url)}" target="_blank" rel="noopener noreferrer">Read original source →</a></div>`:""}
+    </div>`;
+  document.getElementById("msciDetailClose").addEventListener("click",()=>{state.selectedMsci=null;renderMsciDetail();});
+  detail.scrollTo({top:0,behavior:"smooth"});
 }
 
 // ═══════════════════════════════════════════════

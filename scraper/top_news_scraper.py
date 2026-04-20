@@ -1,879 +1,420 @@
-# Top News Scraper — MSCI Competitor Intelligence
-# ====================================================================
-# Outputs to: data/top_news.json (relative to repo root)
-# Appends new articles each run (no duplicates).
-# Run:  python scraper/top_news_scraper.py
-# Deps: pip install requests beautifulsoup4 lxml
-#
-# v2 CHANGES:
-#   - Added sector_impact (array of affected sectors with direction + magnitude)
-#   - Added stock_impact (array of affected tickers with direction)
-#   - Added what_to_watch (forward-looking signal for each article)
-#   - Timer changed to 8 hours in scrape.yml (update separately)
+"""
+Top News Scraper — MSCI Competitor Intelligence (Finnhub + RSS edition)
+========================================================================
+
+Purpose
+-------
+Populate data/top_news.json with recent news about MSCI competitors, using
+reliable, structured data sources instead of fragile HTML scraping.
+
+Data sources
+------------
+1. Finnhub /company-news  (primary) — 60 req/min, 1-year history, JSON
+2. Competitor press-release RSS feeds (secondary, covers product launches)
+
+Inputs
+------
+- config/sources.json        (competitor roster — editable without code changes)
+- env FINNHUB_API_KEY        (GitHub Actions secret)
+
+Outputs
+-------
+- data/top_news.json         (list of articles, newest first)
+- data/scraper_status.json   (per-source last run status)
+
+Deps: requests (standard library for everything else)
+
+Usage
+-----
+    export FINNHUB_API_KEY=xxx
+    python scraper/top_news_scraper.py
+"""
+
+from __future__ import annotations
+
+import hashlib
+import json
+import os
+import re
+import sys
+import time
+import xml.etree.ElementTree as ET
+from datetime import datetime, timedelta, timezone
+from email.utils import parsedate_to_datetime
 
 import requests
-from bs4 import BeautifulSoup
-from datetime import datetime
-import os
-import sys
-import re
-import time
-import json
-import hashlib
 
-HEADERS = {
-    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36",
-    "Accept-Language": "en-US,en;q=0.9",
-    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
-}
-
-# Output path — relative to repo root (works in GitHub Actions & locally)
+# ──────────────────────────────────────────────────────────────────────────
+# Paths
+# ──────────────────────────────────────────────────────────────────────────
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 REPO_ROOT = os.path.dirname(SCRIPT_DIR)
 DATA_DIR = os.path.join(REPO_ROOT, "data")
+CONFIG_FILE = os.path.join(REPO_ROOT, "config", "sources.json")
 OUTPUT_FILE = os.path.join(DATA_DIR, "top_news.json")
+STATUS_FILE = os.path.join(DATA_DIR, "scraper_status.json")
 
-
-# ──────────────────────────────────────────────
-# MSCI COMPETITORS
-# ──────────────────────────────────────────────
-COMPETITORS = {
-    "S&P Global": {
-        "queries": ["S&P Global financial", "S&P Global indices", "S&P Dow Jones Indices"],
-        "segment": "Indices / Ratings / Data",
-        "ticker": "SPGI",
-    },
-    "FTSE Russell": {
-        "queries": ["FTSE Russell index", "FTSE Russell LSEG"],
-        "segment": "Indices / Benchmarking",
-        "ticker": "LSEG",
-    },
-    "Bloomberg": {
-        "queries": ["Bloomberg LP financial", "Bloomberg terminal data", "Bloomberg indices"],
-        "segment": "Data / Analytics / Indices",
-        "ticker": None,  # Private company
-    },
-    "Morningstar": {
-        "queries": ["Morningstar financial", "Morningstar Sustainalytics ESG", "Morningstar ratings"],
-        "segment": "Research / ESG / Ratings",
-        "ticker": "MORN",
-    },
-    "FactSet": {
-        "queries": ["FactSet financial data", "FactSet analytics"],
-        "segment": "Analytics / Data Platform",
-        "ticker": "FDS",
-    },
-    "Moody's": {
-        "queries": ["Moody's analytics", "Moody's ratings financial"],
-        "segment": "Ratings / Risk Analytics",
-        "ticker": "MCO",
-    },
-    "London Stock Exchange Group": {
-        "queries": ["LSEG financial data", "London Stock Exchange Group"],
-        "segment": "Data / Indices / Trading",
-        "ticker": "LSEG",
-    },
-    "Refinitiv": {
-        "queries": ["Refinitiv LSEG data"],
-        "segment": "Data / Analytics",
-        "ticker": "LSEG",
-    },
-    "ISS": {
-        "queries": ["ISS governance ESG proxy", "Institutional Shareholder Services"],
-        "segment": "ESG / Governance / Proxy",
-        "ticker": None,  # Private (owned by Deutsche Börse)
-    },
-    "Qontigo": {
-        "queries": ["Qontigo STOXX DAX analytics"],
-        "segment": "Indices / Risk Models",
-        "ticker": "DB1",  # Deutsche Börse parent
-    },
-    "Verisk": {
-        "queries": ["Verisk analytics financial"],
-        "segment": "Risk Analytics / Data",
-        "ticker": "VRSK",
-    },
-    "Intercontinental Exchange": {
-        "queries": ["ICE Intercontinental Exchange data indices"],
-        "segment": "Exchanges / Data / Indices",
-        "ticker": "ICE",
-    },
+HEADERS = {
+    "User-Agent": (
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+        "(KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36"
+    ),
+    "Accept": "application/json, text/xml, application/xml, */*",
 }
 
+FINNHUB_API_KEY = os.environ.get("FINNHUB_API_KEY", "").strip()
 
-# ──────────────────────────────────────────────
-# SENTIMENT LEXICON (finance-tuned)
-# ──────────────────────────────────────────────
+# ──────────────────────────────────────────────────────────────────────────
+# Categorization + sentiment (rule-based, no external deps)
+# ──────────────────────────────────────────────────────────────────────────
+CATEGORY_KEYWORDS = {
+    "Product Launch": [r"\blaunch(es|ed|ing)?\b", r"\bunveil(s|ed|ing)?\b",
+                       r"\bdebut(s|ed)?\b", r"\bintroduc(e|es|ed|ing)\b",
+                       r"\brolls? out\b", r"\bnew (index|product|platform|service)\b"],
+    "M&A": [r"\bacqui(re|res|red|ring|sition)\b", r"\bmerger\b",
+            r"\bagrees? to (buy|purchase|acquire)\b", r"\btakeover\b",
+            r"\bto acquire\b", r"\bdivest(s|ed|iture)?\b"],
+    "Partnership": [r"\bpartner(s|ed|ship)?\b", r"\bcollaborat(e|es|ed|ion)\b",
+                    r"\bjoint venture\b", r"\balliance\b", r"\bteams? up with\b"],
+    "Earnings": [r"\bQ[1-4]\b", r"\b(quarterly|annual) (earnings|results)\b",
+                 r"\breports? (results|earnings)\b", r"\bfiscal (year|quarter)\b",
+                 r"\bguidance\b", r"\bEPS\b"],
+    "Regulatory": [r"\bSEC\b", r"\bESMA\b", r"\bregulator(s|y)?\b",
+                   r"\bfine(d|s)?\b", r"\binvestigation\b", r"\bprobe\b",
+                   r"\bantitrust\b", r"\bcompliance\b"],
+    "Leadership": [r"\bappoint(s|ed|ment)?\b", r"\bnames?.{1,40}(CEO|CFO|CTO|president|chair)\b",
+                   r"\bsteps? down\b", r"\bresign(s|ed|ation)?\b", r"\bhires?\b"],
+    "Strategy": [r"\bstrategy\b", r"\bexpand(s|ed|ing|sion)?\b",
+                 r"\brestructur(e|es|ed|ing)\b", r"\brebrand\b"],
+}
+
 POSITIVE_WORDS = {
-    "surge", "surges", "surging", "soar", "soars", "soaring", "rally", "rallies", "rallying",
-    "gain", "gains", "gained", "jump", "jumps", "jumped", "boom", "booming", "profit", "profits",
-    "profitable", "growth", "growing", "grows", "grew", "recover", "recovery", "recovering",
-    "upbeat", "optimism", "optimistic", "bullish", "record high", "beat", "beats", "beating",
-    "outperform", "outperforms", "upgrade", "upgraded", "strong", "stronger", "strongest",
-    "rise", "rises", "rising", "rose", "climb", "climbs", "climbing", "advance", "advances",
-    "positive", "improve", "improves", "improved", "improvement", "boost", "boosted", "boosts",
-    "exceed", "exceeds", "exceeded", "win", "wins", "winning", "success", "successful",
-    "accelerate", "accelerates", "momentum", "breakout", "upside", "dividend", "expansion",
-    "launch", "launches", "launched", "partnership", "acquire", "acquisition", "innovation",
+    "surge", "soar", "rally", "gain", "jump", "growth", "record", "beat",
+    "outperform", "upgrade", "strong", "rise", "climb", "boost", "exceed",
+    "win", "launch", "partnership", "acquire", "innovation", "expand",
+    "successful", "momentum", "dividend",
 }
 
 NEGATIVE_WORDS = {
-    "crash", "crashes", "crashing", "plunge", "plunges", "plunging", "drop", "drops", "dropped",
-    "fall", "falls", "falling", "fell", "decline", "declines", "declining", "loss", "losses",
-    "lose", "losing", "lost", "slump", "slumps", "recession", "downturn", "bearish", "crisis",
-    "fear", "fears", "worried", "worry", "concern", "concerns", "risk", "risks", "risky",
-    "cut", "cuts", "cutting", "layoff", "layoffs", "slash", "slashes", "tariff", "tariffs",
-    "sanction", "sanctions", "inflation", "deficit", "debt", "default", "bankrupt", "bankruptcy",
-    "weak", "weaker", "weakest", "miss", "misses", "missed", "downgrade", "downgraded",
-    "collapse", "collapses", "volatile", "volatility", "sell-off", "selloff", "warning",
-    "warns", "warned", "threat", "threatens", "uncertainty", "negative", "tumble", "tumbles",
-    "shrink", "shrinks", "contraction", "stagnation", "shutdown", "fraud", "scandal", "probe",
-    "fine", "fined", "penalty", "lawsuit", "sued", "antitrust", "investigation", "regulatory",
+    "crash", "plunge", "drop", "fall", "decline", "loss", "slump", "downturn",
+    "crisis", "fear", "cut", "layoff", "slash", "inflation", "deficit",
+    "bankruptcy", "weak", "miss", "downgrade", "collapse", "volatile", "warn",
+    "fine", "lawsuit", "probe", "investigation", "antitrust",
 }
 
 
-# ──────────────────────────────────────────────
-# CATEGORY KEYWORDS (competitor-focused)
-# ──────────────────────────────────────────────
-CATEGORY_MAP = {
-    "Product Launch": ["launch", "launches", "launched", "unveil", "unveils", "introduce", "introduces",
-                       "new product", "new platform", "new tool", "new index", "new solution",
-                       "release", "releases", "rollout", "debut", "expand offering"],
-    "M&A / Partnerships": ["merger", "acquisition", "acquire", "acquires", "acquired", "deal", "partnership",
-                           "partner", "partners", "joint venture", "alliance", "strategic", "collaboration",
-                           "buyout", "takeover", "combine", "spinoff", "divest"],
-    "Earnings / Financials": ["earnings", "revenue", "profit", "quarterly", "annual", "fiscal", "q1", "q2",
-                              "q3", "q4", "eps", "guidance", "forecast", "outlook", "results",
-                              "financial results", "beat estimates", "miss estimates", "margin"],
-    "ESG / Sustainability": ["esg", "sustainability", "sustainable", "climate", "carbon", "net zero",
-                             "green bond", "responsible investing", "social", "governance", "dei",
-                             "emissions", "environmental", "sustainalytics", "impact investing"],
-    "Indices / Benchmarks": ["index", "indices", "benchmark", "rebalance", "reconstitution", "inclusion",
-                             "exclusion", "weighting", "methodology", "etf", "passive", "tracker",
-                             "s&p 500", "ftse", "stoxx", "russell"],
-    "Technology / AI": ["ai", "artificial intelligence", "machine learning", "technology", "tech",
-                        "platform", "cloud", "data analytics", "automation", "api", "digital",
-                        "saas", "fintech", "generative ai", "llm", "model"],
-    "Regulation / Compliance": ["regulation", "regulatory", "compliance", "sec", "esma", "mifid",
-                                "sfdr", "taxonomy", "reporting requirements", "disclosure",
-                                "antitrust", "fine", "penalty", "investigation"],
-    "Leadership / Talent": ["ceo", "cfo", "appoint", "appointed", "hire", "hired", "resign", "resigned",
-                            "departure", "successor", "leadership", "executive", "board", "chairman",
-                            "layoff", "layoffs", "restructuring", "headcount"],
-    "Market Data / Analytics": ["data", "analytics", "risk model", "factor model", "portfolio analytics",
-                                "market data", "pricing", "valuation", "reference data", "real-time",
-                                "fixed income", "credit", "derivatives"],
-    "Client Wins / Market Share": ["client", "clients", "win", "wins", "mandate", "adoption", "switch",
-                                   "migrate", "migration", "market share", "competitive", "displaced"],
-}
+def classify_category(text: str) -> str:
+    for cat, patterns in CATEGORY_KEYWORDS.items():
+        for pat in patterns:
+            if re.search(pat, text, flags=re.IGNORECASE):
+                return cat
+    return "General"
 
 
-# ──────────────────────────────────────────────
-# REGION KEYWORDS
-# ──────────────────────────────────────────────
-REGION_MAP = {
-    "US": ["u.s.", "us ", "united states", "america", "american", "wall street", "nyse", "nasdaq",
-           "sec ", "washington", "new york", "california", "silicon valley"],
-    "Europe": ["europe", "european", "eu ", "uk ", "britain", "london", "ftse", "germany",
-               "france", "ecb", "esma", "stoxx", "dax", "paris", "frankfurt", "amsterdam"],
-    "Asia-Pacific": ["asia", "china", "chinese", "japan", "japanese", "india", "indian",
-                     "hong kong", "singapore", "korea", "taiwan", "australia", "apac",
-                     "asia-pacific", "tokyo", "shanghai", "mumbai"],
-    "Middle East": ["middle east", "saudi", "uae", "dubai", "qatar", "abu dhabi"],
-    "Global": ["global", "worldwide", "international", "cross-border"],
-}
+def classify_sentiment(text: str) -> str:
+    low = text.lower()
+    pos = sum(1 for w in POSITIVE_WORDS if w in low)
+    neg = sum(1 for w in NEGATIVE_WORDS if w in low)
+    if pos > neg + 1:
+        return "Positive"
+    if neg > pos + 1:
+        return "Negative"
+    return "Neutral"
 
 
-# ──────────────────────────────────────────────
-# RELEVANCE KEYWORDS
-# ──────────────────────────────────────────────
-RELEVANCE_KEYWORDS = [
-    "index", "indices", "data", "analytics", "esg", "rating", "ratings", "benchmark",
-    "portfolio", "risk", "factor", "etf", "financial", "asset", "investment", "investor",
-    "fund", "equity", "fixed income", "credit", "derivatives", "valuation", "pricing",
-    "platform", "product", "launch", "earnings", "revenue", "acquisition", "partnership",
-    "client", "governance", "sustainability", "climate", "carbon", "compliance",
-    "regulation", "technology", "ai ", "machine learning", "market data", "research",
-    "quarterly", "annual", "profit", "ceo", "leadership", "restructur",
-]
-
-
-# ──────────────────────────────────────────────
-# IMPORTANCE & IMPACT SCORING
-# ──────────────────────────────────────────────
-TIER_1_COMPETITORS = {"S&P Global", "Bloomberg", "FTSE Russell", "Morningstar", "Moody's"}
-HIGH_IMPACT_CATEGORIES = {"M&A / Partnerships", "Technology / AI", "Client Wins / Market Share"}
-CRITICAL_CATEGORIES = {"M&A / Partnerships"}
-
-
-def score_importance(article):
-    """Score importance: Critical / High / Medium / Low."""
-    cat = article.get("category", "")
-    comp = article.get("competitor", "")
-    sentiment = article.get("sentiment", "Neutral")
-    confidence = article.get("confidence", 0.5)
-
-    score = 0
-    if comp in TIER_1_COMPETITORS:
-        score += 2
-    if any(hc in cat for hc in HIGH_IMPACT_CATEGORIES):
-        score += 2
-    if any(cc in cat for cc in CRITICAL_CATEGORIES):
-        score += 1
-    if sentiment == "Negative" and confidence >= 0.7:
-        score += 1
-    if sentiment == "Positive" and confidence >= 0.7:
-        score += 1
-
-    if score >= 5:
-        return "Critical"
-    elif score >= 3:
-        return "High"
-    elif score >= 1:
-        return "Medium"
-    return "Low"
-
-
-def score_impact(article):
-    """Score MSCI business impact: High / Medium / Low."""
-    cat = article.get("category", "")
-    comp = article.get("competitor", "")
-
-    score = 0
-    if comp in TIER_1_COMPETITORS:
-        score += 1
-    if any(hc in cat for hc in HIGH_IMPACT_CATEGORIES):
-        score += 1
-    if "ESG" in cat or "Climate" in cat:
-        score += 1
-    if "Indices" in cat or "Benchmark" in cat:
-        score += 1
-
-    if score >= 3:
-        return "High"
-    elif score >= 1:
-        return "Medium"
-    return "Low"
-
-
-# ──────────────────────────────────────────────
-# NEW v2: SECTOR IMPACT ENGINE
-# ──────────────────────────────────────────────
-# Maps categories to affected MSCI sectors with direction logic
-
-CATEGORY_SECTOR_MAP = {
-    "ESG / Sustainability": [
-        {"sector": "ESG & Climate", "msci_product": "ESG Ratings, Climate Solutions"},
-        {"sector": "Sustainable Investing", "msci_product": "ESG Indexes"},
-    ],
-    "Indices / Benchmarks": [
-        {"sector": "Index & Benchmarks", "msci_product": "MSCI Indexes, Custom Indexes"},
-        {"sector": "Passive Investing / ETFs", "msci_product": "Licensed ETF Benchmarks"},
-    ],
-    "Technology / AI": [
-        {"sector": "Technology & Platforms", "msci_product": "Analytics Platform, Data Products"},
-    ],
-    "M&A / Partnerships": [
-        {"sector": "Market Structure", "msci_product": "Competitive positioning across segments"},
-    ],
-    "Earnings / Financials": [
-        {"sector": "Financial Data Industry", "msci_product": "Broad competitive landscape"},
-    ],
-    "Market Data / Analytics": [
-        {"sector": "Data & Analytics", "msci_product": "Barra Models, Portfolio Analytics"},
-        {"sector": "Risk Management", "msci_product": "Risk Models, Factor Models"},
-    ],
-    "Regulation / Compliance": [
-        {"sector": "Regulatory & Compliance", "msci_product": "Reporting Solutions, SFDR"},
-    ],
-    "Leadership / Talent": [
-        {"sector": "Talent & Strategy", "msci_product": "Competitive talent landscape"},
-    ],
-    "Client Wins / Market Share": [
-        {"sector": "Client Mandates", "msci_product": "Institutional client base"},
-    ],
-    "Product Launch": [
-        {"sector": "Product Innovation", "msci_product": "Competitive product portfolio"},
-    ],
-}
-
-
-def generate_sector_impact(article):
-    """Generate sector_impact array based on category, competitor, and sentiment."""
-    cat = article.get("category", "General")
-    comp = article.get("competitor", "")
-    sentiment = article.get("sentiment", "Neutral")
-    importance = article.get("importance", "Medium")
-    impact_level = article.get("impact_level", "Medium")
-
-    sectors = []
-    matched = False
-
-    # Match against each category in the article's category string (may contain " / ")
-    for cat_key, sector_list in CATEGORY_SECTOR_MAP.items():
-        if cat_key in cat:
-            matched = True
-            for s in sector_list:
-                # Determine direction: competitor strength = negative for MSCI
-                if sentiment == "Positive":
-                    direction = "negative"  # Competitor getting stronger = bad for MSCI
-                elif sentiment == "Negative":
-                    direction = "positive"  # Competitor struggling = opportunity for MSCI
-                else:
-                    direction = "neutral"
-
-                # Override: if it's an earnings report, direction depends on context
-                if "Earnings" in cat_key:
-                    direction = "neutral"
-
-                # Magnitude from impact_level
-                magnitude = impact_level  # High / Medium / Low
-
-                # Build note
-                note = f"{comp} activity in {s['sector'].lower()} may affect {s['msci_product']}"
-
-                sectors.append({
-                    "sector": s["sector"],
-                    "direction": direction,
-                    "magnitude": magnitude,
-                    "note": note,
-                })
-
-    if not matched:
-        sectors.append({
-            "sector": "General Market",
-            "direction": "neutral",
-            "magnitude": "Low",
-            "note": f"Monitoring {comp} activity for potential MSCI relevance",
-        })
-
-    return sectors
-
-
-# ──────────────────────────────────────────────
-# NEW v2: STOCK IMPACT ENGINE
-# ──────────────────────────────────────────────
-# Generates predicted stock-level impact for the competitor + MSCI
-
-def generate_stock_impact(article):
-    """Generate stock_impact array for competitor ticker + MSCI."""
-    comp = article.get("competitor", "")
-    sentiment = article.get("sentiment", "Neutral")
-    cat = article.get("category", "General")
-    impact_level = article.get("impact_level", "Medium")
-
-    stocks = []
-
-    # Competitor's own ticker
-    comp_info = COMPETITORS.get(comp, {})
-    comp_ticker = comp_info.get("ticker")
-
-    if comp_ticker:
-        if sentiment == "Positive":
-            comp_dir = "positive"
-            comp_note = f"Positive development strengthens {comp}'s market position"
-        elif sentiment == "Negative":
-            comp_dir = "negative"
-            comp_note = f"Negative signal may weigh on {comp}'s outlook"
-        else:
-            comp_dir = "neutral"
-            comp_note = f"Mixed signals from {comp}; market impact unclear"
-
-        stocks.append({
-            "ticker": comp_ticker,
-            "direction": comp_dir,
-            "note": comp_note,
-        })
-
-    # MSCI impact (always include)
-    if impact_level == "High":
-        if sentiment == "Positive":
-            msci_dir = "negative"
-            msci_note = f"Competitive pressure from {comp}'s gains may affect MSCI positioning"
-        elif sentiment == "Negative":
-            msci_dir = "positive"
-            msci_note = f"{comp}'s weakness creates potential opportunity for MSCI"
-        else:
-            msci_dir = "neutral"
-            msci_note = f"Monitor {comp} developments for impact on MSCI competitive landscape"
-    elif impact_level == "Medium":
-        msci_dir = "neutral"
-        msci_note = f"Indirect competitive signal from {comp}; limited near-term MSCI impact"
-    else:
-        msci_dir = "neutral"
-        msci_note = f"Minimal direct competitive overlap with MSCI"
-
-    stocks.append({
-        "ticker": "MSCI",
-        "direction": msci_dir,
-        "note": msci_note,
-    })
-
-    # Add related tickers for M&A or partnership stories
-    if "M&A" in cat or "Partnership" in cat:
-        # Add LSEG if FTSE Russell involved, SPGI if S&P involved, etc.
-        related = {
-            "S&P Global": "LSEG", "FTSE Russell": "SPGI", "Bloomberg": "SPGI",
-            "Morningstar": "SPGI", "Moody's": "SPGI", "FactSet": "VRSK",
-        }
-        related_ticker = related.get(comp)
-        if related_ticker and related_ticker != comp_ticker:
-            stocks.append({
-                "ticker": related_ticker,
-                "direction": "neutral",
-                "note": f"May accelerate competitive response from {related_ticker}",
-            })
-
-    return stocks
-
-
-# ──────────────────────────────────────────────
-# NEW v2: WHAT TO WATCH ENGINE
-# ──────────────────────────────────────────────
-# Generates a forward-looking signal for each article
-
-def generate_what_to_watch(article):
-    """Generate a forward-looking 'what to watch next' signal."""
-    comp = article.get("competitor", "")
-    cat = article.get("category", "General")
-    sentiment = article.get("sentiment", "Neutral")
-    importance = article.get("importance", "Medium")
-
-    signals = []
-
-    if "M&A" in cat:
-        signals.append(f"Watch for regulatory approvals and integration timeline announcements from {comp}.")
-        signals.append("Monitor whether this triggers similar M&A moves from other index/data providers.")
-    elif "Technology" in cat or "AI" in cat:
-        signals.append(f"Track {comp}'s product launch timeline and early client adoption signals.")
-        signals.append("Watch for MSCI's response in its own AI/technology roadmap.")
-    elif "ESG" in cat or "Sustainability" in cat:
-        signals.append(f"Monitor institutional adoption of {comp}'s ESG framework vs MSCI ESG Ratings.")
-        signals.append("Watch for regulatory endorsement or standard-setting implications.")
-    elif "Indices" in cat or "Benchmark" in cat:
-        signals.append(f"Track ETF issuer responses and potential benchmark switches from MSCI to {comp}.")
-        signals.append("Monitor AUM flows in competing index-linked products.")
-    elif "Earnings" in cat:
-        signals.append(f"Watch {comp}'s forward guidance and segment-level growth trends.")
-        if sentiment == "Positive":
-            signals.append("Strong results may attract talent and increase R&D spend in competing products.")
-        else:
-            signals.append("Weak results may lead to cost cuts or strategic pivots worth monitoring.")
-    elif "Client" in cat:
-        signals.append(f"Watch for follow-on mandate announcements and competitive displacement patterns.")
-        signals.append("Monitor MSCI's own mandate renewal pipeline for at-risk relationships.")
-    elif "Leadership" in cat:
-        signals.append(f"Track the new leadership's strategic priorities and any product direction shifts at {comp}.")
-    elif "Regulation" in cat:
-        signals.append("Monitor regulatory timeline and compliance requirements across the industry.")
-        signals.append(f"Watch how {comp}'s response positions them vs MSCI in regulated markets.")
-    elif "Product Launch" in cat:
-        signals.append(f"Track market uptake and client feedback on {comp}'s new offering.")
-        signals.append("Watch for competitive response from MSCI or other providers.")
-    else:
-        signals.append(f"Continue monitoring {comp} for follow-up developments.")
-
-    # Add importance-based urgency signal
-    if importance in ("Critical", "High"):
-        signals.append("Flag for QBR discussion and executive briefing.")
-
-    return " ".join(signals[:2])  # Cap at 2 sentences to keep it crisp
-
-
-# ──────────────────────────────────────────────
-# MSCI IMPACT TEXT (existing, unchanged)
-# ──────────────────────────────────────────────
-def generate_msci_impact_text(article):
-    """Generate a brief MSCI impact assessment from available metadata."""
-    comp = article.get("competitor", "Unknown")
-    cat = article.get("category", "General")
-    segment = article.get("segment", "")
-    sentiment = article.get("sentiment", "Neutral")
-    title = article.get("title", "")
-
-    parts = []
-
-    if "M&A" in cat or "acquisition" in title.lower():
-        parts.append(f"{comp}'s M&A activity signals strategic expansion that may overlap with MSCI's product lines.")
-    elif "Technology" in cat or "AI" in cat:
-        parts.append(f"{comp}'s technology investment raises the competitive bar for MSCI's analytics and data platform capabilities.")
-    elif "ESG" in cat or "Sustainability" in cat:
-        parts.append(f"{comp}'s ESG initiative directly intersects with MSCI's sustainability and climate franchise.")
-    elif "Indices" in cat or "Benchmark" in cat:
-        parts.append(f"{comp}'s index development competes with MSCI's core benchmarking business.")
-    elif "Earnings" in cat:
-        if sentiment == "Positive":
-            parts.append(f"{comp}'s strong financial performance signals robust competitive positioning and potential for increased investment in competing products.")
-        else:
-            parts.append(f"{comp}'s financial results may signal shifting market dynamics relevant to MSCI's competitive landscape.")
-    elif "Client" in cat:
-        parts.append(f"{comp}'s client wins indicate potential market share shifts that MSCI should monitor.")
-    elif "Leadership" in cat:
-        parts.append(f"Leadership changes at {comp} may signal strategic pivots relevant to MSCI's competitive positioning.")
-    else:
-        parts.append(f"Activity from {comp} ({segment}) warrants monitoring for potential impact on MSCI's market position.")
-
-    parts.append("Validate with domain experts before strategic action.")
-    return " ".join(parts)
-
-
-# ──────────────────────────────────────────────
-# CORE FUNCTIONS (from original scraper)
-# ──────────────────────────────────────────────
-def is_relevant(title, text=""):
-    combined = (title + " " + (text or "")[:1000]).lower()
-    matches = sum(1 for kw in RELEVANCE_KEYWORDS if kw in combined)
-    return matches >= 2
-
-
-def scrape_competitor_news(competitor_name, queries, max_per_query=5):
-    articles = []
-    for query in queries:
-        encoded_q = requests.utils.quote(query)
-        url = f"https://news.google.com/rss/search?q={encoded_q}+when:7d&hl=en-US&gl=US&ceid=US:en"
+def importance_score(article: dict) -> int:
+    score = 20
+    text = f"{article.get('title', '')} {article.get('summary', '')}".lower()
+    if article.get("competitor", "").lower() in text:
+        score += 25
+    if article.get("category") in ("M&A", "Product Launch"):
+        score += 25
+    elif article.get("category") in ("Earnings", "Regulatory"):
+        score += 15
+    pub = article.get("published")
+    if pub:
         try:
-            r = requests.get(url, headers=HEADERS, timeout=15, verify=False)
-            soup = BeautifulSoup(r.content, "xml")
-            for item in soup.find_all("item")[:max_per_query]:
-                title = item.title.text.strip() if item.title else ""
-                source = item.source.text.strip() if item.source else ""
-                link = item.link.text.strip() if item.link else ""
-                pub_date = item.pubDate.text.strip() if item.pubDate else ""
-                if title and competitor_name.lower().split()[0] in title.lower() or any(
-                    q.lower().split()[0] in title.lower() for q in queries
-                ):
-                    articles.append({
-                        "title": title,
-                        "source": source,
-                        "url": link,
-                        "published": pub_date,
-                        "competitor": competitor_name,
-                    })
-        except Exception as e:
-            print(f"     [!] Query '{query}' failed: {e}")
-        time.sleep(0.5)
-    return articles
+            dt = datetime.fromisoformat(pub.replace("Z", "+00:00"))
+            age_days = (datetime.now(timezone.utc) - dt).days
+            if age_days <= 3:
+                score += 20
+            elif age_days <= 7:
+                score += 10
+        except Exception:
+            pass
+    if any(k in text for k in ("msci", "index", "esg", "benchmark", "etf")):
+        score += 15
+    return min(100, score)
 
 
-def fetch_article_text_and_meta(url):
-    result = {"text": "", "author": "", "meta_keywords": ""}
-    if not url:
-        return result
+# ──────────────────────────────────────────────────────────────────────────
+# Data-source fetchers
+# ──────────────────────────────────────────────────────────────────────────
+def fetch_finnhub(ticker: str, competitor: str, segment: str,
+                  days_back: int, max_items: int) -> list[dict]:
+    """Call Finnhub /company-news. Returns normalized article dicts."""
+    if not FINNHUB_API_KEY:
+        raise RuntimeError("FINNHUB_API_KEY not set in environment")
+    end = datetime.now(timezone.utc).date()
+    start = end - timedelta(days=days_back)
+    url = (
+        "https://finnhub.io/api/v1/company-news"
+        f"?symbol={ticker}&from={start.isoformat()}&to={end.isoformat()}"
+        f"&token={FINNHUB_API_KEY}"
+    )
+    resp = requests.get(url, headers=HEADERS, timeout=20)
+    resp.raise_for_status()
+    raw = resp.json()
+    if not isinstance(raw, list):
+        raise RuntimeError(f"Finnhub returned non-list: {str(raw)[:200]}")
+
+    out = []
+    for it in raw[:max_items]:
+        title = (it.get("headline") or "").strip()
+        url_ = (it.get("url") or "").strip()
+        if not title or not url_:
+            continue
+        published = ""
+        if it.get("datetime"):
+            try:
+                published = datetime.fromtimestamp(
+                    int(it["datetime"]), tz=timezone.utc
+                ).isoformat()
+            except Exception:
+                published = ""
+        out.append({
+            "title": title,
+            "url": url_,
+            "source": it.get("source") or "Finnhub",
+            "summary": (it.get("summary") or "").strip()[:500],
+            "published": published,
+            "image": it.get("image") or "",
+            "competitor": competitor,
+            "ticker": ticker,
+            "segment": segment,
+            "origin": "finnhub",
+        })
+    return out
+
+
+def _parse_rss_date(raw: str) -> str:
+    if not raw:
+        return ""
+    for parser in (parsedate_to_datetime,):
+        try:
+            dt = parser(raw)
+            if dt:
+                if dt.tzinfo is None:
+                    dt = dt.replace(tzinfo=timezone.utc)
+                return dt.astimezone(timezone.utc).isoformat()
+        except Exception:
+            pass
+    # ISO-8601 fallback (e.g. 2026-03-14T09:00:00Z)
     try:
-        r = requests.get(url, headers=HEADERS, timeout=20, verify=False, allow_redirects=True)
-        if r.status_code != 200:
-            return result
-        soup = BeautifulSoup(r.text, "html.parser")
-
-        author = ""
-        for meta_name in ["author", "article:author", "og:article:author", "dc.creator", "byl"]:
-            tag = soup.find("meta", attrs={"name": meta_name}) or soup.find("meta", attrs={"property": meta_name})
-            if tag and tag.get("content"):
-                author = tag["content"].strip()
-                break
-        if not author:
-            author_tag = soup.find(attrs={"rel": "author"}) or soup.find(attrs={"class": re.compile(r"author|byline|by-line", re.I)})
-            if author_tag:
-                author = author_tag.get_text().strip()
-        if author.lower().startswith("by "):
-            author = author[3:].strip()
-        result["author"] = author[:100]
-
-        kw_tag = soup.find("meta", attrs={"name": "keywords"}) or soup.find("meta", attrs={"name": "news_keywords"})
-        if kw_tag and kw_tag.get("content"):
-            result["meta_keywords"] = kw_tag["content"].strip()[:200]
-
-        for tag in soup.find_all(["script", "style", "nav", "footer", "header", "aside", "form", "iframe", "noscript"]):
-            tag.decompose()
-
-        selectors = [
-            "article", "[class*='article-body']", "[class*='ArticleBody']",
-            "[class*='story-body']", "[class*='post-content']", "[class*='entry-content']",
-            "[class*='article-content']", "[class*='ArticleContent']", "[class*='RenderBody']",
-            "[class*='caas-body']", "[itemprop='articleBody']", "[data-testid='article-body']",
-            "main", "[role='main']",
-        ]
-        text = ""
-        for sel in selectors:
-            found = soup.select(sel)
-            if found:
-                paragraphs = found[0].find_all("p")
-                text = " ".join(p.get_text().strip() for p in paragraphs if len(p.get_text().strip()) > 40)
-                if len(text) > 200:
-                    break
-        if len(text) < 200:
-            paragraphs = soup.find_all("p")
-            text = " ".join(p.get_text().strip() for p in paragraphs if len(p.get_text().strip()) > 40)
-
-        text = re.sub(r"\s+", " ", text).strip()
-        result["text"] = text[:5000]
-
-    except Exception as e:
-        print(f"     [!] Could not fetch article: {e}")
-    return result
-
-
-def generate_summary(title, article_text):
-    if not article_text or len(article_text) < 100:
-        return "Summary not available — article could not be accessed."
-    sentences = re.split(r"(?<=[.!?])\s+", article_text)
-    skip_patterns = [
-        "cookie", "subscribe", "sign up", "newsletter", "click here", "read more",
-        "advertisement", "sponsored", "privacy policy", "terms of service",
-        "all rights reserved", "copyright", "follow us", "share this", "login",
-    ]
-    clean = []
-    for s in sentences:
-        s = s.strip()
-        if len(s) < 30 or len(s) > 400:
-            continue
-        if any(skip in s.lower() for skip in skip_patterns):
-            continue
-        if title.lower()[:40] in s.lower():
-            continue
-        clean.append(s)
-    if not clean:
-        return "Summary not available — article content could not be parsed."
-    summary = " ".join(clean[:5])
-    if len(summary) > 800:
-        summary = summary[:797] + "..."
-    return summary
-
-
-def analyze_sentiment(title, article_text):
-    combined = (title + " " + (article_text or "")).lower()
-    words = set(re.findall(r"[a-z\-&]+", combined))
-    pos_count = len(words & POSITIVE_WORDS)
-    neg_count = len(words & NEGATIVE_WORDS)
-    total = pos_count + neg_count
-    if total == 0:
-        return "Neutral", 0.5
-    score = pos_count / total
-    if score >= 0.65:
-        label = "Positive"
-    elif score <= 0.35:
-        label = "Negative"
-    else:
-        label = "Mixed"
-    confidence = round(abs(score - 0.5) * 2, 2)
-    return label, confidence
-
-
-def detect_category(title, article_text, meta_keywords=""):
-    combined = (title + " " + (article_text or "")[:1500] + " " + (meta_keywords or "")).lower()
-    scores = {}
-    for category, keywords in CATEGORY_MAP.items():
-        count = sum(1 for kw in keywords if kw in combined)
-        if count > 0:
-            scores[category] = count
-    if not scores:
-        return "General"
-    sorted_cats = sorted(scores.items(), key=lambda x: x[1], reverse=True)
-    top = sorted_cats[0][0]
-    if len(sorted_cats) > 1 and sorted_cats[1][1] >= sorted_cats[0][1] * 0.7:
-        return f"{top} / {sorted_cats[1][0]}"
-    return top
-
-
-def detect_region(title, article_text):
-    combined = (title + " " + (article_text or "")[:2000]).lower()
-    scores = {}
-    for region, keywords in REGION_MAP.items():
-        count = sum(1 for kw in keywords if kw in combined)
-        if count > 0:
-            scores[region] = count
-    if not scores:
-        return "Global"
-    sorted_r = sorted(scores.items(), key=lambda x: x[1], reverse=True)
-    top = sorted_r[0][0]
-    if len(sorted_r) > 1 and sorted_r[1][1] >= sorted_r[0][1] * 0.6:
-        return f"{top} / {sorted_r[1][0]}"
-    return top
-
-
-def calc_word_count(text):
-    return len(text.split()) if text else 0
-
-
-def calc_reading_time(wc):
-    if wc == 0:
-        return "N/A"
-    return f"{max(1, round(wc / 230))} min"
-
-
-def deduplicate(articles):
-    seen = set()
-    unique = []
-    for a in articles:
-        key = a["title"].lower()[:60]
-        if key not in seen:
-            seen.add(key)
-            unique.append(a)
-    return unique
-
-
-def make_id(title):
-    """Generate a stable unique ID from headline text."""
-    return hashlib.md5(title.lower()[:60].encode()).hexdigest()[:12]
-
-
-# ──────────────────────────────────────────────
-# JSON I/O
-# ──────────────────────────────────────────────
-def load_existing_data(path):
-    if not os.path.exists(path):
-        return {"last_updated": None, "articles": []}
-    try:
-        with open(path, "r", encoding="utf-8") as f:
-            return json.load(f)
+        dt = datetime.fromisoformat(raw.replace("Z", "+00:00"))
+        if dt.tzinfo is None:
+            dt = dt.replace(tzinfo=timezone.utc)
+        return dt.astimezone(timezone.utc).isoformat()
     except Exception:
-        return {"last_updated": None, "articles": []}
+        return ""
 
 
-def save_data(data, path):
+def fetch_rss(feed_url: str, competitor: str, ticker: str, segment: str,
+              max_items: int) -> list[dict]:
+    """Parse an RSS/Atom feed. Returns normalized article dicts."""
+    resp = requests.get(feed_url, headers=HEADERS, timeout=15)
+    resp.raise_for_status()
+    root = ET.fromstring(resp.content)
+
+    # Strip namespaces so we can use simple tag names
+    for el in root.iter():
+        if "}" in el.tag:
+            el.tag = el.tag.split("}", 1)[1]
+
+    items = root.findall(".//item") or root.findall(".//entry")
+    out = []
+    for it in items[:max_items]:
+        title_el = it.find("title")
+        link_el = it.find("link")
+        desc_el = it.find("description") or it.find("summary") or it.find("content")
+        date_el = (it.find("pubDate") or it.find("published")
+                   or it.find("updated") or it.find("date"))
+
+        title = (title_el.text or "").strip() if title_el is not None else ""
+        # Atom <link href="..."/> vs RSS <link>url</link>
+        if link_el is not None:
+            url_ = link_el.get("href") or (link_el.text or "").strip()
+        else:
+            url_ = ""
+        url_ = url_.strip()
+        if not title or not url_:
+            continue
+
+        summary_html = desc_el.text or "" if desc_el is not None else ""
+        summary = re.sub(r"<[^>]+>", " ", summary_html)
+        summary = re.sub(r"\s+", " ", summary).strip()[:500]
+
+        published = _parse_rss_date(date_el.text if date_el is not None else "")
+
+        out.append({
+            "title": title,
+            "url": url_,
+            "source": competitor,  # RSS from the company itself
+            "summary": summary,
+            "published": published,
+            "image": "",
+            "competitor": competitor,
+            "ticker": ticker,
+            "segment": segment,
+            "origin": "rss",
+        })
+    return out
+
+
+# ──────────────────────────────────────────────────────────────────────────
+# Dedupe + enrich
+# ──────────────────────────────────────────────────────────────────────────
+def article_id(article: dict) -> str:
+    key = (article.get("url", "") or article.get("title", "")).strip().lower()
+    return hashlib.md5(key.encode("utf-8")).hexdigest()[:16]
+
+
+def score_to_label(score: int) -> str:
+    if score >= 80:
+        return "Critical"
+    if score >= 60:
+        return "High"
+    if score >= 40:
+        return "Medium"
+    return "Low"
+
+
+def enrich(article: dict) -> dict:
+    text = f"{article.get('title', '')} {article.get('summary', '')}"
+    article["category"] = classify_category(text)
+    article["sentiment"] = classify_sentiment(text)
+    score = importance_score(article)
+    article["importance_score"] = score
+    article["importance"] = score_to_label(score)
+    article["impact_level"] = score_to_label(score)  # dashboard reads both fields
+    article["id"] = article_id(article)
+    return article
+
+
+def dedupe(articles: list[dict]) -> list[dict]:
+    seen: dict[str, dict] = {}
+    for a in articles:
+        aid = a.get("id") or article_id(a)
+        a["id"] = aid
+        prev = seen.get(aid)
+        # Prefer articles with a published date; otherwise keep the first seen.
+        if prev is None:
+            seen[aid] = a
+        else:
+            if not prev.get("published") and a.get("published"):
+                seen[aid] = a
+    return list(seen.values())
+
+
+# ──────────────────────────────────────────────────────────────────────────
+# Main
+# ──────────────────────────────────────────────────────────────────────────
+def load_config() -> dict:
+    with open(CONFIG_FILE, "r", encoding="utf-8") as f:
+        return json.load(f)
+
+
+def write_json(path: str, obj) -> None:
     os.makedirs(os.path.dirname(path), exist_ok=True)
     with open(path, "w", encoding="utf-8") as f:
-        json.dump(data, f, indent=2, ensure_ascii=False)
-    print(f"  Data saved to {path}")
+        json.dump(obj, f, indent=2, ensure_ascii=False)
 
 
-# ──────────────────────────────────────────────
-# MAIN
-# ──────────────────────────────────────────────
-def main():
-    print("=" * 65)
-    print("  MSCI COMPETITOR INTELLIGENCE SCRAPER v2 (JSON)")
-    print(f"  {datetime.now().strftime('%A, %B %d, %Y %I:%M %p')}")
-    print("=" * 65)
-    print(f"  Tracking {len(COMPETITORS)} competitors | Last 7 days")
+def main() -> int:
+    cfg = load_config()
+    settings = cfg.get("settings", {})
+    days_back = int(settings.get("finnhub_days_back", 14))
+    per_src_cap = int(settings.get("max_articles_per_source", 25))
+    total_cap = int(settings.get("total_cap", 200))
 
-    existing_data = load_existing_data(OUTPUT_FILE)
-    existing_ids = {a.get("id") for a in existing_data.get("articles", [])}
-    existing_headlines = {a.get("title", "").lower()[:60] for a in existing_data.get("articles", [])}
+    all_articles: list[dict] = []
+    statuses: list[dict] = []
 
-    # ── Phase 1: Scrape headlines ──
-    all_articles = []
-    for comp_name, comp_info in COMPETITORS.items():
-        print(f"\n  Scraping {comp_name} ({comp_info['segment']})...")
-        results = scrape_competitor_news(comp_name, comp_info["queries"])
-        for r in results:
-            r["segment"] = comp_info["segment"]
-        print(f"  -> {len(results)} articles found")
-        all_articles.extend(results)
+    for comp in cfg.get("competitors", []):
+        name = comp.get("name") or "Unknown"
+        ticker = comp.get("ticker") or ""
+        segment = comp.get("segment") or ""
 
-    unique = deduplicate(all_articles)
-    print(f"\n  Total unique articles: {len(unique)}")
+        # 1. Finnhub
+        if ticker and FINNHUB_API_KEY:
+            src_name = f"Finnhub-{ticker}"
+            try:
+                items = fetch_finnhub(ticker, name, segment, days_back, per_src_cap)
+                all_articles.extend(items)
+                statuses.append({"name": src_name, "status": "ok", "items": len(items)})
+                print(f"[ok] {src_name}: {len(items)} articles")
+            except Exception as e:
+                statuses.append({"name": src_name, "status": "error", "error": str(e)[:200], "items": 0})
+                print(f"[err] {src_name}: {e}")
+            time.sleep(1.1)  # stay well under 60 req/min
+        elif ticker and not FINNHUB_API_KEY:
+            statuses.append({"name": f"Finnhub-{ticker}", "status": "skipped",
+                             "error": "FINNHUB_API_KEY not set", "items": 0})
 
-    if not unique:
-        print("\n  No articles retrieved. Check your internet connection.")
-        sys.exit(1)
+        # 2. RSS
+        for feed in comp.get("rss", []) or []:
+            short = feed.split("/")[2] if "://" in feed else feed
+            src_name = f"RSS-{short}"
+            try:
+                items = fetch_rss(feed, name, ticker, segment, per_src_cap)
+                all_articles.extend(items)
+                statuses.append({"name": src_name, "status": "ok", "items": len(items)})
+                print(f"[ok] {src_name}: {len(items)} articles")
+            except Exception as e:
+                statuses.append({"name": src_name, "status": "error", "error": str(e)[:200], "items": 0})
+                print(f"[err] {src_name}: {e}")
 
-    new_articles = [a for a in unique if a["title"].lower()[:60] not in existing_headlines]
-    print(f"  Already saved: {len(unique) - len(new_articles)}  |  New: {len(new_articles)}")
+    # Enrich + dedupe
+    all_articles = [enrich(a) for a in all_articles]
+    all_articles = dedupe(all_articles)
 
-    if not new_articles:
-        print("\n  No new articles to add — file is up to date.")
-        existing_data["last_updated"] = datetime.utcnow().isoformat() + "Z"
-        save_data(existing_data, OUTPUT_FILE)
-        print("=" * 65)
-        return
+    # Sort newest first, then by importance as tiebreaker
+    def sort_key(a):
+        pub = a.get("published") or ""
+        return (pub, a.get("importance", 0))
+    all_articles.sort(key=sort_key, reverse=True)
+    all_articles = all_articles[:total_cap]
 
-    # ── Phase 2: Fetch & Enrich ──
-    print("\n" + "-" * 65)
-    print("  FETCHING & ENRICHING ARTICLES...")
-    print("-" * 65)
-
-    relevant_articles = []
-    for i, a in enumerate(new_articles):
-        print(f"\n  [{i+1}/{len(new_articles)}] [{a['competitor']}] {a['title'][:55]}...")
-
-        meta = fetch_article_text_and_meta(a["url"])
-        article_text = meta["text"]
-
-        if not is_relevant(a["title"], article_text):
-            print(f"     SKIP (not relevant to financial data/index industry)")
-            continue
-
-        a["id"] = make_id(a["title"])
-        a["author"] = meta["author"] or "N/A"
-        a["summary"] = generate_summary(a["title"], article_text)
-        a["category"] = detect_category(a["title"], article_text, meta["meta_keywords"])
-        a["region"] = detect_region(a["title"], article_text)
-
-        sentiment, confidence = analyze_sentiment(a["title"], article_text)
-        a["sentiment"] = sentiment
-        a["confidence"] = confidence
-
-        wc = calc_word_count(article_text)
-        a["word_count"] = wc
-        a["reading_time"] = calc_reading_time(wc)
-        a["scraped_at"] = datetime.utcnow().isoformat() + "Z"
-
-        # Scoring (must come before impact generation)
-        a["importance"] = score_importance(a)
-        a["impact_level"] = score_impact(a)
-
-        # Impact analysis (v1 — existing)
-        a["msci_impact"] = generate_msci_impact_text(a)
-
-        # ── NEW v2: Sector impact, Stock impact, What to watch ──
-        a["sector_impact"] = generate_sector_impact(a)
-        a["stock_impact"] = generate_stock_impact(a)
-        a["what_to_watch"] = generate_what_to_watch(a)
-
-        status = "OK" if article_text else "NO TEXT"
-        sectors_str = ", ".join(s["sector"] for s in a["sector_impact"][:2])
-        tickers_str = ", ".join(s["ticker"] for s in a["stock_impact"][:3])
-        print(f"     {status} | {a['category']} | {a['sentiment']} ({confidence})")
-        print(f"     Importance: {a['importance']} | Impact: {a['impact_level']}")
-        print(f"     Sectors: {sectors_str} | Tickers: {tickers_str}")
-
-        relevant_articles.append(a)
-        time.sleep(1)
-
-    if not relevant_articles:
-        print("\n  No relevant competitor articles found in this run.")
-        existing_data["last_updated"] = datetime.utcnow().isoformat() + "Z"
-        save_data(existing_data, OUTPUT_FILE)
-        print("=" * 65)
-        return
-
-    # ── Phase 3: Merge & Save ──
-    all_stored = relevant_articles + existing_data.get("articles", [])
-    all_stored = all_stored[:500]  # Cap at 500 articles
-
-    output = {
-        "last_updated": datetime.utcnow().isoformat() + "Z",
-        "total_articles": len(all_stored),
-        "competitors_tracked": len(COMPETITORS),
-        "schema_version": "2.0",
-        "articles": all_stored
+    # Write outputs
+    payload = {
+        "last_updated": datetime.now(timezone.utc).isoformat(),
+        "total": len(all_articles),
+        "articles": all_articles,
     }
+    write_json(OUTPUT_FILE, payload)
 
-    save_data(output, OUTPUT_FILE)
+    # Merge status file so other scrapers' entries aren't clobbered
+    existing_status = {}
+    if os.path.exists(STATUS_FILE):
+        try:
+            with open(STATUS_FILE, "r", encoding="utf-8") as f:
+                existing_status = json.load(f) or {}
+        except Exception:
+            existing_status = {}
+    sources = {s.get("name"): s for s in (existing_status.get("sources") or [])}
+    for s in statuses:
+        sources[s["name"]] = s
+    write_json(STATUS_FILE, {
+        "last_run": datetime.now(timezone.utc).isoformat(),
+        "sources": list(sources.values()),
+    })
 
-    # ── Phase 4: Summary ──
-    print("\n" + "=" * 65)
-    print("  COMPETITOR INTELLIGENCE SUMMARY")
-    print("=" * 65)
-
-    by_comp = {}
-    for a in relevant_articles:
-        by_comp.setdefault(a["competitor"], []).append(a)
-
-    for comp, arts in sorted(by_comp.items()):
-        print(f"\n  {comp} ({len(arts)} articles):")
-        for a in arts[:3]:
-            print(f"    - {a['title'][:70]}")
-            print(f"      {a['category']} | {a['sentiment']} | {a['importance']}")
-
-    print(f"\n  {len(relevant_articles)} new articles added.")
-    print(f"  Total in database: {len(all_stored)}")
-    print(f"  Output: {OUTPUT_FILE}")
-    print("=" * 65)
+    ok = sum(1 for s in statuses if s["status"] == "ok")
+    total_items = sum(s.get("items", 0) for s in statuses)
+    print(f"\nDone. {ok}/{len(statuses)} sources ok, "
+          f"{total_items} raw items, {len(all_articles)} after dedupe.")
+    return 0
 
 
 if __name__ == "__main__":
-    import urllib3
-    urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
-    main()
+    sys.exit(main())

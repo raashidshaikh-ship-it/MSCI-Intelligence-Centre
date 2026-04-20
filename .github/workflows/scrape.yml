@@ -24,6 +24,8 @@ jobs:
         run: pip install -r scraper/requirements.txt
 
       - name: Run Top News scraper
+        env:
+          FINNHUB_API_KEY: ${{ secrets.FINNHUB_API_KEY }}
         run: python scraper/top_news_scraper.py
 
       - name: Run Client Activity scraper

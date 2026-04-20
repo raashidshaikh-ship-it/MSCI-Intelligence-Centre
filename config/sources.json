@@ -1,0 +1,65 @@
+{
+  "_comment": "Edit this file to add/remove competitors. Tickers feed Finnhub /company-news (must be valid Finnhub symbol). RSS feeds are polled directly. After editing, the next GitHub Actions run will pick up the change automatically.",
+  "competitors": [
+    {
+      "name": "S&P Global",
+      "ticker": "SPGI",
+      "segment": "Indices / Ratings / Data",
+      "rss": [
+        "https://press.spglobal.com/index.php?s=20295&mode=rss"
+      ]
+    },
+    {
+      "name": "London Stock Exchange Group (FTSE Russell)",
+      "ticker": "LSEG.L",
+      "segment": "Indices / Benchmarking / Data",
+      "rss": [
+        "https://www.lseg.com/en/media-centre/press-releases/rss"
+      ]
+    },
+    {
+      "name": "Morningstar",
+      "ticker": "MORN",
+      "segment": "Research / ESG / Ratings",
+      "rss": [
+        "https://newsroom.morningstar.com/newsroom/news-archive/press-release-details/rss"
+      ]
+    },
+    {
+      "name": "Intercontinental Exchange",
+      "ticker": "ICE",
+      "segment": "Exchanges / Data / Indices",
+      "rss": []
+    },
+    {
+      "name": "Nasdaq",
+      "ticker": "NDAQ",
+      "segment": "Exchanges / Index Licensing",
+      "rss": []
+    },
+    {
+      "name": "CME Group",
+      "ticker": "CME",
+      "segment": "Derivatives / Indices",
+      "rss": []
+    },
+    {
+      "name": "FactSet",
+      "ticker": "FDS",
+      "segment": "Analytics / Data Platform",
+      "rss": []
+    },
+    {
+      "name": "Moody's",
+      "ticker": "MCO",
+      "segment": "Ratings / Risk Analytics",
+      "rss": []
+    }
+  ],
+  "settings": {
+    "finnhub_days_back": 14,
+    "max_articles_per_source": 25,
+    "total_cap": 200,
+    "sentiment_enabled": true
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "last_run": "2026-04-20T14:38:33.848717+00:00",
+  "sources": [
+    {
+      "name": "Finnhub-SPGI",
+      "status": "skipped",
+      "error": "FINNHUB_API_KEY not set",
+      "items": 0
+    },
+    {
+      "name": "RSS-press.spglobal.com",
+      "status": "error",
+      "error": "HTTPSConnectionPool(host='press.spglobal.com', port=443): Max retries exceeded with url: /index.php?s=20295&mode=rss (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection fail",
+      "items": 0
+    },
+    {
+      "name": "Finnhub-LSEG.L",
+      "status": "skipped",
+      "error": "FINNHUB_API_KEY not set",
+      "items": 0
+    },
+    {
+      "name": "RSS-www.lseg.com",
+      "status": "error",
+      "error": "HTTPSConnectionPool(host='www.lseg.com', port=443): Max retries exceeded with url: /en/media-centre/press-releases/rss (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection fa",
+      "items": 0
+    },
+    {
+      "name": "Finnhub-MORN",
+      "status": "skipped",
+      "error": "FINNHUB_API_KEY not set",
+      "items": 0
+    },
+    {
+      "name": "RSS-newsroom.morningstar.com",
+      "status": "error",
+      "error": "HTTPSConnectionPool(host='newsroom.morningstar.com', port=443): Max retries exceeded with url: /newsroom/news-archive/press-release-details/rss (Caused by ProxyError('Unable to connect to proxy', OSEr",
+      "items": 0
+    },
+    {
+      "name": "Finnhub-ICE",
+      "status": "skipped",
+      "error": "FINNHUB_API_KEY not set",
+      "items": 0
+    },
+    {
+      "name": "Finnhub-NDAQ",
+      "status": "skipped",
+      "error": "FINNHUB_API_KEY not set",
+      "items": 0
+    },
+    {
+      "name": "Finnhub-CME",
+      "status": "skipped",
+      "error": "FINNHUB_API_KEY not set",
+      "items": 0
+    },
+    {
+      "name": "Finnhub-FDS",
+      "status": "skipped",
+      "error": "FINNHUB_API_KEY not set",
+      "items": 0
+    },
+    {
+      "name": "Finnhub-MCO",
+      "status": "skipped",
+      "error": "FINNHUB_API_KEY not set",
+      "items": 0
+    }
+  ]
+}
