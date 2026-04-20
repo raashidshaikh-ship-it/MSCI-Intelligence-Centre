@@ -199,39 +199,36 @@ body {
 .clear-btn { background: transparent; border: 1px solid var(--negative); color: var(--negative); border-radius: 6px; padding: 5px 10px; font-size: 10.5px; cursor: pointer; font-family: var(--font); font-weight: 500; transition: all 0.15s; white-space: nowrap; }
 .clear-btn:hover { background: var(--negative); color: #fff; }
 
-/* ─── ANALYTICS PANEL — two modes: compact horizontal OR vertical right-rail ─── */
-.analytics-panel { display: flex; gap: 8px; padding: 8px 20px; border-bottom: 1px solid var(--border); background: var(--bg-surface); flex-shrink: 0; z-index: 10; overflow-x: auto; }
-.analytics-panel.rail { flex-direction: column; padding: 10px 12px; gap: 8px; border-bottom: 0; border-left: 1px solid var(--border); background: var(--bg-surface); overflow-y: auto; overflow-x: hidden; height: 100%; }
-.analytics-panel.rail::-webkit-scrollbar { width: 4px; }
-.analytics-panel.rail::-webkit-scrollbar-thumb { background: var(--track); border-radius: 2px; }
-.chart-card { flex: 1; min-width: 180px; padding: 8px 10px; background: var(--bg-raised); border: 1px solid var(--border); border-radius: var(--radius); transition: all 0.15s; }
-.analytics-panel.rail .chart-card { flex: 0 0 auto; min-width: 0; width: 100%; padding: 7px 10px; }
+/* ─── ANALYTICS PANEL — compact horizontal strip on top, scrolls horizontally if it overflows ─── */
+.analytics-panel { display: flex; gap: 6px; padding: 6px 16px; border-bottom: 1px solid var(--border); background: var(--bg-surface); flex-shrink: 0; z-index: 10; overflow-x: auto; overflow-y: hidden; }
+.analytics-panel::-webkit-scrollbar { height: 4px; }
+.analytics-panel::-webkit-scrollbar-thumb { background: var(--track); border-radius: 2px; }
+.chart-card { flex: 1 1 0; min-width: 150px; padding: 5px 8px; background: var(--bg-raised); border: 1px solid var(--border); border-radius: var(--radius); transition: all 0.15s; }
 .chart-card.filtering { border-color: var(--accent); background: var(--accent-glow); }
-.chart-card-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 5px; }
-.chart-card-title { font-size: 9px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1.0px; font-weight: 600; }
-.chart-body-slim { min-height: 56px; max-height: 120px; overflow-y: auto; overflow-x: hidden; }
-.analytics-panel.rail .chart-body-slim { max-height: 108px; }
+.chart-card-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 3px; gap: 4px; }
+.chart-card-title { font-size: 8.5px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.9px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.chart-body-slim { min-height: 54px; max-height: 72px; overflow-y: auto; overflow-x: hidden; }
 .chart-body-slim::-webkit-scrollbar { width: 3px; }
 .chart-body-slim::-webkit-scrollbar-thumb { background: var(--track); border-radius: 2px; }
-.chart-filter-badge { font-size: 9.5px; font-weight: 600; color: var(--accent); background: var(--accent-glow); padding: 2px 7px; border-radius: 10px; cursor: pointer; display: none; align-items: center; gap: 4px; border: 1px solid var(--accent); max-width: 120px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.chart-filter-badge { font-size: 9px; font-weight: 600; color: var(--accent); background: var(--accent-glow); padding: 1px 6px; border-radius: 10px; cursor: pointer; display: none; align-items: center; gap: 3px; border: 1px solid var(--accent); max-width: 90px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .chart-filter-badge:hover { filter: brightness(1.12); }
 .chart-filter-badge.active { display: inline-flex; }
-.rail-section-title { font-size: 8.5px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1.2px; font-weight: 700; padding: 4px 2px 2px; }
+@media (max-width: 1400px) { .chart-card { min-width: 135px; } }
+@media (max-width: 1180px) { .chart-card { min-width: 120px; padding: 4px 7px; } .chart-body-slim { min-height: 48px; max-height: 64px; } }
 
 /* ─── MAIN LAYOUT ─── */
 .main { display: flex; flex: 1; overflow: hidden; position: relative; z-index: 5; }
-.right-rail { flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; overflow: hidden; background: var(--bg-surface); }
 
 /* ─── SECTION PANELS ─── */
 .section-panel { display: none; flex: 1; overflow: hidden; flex-direction: column; }
 .section-panel.active { display: flex; }
 
-/* ─── NEWS FEED — always a fixed-width rail so ≥5 cards are visible on laptop ─── */
+/* ─── NEWS FEED — full-width by default; collapses when a detail panel is open ─── */
 .feed { overflow-y: auto; overflow-x: hidden; transition: width 0.25s ease; flex-shrink: 0; }
-.feed.expanded { width: 440px; border-right: 1px solid var(--border); }
-.feed.collapsed { width: 440px; border-right: 1px solid var(--border); }
-@media (max-width: 1180px) { .feed.expanded, .feed.collapsed { width: 400px; } }
-@media (max-width: 900px)  { .feed.expanded, .feed.collapsed { width: 340px; } }
+.feed.expanded { width: 100%; }
+.feed.collapsed { width: 420px; border-right: 1px solid var(--border); }
+@media (max-width: 1180px) { .feed.collapsed { width: 380px; } }
+@media (max-width: 900px)  { .feed.collapsed { width: 340px; } }
 .feed-empty { padding: 80px 40px; text-align: center; }
 .feed-empty-icon { font-size: 44px; opacity: 0.15; margin-bottom: 16px; }
 .feed-empty-title { font-size: 15px; color: var(--text-muted); margin-bottom: 6px; }
@@ -272,8 +269,7 @@ body {
 .news-card-date { font-size: 10px; color: var(--text-muted); margin-top: 5px; font-family: var(--mono); letter-spacing: 0.3px; }
 
 /* ─── DETAIL PANEL ─── */
-.detail { flex: 1; overflow-y: auto; background: var(--bg-surface); border-left: 0; display: none; }
-.right-rail .detail { border-left: 0; }
+.detail { flex: 1; overflow-y: auto; background: var(--bg-surface); border-left: 1px solid var(--border); display: none; }
 .detail-close { position: absolute; top: 14px; right: 14px; background: var(--bg-root); border: 1px solid var(--border); border-radius: 6px; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; cursor: pointer; color: var(--text-muted); font-size: 13px; z-index: 5; font-family: var(--font); transition: all 0.15s; }
 .detail-close:hover { background: var(--bg-hover); color: var(--text-primary); }
 .detail-inner { padding: 20px 24px; position: relative; }
@@ -494,25 +490,21 @@ body {
       <div class="filter-panel inline" id="filterPanel"></div>
       <div class="result-count" id="resultCount"></div>
     </div>
+    <!-- Horizontal analytics strip: MSCI lens first, then market + signal cards -->
+    <div class="analytics-panel" id="analyticsPanel">
+      <div class="chart-card" id="chartCardPL"><div class="chart-card-header"><span class="chart-card-title">Product line</span><span class="chart-filter-badge" id="chartBadgePL"></span></div><div id="chartProductLine" class="chart-body-slim"></div></div>
+      <div class="chart-card" id="chartCardSeg"><div class="chart-card-header"><span class="chart-card-title">Client segment</span><span class="chart-filter-badge" id="chartBadgeSeg"></span></div><div id="chartSegment" class="chart-body-slim"></div></div>
+      <div class="chart-card" id="chartCardComp"><div class="chart-card-header"><span class="chart-card-title">Competitor</span><span class="chart-filter-badge" id="chartBadgeComp"></span></div><div id="chartCompetitor" class="chart-body-slim"></div></div>
+      <div class="chart-card" id="chartCardCat"><div class="chart-card-header"><span class="chart-card-title">Category</span><span class="chart-filter-badge" id="chartBadgeCat"></span></div><div id="chartCategory" class="chart-body-slim"></div></div>
+      <div class="chart-card" id="chartCardSrc"><div class="chart-card-header"><span class="chart-card-title">Source</span><span class="chart-filter-badge" id="chartBadgeSrc"></span></div><div id="chartSource" class="chart-body-slim"></div></div>
+      <div class="chart-card" id="chartCardSent"><div class="chart-card-header"><span class="chart-card-title">Sentiment</span><span class="chart-filter-badge" id="chartBadgeSent"></span></div><div id="chartSentiment" class="chart-body-slim"></div></div>
+      <div class="chart-card" id="chartCardImp"><div class="chart-card-header"><span class="chart-card-title">Importance</span><span class="chart-filter-badge" id="chartBadgeImp"></span></div><div id="chartImportance" class="chart-body-slim"></div></div>
+      <div class="chart-card" id="chartCardDay"><div class="chart-card-header"><span class="chart-card-title">Last 14 days</span><span class="chart-filter-badge" id="chartBadgeDay"></span></div><div id="chartDaily" class="chart-body-slim"></div></div>
+    </div>
   </div>
   <div class="main">
     <div class="feed expanded" id="feed"></div>
-    <aside class="right-rail" id="rightRail">
-      <div class="analytics-panel rail" id="analyticsPanel">
-        <div class="rail-section-title">MSCI lens</div>
-        <div class="chart-card" id="chartCardPL"><div class="chart-card-header"><span class="chart-card-title">Product line</span><span class="chart-filter-badge" id="chartBadgePL"></span></div><div id="chartProductLine" class="chart-body-slim"></div></div>
-        <div class="chart-card" id="chartCardSeg"><div class="chart-card-header"><span class="chart-card-title">Client segment</span><span class="chart-filter-badge" id="chartBadgeSeg"></span></div><div id="chartSegment" class="chart-body-slim"></div></div>
-        <div class="rail-section-title">Market</div>
-        <div class="chart-card" id="chartCardComp"><div class="chart-card-header"><span class="chart-card-title">Competitor</span><span class="chart-filter-badge" id="chartBadgeComp"></span></div><div id="chartCompetitor" class="chart-body-slim"></div></div>
-        <div class="chart-card" id="chartCardCat"><div class="chart-card-header"><span class="chart-card-title">Category</span><span class="chart-filter-badge" id="chartBadgeCat"></span></div><div id="chartCategory" class="chart-body-slim"></div></div>
-        <div class="chart-card" id="chartCardSrc"><div class="chart-card-header"><span class="chart-card-title">Source</span><span class="chart-filter-badge" id="chartBadgeSrc"></span></div><div id="chartSource" class="chart-body-slim"></div></div>
-        <div class="rail-section-title">Signal</div>
-        <div class="chart-card" id="chartCardSent"><div class="chart-card-header"><span class="chart-card-title">Sentiment</span><span class="chart-filter-badge" id="chartBadgeSent"></span></div><div id="chartSentiment" class="chart-body-slim"></div></div>
-        <div class="chart-card" id="chartCardImp"><div class="chart-card-header"><span class="chart-card-title">Importance</span><span class="chart-filter-badge" id="chartBadgeImp"></span></div><div id="chartImportance" class="chart-body-slim"></div></div>
-        <div class="chart-card" id="chartCardDay"><div class="chart-card-header"><span class="chart-card-title">Last 14 days</span><span class="chart-filter-badge" id="chartBadgeDay"></span></div><div id="chartDaily" class="chart-body-slim"></div></div>
-      </div>
-      <div class="detail" id="detail" style="display:none;"></div>
-    </aside>
+    <div class="detail" id="detail" style="display:none;"></div>
   </div>
 </div>
 
@@ -1065,15 +1057,15 @@ function renderNews() {
     });
   }
 
-  // Right-rail: analytics by default, detail panel when an article is selected
+  // Analytics stays on top always; feed collapses when a card is selected
   const detail=document.getElementById("detail");
-  const analyticsPanel=document.getElementById("analyticsPanel");
+  const feedEl=document.getElementById("feed");
   if(!state.selected){
     detail.style.display="none";
-    if(analyticsPanel)analyticsPanel.style.display="flex";
+    if(feedEl){feedEl.classList.add("expanded");feedEl.classList.remove("collapsed");}
     return;
   }
-  if(analyticsPanel)analyticsPanel.style.display="none";
+  if(feedEl){feedEl.classList.add("collapsed");feedEl.classList.remove("expanded");}
   detail.style.display="block";
   const s=state.selected;
   detail.innerHTML=`
