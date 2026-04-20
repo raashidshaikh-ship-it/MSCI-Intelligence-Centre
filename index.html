@@ -121,9 +121,9 @@ body {
 
 /* Ambient effects — subtle in dark, removed in light */
 .ambient { position: fixed; pointer-events: none; z-index: 0; border-radius: 50%; }
-.ambient-1 { top: -200px; right: -150px; width: 600px; height: 600px; background: radial-gradient(circle, rgba(26,63,214,0.08) 0%, transparent 65%); }
-.ambient-2 { bottom: -300px; left: -100px; width: 500px; height: 500px; background: radial-gradient(circle, rgba(0,167,152,0.05) 0%, transparent 65%); }
-.ambient-3 { top: 50%; left: 40%; width: 400px; height: 400px; background: radial-gradient(circle, rgba(113,136,239,0.04) 0%, transparent 60%); transform: translate(-50%,-50%); }
+.ambient-1 { top: -200px; right: -150px; width: 600px; height: 600px; background: radial-gradient(circle, rgba(0,167,152,0.06) 0%, transparent 65%); }
+.ambient-2 { bottom: -300px; left: -100px; width: 500px; height: 500px; background: radial-gradient(circle, rgba(26,63,214,0.05) 0%, transparent 65%); }
+.ambient-3 { top: 50%; left: 40%; width: 400px; height: 400px; background: radial-gradient(circle, rgba(0,167,152,0.03) 0%, transparent 60%); transform: translate(-50%,-50%); }
 [data-theme="light"] .ambient { display: none; }
 
 /* Animations */
@@ -185,9 +185,13 @@ body {
 /* ─── FILTER PANEL (inline, wraps) ─── */
 .filter-panel { display: flex; gap: 6px 10px; align-items: center; flex-wrap: wrap; flex-grow: 1; }
 .filter-panel.inline { padding: 0; background: transparent; border: 0; }
-.noncore-toggle { display: inline-flex; align-items: center; gap: 6px; font-size: 10.5px; color: var(--text-muted); cursor: pointer; user-select: none; padding: 4px 8px; border: 1px solid var(--border); border-radius: 6px; }
-.noncore-toggle input { accent-color: var(--accent); }
-.noncore-toggle.on { color: var(--accent); border-color: var(--accent); background: var(--accent-glow); }
+.noncore-toggle { display: inline-flex; align-items: center; gap: 7px; font-size: 11px; font-weight: 600; color: var(--text-secondary); cursor: pointer; user-select: none; padding: 5px 11px; border: 1px solid var(--border); border-radius: 999px; background: var(--bg-raised); transition: all 0.15s; white-space: nowrap; }
+.noncore-toggle:hover { border-color: var(--border-hover); }
+.noncore-toggle input { accent-color: #DB7C00; width: 13px; height: 13px; cursor: pointer; }
+.noncore-toggle.on { color: #DB7C00; border-color: rgba(219,124,0,0.55); background: rgba(219,124,0,0.10); }
+.noncore-help { font-size: 10px; color: var(--text-muted); line-height: 1.45; padding: 4px 12px 2px; font-style: italic; }
+.noncore-help b { color: #118A5E; font-weight: 700; font-style: normal; }
+.noncore-help i { color: #DB7C00; font-weight: 700; font-style: normal; }
 .filter-group { display: flex; flex-direction: column; gap: 2px; }
 .filter-label { font-size: 8.5px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.9px; font-weight: 600; }
 .filter-select { background: var(--bg-root); border: 1px solid var(--border); border-radius: 6px; padding: 5px 22px 5px 8px; color: var(--text-primary); font-size: 11.5px; outline: none; cursor: pointer; font-family: var(--font); appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 12 12'%3E%3Cpath d='M3 5l3 3 3-3' stroke='%23999999' stroke-width='1.4' fill='none'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 6px center; transition: border-color 0.15s; }
@@ -971,7 +975,7 @@ function renderNews() {
     {label:"Filtered",value:filteredForStats.length,color:cssVar("--accent","#1A3FD6"),icon:"▤"},
     {label:"Critical",value:critical,color:"#ef4444",icon:"⚠"},
     {label:"Negative",value:negative,color:"#f59e0b",icon:"▼"},
-    {label:"Competitors",value:comps,color:"#8b5cf6",icon:"◆"}
+    {label:"Competitors",value:comps,color:"#14b8a6",icon:"◆"}
   ].map(s=>`<span class="stat-chip"><span class="stat-chip-icon" style="color:${s.color}">${s.icon}</span><span class="stat-chip-val" style="color:${s.color}">${s.value}</span><span class="stat-chip-lbl">${s.label}</span></span>`).join("");
 
   // Filters
@@ -987,9 +991,10 @@ function renderNews() {
     <div class="filter-group"><span class="filter-label">Date from</span><input type="date" class="filter-date" data-filter="dateFrom" value="${state.filterDateFrom}"></div>
     <div class="filter-group"><span class="filter-label">Date to</span><input type="date" class="filter-date" data-filter="dateTo" value="${state.filterDateTo}"></div>
     <label class="noncore-toggle ${state.includeNonCore?"on":""}" title="Include articles that don't map to any MSCI product line or client segment">
-      <input type="checkbox" id="nonCoreToggle" ${state.includeNonCore?"checked":""}/> Include non-core
+      <input type="checkbox" id="nonCoreToggle" ${state.includeNonCore?"checked":""}/> ${state.includeNonCore?"Showing Non-core":"Show Non-core"}
     </label>
-    ${ac>0?`<button class="clear-btn" id="clearFilters">Clear all</button>`:""}`;
+    ${ac>0?`<button class="clear-btn" id="clearFilters">Clear all</button>`:""}
+    <div class="noncore-help" style="flex-basis:100%"><b>Core</b> = matches an MSCI product line or client segment &nbsp;·&nbsp; <i>Non-core</i> = general market news with no direct MSCI linkage (hidden by default)</div>`;
   fp.querySelectorAll(".filter-select").forEach(sel=>{sel.addEventListener("change",e=>{const f=e.target.dataset.filter;if(f==="comp")state.filterComp=e.target.value;if(f==="cat")state.filterCat=e.target.value;if(f==="imp")state.filterImp=e.target.value;if(f==="impact")state.filterImpact=e.target.value;if(f==="pl")state.filterProductLine=e.target.value;if(f==="seg")state.filterSegment=e.target.value;renderNews();});});
   fp.querySelectorAll(".filter-date").forEach(inp=>{inp.addEventListener("change",e=>{if(e.target.dataset.filter==="dateFrom")state.filterDateFrom=e.target.value;if(e.target.dataset.filter==="dateTo")state.filterDateTo=e.target.value;renderNews();});});
   const nct=document.getElementById("nonCoreToggle");
@@ -1018,6 +1023,9 @@ function renderNews() {
           <div class="news-card-badges">
             <span class="badge-competitor">${esc(item.competitor)}</span>
             ${item.importance?`<span class="badge-importance" style="color:${impColor(item.importance)};background:${impBg(item.importance)}">${esc(item.importance)}</span>`:""}
+            ${item.non_core
+              ? `<span class="badge-core" title="No direct MSCI product-line or client-segment match — general market context" style="font-size:9.5px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;color:#DB7C00;background:rgba(219,124,0,0.14);border:1px solid rgba(219,124,0,0.3);padding:1px 7px;border-radius:4px">Non-core</span>`
+              : `<span class="badge-core" title="Maps to an MSCI product line or client segment" style="font-size:9.5px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;color:#118A5E;background:rgba(17,138,94,0.14);border:1px solid rgba(17,138,94,0.3);padding:1px 7px;border-radius:4px">Core</span>`}
           </div>
           <span class="news-card-time">${timeAgo(item.published)}</span>
         </div>
@@ -1036,7 +1044,6 @@ function renderNews() {
               ${item.sentiment?`<span class="meta-dot">·</span><span style="color:${sentimentColor(item.sentiment)}">${dirIcon(item.sentiment==="Positive"?"positive":item.sentiment==="Negative"?"negative":"neutral")} ${item.sentiment}${item.confidence?` <span class="meta-conf" title="Sentiment confidence">${Math.round(item.confidence*100)}%</span>`:""}</span>`:""}
               ${item.impact_level?`<span class="meta-dot">·</span><span class="meta-impact" style="color:${impColor(item.impact_level)};background:${impBg(item.impact_level)}" title="Impact level">${esc(item.impact_level)}</span>`:""}
               ${item.reading_time?`<span class="meta-dot">·</span><span title="Approx. reading time">${esc(item.reading_time)}</span>`:""}
-              ${item.non_core?`<span class="meta-dot">·</span><span class="meta-origin" title="No direct MSCI product-line or segment match" style="color:var(--negative)">non-core</span>`:""}
             </div>
           </div>
         </div>
@@ -1072,7 +1079,7 @@ function renderNews() {
     <button class="detail-close" id="detailClose">✕</button>
     <div class="detail-inner">
       <div class="detail-badges">
-        <span class="detail-badge" style="color:var(--purple-light);background:rgba(139,92,246,0.12)">${esc(s.competitor)}</span>
+        <span class="detail-badge" style="color:var(--accent);background:var(--accent-glow)">${esc(s.competitor)}</span>
         <span class="detail-badge" style="color:${impColor(s.importance)};background:${impBg(s.importance)};text-transform:uppercase;letter-spacing:0.6px;font-size:10px;">${s.importance}</span>
         <span class="detail-badge" style="color:${sentimentColor(s.sentiment)};background:${sentimentColor(s.sentiment)}18">${s.sentiment} (${Math.round((s.confidence||0.5)*100)}%)</span>
       </div>
@@ -1173,9 +1180,9 @@ function renderCharts() {
     }).join("");
     const legend=data.filter(d=>d.value>0).map(d=>{
       const isA=activeLabel===d.label;const tc=(activeLabel&&activeLabel!=="All"&&!isA)?cDim:cMuted;
-      return`<div class="chart-legend-item" data-l="${esc(d.label)}" style="display:flex;align-items:center;gap:4px;font-size:10px;color:${tc};cursor:pointer;padding:1px 3px;border-radius:3px"><div style="width:7px;height:7px;border-radius:2px;background:${d.color};flex-shrink:0"></div>${esc(d.label)} <span style="color:${cDim};font-family:var(--mono)">${d.value}</span></div>`;
+      return`<div class="chart-legend-item" data-l="${esc(d.label)}" style="display:flex;align-items:center;gap:4px;font-size:10px;color:${tc};cursor:pointer;padding:1px 3px;border-radius:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis"><div style="width:7px;height:7px;border-radius:2px;background:${d.color};flex-shrink:0"></div><span style="overflow:hidden;text-overflow:ellipsis">${esc(d.label)}</span><span style="color:${cDim};font-family:var(--mono);margin-left:auto;padding-left:4px">${d.value}</span></div>`;
     }).join("");
-    el.innerHTML=`<div style="display:flex;align-items:center;gap:10px"><svg width="84" height="84" viewBox="0 0 84 84">${paths}<circle cx="${cx}" cy="${cy}" r="19" fill="${cBg}"/><text x="${cx}" y="${cy+1}" text-anchor="middle" dominant-baseline="central" fill="${cText}" font-size="12" font-weight="700" font-family="var(--mono)">${total}</text></svg><div style="display:flex;flex-direction:column;gap:2px">${legend}</div></div>`;
+    el.innerHTML=`<div style="display:flex;align-items:center;gap:8px;min-width:0"><svg width="66" height="66" viewBox="0 0 84 84" style="flex-shrink:0">${paths}<circle cx="${cx}" cy="${cy}" r="19" fill="${cBg}"/><text x="${cx}" y="${cy+1}" text-anchor="middle" dominant-baseline="central" fill="${cText}" font-size="14" font-weight="700" font-family="var(--mono)">${total}</text></svg><div style="display:flex;flex-direction:column;gap:2px;min-width:0;flex:1;overflow:hidden">${legend}</div></div>`;
     el.querySelectorAll("path[data-l]").forEach(p=>{p.addEventListener("click",()=>{const v=p.dataset.l;state[filterKey]=state[filterKey]===v?"All":v;renderNews();});});
     el.querySelectorAll(".chart-legend-item").forEach(i=>{i.addEventListener("click",()=>{const v=i.dataset.l;state[filterKey]=state[filterKey]===v?"All":v;renderNews();});});
   }
@@ -1265,7 +1272,7 @@ function renderCharts() {
 
   const catF=getFilteredExcept("filterCat");
   const xc={};catF.forEach(a=>{const p=(a.category||"General").split(" / ")[0];xc[p]=(xc[p]||0)+1;});
-  barChart("chartCategory",Object.entries(xc).sort((a,b)=>b[1]-a[1]).map(([k,v])=>({label:k.length>14?k.slice(0,14)+"…":k,fullLabel:k,value:v})),VIZ_PALETTE[6],"filterCat"); // Violet
+  barChart("chartCategory",Object.entries(xc).sort((a,b)=>b[1]-a[1]).map(([k,v])=>({label:k.length>14?k.slice(0,14)+"…":k,fullLabel:k,value:v})),VIZ_PALETTE[3],"filterCat"); // Orange — softer than violet
 
   // MSCI Product Line — always in fixed taxonomy order so the bar chart reads left→right
   const plF=getFilteredExcept("filterProductLine");
@@ -1336,7 +1343,7 @@ function renderClients() {
     {label:"Activities",value:qScoped.length,color:"#14b8a6",icon:"◆"},
     {label:"MSCI-linked",value:linked,color:"#22c55e",icon:"◉"},
     {label:"High priority",value:highPri,color:"#f59e0b",icon:"⚠"},
-    {label:"Clients tracked",value:clients,color:"#8b5cf6",icon:"◎"}
+    {label:"Clients tracked",value:clients,color:"#14b8a6",icon:"◎"}
   ].map(s=>`<div class="stat-card"><div class="stat-icon">${s.icon}</div><div><div class="stat-value" style="color:${s.color}">${s.value}</div><div class="stat-label">${s.label}</div></div></div>`).join("");
 
   document.getElementById("clientResultCount").textContent=`${filtered.length} activities`;
@@ -1441,7 +1448,7 @@ function renderMsci() {
     {label:"Products",value:totalP,color:"#ec4899",icon:"⚡"},
     {label:"Client wins",value:totalW,color:"#22c55e",icon:"◉"},
     {label:"Milestones",value:totalM,color:"#60a5fa",icon:"◎"},
-    {label:"Total items",value:totalP+totalW+totalM,color:"#8b5cf6",icon:"◆"}
+    {label:"Total items",value:totalP+totalW+totalM,color:"#14b8a6",icon:"◆"}
   ].map(s=>`<div class="stat-card"><div class="stat-icon">${s.icon}</div><div><div class="stat-value" style="color:${s.color}">${s.value}</div><div class="stat-label">${s.label}</div></div></div>`).join("");
 
   // Sub-tabs
@@ -1536,7 +1543,7 @@ function renderBrand() {
   const trendEl=document.getElementById("brandTrendChart");
   if(trend.length>2){
     const brands=["MSCI","S&P Global","FTSE Russell","Bloomberg Terminal","Morningstar"];
-    const colors=["#3b82f6","#ef4444","#f59e0b","#22c55e","#8b5cf6"];
+    const colors=["#3b82f6","#ef4444","#f59e0b","#22c55e","#14b8a6"];
     const maxVal=Math.max(...trend.flatMap(t=>brands.map(b=>t[b]||0)),1);
     const w=600,h=140,padL=40,padR=10,padT=10,padB=25;
     const plotW=w-padL-padR,plotH=h-padT-padB;
@@ -1582,7 +1589,7 @@ function renderBrand() {
   const regions=TRENDS_DATA.regional_interest||[];
   if(regions.length){
     const maxR=Math.max(...regions.map(r=>r.interest),1);
-    const colors=["#3b82f6","#8b5cf6","#14b8a6","#ec4899","#f59e0b"];
+    const colors=["#3b82f6","#14b8a6","#22c55e","#ec4899","#f59e0b"];
     regionEl.innerHTML=regions.slice(0,10).map((r,i)=>{
       const pct=Math.round((r.interest/maxR)*100);
       return`<div class="region-bar"><div class="region-name">${esc(r.country)}</div><div style="flex:1;height:12px;background:rgba(255,255,255,0.04);border-radius:3px;overflow:hidden"><div class="region-fill" style="width:${pct}%;background:${colors[i%5]}"></div></div><div style="width:28px;font-size:10px;font-family:var(--mono);color:#64748b;text-align:right">${r.interest}</div></div>`;
