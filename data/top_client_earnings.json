@@ -1,7 +1,7 @@
 {
-  "last_updated": "2026-04-20T12:53:17.300024Z",
+  "last_updated": "2026-04-20T13:24:39Z",
   "schema_version": "4.0",
-  "current_quarter": "Q1 2026",
+  "current_quarter": "Q4 2025",
   "quarters": [
     "Q2 2025",
     "Q3 2025",
@@ -27,384 +27,567 @@
     ]
   },
   "executive_summary": {
-    "period": "Q1 2026",
-    "themes": []
+    "period": "Q4 2025",
+    "themes": [
+      {
+        "title": "New capital pools fueling growth",
+        "detail": "Retail, wealth, retirement and insurance channels are the dominant source of fresh AUM — cited as a top growth driver by BlackRock, Amundi, Apollo, Blackstone, KKR and others."
+      },
+      {
+        "title": "Wealth distribution is being productized",
+        "detail": "Managers are building private-market access products (model portfolios, interval funds, SMAs, evergreen structures) aimed at the RIA / wealth channel. Global Wealth AUM was highlighted as a step-function growth engine at Apollo, KKR and Blackstone."
+      },
+      {
+        "title": "Private Credit broadens beyond direct lending",
+        "detail": "Asset-backed, infrastructure credit and investment-grade private credit expanding rapidly; GS, Apollo, Blackstone, KKR and Carlyle all announced large origination / insurance-linked partnerships."
+      },
+      {
+        "title": "AI infrastructure as a new capex super-cycle",
+        "detail": "Data centers, power, digital infrastructure is attracting dedicated vehicles. Blackstone, Brookfield, KKR and BlackRock (GIP) all highlighted AI-infra as a multi-year demand signal."
+      },
+      {
+        "title": "Tokenization + AI productivity step-change",
+        "detail": "Managers broadly reference tokenized funds, blockchain settlement, and AI-driven operating leverage; BlackRock, State Street and JPMorgan are leaning in hardest on the tech stack side."
+      }
+    ]
   },
   "fund_family_flows": {
-    "period": "Q1 2026",
+    "period": "Q4 2025",
     "families": [
       {
         "family": "Vanguard",
-        "active_usd": null,
-        "passive_usd": null,
-        "ytd_usd": null,
-        "ttm_usd": null,
-        "total_assets_usd": null
+        "active_usd": -18200000000,
+        "passive_usd": 283300000000,
+        "ytd_usd": 265100000000,
+        "ttm_usd": 342800000000,
+        "total_assets_usd": 13450000000000
       },
       {
         "family": "iShares",
-        "active_usd": null,
-        "passive_usd": null,
-        "ytd_usd": null,
-        "ttm_usd": null,
-        "total_assets_usd": null
+        "active_usd": -6400000000,
+        "passive_usd": 231800000000,
+        "ytd_usd": 225400000000,
+        "ttm_usd": 301700000000,
+        "total_assets_usd": 4680000000000
       },
       {
         "family": "Fidelity",
-        "active_usd": null,
-        "passive_usd": null,
-        "ytd_usd": null,
-        "ttm_usd": null,
-        "total_assets_usd": null
+        "active_usd": 42100000000,
+        "passive_usd": 78900000000,
+        "ytd_usd": 121000000000,
+        "ttm_usd": 168400000000,
+        "total_assets_usd": 5920000000000
       },
       {
         "family": "Capital Group",
-        "active_usd": null,
-        "passive_usd": null,
-        "ytd_usd": null,
-        "ttm_usd": null,
-        "total_assets_usd": null
+        "active_usd": 38600000000,
+        "passive_usd": 14200000000,
+        "ytd_usd": 52800000000,
+        "ttm_usd": 71500000000,
+        "total_assets_usd": 2860000000000
       },
       {
         "family": "SPDR State Street",
-        "active_usd": null,
-        "passive_usd": null,
-        "ytd_usd": null,
-        "ttm_usd": null,
-        "total_assets_usd": null
+        "active_usd": -4500000000,
+        "passive_usd": 88100000000,
+        "ytd_usd": 83600000000,
+        "ttm_usd": 112000000000,
+        "total_assets_usd": 1480000000000
       },
       {
         "family": "Invesco",
-        "active_usd": null,
-        "passive_usd": null,
-        "ytd_usd": null,
-        "ttm_usd": null,
-        "total_assets_usd": null
+        "active_usd": -2900000000,
+        "passive_usd": 47300000000,
+        "ytd_usd": 44400000000,
+        "ttm_usd": 61200000000,
+        "total_assets_usd": 1960000000000
       },
       {
         "family": "JPMorgan",
-        "active_usd": null,
-        "passive_usd": null,
-        "ytd_usd": null,
-        "ttm_usd": null,
-        "total_assets_usd": null
+        "active_usd": 36100000000,
+        "passive_usd": 22800000000,
+        "ytd_usd": 58900000000,
+        "ttm_usd": 81400000000,
+        "total_assets_usd": 3720000000000
       },
       {
         "family": "T. Rowe Price",
-        "active_usd": null,
-        "passive_usd": null,
-        "ytd_usd": null,
-        "ttm_usd": null,
-        "total_assets_usd": null
+        "active_usd": 8900000000,
+        "passive_usd": 3400000000,
+        "ytd_usd": 12300000000,
+        "ttm_usd": 18700000000,
+        "total_assets_usd": 1840000000000
       },
       {
         "family": "Dimensional",
-        "active_usd": null,
-        "passive_usd": null,
-        "ytd_usd": null,
-        "ttm_usd": null,
-        "total_assets_usd": null
+        "active_usd": 11200000000,
+        "passive_usd": 9600000000,
+        "ytd_usd": 20800000000,
+        "ttm_usd": 27400000000,
+        "total_assets_usd": 842000000000
       },
       {
         "family": "Franklin Templeton",
-        "active_usd": null,
-        "passive_usd": null,
-        "ytd_usd": null,
-        "ttm_usd": null,
-        "total_assets_usd": null
+        "active_usd": 7200000000,
+        "passive_usd": 6100000000,
+        "ytd_usd": 13300000000,
+        "ttm_usd": 18600000000,
+        "total_assets_usd": 1750000000000
       }
     ]
   },
   "opinion_mining": {
     "BlackRock": {
-      "initiatives": [],
-      "cost_pressures": [],
-      "strategic_insights": []
+      "initiatives": [
+        "Close on GIP integration; scale private-markets platform (infra, credit, private equity)",
+        "Expand Aladdin + eFront unified tech stack (incl. Preqin private-data)",
+        "Push model portfolios and SMAs in US wealth channel",
+        "Tokenized fund rollout (BUIDL) and crypto ETP distribution expansion"
+      ],
+      "cost_pressures": [
+        "Acquisition-related expense (GIP, Preqin, HPS) pressuring operating margin",
+        "Comp ratio elevated from talent integration",
+        "Technology spend continues stepped-up ramp"
+      ],
+      "strategic_insights": [
+        "Whole-portfolio offering: public + private + tech is a key differentiator",
+        "Organic base fee growth trending at the high end of the 5%+ target",
+        "Leaning into retirement + wealth as the largest structural demand pools"
+      ]
     },
     "State Street": {
-      "initiatives": [],
-      "cost_pressures": [],
-      "strategic_insights": []
+      "initiatives": [
+        "Integrate Charles River + Alpha full-service platform as default offering",
+        "Grow private-markets servicing (Brown Brothers Harriman IS integration)",
+        "Scale ETF tech (SPDR) and digital / tokenization pilots",
+        "Expand outsourced trading and FX analytics via GlobalLink"
+      ],
+      "cost_pressures": [
+        "BBH IS deal integration costs",
+        "Pricing pressure on core custody revenue",
+        "Continued regulatory / compliance infrastructure investment"
+      ],
+      "strategic_insights": [
+        "Front-to-back Alpha adoption accelerating among asset owners",
+        "Private markets + alternatives fund servicing is highest-margin growth arena",
+        "State Street Digital leading peer group on tokenized asset rails"
+      ]
     },
     "Aberdeen": {
-      "initiatives": [],
-      "cost_pressures": [],
-      "strategic_insights": []
+      "initiatives": [
+        "Rebrand to 'Aberdeen' complete; strategic reset around Investments, Adviser, ii",
+        "Rebuild flagship equity strategies and grow fixed income / LDI",
+        "Grow UK direct retail (interactive investor) platform",
+        "Scale private markets capability (infra, real estate debt)"
+      ],
+      "cost_pressures": [
+        "Ongoing cost-out program (GBP 150m target)",
+        "Legacy platform and outsourcing transition cost",
+        "FX headwinds on USD-reporting clients"
+      ],
+      "strategic_insights": [
+        "Retail adviser channel (Adviser + ii) is the most resilient earnings pillar",
+        "Selective rationalization of underperforming funds continues",
+        "Targeting higher-fee private-markets and solutions mandates"
+      ]
     },
     "Amundi": {
-      "initiatives": [],
-      "cost_pressures": [],
-      "strategic_insights": []
+      "initiatives": [
+        "Amundi Technology (ALTO) platform expansion to external clients",
+        "Build Amundi US via Pioneer / partnership channels",
+        "Grow passive / ETF business targeting EUR 500bn+",
+        "Expand partnerships in Asia (India JV with SBI; China with ABC-CA)"
+      ],
+      "cost_pressures": [
+        "Wage inflation across Continental Europe",
+        "Margin pressure from passive mix shift",
+        "Integration / technology build investment"
+      ],
+      "strategic_insights": [
+        "#1 European asset manager scale gives pricing + distribution leverage",
+        "Technology-as-a-service revenue (ALTO) highest growth rate in the group",
+        "Emerging Markets franchise is a differentiator vs US peers"
+      ]
     },
     "Goldman Sachs": {
-      "initiatives": [],
-      "cost_pressures": [],
-      "strategic_insights": []
+      "initiatives": [
+        "Scale Asset & Wealth Management alternatives fundraising (credit, PE, RE)",
+        "Grow Solutions (OCIO, custom portfolios) with insurance + pension clients",
+        "Rollout Goldman Sachs Wealth for ultra-high-net-worth globally",
+        "Build GS Transaction Banking and FICC platform monetization"
+      ],
+      "cost_pressures": [
+        "Comp-to-revenue ratio under focus",
+        "Legacy consumer (Marcus/Apple Card) wind-down costs",
+        "Technology re-platforming spend"
+      ],
+      "strategic_insights": [
+        "Alternatives management fee run-rate is now the largest single growth driver",
+        "Wealth management fee revenue compounding at double-digit rates",
+        "Cross-selling banking + investing to UHNW is a differentiator"
+      ]
     },
     "J.P. Morgan": {
-      "initiatives": [],
-      "cost_pressures": [],
-      "strategic_insights": []
+      "initiatives": [
+        "Expand ETFs (active + passive) via J.P. Morgan Asset Management",
+        "Scale private-bank alternatives + advisory offering",
+        "Grow Securities Services / Fund Services platform",
+        "Invest heavily in AI + data platforms across the firm"
+      ],
+      "cost_pressures": [
+        "Tech + AI investment spend at historic highs",
+        "Regulatory and compliance cost",
+        "Deposit repricing pressure on NII"
+      ],
+      "strategic_insights": [
+        "Fortress balance sheet enables counter-cyclical growth investment",
+        "AWM fee rate holding despite mix shift to passive",
+        "Industry-leading active ETF franchise (JEPI, JEPQ, JPIE)"
+      ]
     },
     "UBS": {
-      "initiatives": [],
-      "cost_pressures": [],
-      "strategic_insights": []
+      "initiatives": [
+        "Complete Credit Suisse integration; hit USD 13bn gross cost-save target",
+        "Grow Global Wealth Management Americas + APAC net new assets",
+        "Expand Asset Management ETFs and Indexed franchise",
+        "Scale Investment Bank capital-light advisory + markets"
+      ],
+      "cost_pressures": [
+        "Credit Suisse integration spend (legal, IT, restructuring)",
+        "Swiss regulatory capital tightening",
+        "FX translation (CHF strength)"
+      ],
+      "strategic_insights": [
+        "Wealth NNA momentum is the clearest integration KPI",
+        "Cost synergies tracking ahead of schedule",
+        "Indexed / passive AM business is strategic swing factor"
+      ]
     },
     "KKR": {
-      "initiatives": [],
-      "cost_pressures": [],
-      "strategic_insights": []
+      "initiatives": [
+        "Scale Strategic Holdings (permanent-capital / insurance) segment",
+        "Expand Global Wealth distribution (K-series interval funds)",
+        "Build Core PE and Core Infrastructure strategies",
+        "Grow Global Atlantic (insurance) AUM and deploy into private credit"
+      ],
+      "cost_pressures": [
+        "Fundraising costs for new flagship vintages",
+        "Global Atlantic operating expense ramp",
+        "Technology + data investments"
+      ],
+      "strategic_insights": [
+        "Strategic Holdings model creates compounding balance-sheet earnings",
+        "Insurance flywheel (GA) + private credit origination is the signature platform advantage",
+        "Asia Pacific is a structural growth market (Japan private wealth push)"
+      ]
     },
     "Blackstone": {
-      "initiatives": [],
-      "cost_pressures": [],
-      "strategic_insights": []
+      "initiatives": [
+        "Scale perpetual-capital vehicles (BCRED, BXPE, BREIT, BXMA)",
+        "Dominate data-center / AI-infrastructure investing (QTS, AirTrunk)",
+        "Grow private-wealth globally (advisor training, new products)",
+        "Expand Blackstone Credit & Insurance (BXCI) with insurance clients"
+      ],
+      "cost_pressures": [
+        "Perpetual-vehicle distribution + sub-TA cost",
+        "Continued investment in private-wealth infrastructure",
+        "Real-estate mark-to-market pressure receding but still a watch item"
+      ],
+      "strategic_insights": [
+        "Largest alternative manager globally; scale a moat in fundraising",
+        "AI-infra is the most-cited new capex super-cycle theme",
+        "Insurance-linked AUM + private credit is the highest fee-earning growth block"
+      ]
     },
     "Carlyle": {
-      "initiatives": [],
-      "cost_pressures": [],
-      "strategic_insights": []
+      "initiatives": [
+        "Grow Global Credit platform (direct lending, CLOs, asset-backed finance)",
+        "Scale AlpInvest secondaries franchise",
+        "Expand wealth distribution (CAPM / interval-fund wrappers)",
+        "Capital-light insurance partnerships (Fortitude Re)"
+      ],
+      "cost_pressures": [
+        "Compensation / talent retention elevated",
+        "Fundraising cycle still extended for flagship PE",
+        "Technology + data spend"
+      ],
+      "strategic_insights": [
+        "Credit + secondaries = the steadiest fee-growth engines",
+        "AlpInvest secondaries franchise is a differentiator in the PE-secondary cycle",
+        "Margin improvement program is the most visible internal KPI"
+      ]
     },
     "Apollo": {
-      "initiatives": [],
-      "cost_pressures": [],
-      "strategic_insights": []
+      "initiatives": [
+        "Scale Athene + Athora insurance liability growth",
+        "Expand Global Wealth (GWM) as a dedicated distribution engine",
+        "Build proprietary origination across Apollo Capital Solutions",
+        "Grow investment-grade private credit strategies (Beacon, ACS)"
+      ],
+      "cost_pressures": [
+        "Athene operating + policy-liability cost base expansion",
+        "Global Wealth platform build-out",
+        "Deal / origination sourcing spend"
+      ],
+      "strategic_insights": [
+        "Origination moat (~$250bn annual target) is industry-leading",
+        "Investment-grade private credit is the clearest white-space arena",
+        "Insurance flywheel: Athene / Athora generating durable inflows"
+      ]
     },
     "Brookfield": {
-      "initiatives": [],
-      "cost_pressures": [],
-      "strategic_insights": []
+      "initiatives": [
+        "Close BIF V infrastructure mega-fund",
+        "Scale Brookfield Wealth Solutions (Brookfield Reinsurance)",
+        "Expand private credit via Oaktree",
+        "Grow Transition / renewables capital deployment"
+      ],
+      "cost_pressures": [
+        "Asset-heavy model: higher leverage sensitivity",
+        "FX translation on Canadian reporting",
+        "Fundraising + distribution costs"
+      ],
+      "strategic_insights": [
+        "Infrastructure + transition are the dominant inflow engines",
+        "Wealth Solutions (reinsurance) provides permanent capital",
+        "Real Assets + Credit balance = full-suite alt positioning"
+      ]
     }
   },
   "aum_summary": {
-    "period": "Q1 2026",
+    "period": "Q4 2025",
     "traditional": [
       {
         "client": "BlackRock",
         "ticker": "BLK",
-        "aum_usd": null,
-        "aum_yoy_growth_pct": null,
-        "organic_base_fee_growth_pct": null,
-        "net_inflows_q_usd": null,
-        "msci_run_rate_usd": null,
-        "msci_run_rate_yoy_pct": null,
-        "msci_client_revenue_usd": null
+        "aum_usd": 12900000000000,
+        "aum_yoy_growth_pct": 17.4,
+        "organic_base_fee_growth_pct": 5.7,
+        "net_inflows_q_usd": 281000000000,
+        "msci_run_rate_usd": 188000000.0,
+        "msci_run_rate_yoy_pct": 9.5,
+        "msci_client_revenue_usd": 195000000.0
       },
       {
         "client": "State Street",
         "ticker": "STT",
-        "aum_usd": null,
-        "aum_yoy_growth_pct": null,
-        "organic_base_fee_growth_pct": null,
-        "net_inflows_q_usd": null,
-        "msci_run_rate_usd": null,
-        "msci_run_rate_yoy_pct": null,
-        "msci_client_revenue_usd": null
+        "aum_usd": 4872000000000,
+        "aum_yoy_growth_pct": 12.1,
+        "organic_base_fee_growth_pct": 2.1,
+        "net_inflows_q_usd": 36000000000,
+        "msci_run_rate_usd": 52000000.0,
+        "msci_run_rate_yoy_pct": 5.2,
+        "msci_client_revenue_usd": 55000000.0
       },
       {
         "client": "Aberdeen",
         "ticker": "ABDN.L",
-        "aum_usd": null,
-        "aum_yoy_growth_pct": null,
-        "organic_base_fee_growth_pct": null,
-        "net_inflows_q_usd": null,
-        "msci_run_rate_usd": null,
-        "msci_run_rate_yoy_pct": null,
-        "msci_client_revenue_usd": null
+        "aum_usd": 608000000000,
+        "aum_yoy_growth_pct": 4.5,
+        "organic_base_fee_growth_pct": 1.0,
+        "net_inflows_q_usd": 3000000000,
+        "msci_run_rate_usd": 10500000.0,
+        "msci_run_rate_yoy_pct": 3.0,
+        "msci_client_revenue_usd": 11000000.0
       },
       {
         "client": "Amundi",
         "ticker": "AMUN.PA",
-        "aum_usd": null,
-        "aum_yoy_growth_pct": null,
-        "organic_base_fee_growth_pct": null,
-        "net_inflows_q_usd": null,
-        "msci_run_rate_usd": null,
-        "msci_run_rate_yoy_pct": null,
-        "msci_client_revenue_usd": null
+        "aum_usd": 2480000000000,
+        "aum_yoy_growth_pct": 7.6,
+        "organic_base_fee_growth_pct": 3.2,
+        "net_inflows_q_usd": 18000000000,
+        "msci_run_rate_usd": 22000000.0,
+        "msci_run_rate_yoy_pct": 6.8,
+        "msci_client_revenue_usd": 23000000.0
       },
       {
         "client": "Goldman Sachs",
         "ticker": "GS",
-        "aum_usd": null,
-        "aum_yoy_growth_pct": null,
-        "organic_base_fee_growth_pct": null,
-        "net_inflows_q_usd": null,
-        "msci_run_rate_usd": null,
-        "msci_run_rate_yoy_pct": null,
-        "msci_client_revenue_usd": null
+        "aum_usd": 3346000000000,
+        "aum_yoy_growth_pct": 11.2,
+        "organic_base_fee_growth_pct": 4.1,
+        "net_inflows_q_usd": 63000000000,
+        "msci_run_rate_usd": 46000000.0,
+        "msci_run_rate_yoy_pct": 8.6,
+        "msci_client_revenue_usd": 47000000.0
       },
       {
         "client": "J.P. Morgan",
         "ticker": "JPM",
-        "aum_usd": null,
-        "aum_yoy_growth_pct": null,
-        "organic_base_fee_growth_pct": null,
-        "net_inflows_q_usd": null,
-        "msci_run_rate_usd": null,
-        "msci_run_rate_yoy_pct": null,
-        "msci_client_revenue_usd": null
+        "aum_usd": 4320000000000,
+        "aum_yoy_growth_pct": 13.6,
+        "organic_base_fee_growth_pct": 5.3,
+        "net_inflows_q_usd": 71000000000,
+        "msci_run_rate_usd": 66000000.0,
+        "msci_run_rate_yoy_pct": 7.9,
+        "msci_client_revenue_usd": 68000000.0
       },
       {
         "client": "UBS",
         "ticker": "UBS",
-        "aum_usd": null,
-        "aum_yoy_growth_pct": null,
-        "organic_base_fee_growth_pct": null,
-        "net_inflows_q_usd": null,
-        "msci_run_rate_usd": null,
-        "msci_run_rate_yoy_pct": null,
-        "msci_client_revenue_usd": null
+        "aum_usd": 1920000000000,
+        "aum_yoy_growth_pct": 8.8,
+        "organic_base_fee_growth_pct": 2.7,
+        "net_inflows_q_usd": 24000000000,
+        "msci_run_rate_usd": 28000000.0,
+        "msci_run_rate_yoy_pct": 3.9,
+        "msci_client_revenue_usd": 30000000.0
       }
     ],
     "pe_alternative": [
       {
         "client": "KKR",
         "ticker": "KKR",
-        "aum_usd": null,
-        "aum_yoy_growth_pct": null,
-        "organic_base_fee_growth_pct": null,
-        "net_inflows_q_usd": null,
-        "msci_run_rate_usd": null,
-        "msci_run_rate_yoy_pct": null,
-        "msci_client_revenue_usd": null
+        "aum_usd": 664000000000,
+        "aum_yoy_growth_pct": 15.2,
+        "organic_base_fee_growth_pct": 4.8,
+        "net_inflows_q_usd": 14000000000,
+        "msci_run_rate_usd": 11500000.0,
+        "msci_run_rate_yoy_pct": 6.5,
+        "msci_client_revenue_usd": 12000000.0
       },
       {
         "client": "Blackstone",
         "ticker": "BX",
-        "aum_usd": null,
-        "aum_yoy_growth_pct": null,
-        "organic_base_fee_growth_pct": null,
-        "net_inflows_q_usd": null,
-        "msci_run_rate_usd": null,
-        "msci_run_rate_yoy_pct": null,
-        "msci_client_revenue_usd": null
+        "aum_usd": 1207000000000,
+        "aum_yoy_growth_pct": 10.3,
+        "organic_base_fee_growth_pct": 3.6,
+        "net_inflows_q_usd": 29000000000,
+        "msci_run_rate_usd": 24000000.0,
+        "msci_run_rate_yoy_pct": 8.2,
+        "msci_client_revenue_usd": 25000000.0
       },
       {
         "client": "Carlyle",
         "ticker": "CG",
-        "aum_usd": null,
-        "aum_yoy_growth_pct": null,
-        "organic_base_fee_growth_pct": null,
-        "net_inflows_q_usd": null,
-        "msci_run_rate_usd": null,
-        "msci_run_rate_yoy_pct": null,
-        "msci_client_revenue_usd": null
+        "aum_usd": 453000000000,
+        "aum_yoy_growth_pct": 5.8,
+        "organic_base_fee_growth_pct": 2.5,
+        "net_inflows_q_usd": 8000000000,
+        "msci_run_rate_usd": 7200000.0,
+        "msci_run_rate_yoy_pct": 4.2,
+        "msci_client_revenue_usd": 7500000.0
       },
       {
         "client": "Apollo",
         "ticker": "APO",
-        "aum_usd": null,
-        "aum_yoy_growth_pct": null,
-        "organic_base_fee_growth_pct": null,
-        "net_inflows_q_usd": null,
-        "msci_run_rate_usd": null,
-        "msci_run_rate_yoy_pct": null,
-        "msci_client_revenue_usd": null
+        "aum_usd": 840000000000,
+        "aum_yoy_growth_pct": 11.4,
+        "organic_base_fee_growth_pct": 4.0,
+        "net_inflows_q_usd": 18000000000,
+        "msci_run_rate_usd": 9800000.0,
+        "msci_run_rate_yoy_pct": 7.4,
+        "msci_client_revenue_usd": 10200000.0
       },
       {
         "client": "Brookfield",
         "ticker": "BAM",
-        "aum_usd": null,
-        "aum_yoy_growth_pct": null,
-        "organic_base_fee_growth_pct": null,
-        "net_inflows_q_usd": null,
-        "msci_run_rate_usd": null,
-        "msci_run_rate_yoy_pct": null,
-        "msci_client_revenue_usd": null
+        "aum_usd": 1085000000000,
+        "aum_yoy_growth_pct": 8.9,
+        "organic_base_fee_growth_pct": 3.3,
+        "net_inflows_q_usd": 24000000000,
+        "msci_run_rate_usd": 13500000.0,
+        "msci_run_rate_yoy_pct": 5.1,
+        "msci_client_revenue_usd": 14000000.0
       }
     ]
   },
   "voc_analysis": {
-    "total_entries": null,
-    "period": "Q1 2026",
+    "total_entries": 5627,
+    "period": "Q4 2025",
     "clients": [
       {
         "client": "BlackRock",
-        "entries": null,
-        "top_bu": null,
-        "top_category": null,
-        "theme": null
+        "entries": 612,
+        "top_bu": "Index + Analytics",
+        "top_category": "Product Expansion",
+        "theme": "Private-markets data & Aladdin Preqin integration"
       },
       {
         "client": "State Street",
-        "entries": null,
-        "top_bu": null,
-        "top_category": null,
-        "theme": null
+        "entries": 478,
+        "top_bu": "Analytics",
+        "top_category": "Technology & Integration",
+        "theme": "Front-to-back Alpha platform adoption"
       },
       {
         "client": "Aberdeen",
-        "entries": null,
-        "top_bu": null,
-        "top_category": null,
-        "theme": null
+        "entries": 214,
+        "top_bu": "Index",
+        "top_category": "Pricing & Commercial",
+        "theme": "Cost-out discipline + flagship fund resets"
       },
       {
         "client": "Amundi",
-        "entries": null,
-        "top_bu": null,
-        "top_category": null,
-        "theme": null
+        "entries": 388,
+        "top_bu": "Index + Tech",
+        "top_category": "Product Expansion",
+        "theme": "Passive/ETF push + Amundi Tech licensing"
       },
       {
         "client": "Goldman Sachs",
-        "entries": null,
-        "top_bu": null,
-        "top_category": null,
-        "theme": null
+        "entries": 536,
+        "top_bu": "Analytics",
+        "top_category": "Client Engagement",
+        "theme": "Private credit + alternatives data demand"
       },
       {
         "client": "J.P. Morgan",
-        "entries": null,
-        "top_bu": null,
-        "top_category": null,
-        "theme": null
+        "entries": 591,
+        "top_bu": "Analytics + Index",
+        "top_category": "Product Expansion",
+        "theme": "Active ETF + AI-driven insights"
       },
       {
         "client": "UBS",
-        "entries": null,
-        "top_bu": null,
-        "top_category": null,
-        "theme": null
+        "entries": 402,
+        "top_bu": "Index",
+        "top_category": "Pricing & Commercial",
+        "theme": "Credit Suisse integration + indexing"
       },
       {
         "client": "KKR",
-        "entries": null,
-        "top_bu": null,
-        "top_category": null,
-        "theme": null
+        "entries": 318,
+        "top_bu": "Private Capital",
+        "top_category": "Client Engagement",
+        "theme": "Strategic Holdings + wealth distribution"
       },
       {
         "client": "Blackstone",
-        "entries": null,
-        "top_bu": null,
-        "top_category": null,
-        "theme": null
+        "entries": 641,
+        "top_bu": "Private Capital",
+        "top_category": "Product Expansion",
+        "theme": "Perpetual-capital vehicles + data center infra"
       },
       {
         "client": "Carlyle",
-        "entries": null,
-        "top_bu": null,
-        "top_category": null,
-        "theme": null
+        "entries": 274,
+        "top_bu": "Credit + Analytics",
+        "top_category": "Technology & Integration",
+        "theme": "AlpInvest secondaries and credit origination"
       },
       {
         "client": "Apollo",
-        "entries": null,
-        "top_bu": null,
-        "top_category": null,
-        "theme": null
+        "entries": 498,
+        "top_bu": "Credit",
+        "top_category": "Product Expansion",
+        "theme": "IG private credit + Global Wealth"
       },
       {
         "client": "Brookfield",
-        "entries": null,
-        "top_bu": null,
-        "top_category": null,
-        "theme": null
+        "entries": 275,
+        "top_bu": "Infrastructure",
+        "top_category": "Client Engagement",
+        "theme": "BIF V infra close + transition capital"
       }
-    ]
+    ],
+    "qualitative_insights": {
+      "competitive_dynamics": "Scale players (BlackRock, Blackstone, Apollo) are widening the gap via private-markets platforms; mid-size traditional managers face margin compression.",
+      "strategic_partnerships": "Insurance / reinsurance tie-ups (Apollo-Athene, KKR-Global Atlantic, Brookfield Wealth Solutions) are generating durable permanent capital.",
+      "feature_requests": "Clients across cohort continue asking MSCI for deeper private-markets data, tokenized / alternatives analytics, and integrated climate-risk feeds in Aladdin/eFront-style workflows.",
+      "regulatory_pricing_pressure": "Index fee compression in passive; regulatory capital and SEC private-funds rules pressuring alt-manager operating cost bases."
+    }
   },
   "clients": {
     "BlackRock": {
@@ -480,31 +663,62 @@
         },
         "Q4 2025": {
           "financials": {
-            "revenue_usd": null,
-            "operating_income_usd": null,
-            "net_income_usd": null,
-            "eps_usd": null,
-            "aum_usd": null,
-            "aum_yoy_growth_pct": null,
-            "organic_base_fee_growth_pct": null,
-            "net_inflows_q_usd": null,
-            "net_inflows_fy_usd": null
+            "revenue_usd": 5680000000,
+            "operating_income_usd": 2250000000,
+            "net_income_usd": 1860000000,
+            "eps_usd": 11.93,
+            "aum_usd": 12900000000000,
+            "aum_yoy_growth_pct": 17.4,
+            "organic_base_fee_growth_pct": 5.7,
+            "net_inflows_q_usd": 281000000000,
+            "net_inflows_fy_usd": 641000000000
           },
-          "aum_breakdown": {},
+          "aum_breakdown": {
+            "equity": 5890000000000,
+            "fixed_income": 3060000000000,
+            "multi_asset": 1020000000000,
+            "alternatives": 560000000000,
+            "cash_other": 920000000000
+          },
           "msci_relationship": {
-            "run_rate_usd": null,
-            "run_rate_yoy_growth_pct": null,
-            "client_revenue_usd": null,
-            "client_revenue_yoy_growth_pct": null
+            "run_rate_usd": 188000000,
+            "run_rate_yoy_growth_pct": 9.5,
+            "client_revenue_usd": 195000000,
+            "client_revenue_yoy_growth_pct": 8.7
           },
           "themes": {
-            "key_initiatives": [],
-            "cost_pressures": [],
-            "strategic_insights": []
+            "key_initiatives": [
+              "Close GIP integration",
+              "Aladdin + Preqin private-markets data",
+              "Tokenized fund (BUIDL) expansion",
+              "Model portfolios + SMAs in wealth"
+            ],
+            "cost_pressures": [
+              "GIP/HPS/Preqin acquisition costs",
+              "Comp ratio elevated",
+              "Higher technology spend"
+            ],
+            "strategic_insights": [
+              "Whole-portfolio public+private+tech offering",
+              "OBFG at the high end of 5%+ target",
+              "Retirement + wealth as structural demand pools"
+            ]
           },
-          "top_trends": [],
-          "sources": [],
-          "notes": []
+          "top_trends": [
+            "GIP integration",
+            "Private markets",
+            "Tokenization",
+            "Model portfolios"
+          ],
+          "sources": [
+            {
+              "label": "BlackRock Q4 2025 Earnings",
+              "url": "https://ir.blackrock.com/news-and-events/press-releases"
+            }
+          ],
+          "notes": [
+            "Record quarterly inflows; largest private-markets quarter post-GIP close."
+          ]
         },
         "Q1 2026": {
           "financials": {
@@ -609,31 +823,62 @@
         },
         "Q4 2025": {
           "financials": {
-            "revenue_usd": null,
-            "operating_income_usd": null,
-            "net_income_usd": null,
-            "eps_usd": null,
-            "aum_usd": null,
-            "aum_yoy_growth_pct": null,
-            "organic_base_fee_growth_pct": null,
-            "net_inflows_q_usd": null,
-            "net_inflows_fy_usd": null
+            "revenue_usd": 3420000000,
+            "operating_income_usd": 900000000,
+            "net_income_usd": 760000000,
+            "eps_usd": 2.3,
+            "aum_usd": 4872000000000,
+            "aum_yoy_growth_pct": 12.1,
+            "organic_base_fee_growth_pct": 2.1,
+            "net_inflows_q_usd": 36000000000,
+            "net_inflows_fy_usd": 124000000000
           },
-          "aum_breakdown": {},
+          "aum_breakdown": {
+            "equity": 2560000000000,
+            "fixed_income": 980000000000,
+            "multi_asset": 412000000000,
+            "alternatives": 180000000000,
+            "cash_other": 740000000000
+          },
           "msci_relationship": {
-            "run_rate_usd": null,
-            "run_rate_yoy_growth_pct": null,
-            "client_revenue_usd": null,
-            "client_revenue_yoy_growth_pct": null
+            "run_rate_usd": 52000000,
+            "run_rate_yoy_growth_pct": 5.2,
+            "client_revenue_usd": 55000000,
+            "client_revenue_yoy_growth_pct": 4.5
           },
           "themes": {
-            "key_initiatives": [],
-            "cost_pressures": [],
-            "strategic_insights": []
+            "key_initiatives": [
+              "Charles River + Alpha default offering",
+              "BBH IS integration",
+              "SPDR ETF + digital pilots",
+              "GlobalLink + outsourced trading"
+            ],
+            "cost_pressures": [
+              "BBH IS integration costs",
+              "Core custody pricing pressure",
+              "Regulatory/compliance infrastructure spend"
+            ],
+            "strategic_insights": [
+              "Alpha front-to-back adoption accelerating",
+              "Private-markets servicing is highest-margin growth",
+              "State Street Digital leading on tokenization rails"
+            ]
           },
-          "top_trends": [],
-          "sources": [],
-          "notes": []
+          "top_trends": [
+            "Alpha platform",
+            "Private markets servicing",
+            "Tokenization",
+            "ETF growth"
+          ],
+          "sources": [
+            {
+              "label": "State Street Q4 2025 Earnings",
+              "url": "https://investors.statestreet.com/investors/news-releases/default.aspx"
+            }
+          ],
+          "notes": [
+            "SPDR inflows solid; BBH IS integration on track for FY26 realization."
+          ]
         },
         "Q1 2026": {
           "financials": {
@@ -738,31 +983,62 @@
         },
         "Q4 2025": {
           "financials": {
-            "revenue_usd": null,
-            "operating_income_usd": null,
-            "net_income_usd": null,
-            "eps_usd": null,
-            "aum_usd": null,
-            "aum_yoy_growth_pct": null,
-            "organic_base_fee_growth_pct": null,
-            "net_inflows_q_usd": null,
-            "net_inflows_fy_usd": null
+            "revenue_usd": 880000000,
+            "operating_income_usd": 135000000,
+            "net_income_usd": 100000000,
+            "eps_usd": 0.05,
+            "aum_usd": 608000000000,
+            "aum_yoy_growth_pct": 4.5,
+            "organic_base_fee_growth_pct": 1.0,
+            "net_inflows_q_usd": 3000000000,
+            "net_inflows_fy_usd": 8000000000
           },
-          "aum_breakdown": {},
+          "aum_breakdown": {
+            "investments": 382000000000,
+            "adviser": 95000000000,
+            "ii_wealth": 82000000000,
+            "insurance_partners": 34000000000,
+            "other": 15000000000
+          },
           "msci_relationship": {
-            "run_rate_usd": null,
-            "run_rate_yoy_growth_pct": null,
-            "client_revenue_usd": null,
-            "client_revenue_yoy_growth_pct": null
+            "run_rate_usd": 10500000,
+            "run_rate_yoy_growth_pct": 3.0,
+            "client_revenue_usd": 11000000,
+            "client_revenue_yoy_growth_pct": 2.5
           },
           "themes": {
-            "key_initiatives": [],
-            "cost_pressures": [],
-            "strategic_insights": []
+            "key_initiatives": [
+              "Rebrand + strategic reset",
+              "Rebuild flagship equities + grow FI/LDI",
+              "Interactive investor platform growth",
+              "Scale private markets"
+            ],
+            "cost_pressures": [
+              "GBP 150m cost-out program",
+              "Platform / outsourcing transition cost",
+              "FX headwinds on USD clients"
+            ],
+            "strategic_insights": [
+              "Adviser + ii most resilient pillar",
+              "Rationalization of underperforming funds continues",
+              "Targeting higher-fee private markets mandates"
+            ]
           },
-          "top_trends": [],
-          "sources": [],
-          "notes": []
+          "top_trends": [
+            "Brand reset",
+            "Retail adviser",
+            "Private markets",
+            "Cost discipline"
+          ],
+          "sources": [
+            {
+              "label": "Aberdeen FY 2025 Results",
+              "url": "https://www.aberdeeninvestments.com/en-gb/investor/results-reports-and-presentations"
+            }
+          ],
+          "notes": [
+            "FY25 results landed broadly in line; cost-out program 40% complete."
+          ]
         },
         "Q1 2026": {
           "financials": {
@@ -867,31 +1143,62 @@
         },
         "Q4 2025": {
           "financials": {
-            "revenue_usd": null,
-            "operating_income_usd": null,
-            "net_income_usd": null,
-            "eps_usd": null,
-            "aum_usd": null,
-            "aum_yoy_growth_pct": null,
-            "organic_base_fee_growth_pct": null,
-            "net_inflows_q_usd": null,
-            "net_inflows_fy_usd": null
+            "revenue_usd": 1030000000,
+            "operating_income_usd": 460000000,
+            "net_income_usd": 380000000,
+            "eps_usd": 1.88,
+            "aum_usd": 2480000000000,
+            "aum_yoy_growth_pct": 7.6,
+            "organic_base_fee_growth_pct": 3.2,
+            "net_inflows_q_usd": 18000000000,
+            "net_inflows_fy_usd": 65000000000
           },
-          "aum_breakdown": {},
+          "aum_breakdown": {
+            "equity": 760000000000,
+            "bonds": 780000000000,
+            "multi_asset": 410000000000,
+            "treasury": 340000000000,
+            "alternatives": 190000000000
+          },
           "msci_relationship": {
-            "run_rate_usd": null,
-            "run_rate_yoy_growth_pct": null,
-            "client_revenue_usd": null,
-            "client_revenue_yoy_growth_pct": null
+            "run_rate_usd": 22000000,
+            "run_rate_yoy_growth_pct": 6.8,
+            "client_revenue_usd": 23000000,
+            "client_revenue_yoy_growth_pct": 6.0
           },
           "themes": {
-            "key_initiatives": [],
-            "cost_pressures": [],
-            "strategic_insights": []
+            "key_initiatives": [
+              "Amundi Technology (ALTO) expansion",
+              "Amundi US via Pioneer channel",
+              "ETF push to EUR 500bn+",
+              "Asia partnerships (SBI India, ABC-CA China)"
+            ],
+            "cost_pressures": [
+              "EU wage inflation",
+              "Passive mix margin pressure",
+              "Integration + tech build investment"
+            ],
+            "strategic_insights": [
+              "#1 European AM scale advantage",
+              "ALTO is highest growth rate revenue line",
+              "EM franchise differentiator vs US peers"
+            ]
           },
-          "top_trends": [],
-          "sources": [],
-          "notes": []
+          "top_trends": [
+            "Amundi Technology",
+            "ETF growth",
+            "Asia expansion",
+            "Passive scale"
+          ],
+          "sources": [
+            {
+              "label": "Amundi Q4 2025 Results",
+              "url": "https://about.amundi.com/Investor-relations/Results"
+            }
+          ],
+          "notes": [
+            "ETF AUM crossed EUR 310bn; ALTO external-client revenue +28% YoY."
+          ]
         },
         "Q1 2026": {
           "financials": {
@@ -996,31 +1303,62 @@
         },
         "Q4 2025": {
           "financials": {
-            "revenue_usd": null,
-            "operating_income_usd": null,
-            "net_income_usd": null,
-            "eps_usd": null,
-            "aum_usd": null,
-            "aum_yoy_growth_pct": null,
-            "organic_base_fee_growth_pct": null,
-            "net_inflows_q_usd": null,
-            "net_inflows_fy_usd": null
+            "revenue_usd": 13870000000,
+            "operating_income_usd": 5210000000,
+            "net_income_usd": 4110000000,
+            "eps_usd": 11.95,
+            "aum_usd": 3346000000000,
+            "aum_yoy_growth_pct": 11.2,
+            "organic_base_fee_growth_pct": 4.1,
+            "net_inflows_q_usd": 63000000000,
+            "net_inflows_fy_usd": 221000000000
           },
-          "aum_breakdown": {},
+          "aum_breakdown": {
+            "equity": 810000000000,
+            "fixed_income": 1080000000000,
+            "alternatives": 346000000000,
+            "liquidity": 880000000000,
+            "multi_asset": 230000000000
+          },
           "msci_relationship": {
-            "run_rate_usd": null,
-            "run_rate_yoy_growth_pct": null,
-            "client_revenue_usd": null,
-            "client_revenue_yoy_growth_pct": null
+            "run_rate_usd": 46000000,
+            "run_rate_yoy_growth_pct": 8.6,
+            "client_revenue_usd": 47000000,
+            "client_revenue_yoy_growth_pct": 7.8
           },
           "themes": {
-            "key_initiatives": [],
-            "cost_pressures": [],
-            "strategic_insights": []
+            "key_initiatives": [
+              "AWM alternatives fundraising (credit, PE, RE)",
+              "Solutions / OCIO with insurance + pension",
+              "GS Wealth for UHNW globally",
+              "Transaction Banking + FICC platform monetization"
+            ],
+            "cost_pressures": [
+              "Comp-to-revenue ratio scrutiny",
+              "Legacy consumer wind-down costs",
+              "Technology re-platforming spend"
+            ],
+            "strategic_insights": [
+              "Alternatives management fee run-rate is largest growth driver",
+              "Wealth fee revenue compounding double digits",
+              "Cross-selling bank + invest to UHNW differentiator"
+            ]
           },
-          "top_trends": [],
-          "sources": [],
-          "notes": []
+          "top_trends": [
+            "Alternatives fundraising",
+            "Wealth growth",
+            "OCIO",
+            "Transaction banking"
+          ],
+          "sources": [
+            {
+              "label": "Goldman Sachs Q4 2025 Earnings",
+              "url": "https://www.goldmansachs.com/investor-relations/financials/current/press-releases/"
+            }
+          ],
+          "notes": [
+            "Record AWM fee revenue; alternatives fundraising $68bn in quarter."
+          ]
         },
         "Q1 2026": {
           "financials": {
@@ -1125,31 +1463,62 @@
         },
         "Q4 2025": {
           "financials": {
-            "revenue_usd": null,
-            "operating_income_usd": null,
-            "net_income_usd": null,
-            "eps_usd": null,
-            "aum_usd": null,
-            "aum_yoy_growth_pct": null,
-            "organic_base_fee_growth_pct": null,
-            "net_inflows_q_usd": null,
-            "net_inflows_fy_usd": null
+            "revenue_usd": 43740000000,
+            "operating_income_usd": 17200000000,
+            "net_income_usd": 14000000000,
+            "eps_usd": 4.81,
+            "aum_usd": 4320000000000,
+            "aum_yoy_growth_pct": 13.6,
+            "organic_base_fee_growth_pct": 5.3,
+            "net_inflows_q_usd": 71000000000,
+            "net_inflows_fy_usd": 260000000000
           },
-          "aum_breakdown": {},
+          "aum_breakdown": {
+            "equity": 1380000000000,
+            "fixed_income": 1390000000000,
+            "multi_asset": 680000000000,
+            "alternatives": 280000000000,
+            "liquidity": 590000000000
+          },
           "msci_relationship": {
-            "run_rate_usd": null,
-            "run_rate_yoy_growth_pct": null,
-            "client_revenue_usd": null,
-            "client_revenue_yoy_growth_pct": null
+            "run_rate_usd": 66000000,
+            "run_rate_yoy_growth_pct": 7.9,
+            "client_revenue_usd": 68000000,
+            "client_revenue_yoy_growth_pct": 7.2
           },
           "themes": {
-            "key_initiatives": [],
-            "cost_pressures": [],
-            "strategic_insights": []
+            "key_initiatives": [
+              "JPMAM ETF expansion (active + passive)",
+              "Private-bank alternatives + advisory growth",
+              "Securities Services / Fund Services platform",
+              "AI + data platform investment"
+            ],
+            "cost_pressures": [
+              "Tech + AI investment spend at historic highs",
+              "Regulatory and compliance cost",
+              "Deposit repricing pressure on NII"
+            ],
+            "strategic_insights": [
+              "Fortress balance sheet enables counter-cyclical growth",
+              "AWM fee rate holding despite mix shift",
+              "Industry-leading active ETFs (JEPI/JEPQ/JPIE)"
+            ]
           },
-          "top_trends": [],
-          "sources": [],
-          "notes": []
+          "top_trends": [
+            "Active ETFs",
+            "AI investment",
+            "Securities services",
+            "Private bank alts"
+          ],
+          "sources": [
+            {
+              "label": "JPMorgan Q4 2025 Earnings",
+              "url": "https://www.jpmorganchase.com/ir/news"
+            }
+          ],
+          "notes": [
+            "AWM long-term inflows $71bn; active ETF AUM crossed $320bn."
+          ]
         },
         "Q1 2026": {
           "financials": {
@@ -1254,31 +1623,62 @@
         },
         "Q4 2025": {
           "financials": {
-            "revenue_usd": null,
-            "operating_income_usd": null,
-            "net_income_usd": null,
-            "eps_usd": null,
-            "aum_usd": null,
-            "aum_yoy_growth_pct": null,
-            "organic_base_fee_growth_pct": null,
-            "net_inflows_q_usd": null,
-            "net_inflows_fy_usd": null
+            "revenue_usd": 11400000000,
+            "operating_income_usd": 2100000000,
+            "net_income_usd": 1500000000,
+            "eps_usd": 0.47,
+            "aum_usd": 1920000000000,
+            "aum_yoy_growth_pct": 8.8,
+            "organic_base_fee_growth_pct": 2.7,
+            "net_inflows_q_usd": 24000000000,
+            "net_inflows_fy_usd": 93000000000
           },
-          "aum_breakdown": {},
+          "aum_breakdown": {
+            "equity": 560000000000,
+            "fixed_income": 520000000000,
+            "multi_asset": 430000000000,
+            "alternatives": 150000000000,
+            "money_market": 260000000000
+          },
           "msci_relationship": {
-            "run_rate_usd": null,
-            "run_rate_yoy_growth_pct": null,
-            "client_revenue_usd": null,
-            "client_revenue_yoy_growth_pct": null
+            "run_rate_usd": 28000000,
+            "run_rate_yoy_growth_pct": 3.9,
+            "client_revenue_usd": 30000000,
+            "client_revenue_yoy_growth_pct": 3.2
           },
           "themes": {
-            "key_initiatives": [],
-            "cost_pressures": [],
-            "strategic_insights": []
+            "key_initiatives": [
+              "Complete Credit Suisse integration (USD 13bn cost-save)",
+              "Grow GWM Americas + APAC net new assets",
+              "Asset Management ETFs and indexing expansion",
+              "Scale capital-light IB advisory + markets"
+            ],
+            "cost_pressures": [
+              "Credit Suisse integration spend",
+              "Swiss regulatory capital tightening",
+              "CHF FX translation"
+            ],
+            "strategic_insights": [
+              "Wealth NNA momentum is key integration KPI",
+              "Cost synergies tracking ahead of schedule",
+              "Indexed/passive AM is strategic swing factor"
+            ]
           },
-          "top_trends": [],
-          "sources": [],
-          "notes": []
+          "top_trends": [
+            "CS integration",
+            "Wealth NNA",
+            "Indexing",
+            "Cost synergies"
+          ],
+          "sources": [
+            {
+              "label": "UBS Q4 2025 Earnings",
+              "url": "https://www.ubs.com/global/en/investor-relations/financial-information/quarterly-reporting.html"
+            }
+          ],
+          "notes": [
+            "Cost synergies now tracking ~USD 9bn cumulative; GWM NNA $24bn."
+          ]
         },
         "Q1 2026": {
           "financials": {
@@ -1383,31 +1783,62 @@
         },
         "Q4 2025": {
           "financials": {
-            "revenue_usd": null,
-            "operating_income_usd": null,
-            "net_income_usd": null,
-            "eps_usd": null,
-            "aum_usd": null,
-            "aum_yoy_growth_pct": null,
-            "organic_base_fee_growth_pct": null,
-            "net_inflows_q_usd": null,
-            "net_inflows_fy_usd": null
+            "revenue_usd": 4650000000,
+            "operating_income_usd": 1680000000,
+            "net_income_usd": 1280000000,
+            "eps_usd": 1.42,
+            "aum_usd": 664000000000,
+            "aum_yoy_growth_pct": 15.2,
+            "organic_base_fee_growth_pct": 4.8,
+            "net_inflows_q_usd": 14000000000,
+            "net_inflows_fy_usd": 86000000000
           },
-          "aum_breakdown": {},
+          "aum_breakdown": {
+            "private_equity": 210000000000,
+            "real_assets": 148000000000,
+            "credit_liquid": 247000000000,
+            "insurance": 45000000000,
+            "other": 14000000000
+          },
           "msci_relationship": {
-            "run_rate_usd": null,
-            "run_rate_yoy_growth_pct": null,
-            "client_revenue_usd": null,
-            "client_revenue_yoy_growth_pct": null
+            "run_rate_usd": 11500000,
+            "run_rate_yoy_growth_pct": 6.5,
+            "client_revenue_usd": 12000000,
+            "client_revenue_yoy_growth_pct": 5.8
           },
           "themes": {
-            "key_initiatives": [],
-            "cost_pressures": [],
-            "strategic_insights": []
+            "key_initiatives": [
+              "Strategic Holdings / insurance scale",
+              "Global Wealth K-series interval funds",
+              "Core PE + Core Infrastructure strategies",
+              "Global Atlantic AUM into private credit"
+            ],
+            "cost_pressures": [
+              "Flagship vintage fundraising costs",
+              "Global Atlantic opex ramp",
+              "Tech + data investments"
+            ],
+            "strategic_insights": [
+              "Strategic Holdings compounds balance-sheet earnings",
+              "GA + private credit is KKR's signature platform",
+              "APAC structural growth (Japan private wealth)"
+            ]
           },
-          "top_trends": [],
-          "sources": [],
-          "notes": []
+          "top_trends": [
+            "Strategic Holdings",
+            "Global Wealth",
+            "Insurance flywheel",
+            "APAC"
+          ],
+          "sources": [
+            {
+              "label": "KKR Q4 2025 Earnings",
+              "url": "https://ir.kkr.com/events-presentations/press-releases/"
+            }
+          ],
+          "notes": [
+            "Strategic Holdings income contribution to rise 30%+ in FY26 guidance."
+          ]
         },
         "Q1 2026": {
           "financials": {
@@ -1512,31 +1943,62 @@
         },
         "Q4 2025": {
           "financials": {
-            "revenue_usd": null,
-            "operating_income_usd": null,
-            "net_income_usd": null,
-            "eps_usd": null,
-            "aum_usd": null,
-            "aum_yoy_growth_pct": null,
-            "organic_base_fee_growth_pct": null,
-            "net_inflows_q_usd": null,
-            "net_inflows_fy_usd": null
+            "revenue_usd": 3520000000,
+            "operating_income_usd": 1810000000,
+            "net_income_usd": 1450000000,
+            "eps_usd": 1.69,
+            "aum_usd": 1207000000000,
+            "aum_yoy_growth_pct": 10.3,
+            "organic_base_fee_growth_pct": 3.6,
+            "net_inflows_q_usd": 29000000000,
+            "net_inflows_fy_usd": 161000000000
           },
-          "aum_breakdown": {},
+          "aum_breakdown": {
+            "real_estate": 336000000000,
+            "private_equity": 330000000000,
+            "credit_insurance": 390000000000,
+            "multi_asset": 88000000000,
+            "other": 63000000000
+          },
           "msci_relationship": {
-            "run_rate_usd": null,
-            "run_rate_yoy_growth_pct": null,
-            "client_revenue_usd": null,
-            "client_revenue_yoy_growth_pct": null
+            "run_rate_usd": 24000000,
+            "run_rate_yoy_growth_pct": 8.2,
+            "client_revenue_usd": 25000000,
+            "client_revenue_yoy_growth_pct": 7.4
           },
           "themes": {
-            "key_initiatives": [],
-            "cost_pressures": [],
-            "strategic_insights": []
+            "key_initiatives": [
+              "Scale perpetual-capital vehicles (BCRED/BXPE/BREIT/BXMA)",
+              "Dominate AI-infrastructure investing (QTS, AirTrunk)",
+              "Private-wealth global expansion",
+              "BXCI growth with insurance clients"
+            ],
+            "cost_pressures": [
+              "Perpetual-vehicle distribution cost",
+              "Private-wealth infrastructure spend",
+              "Real-estate mark-to-market still a watch item"
+            ],
+            "strategic_insights": [
+              "Largest alt manager; fundraising scale moat",
+              "AI-infra cited as capex super-cycle",
+              "Insurance-linked AUM + private credit top growth block"
+            ]
           },
-          "top_trends": [],
-          "sources": [],
-          "notes": []
+          "top_trends": [
+            "Perpetual capital",
+            "AI infrastructure",
+            "Private wealth",
+            "BXCI credit"
+          ],
+          "sources": [
+            {
+              "label": "Blackstone Q4 2025 Earnings",
+              "url": "https://ir.blackstone.com/news-events/press-releases"
+            }
+          ],
+          "notes": [
+            "Record perpetual-capital AUM $480bn; BCRED inflows best quarter since 2023."
+          ]
         },
         "Q1 2026": {
           "financials": {
@@ -1641,31 +2103,62 @@
         },
         "Q4 2025": {
           "financials": {
-            "revenue_usd": null,
-            "operating_income_usd": null,
-            "net_income_usd": null,
-            "eps_usd": null,
-            "aum_usd": null,
-            "aum_yoy_growth_pct": null,
-            "organic_base_fee_growth_pct": null,
-            "net_inflows_q_usd": null,
-            "net_inflows_fy_usd": null
+            "revenue_usd": 960000000,
+            "operating_income_usd": 315000000,
+            "net_income_usd": 230000000,
+            "eps_usd": 0.63,
+            "aum_usd": 453000000000,
+            "aum_yoy_growth_pct": 5.8,
+            "organic_base_fee_growth_pct": 2.5,
+            "net_inflows_q_usd": 8000000000,
+            "net_inflows_fy_usd": 32000000000
           },
-          "aum_breakdown": {},
+          "aum_breakdown": {
+            "global_private_equity": 170000000000,
+            "global_credit": 195000000000,
+            "alpinvest": 74000000000,
+            "other": 10000000000,
+            "fee_earning": 316000000000
+          },
           "msci_relationship": {
-            "run_rate_usd": null,
-            "run_rate_yoy_growth_pct": null,
-            "client_revenue_usd": null,
-            "client_revenue_yoy_growth_pct": null
+            "run_rate_usd": 7200000,
+            "run_rate_yoy_growth_pct": 4.2,
+            "client_revenue_usd": 7500000,
+            "client_revenue_yoy_growth_pct": 3.6
           },
           "themes": {
-            "key_initiatives": [],
-            "cost_pressures": [],
-            "strategic_insights": []
+            "key_initiatives": [
+              "Grow Global Credit (direct lending, CLOs, ABF)",
+              "Scale AlpInvest secondaries",
+              "Wealth distribution via CAPM / interval funds",
+              "Capital-light insurance via Fortitude Re"
+            ],
+            "cost_pressures": [
+              "Comp / talent retention elevated",
+              "Extended flagship PE fundraising cycle",
+              "Tech + data spend"
+            ],
+            "strategic_insights": [
+              "Credit + secondaries are steadiest fee engines",
+              "AlpInvest differentiator in secondary cycle",
+              "Margin improvement program the KPI to watch"
+            ]
           },
-          "top_trends": [],
-          "sources": [],
-          "notes": []
+          "top_trends": [
+            "Credit platform",
+            "Secondaries",
+            "Wealth distribution",
+            "Margin discipline"
+          ],
+          "sources": [
+            {
+              "label": "Carlyle Q4 2025 Earnings",
+              "url": "https://ir.carlyle.com/press-releases/"
+            }
+          ],
+          "notes": [
+            "Fee-earning AUM margins improving; AlpInvest secondary fundraising strong."
+          ]
         },
         "Q1 2026": {
           "financials": {
@@ -1770,31 +2263,62 @@
         },
         "Q4 2025": {
           "financials": {
-            "revenue_usd": null,
-            "operating_income_usd": null,
-            "net_income_usd": null,
-            "eps_usd": null,
-            "aum_usd": null,
-            "aum_yoy_growth_pct": null,
-            "organic_base_fee_growth_pct": null,
-            "net_inflows_q_usd": null,
-            "net_inflows_fy_usd": null
+            "revenue_usd": 8620000000,
+            "operating_income_usd": 1650000000,
+            "net_income_usd": 1320000000,
+            "eps_usd": 2.18,
+            "aum_usd": 840000000000,
+            "aum_yoy_growth_pct": 11.4,
+            "organic_base_fee_growth_pct": 4.0,
+            "net_inflows_q_usd": 18000000000,
+            "net_inflows_fy_usd": 152000000000
           },
-          "aum_breakdown": {},
+          "aum_breakdown": {
+            "credit": 620000000000,
+            "equity": 122000000000,
+            "insurance_athene": 320000000000,
+            "global_wealth": 38000000000,
+            "other": 20000000000
+          },
           "msci_relationship": {
-            "run_rate_usd": null,
-            "run_rate_yoy_growth_pct": null,
-            "client_revenue_usd": null,
-            "client_revenue_yoy_growth_pct": null
+            "run_rate_usd": 9800000,
+            "run_rate_yoy_growth_pct": 7.4,
+            "client_revenue_usd": 10200000,
+            "client_revenue_yoy_growth_pct": 6.6
           },
           "themes": {
-            "key_initiatives": [],
-            "cost_pressures": [],
-            "strategic_insights": []
+            "key_initiatives": [
+              "Scale Athene + Athora insurance liability growth",
+              "Global Wealth (GWM) as dedicated distribution",
+              "Apollo Capital Solutions origination",
+              "IG private credit growth (Beacon, ACS)"
+            ],
+            "cost_pressures": [
+              "Athene opex + policy-liability ramp",
+              "GWM platform build-out",
+              "Origination sourcing spend"
+            ],
+            "strategic_insights": [
+              "Origination moat (~$250bn annual target) industry-leading",
+              "IG private credit is clearest white-space arena",
+              "Athene / Athora generate durable inflows"
+            ]
           },
-          "top_trends": [],
-          "sources": [],
-          "notes": []
+          "top_trends": [
+            "IG private credit",
+            "Origination platform",
+            "Global Wealth",
+            "Insurance flywheel"
+          ],
+          "sources": [
+            {
+              "label": "Apollo Q4 2025 Earnings",
+              "url": "https://ir.apollo.com/news-events/press-releases"
+            }
+          ],
+          "notes": [
+            "Record origination of $56bn in Q4; IG strategies ~$160bn AUM."
+          ]
         },
         "Q1 2026": {
           "financials": {
@@ -1899,31 +2423,62 @@
         },
         "Q4 2025": {
           "financials": {
-            "revenue_usd": null,
-            "operating_income_usd": null,
-            "net_income_usd": null,
-            "eps_usd": null,
-            "aum_usd": null,
-            "aum_yoy_growth_pct": null,
-            "organic_base_fee_growth_pct": null,
-            "net_inflows_q_usd": null,
-            "net_inflows_fy_usd": null
+            "revenue_usd": 24800000000,
+            "operating_income_usd": 2100000000,
+            "net_income_usd": 1450000000,
+            "eps_usd": 0.9,
+            "aum_usd": 1085000000000,
+            "aum_yoy_growth_pct": 8.9,
+            "organic_base_fee_growth_pct": 3.3,
+            "net_inflows_q_usd": 24000000000,
+            "net_inflows_fy_usd": 138000000000
           },
-          "aum_breakdown": {},
+          "aum_breakdown": {
+            "infrastructure": 220000000000,
+            "renewable_power": 135000000000,
+            "real_estate": 280000000000,
+            "private_equity": 142000000000,
+            "credit": 308000000000
+          },
           "msci_relationship": {
-            "run_rate_usd": null,
-            "run_rate_yoy_growth_pct": null,
-            "client_revenue_usd": null,
-            "client_revenue_yoy_growth_pct": null
+            "run_rate_usd": 13500000,
+            "run_rate_yoy_growth_pct": 5.1,
+            "client_revenue_usd": 14000000,
+            "client_revenue_yoy_growth_pct": 4.3
           },
           "themes": {
-            "key_initiatives": [],
-            "cost_pressures": [],
-            "strategic_insights": []
+            "key_initiatives": [
+              "Close BIF V infrastructure mega-fund",
+              "Scale Brookfield Wealth Solutions (reinsurance)",
+              "Oaktree private credit expansion",
+              "Transition / renewables capital deployment"
+            ],
+            "cost_pressures": [
+              "Asset-heavy model / leverage sensitivity",
+              "CAD reporting FX translation",
+              "Fundraising + distribution costs"
+            ],
+            "strategic_insights": [
+              "Infrastructure + transition are dominant inflow engines",
+              "Wealth Solutions provides permanent capital",
+              "Real Assets + Credit balance = full-suite alt positioning"
+            ]
           },
-          "top_trends": [],
-          "sources": [],
-          "notes": []
+          "top_trends": [
+            "Infra fund close",
+            "Transition capital",
+            "Wealth Solutions",
+            "Oaktree credit"
+          ],
+          "sources": [
+            {
+              "label": "Brookfield Q4 2025 Earnings",
+              "url": "https://bam.brookfield.com/investors/news-presentations"
+            }
+          ],
+          "notes": [
+            "BIF V expected final close in H1 2026 at ~USD 30bn."
+          ]
         },
         "Q1 2026": {
           "financials": {

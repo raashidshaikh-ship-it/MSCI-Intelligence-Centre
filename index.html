@@ -83,6 +83,30 @@ body { font-family: var(--font); background: var(--bg-root); color: var(--text-p
 .stat-value { font-size: 22px; font-weight: 700; letter-spacing: -1px; font-family: var(--mono); line-height: 1; }
 .stat-label { font-size: 9px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1.2px; font-weight: 500; margin-top: 2px; }
 
+/* ─── INLINE STATS (news header) ─── */
+.stats-inline { display: flex; gap: 14px; margin-left: 14px; padding-left: 14px; border-left: 1px solid rgba(255,255,255,0.08); flex-wrap: wrap; }
+.stat-chip { display: inline-flex; align-items: baseline; gap: 6px; font-family: var(--mono); }
+.stat-chip-icon { font-size: 11px; opacity: 0.75; }
+.stat-chip-val { font-size: 16px; font-weight: 700; letter-spacing: -0.3px; line-height: 1; }
+.stat-chip-lbl { font-size: 9px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1.1px; font-weight: 500; }
+
+/* ─── NEWS SECTION COMPACT HEADER — 25/75 split ─── */
+.news-header-wrap { flex-shrink: 0; max-height: 25vh; overflow: hidden; display: flex; flex-direction: column; }
+.news-quarter-bar { padding: 6px 24px; flex-shrink: 0; }
+.news-toolbar { padding: 6px 24px 6px; gap: 10px; flex-wrap: wrap; }
+.news-toolbar .search-box { flex: 1 1 260px; max-width: 360px; }
+.news-toolbar .filter-panel.inline { padding: 0; background: transparent; border-bottom: none; flex: 2 1 560px; gap: 8px; align-items: flex-end; animation: none; }
+.news-toolbar .filter-panel.inline .filter-select,
+.news-toolbar .filter-panel.inline .filter-date { padding: 5px 24px 5px 8px; font-size: 11px; }
+.news-toolbar .filter-panel.inline .filter-date { padding-right: 8px; }
+.news-toolbar .filter-panel.inline .filter-label { font-size: 8px; }
+.news-toolbar .result-count { flex-shrink: 0; margin-left: auto; }
+.analytics-panel.compact { padding: 6px 24px 8px; gap: 8px; flex-shrink: 1; min-height: 0; overflow: hidden; }
+.analytics-panel.compact .chart-card { padding: 6px 10px; min-width: 160px; }
+.analytics-panel.compact .chart-card-header { margin-bottom: 4px; }
+.analytics-panel.compact .chart-body-slim { min-height: 46px; max-height: 70px; overflow: hidden; }
+.analytics-panel.compact .chart-body-slim svg { max-height: 70px; }
+
 /* ─── SEARCH & FILTER ─── */
 .toolbar { padding: 10px 24px; display: flex; align-items: center; gap: 10px; border-bottom: 1px solid rgba(255,255,255,0.03); background: rgba(6,9,15,0.75); flex-shrink: 0; z-index: 10; }
 .search-box { flex: 1; display: flex; align-items: center; background: rgba(255,255,255,0.035); border: 1px solid rgba(255,255,255,0.07); border-radius: var(--radius); padding: 0 14px; transition: border-color 0.2s; }
@@ -348,26 +372,28 @@ body { font-family: var(--font); background: var(--bg-root); color: var(--text-p
 <!-- SECTION 1: COMPETITOR NEWS                 -->
 <!-- ═══════════════════════════════════════════ -->
 <div class="section-panel active" id="sectionNews">
-  <div class="quarter-bar">
-    <span class="quarter-bar-label">Quarter</span>
-    <div class="quarter-toggle" id="quarterToggleNews"></div>
-    <span class="quarter-meta" id="quarterMetaNews"></span>
-  </div>
-  <div class="stats-bar" id="statsBar"></div>
-  <div class="toolbar">
-    <div class="search-box">
-      <span class="search-icon">⌕</span>
-      <input id="searchInput" type="text" placeholder="Search headlines, competitors, or keywords...">
-      <span class="search-clear" id="searchClear" style="display:none;">✕</span>
+  <div class="news-header-wrap">
+    <div class="quarter-bar news-quarter-bar">
+      <span class="quarter-bar-label">Quarter</span>
+      <div class="quarter-toggle" id="quarterToggleNews"></div>
+      <span class="quarter-meta" id="quarterMetaNews"></span>
+      <div class="stats-inline" id="statsBar"></div>
     </div>
-    <div class="result-count" id="resultCount"></div>
-  </div>
-  <div class="filter-panel" id="filterPanel"></div>
-  <div class="analytics-panel" id="analyticsPanel">
-    <div class="chart-card" id="chartCardComp"><div class="chart-card-header"><span class="chart-card-title">By competitor</span><span class="chart-filter-badge" id="chartBadgeComp"></span></div><div id="chartCompetitor" style="min-height:100px"></div></div>
-    <div class="chart-card" id="chartCardSent"><div class="chart-card-header"><span class="chart-card-title">Sentiment</span><span class="chart-filter-badge" id="chartBadgeSent"></span></div><div id="chartSentiment" style="min-height:100px"></div></div>
-    <div class="chart-card" id="chartCardImp"><div class="chart-card-header"><span class="chart-card-title">Importance</span><span class="chart-filter-badge" id="chartBadgeImp"></span></div><div id="chartImportance" style="min-height:100px"></div></div>
-    <div class="chart-card" id="chartCardCat"><div class="chart-card-header"><span class="chart-card-title">By category</span><span class="chart-filter-badge" id="chartBadgeCat"></span></div><div id="chartCategory" style="min-height:100px"></div></div>
+    <div class="toolbar news-toolbar">
+      <div class="search-box">
+        <span class="search-icon">⌕</span>
+        <input id="searchInput" type="text" placeholder="Search headlines, competitors, or keywords...">
+        <span class="search-clear" id="searchClear" style="display:none;">✕</span>
+      </div>
+      <div class="filter-panel inline" id="filterPanel"></div>
+      <div class="result-count" id="resultCount"></div>
+    </div>
+    <div class="analytics-panel compact" id="analyticsPanel">
+      <div class="chart-card" id="chartCardComp"><div class="chart-card-header"><span class="chart-card-title">By competitor</span><span class="chart-filter-badge" id="chartBadgeComp"></span></div><div id="chartCompetitor" class="chart-body-slim"></div></div>
+      <div class="chart-card" id="chartCardSent"><div class="chart-card-header"><span class="chart-card-title">Sentiment</span><span class="chart-filter-badge" id="chartBadgeSent"></span></div><div id="chartSentiment" class="chart-body-slim"></div></div>
+      <div class="chart-card" id="chartCardImp"><div class="chart-card-header"><span class="chart-card-title">Importance</span><span class="chart-filter-badge" id="chartBadgeImp"></span></div><div id="chartImportance" class="chart-body-slim"></div></div>
+      <div class="chart-card" id="chartCardCat"><div class="chart-card-header"><span class="chart-card-title">By category</span><span class="chart-filter-badge" id="chartBadgeCat"></span></div><div id="chartCategory" class="chart-body-slim"></div></div>
+    </div>
   </div>
   <div class="main">
     <div class="feed expanded" id="feed"></div>
@@ -525,6 +551,12 @@ function itemMatchesQuarter(item, quarter, dateField) {
   const q = dateToQuarter(item[dateField||"published"]);
   return q === quarter;
 }
+function qSortKey(q){ const m=/^Q(\d)\s+(\d{4})$/.exec(q||""); return m?parseInt(m[2],10)*10+parseInt(m[1],10):0; }
+function quartersFromData(items, dateField) {
+  const qs = new Set();
+  (items||[]).forEach(it => { const q = dateToQuarter(it && it[dateField]); if (q) qs.add(q); });
+  return Array.from(qs).sort((a,b)=>qSortKey(a)-qSortKey(b));
+}
 function fmtUsd(v) {
   if (v === null || v === undefined) return null;
   const abs = Math.abs(v);
@@ -539,15 +571,20 @@ function deltaColor(v) { if (v===null||v===undefined) return "var(--text-dim)"; 
 function deltaArrow(v) { if (v===null||v===undefined) return ""; return v>0?"▲":v<0?"▼":"●"; }
 
 // Render a quarter-pill toggle into a given container element
-function renderQuarterToggle(containerId, stateKey, onChange, {includeAll = true} = {}) {
+function renderQuarterToggle(containerId, stateKey, onChange, {includeAll = true, quarters = null} = {}) {
   const c = document.getElementById(containerId);
   if (!c) return;
-  const quarters = QUARTERLY_DATA.quarters || [];
-  if (!quarters.length) { c.innerHTML = '<span style="font-size:10px;color:var(--text-dim);padding:4px 8px">No quarters loaded yet</span>'; return; }
-  const selected = state[stateKey];
+  const qs = (quarters && quarters.length) ? quarters : (QUARTERLY_DATA.quarters || []);
+  if (!qs.length) { c.innerHTML = '<span style="font-size:10px;color:var(--text-dim);padding:4px 8px">No quarters loaded yet</span>'; return; }
+  // If the currently selected quarter isn't in the available list, fall back to "All" (or first quarter when All is disabled)
+  let selected = state[stateKey];
+  if (selected !== "All" && !qs.includes(selected)) {
+    selected = includeAll ? "All" : qs[qs.length-1];
+    state[stateKey] = selected;
+  }
   let html = "";
   if (includeAll) html += `<div class="quarter-pill all ${selected==="All"?"active":""}" data-q="All">All</div>`;
-  for (const q of quarters) html += `<div class="quarter-pill ${selected===q?"active":""}" data-q="${q}">${q}</div>`;
+  for (const q of qs) html += `<div class="quarter-pill ${selected===q?"active":""}" data-q="${q}">${q}</div>`;
   c.innerHTML = html;
   c.querySelectorAll(".quarter-pill").forEach(p=>{
     p.addEventListener("click",()=>{ state[stateKey] = p.dataset.q; if (onChange) onChange(); });
@@ -624,21 +661,22 @@ function getActiveFilterCount() {
 // RENDER: COMPETITOR NEWS (Section 1)
 // ═══════════════════════════════════════════════
 function renderNews() {
-  // Quarter toggle
-  renderQuarterToggle("quarterToggleNews","quarterNews",()=>renderNews());
+  // Quarter toggle — derive quarters from actual article dates, not from the earnings JSON
+  const newsQuarters = quartersFromData(DATA, "published");
+  renderQuarterToggle("quarterToggleNews","quarterNews",()=>renderNews(),{quarters:newsQuarters});
   const qFiltered = state.quarterNews==="All" ? DATA : DATA.filter(a=>itemMatchesQuarter(a,state.quarterNews,"published"));
   document.getElementById("quarterMetaNews").textContent = `${qFiltered.length} of ${DATA.length} articles in ${state.quarterNews==="All"?"all quarters":state.quarterNews}`;
 
-  // Stats — scoped to the selected quarter
+  // Stats — inline chips (compact) scoped to the selected quarter
   const critical=qFiltered.filter(d=>d.importance==="Critical").length;
   const negative=qFiltered.filter(d=>d.sentiment==="Negative").length;
   const comps=new Set(qFiltered.map(d=>d.competitor)).size;
   document.getElementById("statsBar").innerHTML=[
-    {label:"Total alerts",value:qFiltered.length,color:"#60a5fa",icon:"◉"},
+    {label:"Alerts",value:qFiltered.length,color:"#60a5fa",icon:"◉"},
     {label:"Critical",value:critical,color:"#ef4444",icon:"⚠"},
     {label:"Negative",value:negative,color:"#f59e0b",icon:"▼"},
     {label:"Competitors",value:comps,color:"#8b5cf6",icon:"◆"}
-  ].map(s=>`<div class="stat-card"><div class="stat-icon">${s.icon}</div><div><div class="stat-value" style="color:${s.color}">${s.value}</div><div class="stat-label">${s.label}</div></div></div>`).join("");
+  ].map(s=>`<span class="stat-chip"><span class="stat-chip-icon" style="color:${s.color}">${s.icon}</span><span class="stat-chip-val" style="color:${s.color}">${s.value}</span><span class="stat-chip-lbl">${s.label}</span></span>`).join("");
 
   // Filters
   const ac=getActiveFilterCount();
@@ -815,7 +853,7 @@ function renderCharts() {
 // ═══════════════════════════════════════════════
 function renderClients() {
   // Quarter toggle
-  renderQuarterToggle("quarterToggleClients","quarterClients",()=>renderClients());
+  renderQuarterToggle("quarterToggleClients","quarterClients",()=>renderClients(),{quarters:quartersFromData(CLIENT_DATA,"published")});
   const qScoped = state.quarterClients==="All" ? CLIENT_DATA : CLIENT_DATA.filter(a=>itemMatchesQuarter(a,state.quarterClients,"published"));
   document.getElementById("quarterMetaClients").textContent = `${qScoped.length} of ${CLIENT_DATA.length} activities in ${state.quarterClients==="All"?"all quarters":state.quarterClients}`;
 
@@ -863,8 +901,9 @@ function renderClients() {
 // RENDER: MSCI PRODUCTS & WINS (Section 3)
 // ═══════════════════════════════════════════════
 function renderMsci() {
-  // Quarter toggle
-  renderQuarterToggle("quarterToggleMsci","quarterMsci",()=>renderMsci());
+  // Quarter toggle — derive quarters from msci items
+  const msciAll = [...(MSCI_DATA.products||[]), ...(MSCI_DATA.wins||[]), ...(MSCI_DATA.milestones||[])];
+  renderQuarterToggle("quarterToggleMsci","quarterMsci",()=>renderMsci(),{quarters:quartersFromData(msciAll,"published")});
   const filterByQ = (arr) => state.quarterMsci==="All" ? (arr||[]) : (arr||[]).filter(a=>itemMatchesQuarter(a,state.quarterMsci,"published"));
   const qProducts = filterByQ(MSCI_DATA.products);
   const qWins = filterByQ(MSCI_DATA.wins);
@@ -911,9 +950,9 @@ function renderMsci() {
 // RENDER: BRAND INTELLIGENCE (Section 4)
 // ═══════════════════════════════════════════════
 function renderBrand() {
-  // Quarter toggle
-  renderQuarterToggle("quarterToggleBrand","quarterBrand",()=>renderBrand());
+  // Quarter toggle — derive quarters from brand trend data
   const trendAll = TRENDS_DATA.brand_trend||[];
+  renderQuarterToggle("quarterToggleBrand","quarterBrand",()=>renderBrand(),{quarters:quartersFromData(trendAll,"date")});
   const trend = state.quarterBrand==="All" ? trendAll : trendAll.filter(t=>itemMatchesQuarter(t,state.quarterBrand,"date"));
   document.getElementById("quarterMetaBrand").textContent = `${trend.length} of ${trendAll.length} data points in ${state.quarterBrand==="All"?"all quarters":state.quarterBrand}`;
 
