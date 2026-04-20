@@ -67,25 +67,85 @@ FINNHUB_API_KEY = os.environ.get("FINNHUB_API_KEY", "").strip()
 # ──────────────────────────────────────────────────────────────────────────
 # Categorization + sentiment (rule-based, no external deps)
 # ──────────────────────────────────────────────────────────────────────────
+# Ordered: the FIRST matching category wins, so put the most specific
+# (and most valuable) buckets first and let fuzzier ones fall through.
+# Taxonomy mirrors the front-end CATEGORIES array in index.html — keep
+# the two in sync.
 CATEGORY_KEYWORDS = {
-    "Product Launch": [r"\blaunch(es|ed|ing)?\b", r"\bunveil(s|ed|ing)?\b",
-                       r"\bdebut(s|ed)?\b", r"\bintroduc(e|es|ed|ing)\b",
-                       r"\brolls? out\b", r"\bnew (index|product|platform|service)\b"],
     "M&A": [r"\bacqui(re|res|red|ring|sition)\b", r"\bmerger\b",
             r"\bagrees? to (buy|purchase|acquire)\b", r"\btakeover\b",
-            r"\bto acquire\b", r"\bdivest(s|ed|iture)?\b"],
+            r"\bto acquire\b", r"\bdivest(s|ed|iture)?\b",
+            r"\bspin[- ]?off\b", r"\bstake\b.{0,25}\b(sold|bought|acquired)\b"],
     "Partnership": [r"\bpartner(s|ed|ship)?\b", r"\bcollaborat(e|es|ed|ion)\b",
-                    r"\bjoint venture\b", r"\balliance\b", r"\bteams? up with\b"],
+                    r"\bjoint venture\b", r"\balliance\b", r"\bteams? up with\b",
+                    r"\bmemorandum of understanding\b", r"\bMOU\b"],
+    "ESG / Sustainability": [r"\bESG\b", r"\bsustainab(le|ility)\b",
+                             r"\bimpact invest(ing|ment|or)?\b",
+                             r"\bnet[- ]zero\b", r"\bgreen (bond|finance|fund)\b",
+                             r"\bstewardship\b", r"\bbiodivers(ity|e)\b",
+                             r"\btransition (finance|plan)\b"],
+    "Climate / Physical Risk": [r"\bclimate\b", r"\bphysical risk\b",
+                                r"\bdecarbon(ize|ise|ization)\b",
+                                r"\bemissions\b", r"\bscope ?[123]\b",
+                                r"\bTCFD\b", r"\bTNFD\b", r"\bCSRD\b"],
+    "Indices / Benchmarks": [r"\b(new )?index\b", r"\bbenchmark\b",
+                             r"\blaunches? .{0,40} index\b",
+                             r"\bindex (family|series|rebalanc(e|ing))\b",
+                             r"\brebalanc(e|ed|ing)\b", r"\bfactor (index|tilt)\b"],
+    "ETF / Fund Flows": [r"\bETF\b", r"\binflows?\b", r"\boutflows?\b",
+                         r"\bfund (launch|flow|inflow|outflow)\b",
+                         r"\bassets under management\b", r"\bAUM\b"],
+    "Private Assets / Alternatives": [r"\bprivate (equity|credit|markets|assets)\b",
+                                      r"\balternatives\b", r"\bsecondaries\b",
+                                      r"\binfrastructure fund\b", r"\bhedge fund\b",
+                                      r"\bventure capital\b", r"\bLP/GP\b"],
+    "Fixed Income / Credit": [r"\bfixed income\b", r"\bbond(s)?\b", r"\bcredit\b",
+                              r"\byield curve\b", r"\bcoupon\b", r"\bsovereign\b",
+                              r"\brating (upgrade|downgrade)\b"],
+    "Risk / Analytics": [r"\brisk (model|analytics|management|engine)\b",
+                         r"\bstress test\b", r"\bVaR\b", r"\bscenario analysis\b",
+                         r"\bfactor model\b", r"\bexposure analytics\b"],
+    "Data / Market Data": [r"\bmarket data\b", r"\bdata feed\b",
+                           r"\bdata platform\b", r"\breference data\b",
+                           r"\bdata product\b", r"\bAPI\b.{0,20}\bdata\b"],
+    "Technology / AI": [r"\bAI\b", r"\bartificial intelligence\b",
+                        r"\bmachine learning\b", r"\bgenerative AI\b",
+                        r"\bLLM\b", r"\bcopilot\b", r"\bautomation\b",
+                        r"\bcloud (migration|platform)\b", r"\bcopilot\b"],
+    "Cybersecurity / Outage": [r"\bcyber(attack|security|incident)?\b",
+                               r"\bdata breach\b", r"\bransomware\b",
+                               r"\boutage\b", r"\bdowntime\b",
+                               r"\bservice disruption\b"],
+    "Regulatory": [r"\bSEC\b", r"\bESMA\b", r"\bregulator(s|y)?\b",
+                   r"\bfine(d|s)?\b", r"\bpenalt(y|ies)\b", r"\bprobe\b",
+                   r"\bantitrust\b", r"\bcompliance\b", r"\bCFTC\b",
+                   r"\bFCA\b", r"\brule (change|proposal)\b"],
+    "Legal / Litigation": [r"\blawsuit\b", r"\blitigation\b", r"\bsued?\b",
+                           r"\bsettle(ment|s|d)?\b", r"\bcourt\b",
+                           r"\bjudg(e|ment)\b", r"\bplea(d|ded)?\b"],
     "Earnings": [r"\bQ[1-4]\b", r"\b(quarterly|annual) (earnings|results)\b",
                  r"\breports? (results|earnings)\b", r"\bfiscal (year|quarter)\b",
-                 r"\bguidance\b", r"\bEPS\b"],
-    "Regulatory": [r"\bSEC\b", r"\bESMA\b", r"\bregulator(s|y)?\b",
-                   r"\bfine(d|s)?\b", r"\binvestigation\b", r"\bprobe\b",
-                   r"\bantitrust\b", r"\bcompliance\b"],
-    "Leadership": [r"\bappoint(s|ed|ment)?\b", r"\bnames?.{1,40}(CEO|CFO|CTO|president|chair)\b",
-                   r"\bsteps? down\b", r"\bresign(s|ed|ation)?\b", r"\bhires?\b"],
-    "Strategy": [r"\bstrategy\b", r"\bexpand(s|ed|ing|sion)?\b",
-                 r"\brestructur(e|es|ed|ing)\b", r"\brebrand\b"],
+                 r"\bguidance\b", r"\bEPS\b", r"\brevenue beat\b",
+                 r"\bprofit (rose|fell|up|down)\b"],
+    "Client Wins / Market Share": [r"\bselects?\b.{0,40}\b(as|for)\b",
+                                   r"\bwins? (mandate|contract|deal)\b",
+                                   r"\bmarket share\b", r"\brenews?\b.{0,40}\bcontract\b",
+                                   r"\badopts?\b.{0,40}\b(index|platform|service)\b"],
+    "Leadership": [r"\bappoint(s|ed|ment)?\b", r"\bnames?.{1,40}(CEO|CFO|CTO|COO|president|chair)\b",
+                   r"\bsteps? down\b", r"\bresign(s|ed|ation)?\b",
+                   r"\bhires?\b", r"\bpromot(e|ed|ion)\b",
+                   r"\bsuccession\b", r"\bdeparts?\b"],
+    "Product Launch": [r"\blaunch(es|ed|ing)?\b", r"\bunveil(s|ed|ing)?\b",
+                       r"\bdebut(s|ed)?\b", r"\bintroduc(e|es|ed|ing)\b",
+                       r"\brolls? out\b", r"\bnew (index|product|platform|service)\b",
+                       r"\bgoes? live\b", r"\bgeneral availability\b"],
+    "Macro / Markets": [r"\binflation\b", r"\bdeflation\b", r"\brate (cut|hike|decision)\b",
+                       r"\b(fed|ECB|BoE|BoJ)\b", r"\brecession\b",
+                       r"\bGDP\b", r"\bgeopolitical\b", r"\bsanctions?\b"],
+    "Strategy": [r"\bstrategy\b", r"\bstrategic (plan|priorit(y|ies)|review)\b",
+                 r"\bexpand(s|ed|ing|sion)?\b",
+                 r"\brestructur(e|es|ed|ing)\b", r"\brebrand\b",
+                 r"\blong[- ]term (plan|target)\b"],
 }
 
 POSITIVE_WORDS = {
@@ -127,10 +187,16 @@ def importance_score(article: dict) -> int:
     text = f"{article.get('title', '')} {article.get('summary', '')}".lower()
     if article.get("competitor", "").lower() in text:
         score += 25
-    if article.get("category") in ("M&A", "Product Launch"):
+    cat = article.get("category")
+    if cat in ("M&A", "Product Launch", "Client Wins / Market Share"):
         score += 25
-    elif article.get("category") in ("Earnings", "Regulatory"):
+    elif cat in ("Earnings", "Regulatory", "Legal / Litigation",
+                 "Indices / Benchmarks", "ESG / Sustainability",
+                 "Cybersecurity / Outage"):
         score += 15
+    elif cat in ("Technology / AI", "Risk / Analytics",
+                 "Private Assets / Alternatives", "ETF / Fund Flows"):
+        score += 10
     pub = article.get("published")
     if pub:
         try:
@@ -152,14 +218,27 @@ def importance_score(article: dict) -> int:
 # without needing an LLM
 # ──────────────────────────────────────────────────────────────────────────
 _CATEGORY_WHY = {
-    "M&A":            "Deal activity reshapes the {segment} competitive landscape.",
-    "Product Launch": "New {segment} offering — potential competitive pressure on MSCI's roadmap.",
-    "Partnership":    "Strategic alliance may alter distribution or data access in {segment}.",
-    "Earnings":       "Financial print signals competitor health and client-spend implications.",
-    "Regulatory":     "Regulatory development affecting {segment} market structure.",
-    "Leadership":     "Key personnel change may shift strategic direction.",
-    "Strategy":       "Strategic move by {competitor} — watch for follow-through.",
-    "General":        "News mention involving {competitor} in {segment}.",
+    "M&A":                          "Deal activity reshapes the {segment} competitive landscape.",
+    "Product Launch":               "New {segment} offering — potential pressure on MSCI's roadmap.",
+    "Partnership":                  "Strategic alliance may alter distribution or data access in {segment}.",
+    "Earnings":                     "Financial print signals competitor health and client-spend implications.",
+    "Regulatory":                   "Regulatory development affecting {segment} market structure.",
+    "Legal / Litigation":           "Litigation risk — may constrain {competitor}'s near-term posture.",
+    "Leadership":                   "Key personnel change may shift strategic direction.",
+    "Strategy":                     "Strategic move by {competitor} — watch for follow-through.",
+    "Technology / AI":              "Tech / AI move — potential differentiation versus MSCI analytics.",
+    "ESG / Sustainability":         "ESG product or policy move — direct overlap with MSCI ESG franchise.",
+    "Climate / Physical Risk":      "Climate / physical-risk development — relevant to MSCI Climate Lab.",
+    "Indices / Benchmarks":         "Benchmark move — watch for licensing / AUM impact on index franchise.",
+    "ETF / Fund Flows":             "ETF / fund-flow signal — read-through for index licensing revenue.",
+    "Private Assets / Alternatives":"Private-markets move — adjacent to MSCI's Burgiss/PrivatePulse stack.",
+    "Fixed Income / Credit":        "Credit / fixed-income development — read across to credit analytics demand.",
+    "Risk / Analytics":             "Risk-analytics news — direct competitive adjacency to RiskMetrics / BarraOne.",
+    "Data / Market Data":           "Market-data move — pricing or distribution implications for data vendors.",
+    "Client Wins / Market Share":   "Mandate / win signal — possible displacement risk in {segment}.",
+    "Cybersecurity / Outage":       "Operational / security incident — reputational and client-trust exposure.",
+    "Macro / Markets":              "Macro backdrop — shapes client risk appetite and spend cycle.",
+    "General":                      "News mention involving {competitor} in {segment}.",
 }
 
 
