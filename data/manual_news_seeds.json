@@ -1,0 +1,90 @@
+{
+  "_comment": "Manually curated articles that the Finnhub /company-news endpoint won't pick up (op-eds, trade press, press releases, strategic announcements). The top_news_scraper.py merges this file into the pipeline before enrich() + dedupe() runs, so entries here flow through the same classifier and appear in the dashboard alongside scraped news. To add a new article: copy a block, fill in title/url/source/summary/published/competitor/ticker/segment, leave 'origin': 'manual'. The scraper does the rest.",
+  "_schema": "Each article must have: title, url, source, summary (string, <=500 chars), published (ISO 8601), image (optional url), competitor, ticker, segment, origin='manual', related (comma-sep tickers, optional), finnhub_category (optional).",
+  "articles": [
+    {
+      "title": "Inside BlackRock's AI Transformation",
+      "url": "https://www.wsj.com/cio-journal/inside-blackrocks-ai-transformation-03a1e8c7",
+      "source": "Wall Street Journal — CIO Journal",
+      "summary": "BlackRock is rebuilding Aladdin around generative AI, rolling out Aladdin Copilot across its client base and adding AI commentary tools for advisors. The firm has migrated the full Aladdin stack onto Microsoft Azure and is using large language models to automate portfolio commentary, risk narrative generation, and due-diligence workflows across Aladdin Wealth, Aladdin Risk, and the newly integrated Preqin private-markets dataset. Technology Services now represents ~8% of BlackRock's revenue.",
+      "published": "2026-04-18T13:30:00+00:00",
+      "image": "",
+      "competitor": "BlackRock",
+      "ticker": "BLK",
+      "segment": "Asset Managers",
+      "origin": "manual",
+      "related": "BLK,MSFT,MS",
+      "finnhub_category": "technology"
+    },
+    {
+      "title": "Aladdin Wealth Launches AI Auto-Commentary With Morgan Stanley",
+      "url": "https://www.blackrock.com/aladdin/discover/aladdin-wealth-launches-ai-enabled-commentary-tool-at-morgan-stanley",
+      "source": "BlackRock / Aladdin",
+      "summary": "BlackRock's Aladdin Wealth platform has launched Auto Commentary, a generative-AI feature that synthesises portfolio analytics, CIO market outlooks, and client preferences into advisor-facing narratives. Morgan Stanley Wealth Management is the first deployment, integrating the feature into its proprietary Portfolio Risk Platform to serve advisors across its ~US$5T wealth franchise.",
+      "published": "2026-03-12T14:00:00+00:00",
+      "image": "",
+      "competitor": "BlackRock",
+      "ticker": "BLK",
+      "segment": "Wealth Managers",
+      "origin": "manual",
+      "related": "BLK,MS",
+      "finnhub_category": "technology"
+    },
+    {
+      "title": "Introducing Generative AI by Aladdin: Aladdin Copilot Now Available to All Clients",
+      "url": "https://www.blackrock.com/aladdin/solutions/aladdin-copilot",
+      "source": "BlackRock / Aladdin",
+      "summary": "Aladdin Copilot, BlackRock's generative-AI layer for its flagship risk and analytics platform, is now available to every Aladdin client. The copilot surfaces answers from across portfolio analytics, risk metrics, and operational workflows, and is positioned as the connective tissue across the Aladdin platform. BlackRock frames it as a productivity multiplier for PMs, risk managers, and client-service teams.",
+      "published": "2026-02-04T09:00:00+00:00",
+      "image": "",
+      "competitor": "BlackRock",
+      "ticker": "BLK",
+      "segment": "Asset Managers",
+      "origin": "manual",
+      "related": "BLK,MSFT",
+      "finnhub_category": "technology"
+    },
+    {
+      "title": "BlackRock Q1 2026 Earnings: Technology Services Revenue Hits Record as Aladdin AI Drives Growth",
+      "url": "https://markets.financialcontent.com/stocks/article/marketminute-2026-4-15-blackrock-shatters-records-in-q1-2026-earnings-beat-and-revenue-surge-signal-asset-management-dominance",
+      "source": "FinancialContent",
+      "summary": "BlackRock reported record Q1 2026 earnings with Technology Services revenue — driven primarily by Aladdin — reaching new highs. Management attributed the beat to Aladdin Copilot client adoption, Preqin integration, and expansion of Aladdin Wealth into new wealth-management clients. Tech Services now sits at ~8% of total firm revenue and is the fastest-growing segment.",
+      "published": "2026-04-15T12:00:00+00:00",
+      "image": "",
+      "competitor": "BlackRock",
+      "ticker": "BLK",
+      "segment": "Asset Managers",
+      "origin": "manual",
+      "related": "BLK",
+      "finnhub_category": "company"
+    },
+    {
+      "title": "State Street Launches Enterprise Performance on Charles River Platform",
+      "url": "https://www.crd.com/press-releases/2025/state-street-announces-enterprise-performance-is-now-live/",
+      "source": "Charles River Development",
+      "summary": "State Street has gone live with Enterprise Performance, a unified performance-calculation engine integrated with Charles River Investment Management Solution and State Street Alpha. The offering — powered by Opturo — competes directly with multi-asset analytics stacks by consolidating performance measurement, attribution, and data distribution across the front-to-back workflow.",
+      "published": "2025-09-24T13:00:00+00:00",
+      "image": "",
+      "competitor": "State Street",
+      "ticker": "STT",
+      "segment": "Asset Managers",
+      "origin": "manual",
+      "related": "STT",
+      "finnhub_category": "technology"
+    },
+    {
+      "title": "BlackRock Integrates Preqin Private-Markets Data Into Aladdin With AI-Driven Due Diligence",
+      "url": "https://www.klover.ai/blackrock-ai-strategy-analysis-of-dominance-in-asset-management/",
+      "source": "Klover AI",
+      "summary": "Following its early-2025 acquisition of Preqin, BlackRock has folded private-markets data into Aladdin and is using AI to automate fund-of-funds due diligence, GP benchmarking, and private-capital portfolio construction. The move extends Aladdin's analytics footprint from public markets into private capital — historically a whitespace for BlackRock and a core adjacency for MSCI's Burgiss/Private Capital franchise.",
+      "published": "2026-01-22T10:00:00+00:00",
+      "image": "",
+      "competitor": "BlackRock",
+      "ticker": "BLK",
+      "segment": "Private Market Sponsors",
+      "origin": "manual",
+      "related": "BLK",
+      "finnhub_category": "technology"
+    }
+  ]
+}

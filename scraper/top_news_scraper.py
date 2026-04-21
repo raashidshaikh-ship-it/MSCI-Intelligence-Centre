@@ -53,6 +53,7 @@ DATA_DIR = os.path.join(REPO_ROOT, "data")
 CONFIG_FILE = os.path.join(REPO_ROOT, "config", "sources.json")
 OUTPUT_FILE = os.path.join(DATA_DIR, "top_news.json")
 STATUS_FILE = os.path.join(DATA_DIR, "scraper_status.json")
+SEEDS_FILE = os.path.join(DATA_DIR, "manual_news_seeds.json")
 
 HEADERS = {
     "User-Agent": (
@@ -613,6 +614,47 @@ def write_json(path: str, obj) -> None:
         json.dump(obj, f, indent=2, ensure_ascii=False)
 
 
+def load_manual_seeds() -> list[dict]:
+    """Load analyst-curated articles from data/manual_news_seeds.json.
+
+    These are articles Finnhub won't pick up — op-eds, trade-press coverage,
+    direct-from-competitor press releases, internal flags. They flow through
+    the same enrich() + dedupe() pipeline so they show up in the dashboard
+    with proper taxonomy tags. Safe to call even if the seeds file is missing
+    or malformed — returns [] and the scraper continues.
+    """
+    if not os.path.exists(SEEDS_FILE):
+        return []
+    try:
+        with open(SEEDS_FILE, "r", encoding="utf-8") as f:
+            payload = json.load(f) or {}
+        seeds = payload.get("articles") or []
+        out = []
+        for s in seeds:
+            # Require the minimum fields the downstream pipeline expects.
+            if not (s.get("title") and s.get("url")):
+                continue
+            # Fill in defaults so enrich() doesn't choke.
+            out.append({
+                "title": s.get("title", "").strip(),
+                "url": s.get("url", "").strip(),
+                "source": s.get("source") or "Manual",
+                "summary": (s.get("summary") or "").strip()[:500],
+                "published": s.get("published") or "",
+                "image": s.get("image") or "",
+                "competitor": s.get("competitor") or "Unknown",
+                "ticker": s.get("ticker") or "",
+                "segment": s.get("segment") or "",
+                "origin": s.get("origin") or "manual",
+                "related": s.get("related") or "",
+                "finnhub_category": s.get("finnhub_category") or "",
+            })
+        return out
+    except Exception as e:
+        print(f"[warn] Could not load manual seeds: {e}")
+        return []
+
+
 def main() -> int:
     cfg = load_config()
     settings = cfg.get("settings", {})
@@ -656,6 +698,15 @@ def main() -> int:
             except Exception as e:
                 statuses.append({"name": src_name, "status": "error", "error": str(e)[:200], "items": 0})
                 print(f"[err] {src_name}: {e}")
+
+    # Merge analyst-curated seeds (WSJ op-eds, direct press releases, etc.)
+    # before enrichment so they flow through the same classifier and appear
+    # in the dashboard alongside Finnhub/RSS results.
+    manual = load_manual_seeds()
+    if manual:
+        all_articles.extend(manual)
+        statuses.append({"name": "Manual-seeds", "status": "ok", "items": len(manual)})
+        print(f"[ok] Manual-seeds: {len(manual)} articles")
 
     # Enrich + dedupe
     all_articles = [enrich(a) for a in all_articles]

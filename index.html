@@ -365,6 +365,41 @@ body {
 .region-name { width: 100px; font-size: 11px; color: var(--text-secondary); text-align: right; }
 .region-fill { height: 10px; border-radius: 3px; transition: width 0.4s ease; }
 
+/* Brand Intelligence v2 — KPI tiles + richer signal blocks */
+.bi-kpi-card { display: flex; flex-direction: column; }
+.bi-kpi-body { display: flex; flex-direction: column; gap: 8px; flex: 1; }
+.bi-src { float: right; font-size: 9px; color: #475569; font-weight: 400; text-transform: none; letter-spacing: 0; }
+.bi-hero { display: flex; align-items: baseline; gap: 10px; padding: 4px 0 6px; }
+.bi-hero-value { font-size: 26px; font-weight: 700; color: var(--text-primary); font-family: var(--mono); letter-spacing: -0.5px; }
+.bi-hero-label { font-size: 11px; color: var(--text-muted); }
+.bi-delta { font-size: 11px; font-family: var(--mono); font-weight: 600; }
+.bi-delta.up { color: #22c55e; }
+.bi-delta.down { color: #ef4444; }
+.bi-delta.neutral { color: #64748b; }
+.bi-sub-row { display: flex; justify-content: space-between; font-size: 11px; color: var(--text-secondary); padding: 3px 0; border-top: 1px solid rgba(255,255,255,0.04); }
+.bi-sub-row:first-child { border-top: none; }
+.bi-pill { display: inline-block; padding: 2px 7px; border-radius: 10px; font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+.bi-pill.pos { background: rgba(34,197,94,0.12); color: #4ade80; }
+.bi-pill.neg { background: rgba(239,68,68,0.12); color: #f87171; }
+.bi-pill.neu { background: rgba(100,116,139,0.15); color: #94a3b8; }
+.bi-spark { width: 100%; height: 34px; display: block; margin-top: 4px; }
+.bi-sov-row { display: flex; align-items: center; gap: 8px; font-size: 12px; padding: 4px 0; }
+.bi-sov-name { width: 120px; color: var(--text-secondary); font-size: 11.5px; }
+.bi-sov-bar { flex: 1; height: 10px; background: rgba(255,255,255,0.04); border-radius: 3px; overflow: hidden; }
+.bi-sov-fill { height: 100%; border-radius: 3px; transition: width 0.4s ease; }
+.bi-sov-pct { width: 46px; text-align: right; font-family: var(--mono); font-size: 11px; color: var(--text-muted); }
+.bi-sov-delta { width: 46px; text-align: right; font-family: var(--mono); font-size: 10px; font-weight: 600; }
+.bi-autocomplete { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; }
+.bi-ac-item { display: flex; justify-content: space-between; align-items: center; padding: 5px 8px; border-radius: 4px; background: var(--bg-root); font-size: 11.5px; color: var(--text-primary); }
+.bi-ac-new { background: rgba(34,197,94,0.08); border: 1px solid rgba(34,197,94,0.18); }
+.bi-ac-badge { font-size: 9px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; padding: 1px 6px; border-radius: 8px; background: rgba(34,197,94,0.15); color: #4ade80; }
+.bi-etf-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 8px; }
+.bi-etf-card { padding: 10px; background: var(--bg-root); border: 1px solid var(--border); border-radius: 6px; }
+.bi-etf-ticker { font-family: var(--mono); font-size: 11px; font-weight: 700; color: var(--text-primary); }
+.bi-etf-name { font-size: 10px; color: var(--text-muted); margin-bottom: 6px; }
+.bi-etf-price { font-size: 16px; font-weight: 600; font-family: var(--mono); color: var(--text-primary); }
+.bi-etf-row { display: flex; justify-content: space-between; font-size: 10.5px; padding: 2px 0; color: var(--text-secondary); font-family: var(--mono); }
+
 /* ─── CLIENT ACTIVITY SECTION ─── */
 .client-card { padding: 13px 20px; border-bottom: 1px solid var(--border); animation: fadeIn 0.2s ease; cursor: pointer; transition: background 0.15s ease; background: var(--bg-root); }
 .client-card:hover { background: var(--bg-hover); }
@@ -610,10 +645,51 @@ body {
     <span class="quarter-meta" id="quarterMetaBrand"></span>
   </div>
   <div class="brand-grid" id="brandGrid">
-    <div class="brand-card full-width"><div class="brand-card-title">MSCI vs competitors — search interest (90 days)</div><div id="brandTrendChart" style="min-height:160px"></div></div>
-    <div class="brand-card"><div class="brand-card-title">Top 10 searches for MSCI</div><div id="topQueries"></div></div>
-    <div class="brand-card"><div class="brand-card-title">Rising searches (demand signals)</div><div id="risingQueries"></div></div>
-    <div class="brand-card full-width"><div class="brand-card-title">Regional interest</div><div id="regionalInterest"></div></div>
+    <!-- Row 1 — Mindshare trend (full width) -->
+    <div class="brand-card full-width">
+      <div class="brand-card-title">Mindshare — MSCI vs competitors (90 days)</div>
+      <div id="brandTrendChart" style="min-height:160px"></div>
+    </div>
+
+    <!-- Row 2 — Daily evolution KPI strip -->
+    <div class="brand-card bi-kpi-card">
+      <div class="brand-card-title">Sentiment Pulse — MSCI <span class="bi-src" id="sentimentSrc"></span></div>
+      <div id="sentimentPulse" class="bi-kpi-body"></div>
+    </div>
+    <div class="brand-card bi-kpi-card">
+      <div class="brand-card-title">Share of Voice (7d avg) <span class="bi-src" id="sovSrc"></span></div>
+      <div id="shareOfVoice" class="bi-kpi-body"></div>
+    </div>
+    <div class="brand-card bi-kpi-card">
+      <div class="brand-card-title">Market Footprint — $MSCI <span class="bi-src" id="marketSrc"></span></div>
+      <div id="marketFootprint" class="bi-kpi-body"></div>
+    </div>
+
+    <!-- Row 3 — Search queries -->
+    <div class="brand-card">
+      <div class="brand-card-title">Top 10 searches for MSCI</div>
+      <div id="topQueries"></div>
+    </div>
+    <div class="brand-card">
+      <div class="brand-card-title">Rising searches (demand signals)</div>
+      <div id="risingQueries"></div>
+    </div>
+
+    <!-- Row 4 — Regional + autocomplete -->
+    <div class="brand-card">
+      <div class="brand-card-title">Regional interest</div>
+      <div id="regionalInterest"></div>
+    </div>
+    <div class="brand-card">
+      <div class="brand-card-title">Live autocomplete — what people type after "MSCI"</div>
+      <div id="autocompleteList"></div>
+    </div>
+
+    <!-- Row 5 — ETF scorecard -->
+    <div class="brand-card full-width">
+      <div class="brand-card-title">MSCI-indexed ETF performance</div>
+      <div id="etfScorecard"></div>
+    </div>
   </div>
 </div>
 
@@ -1777,8 +1853,41 @@ function renderMsciDetail() {
 }
 
 // ═══════════════════════════════════════════════
-// RENDER: BRAND INTELLIGENCE (Section 4)
+// RENDER: BRAND INTELLIGENCE (Section 4) — v2 six-tile layout
 // ═══════════════════════════════════════════════
+const BRAND_LIST = ["MSCI","S&P Global","FTSE Russell","Bloomberg Terminal","Morningstar"];
+const BRAND_COLORS = ["#3b82f6","#ef4444","#f59e0b","#22c55e","#14b8a6"];
+
+function fmtPct(v, digits=1) {
+  if (v === null || v === undefined || Number.isNaN(v)) return "—";
+  const s = v >= 0 ? "+" : "";
+  return `${s}${Number(v).toFixed(digits)}%`;
+}
+function deltaClass(v) {
+  if (v === null || v === undefined || Number.isNaN(v)) return "neutral";
+  if (v > 0.05) return "up";
+  if (v < -0.05) return "down";
+  return "neutral";
+}
+function fmtSigned(v, digits=3) {
+  if (v === null || v === undefined || Number.isNaN(v)) return "—";
+  const s = v >= 0 ? "+" : "";
+  return `${s}${Number(v).toFixed(digits)}`;
+}
+function sparkline(points, w=160, h=34, stroke="#3b82f6") {
+  const clean = points.filter(v => v !== null && v !== undefined && !Number.isNaN(v));
+  if (clean.length < 2) return `<div style="height:${h}px"></div>`;
+  const min = Math.min(...clean), max = Math.max(...clean);
+  const range = (max - min) || 1;
+  const pts = points.map((v, i) => {
+    const x = (i / (points.length - 1)) * w;
+    if (v === null || v === undefined || Number.isNaN(v)) return null;
+    const y = h - ((v - min) / range) * (h - 4) - 2;
+    return `${x.toFixed(1)},${y.toFixed(1)}`;
+  }).filter(Boolean).join(" ");
+  return `<svg class="bi-spark" viewBox="0 0 ${w} ${h}" preserveAspectRatio="none"><polyline points="${pts}" fill="none" stroke="${stroke}" stroke-width="1.5"/></svg>`;
+}
+
 function renderBrand() {
   // Quarter toggle — derive quarters from brand trend data
   const trendAll = TRENDS_DATA.brand_trend||[];
@@ -1786,34 +1895,122 @@ function renderBrand() {
   const trend = state.quarterBrand==="All" ? trendAll : trendAll.filter(t=>itemMatchesQuarter(t,state.quarterBrand,"date"));
   document.getElementById("quarterMetaBrand").textContent = `${trend.length} of ${trendAll.length} data points in ${state.quarterBrand==="All"?"all quarters":state.quarterBrand}`;
 
-  // Trend chart
+  // ── Row 1: Mindshare trend chart ────────────────────────────────
   const trendEl=document.getElementById("brandTrendChart");
   if(trend.length>2){
-    const brands=["MSCI","S&P Global","FTSE Russell","Bloomberg Terminal","Morningstar"];
-    const colors=["#3b82f6","#ef4444","#f59e0b","#22c55e","#14b8a6"];
-    const maxVal=Math.max(...trend.flatMap(t=>brands.map(b=>t[b]||0)),1);
+    const maxVal=Math.max(...trend.flatMap(t=>BRAND_LIST.map(b=>t[b]||0)),1);
     const w=600,h=140,padL=40,padR=10,padT=10,padB=25;
     const plotW=w-padL-padR,plotH=h-padT-padB;
     let svg=`<svg viewBox="0 0 ${w} ${h}" width="100%" style="display:block">`;
-    // Grid lines
     for(let i=0;i<=4;i++){const y=padT+(plotH/4)*i;svg+=`<line x1="${padL}" y1="${y}" x2="${w-padR}" y2="${y}" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/><text x="${padL-6}" y="${y+4}" fill="#475569" font-size="9" text-anchor="end" font-family="var(--mono)">${Math.round(maxVal*(1-i/4))}</text>`;}
-    // X-axis labels
     const step=Math.max(1,Math.floor(trend.length/6));
     trend.forEach((t,i)=>{if(i%step===0){const x=padL+(plotW/(trend.length-1))*i;svg+=`<text x="${x}" y="${h-4}" fill="#475569" font-size="8" text-anchor="middle" font-family="var(--mono)">${t.date?.slice(5)||""}</text>`;}});
-    // Lines
-    brands.forEach((brand,bi)=>{
+    BRAND_LIST.forEach((brand,bi)=>{
       const pts=trend.map((t,i)=>{const x=padL+(plotW/(trend.length-1))*i;const y=padT+plotH-(((t[brand]||0)/maxVal)*plotH);return`${x},${y}`;}).join(" ");
-      svg+=`<polyline points="${pts}" fill="none" stroke="${colors[bi]}" stroke-width="${bi===0?"2":"1"}" opacity="${bi===0?"1":"0.5"}"/>`;
+      svg+=`<polyline points="${pts}" fill="none" stroke="${BRAND_COLORS[bi]}" stroke-width="${bi===0?"2":"1"}" opacity="${bi===0?"1":"0.5"}"/>`;
     });
     svg+=`</svg>`;
-    // Legend
-    const legend=brands.map((b,i)=>`<span style="display:inline-flex;align-items:center;gap:4px;font-size:10px;color:${i===0?"#f1f5f9":"#94a3b8"}"><span style="width:8px;height:3px;background:${colors[i]};border-radius:1px;display:inline-block"></span>${b}</span>`).join('<span style="color:#334155;font-size:10px"> · </span>');
+    const legend=BRAND_LIST.map((b,i)=>`<span style="display:inline-flex;align-items:center;gap:4px;font-size:10px;color:${i===0?"#f1f5f9":"#94a3b8"}"><span style="width:8px;height:3px;background:${BRAND_COLORS[i]};border-radius:1px;display:inline-block"></span>${b}</span>`).join('<span style="color:#334155;font-size:10px"> · </span>');
     trendEl.innerHTML=svg+`<div style="margin-top:8px;text-align:center">${legend}</div>`;
   } else {
     trendEl.innerHTML='<div style="color:#475569;text-align:center;padding:40px;font-size:13px">Trend data will appear after the next scraper run</div>';
   }
 
-  // Top queries
+  // ── Row 2a: Sentiment Pulse (MSCI) ──────────────────────────────
+  const sentEl = document.getElementById("sentimentPulse");
+  const sentSrcEl = document.getElementById("sentimentSrc");
+  const sentSum = (TRENDS_DATA.sentiment_summary||{})["MSCI"];
+  const sentDaily = TRENDS_DATA.sentiment_daily||[];
+  if (sentSum && sentSum.sentiment_7d !== null && sentSum.sentiment_7d !== undefined) {
+    const s7 = sentSum.sentiment_7d;
+    const s30 = sentSum.sentiment_30d;
+    const delta = sentSum.delta_30d_vs_prior;
+    const label = sentSum.label_7d || "neutral";
+    const pillClass = s7 >= 0.05 ? "pos" : (s7 <= -0.05 ? "neg" : "neu");
+    const sparkPts = sentDaily.slice(-30).map(d => d["MSCI"]);
+    const spark = sparkline(sparkPts, 200, 34, "#3b82f6");
+    sentEl.innerHTML = `
+      <div class="bi-hero">
+        <div class="bi-hero-value">${fmtSigned(s7, 2)}</div>
+        <div>
+          <div class="bi-hero-label">7-day avg · <span class="bi-pill ${pillClass}">${label}</span></div>
+          <div class="bi-delta ${deltaClass(delta)}">${delta === null || delta === undefined ? "" : fmtSigned(delta, 2)+" vs prior 30d"}</div>
+        </div>
+      </div>
+      ${spark}
+      <div class="bi-sub-row"><span>30-day avg</span><span>${fmtSigned(s30, 2)}</span></div>
+      <div class="bi-sub-row"><span>Articles (7d / 30d)</span><span>${sentSum.articles_7d||0} / ${sentSum.articles_30d||0}</span></div>
+    `;
+    sentSrcEl.textContent = "VADER";
+  } else {
+    sentEl.innerHTML = '<div style="color:#475569;padding:30px 10px;text-align:center;font-size:12px">Sentiment data will appear after the next scraper run (VADER analysing news article sentiment)</div>';
+    sentSrcEl.textContent = "";
+  }
+
+  // ── Row 2b: Share of Voice ──────────────────────────────────────
+  const sovEl = document.getElementById("shareOfVoice");
+  const sovSrcEl = document.getElementById("sovSrc");
+  const sovSummary = TRENDS_DATA.share_of_voice_summary||{};
+  const sovBrands = Object.keys(sovSummary);
+  if (sovBrands.length) {
+    const ranked = BRAND_LIST
+      .map(b => ({ brand: b, ...(sovSummary[b]||{}) }))
+      .filter(x => x.sov_7d_pct !== undefined)
+      .sort((a,b) => (b.sov_7d_pct||0) - (a.sov_7d_pct||0));
+    const maxPct = Math.max(...ranked.map(r => r.sov_7d_pct||0), 1);
+    sovEl.innerHTML = ranked.map(r => {
+      const i = BRAND_LIST.indexOf(r.brand);
+      const color = BRAND_COLORS[i >= 0 ? i : 0];
+      const fillPct = (r.sov_7d_pct / maxPct) * 100;
+      const delta = r.delta_pct_points;
+      const dc = deltaClass(delta);
+      const dstr = (delta === 0 || delta === null || delta === undefined) ? "—" :
+                   (delta > 0 ? `+${delta.toFixed(1)}` : delta.toFixed(1));
+      return `<div class="bi-sov-row">
+        <div class="bi-sov-name">${esc(r.brand)}</div>
+        <div class="bi-sov-bar"><div class="bi-sov-fill" style="width:${fillPct}%;background:${color}"></div></div>
+        <div class="bi-sov-pct">${(r.sov_7d_pct||0).toFixed(1)}%</div>
+        <div class="bi-sov-delta ${dc}">${dstr}</div>
+      </div>`;
+    }).join("");
+    sovSrcEl.textContent = "news vol";
+  } else {
+    sovEl.innerHTML = '<div style="color:#475569;padding:30px 10px;text-align:center;font-size:12px">Share of Voice will appear after the next news scrape</div>';
+    sovSrcEl.textContent = "";
+  }
+
+  // ── Row 2c: Market Footprint ────────────────────────────────────
+  const mktEl = document.getElementById("marketFootprint");
+  const mktSrcEl = document.getElementById("marketSrc");
+  const mf = TRENDS_DATA.market_footprint || {};
+  if (mf.price) {
+    const sparkPts = (mf.price_history||[]).map(p => p.close);
+    const up = (mf.change_1d_pct || 0) >= 0;
+    const spark = sparkline(sparkPts, 200, 34, up ? "#22c55e" : "#ef4444");
+    const info = mf.info || {};
+    const mcap = info.market_cap ? `$${(info.market_cap/1e9).toFixed(1)}B` : "—";
+    const pe = info.pe ? info.pe.toFixed(1) : "—";
+    mktEl.innerHTML = `
+      <div class="bi-hero">
+        <div class="bi-hero-value">$${mf.price}</div>
+        <div>
+          <div class="bi-hero-label">${esc(mf.ticker)} · last close</div>
+          <div class="bi-delta ${deltaClass(mf.change_1d_pct)}">${fmtPct(mf.change_1d_pct, 2)} 1d</div>
+        </div>
+      </div>
+      ${spark}
+      <div class="bi-sub-row"><span>7d</span><span class="bi-delta ${deltaClass(mf.change_7d_pct)}">${fmtPct(mf.change_7d_pct, 2)}</span></div>
+      <div class="bi-sub-row"><span>30d</span><span class="bi-delta ${deltaClass(mf.change_30d_pct)}">${fmtPct(mf.change_30d_pct, 2)}</span></div>
+      <div class="bi-sub-row"><span>90d</span><span class="bi-delta ${deltaClass(mf.change_90d_pct)}">${fmtPct(mf.change_90d_pct, 2)}</span></div>
+      <div class="bi-sub-row"><span>Market cap · P/E</span><span>${mcap} · ${pe}</span></div>
+    `;
+    mktSrcEl.textContent = "yfinance";
+  } else {
+    mktEl.innerHTML = '<div style="color:#475569;padding:30px 10px;text-align:center;font-size:12px">Market data will appear after the next scraper run ($MSCI stock via yfinance)</div>';
+    mktSrcEl.textContent = "";
+  }
+
+  // ── Row 3a: Top queries ─────────────────────────────────────────
   const topEl=document.getElementById("topQueries");
   const topQ=TRENDS_DATA.top_queries||[];
   if(topQ.length){
@@ -1822,7 +2019,7 @@ function renderBrand() {
     topEl.innerHTML='<div style="color:#475569;padding:20px;text-align:center;font-size:12px">Awaiting data</div>';
   }
 
-  // Rising queries
+  // ── Row 3b: Rising queries ──────────────────────────────────────
   const risingEl=document.getElementById("risingQueries");
   const risingQ=TRENDS_DATA.rising_queries||[];
   if(risingQ.length){
@@ -1831,7 +2028,7 @@ function renderBrand() {
     risingEl.innerHTML='<div style="color:#475569;padding:20px;text-align:center;font-size:12px">Awaiting data</div>';
   }
 
-  // Regional interest
+  // ── Row 4a: Regional interest ───────────────────────────────────
   const regionEl=document.getElementById("regionalInterest");
   const regions=TRENDS_DATA.regional_interest||[];
   if(regions.length){
@@ -1843,6 +2040,39 @@ function renderBrand() {
     }).join("");
   } else {
     regionEl.innerHTML='<div style="color:#475569;padding:20px;text-align:center;font-size:12px">Awaiting data</div>';
+  }
+
+  // ── Row 4b: Autocomplete ────────────────────────────────────────
+  const acEl = document.getElementById("autocompleteList");
+  const ac = TRENDS_DATA.autocomplete_suggestions||[];
+  if (ac.length) {
+    const items = ac.slice(0, 30).map(a => {
+      const cls = a.is_new ? "bi-ac-item bi-ac-new" : "bi-ac-item";
+      const badge = a.is_new ? '<span class="bi-ac-badge">New</span>' : "";
+      return `<div class="${cls}"><span>${esc(a.suggestion)}</span>${badge}</div>`;
+    }).join("");
+    acEl.innerHTML = `<div class="bi-autocomplete">${items}</div>`;
+  } else {
+    acEl.innerHTML = '<div style="color:#475569;padding:20px;text-align:center;font-size:12px">Live autocomplete will appear after the next scraper run (suggestqueries.google.com)</div>';
+  }
+
+  // ── Row 5: ETF scorecard ────────────────────────────────────────
+  const etfEl = document.getElementById("etfScorecard");
+  const etfs = (mf.etfs)||[];
+  if (etfs.length) {
+    etfEl.innerHTML = '<div class="bi-etf-grid">' + etfs.map(e => `
+      <div class="bi-etf-card">
+        <div class="bi-etf-ticker">${esc(e.ticker)}</div>
+        <div class="bi-etf-name">${esc(e.name)}</div>
+        <div class="bi-etf-price">$${e.price}</div>
+        <div class="bi-etf-row"><span>1d</span><span class="bi-delta ${deltaClass(e.change_1d_pct)}">${fmtPct(e.change_1d_pct, 2)}</span></div>
+        <div class="bi-etf-row"><span>7d</span><span class="bi-delta ${deltaClass(e.change_7d_pct)}">${fmtPct(e.change_7d_pct, 2)}</span></div>
+        <div class="bi-etf-row"><span>30d</span><span class="bi-delta ${deltaClass(e.change_30d_pct)}">${fmtPct(e.change_30d_pct, 2)}</span></div>
+        <div class="bi-etf-row"><span>90d</span><span class="bi-delta ${deltaClass(e.change_90d_pct)}">${fmtPct(e.change_90d_pct, 2)}</span></div>
+      </div>
+    `).join("") + '</div>';
+  } else {
+    etfEl.innerHTML = '<div style="color:#475569;padding:20px;text-align:center;font-size:12px">ETF performance will appear after the next scraper run</div>';
   }
 }
 
