@@ -1,8 +1,873 @@
 {
-  "last_updated": null,
-  "brand_trend": [],
-  "top_queries": [],
-  "rising_queries": [],
-  "regional_interest": [],
-  "competitor_comparison": []
+  "last_updated": "2026-04-21T22:54:38.688733Z",
+  "data_source": "seed_baseline",
+  "brand_trend": [
+    {
+      "date": "2026-01-21",
+      "MSCI": 40,
+      "S&P Global": 58,
+      "FTSE Russell": 11,
+      "Bloomberg Terminal": 52,
+      "Morningstar": 36
+    },
+    {
+      "date": "2026-01-22",
+      "MSCI": 41,
+      "S&P Global": 83,
+      "FTSE Russell": 10,
+      "Bloomberg Terminal": 56,
+      "Morningstar": 27
+    },
+    {
+      "date": "2026-01-23",
+      "MSCI": 34,
+      "S&P Global": 72,
+      "FTSE Russell": 10,
+      "Bloomberg Terminal": 51,
+      "Morningstar": 35
+    },
+    {
+      "date": "2026-01-24",
+      "MSCI": 23,
+      "S&P Global": 38,
+      "FTSE Russell": 7,
+      "Bloomberg Terminal": 39,
+      "Morningstar": 16
+    },
+    {
+      "date": "2026-01-25",
+      "MSCI": 26,
+      "S&P Global": 47,
+      "FTSE Russell": 7,
+      "Bloomberg Terminal": 30,
+      "Morningstar": 23
+    },
+    {
+      "date": "2026-01-26",
+      "MSCI": 36,
+      "S&P Global": 60,
+      "FTSE Russell": 10,
+      "Bloomberg Terminal": 66,
+      "Morningstar": 34
+    },
+    {
+      "date": "2026-01-27",
+      "MSCI": 43,
+      "S&P Global": 79,
+      "FTSE Russell": 12,
+      "Bloomberg Terminal": 69,
+      "Morningstar": 31
+    },
+    {
+      "date": "2026-01-28",
+      "MSCI": 39,
+      "S&P Global": 81,
+      "FTSE Russell": 13,
+      "Bloomberg Terminal": 66,
+      "Morningstar": 34
+    },
+    {
+      "date": "2026-01-29",
+      "MSCI": 41,
+      "S&P Global": 59,
+      "FTSE Russell": 11,
+      "Bloomberg Terminal": 53,
+      "Morningstar": 27
+    },
+    {
+      "date": "2026-01-30",
+      "MSCI": 34,
+      "S&P Global": 61,
+      "FTSE Russell": 11,
+      "Bloomberg Terminal": 61,
+      "Morningstar": 31
+    },
+    {
+      "date": "2026-01-31",
+      "MSCI": 22,
+      "S&P Global": 38,
+      "FTSE Russell": 7,
+      "Bloomberg Terminal": 41,
+      "Morningstar": 21
+    },
+    {
+      "date": "2026-02-01",
+      "MSCI": 24,
+      "S&P Global": 38,
+      "FTSE Russell": 8,
+      "Bloomberg Terminal": 30,
+      "Morningstar": 19
+    },
+    {
+      "date": "2026-02-02",
+      "MSCI": 45,
+      "S&P Global": 76,
+      "FTSE Russell": 12,
+      "Bloomberg Terminal": 62,
+      "Morningstar": 38
+    },
+    {
+      "date": "2026-02-03",
+      "MSCI": 42,
+      "S&P Global": 64,
+      "FTSE Russell": 10,
+      "Bloomberg Terminal": 54,
+      "Morningstar": 30
+    },
+    {
+      "date": "2026-02-04",
+      "MSCI": 34,
+      "S&P Global": 85,
+      "FTSE Russell": 14,
+      "Bloomberg Terminal": 54,
+      "Morningstar": 35
+    },
+    {
+      "date": "2026-02-05",
+      "MSCI": 36,
+      "S&P Global": 84,
+      "FTSE Russell": 12,
+      "Bloomberg Terminal": 53,
+      "Morningstar": 30
+    },
+    {
+      "date": "2026-02-06",
+      "MSCI": 39,
+      "S&P Global": 65,
+      "FTSE Russell": 12,
+      "Bloomberg Terminal": 67,
+      "Morningstar": 32
+    },
+    {
+      "date": "2026-02-07",
+      "MSCI": 20,
+      "S&P Global": 52,
+      "FTSE Russell": 7,
+      "Bloomberg Terminal": 29,
+      "Morningstar": 16
+    },
+    {
+      "date": "2026-02-08",
+      "MSCI": 19,
+      "S&P Global": 45,
+      "FTSE Russell": 8,
+      "Bloomberg Terminal": 34,
+      "Morningstar": 16
+    },
+    {
+      "date": "2026-02-09",
+      "MSCI": 36,
+      "S&P Global": 86,
+      "FTSE Russell": 12,
+      "Bloomberg Terminal": 69,
+      "Morningstar": 38
+    },
+    {
+      "date": "2026-02-10",
+      "MSCI": 31,
+      "S&P Global": 78,
+      "FTSE Russell": 13,
+      "Bloomberg Terminal": 59,
+      "Morningstar": 30
+    },
+    {
+      "date": "2026-02-11",
+      "MSCI": 40,
+      "S&P Global": 61,
+      "FTSE Russell": 12,
+      "Bloomberg Terminal": 57,
+      "Morningstar": 39
+    },
+    {
+      "date": "2026-02-12",
+      "MSCI": 44,
+      "S&P Global": 65,
+      "FTSE Russell": 12,
+      "Bloomberg Terminal": 51,
+      "Morningstar": 38
+    },
+    {
+      "date": "2026-02-13",
+      "MSCI": 44,
+      "S&P Global": 66,
+      "FTSE Russell": 13,
+      "Bloomberg Terminal": 61,
+      "Morningstar": 28
+    },
+    {
+      "date": "2026-02-14",
+      "MSCI": 25,
+      "S&P Global": 44,
+      "FTSE Russell": 8,
+      "Bloomberg Terminal": 35,
+      "Morningstar": 16
+    },
+    {
+      "date": "2026-02-15",
+      "MSCI": 21,
+      "S&P Global": 35,
+      "FTSE Russell": 8,
+      "Bloomberg Terminal": 40,
+      "Morningstar": 22
+    },
+    {
+      "date": "2026-02-16",
+      "MSCI": 35,
+      "S&P Global": 59,
+      "FTSE Russell": 14,
+      "Bloomberg Terminal": 68,
+      "Morningstar": 28
+    },
+    {
+      "date": "2026-02-17",
+      "MSCI": 38,
+      "S&P Global": 60,
+      "FTSE Russell": 13,
+      "Bloomberg Terminal": 64,
+      "Morningstar": 28
+    },
+    {
+      "date": "2026-02-18",
+      "MSCI": 38,
+      "S&P Global": 73,
+      "FTSE Russell": 11,
+      "Bloomberg Terminal": 67,
+      "Morningstar": 32
+    },
+    {
+      "date": "2026-02-19",
+      "MSCI": 34,
+      "S&P Global": 73,
+      "FTSE Russell": 13,
+      "Bloomberg Terminal": 51,
+      "Morningstar": 31
+    },
+    {
+      "date": "2026-02-20",
+      "MSCI": 46,
+      "S&P Global": 76,
+      "FTSE Russell": 12,
+      "Bloomberg Terminal": 58,
+      "Morningstar": 28
+    },
+    {
+      "date": "2026-02-21",
+      "MSCI": 20,
+      "S&P Global": 40,
+      "FTSE Russell": 7,
+      "Bloomberg Terminal": 31,
+      "Morningstar": 18
+    },
+    {
+      "date": "2026-02-22",
+      "MSCI": 19,
+      "S&P Global": 45,
+      "FTSE Russell": 6,
+      "Bloomberg Terminal": 40,
+      "Morningstar": 23
+    },
+    {
+      "date": "2026-02-23",
+      "MSCI": 31,
+      "S&P Global": 64,
+      "FTSE Russell": 13,
+      "Bloomberg Terminal": 51,
+      "Morningstar": 28
+    },
+    {
+      "date": "2026-02-24",
+      "MSCI": 45,
+      "S&P Global": 74,
+      "FTSE Russell": 12,
+      "Bloomberg Terminal": 65,
+      "Morningstar": 37
+    },
+    {
+      "date": "2026-02-25",
+      "MSCI": 33,
+      "S&P Global": 60,
+      "FTSE Russell": 12,
+      "Bloomberg Terminal": 56,
+      "Morningstar": 33
+    },
+    {
+      "date": "2026-02-26",
+      "MSCI": 41,
+      "S&P Global": 77,
+      "FTSE Russell": 14,
+      "Bloomberg Terminal": 49,
+      "Morningstar": 32
+    },
+    {
+      "date": "2026-02-27",
+      "MSCI": 36,
+      "S&P Global": 82,
+      "FTSE Russell": 11,
+      "Bloomberg Terminal": 51,
+      "Morningstar": 32
+    },
+    {
+      "date": "2026-02-28",
+      "MSCI": 22,
+      "S&P Global": 39,
+      "FTSE Russell": 6,
+      "Bloomberg Terminal": 41,
+      "Morningstar": 19
+    },
+    {
+      "date": "2026-03-01",
+      "MSCI": 26,
+      "S&P Global": 44,
+      "FTSE Russell": 6,
+      "Bloomberg Terminal": 42,
+      "Morningstar": 22
+    },
+    {
+      "date": "2026-03-02",
+      "MSCI": 45,
+      "S&P Global": 84,
+      "FTSE Russell": 14,
+      "Bloomberg Terminal": 50,
+      "Morningstar": 33
+    },
+    {
+      "date": "2026-03-03",
+      "MSCI": 34,
+      "S&P Global": 69,
+      "FTSE Russell": 10,
+      "Bloomberg Terminal": 55,
+      "Morningstar": 39
+    },
+    {
+      "date": "2026-03-04",
+      "MSCI": 34,
+      "S&P Global": 80,
+      "FTSE Russell": 12,
+      "Bloomberg Terminal": 56,
+      "Morningstar": 39
+    },
+    {
+      "date": "2026-03-05",
+      "MSCI": 46,
+      "S&P Global": 74,
+      "FTSE Russell": 13,
+      "Bloomberg Terminal": 50,
+      "Morningstar": 30
+    },
+    {
+      "date": "2026-03-06",
+      "MSCI": 45,
+      "S&P Global": 74,
+      "FTSE Russell": 12,
+      "Bloomberg Terminal": 64,
+      "Morningstar": 27
+    },
+    {
+      "date": "2026-03-07",
+      "MSCI": 24,
+      "S&P Global": 43,
+      "FTSE Russell": 8,
+      "Bloomberg Terminal": 30,
+      "Morningstar": 23
+    },
+    {
+      "date": "2026-03-08",
+      "MSCI": 19,
+      "S&P Global": 38,
+      "FTSE Russell": 7,
+      "Bloomberg Terminal": 37,
+      "Morningstar": 18
+    },
+    {
+      "date": "2026-03-09",
+      "MSCI": 32,
+      "S&P Global": 83,
+      "FTSE Russell": 11,
+      "Bloomberg Terminal": 60,
+      "Morningstar": 35
+    },
+    {
+      "date": "2026-03-10",
+      "MSCI": 37,
+      "S&P Global": 74,
+      "FTSE Russell": 12,
+      "Bloomberg Terminal": 68,
+      "Morningstar": 29
+    },
+    {
+      "date": "2026-03-11",
+      "MSCI": 41,
+      "S&P Global": 64,
+      "FTSE Russell": 11,
+      "Bloomberg Terminal": 62,
+      "Morningstar": 30
+    },
+    {
+      "date": "2026-03-12",
+      "MSCI": 35,
+      "S&P Global": 79,
+      "FTSE Russell": 10,
+      "Bloomberg Terminal": 57,
+      "Morningstar": 40
+    },
+    {
+      "date": "2026-03-13",
+      "MSCI": 46,
+      "S&P Global": 60,
+      "FTSE Russell": 11,
+      "Bloomberg Terminal": 53,
+      "Morningstar": 39
+    },
+    {
+      "date": "2026-03-14",
+      "MSCI": 26,
+      "S&P Global": 50,
+      "FTSE Russell": 7,
+      "Bloomberg Terminal": 30,
+      "Morningstar": 22
+    },
+    {
+      "date": "2026-03-15",
+      "MSCI": 25,
+      "S&P Global": 45,
+      "FTSE Russell": 9,
+      "Bloomberg Terminal": 37,
+      "Morningstar": 16
+    },
+    {
+      "date": "2026-03-16",
+      "MSCI": 43,
+      "S&P Global": 66,
+      "FTSE Russell": 13,
+      "Bloomberg Terminal": 68,
+      "Morningstar": 28
+    },
+    {
+      "date": "2026-03-17",
+      "MSCI": 32,
+      "S&P Global": 61,
+      "FTSE Russell": 12,
+      "Bloomberg Terminal": 53,
+      "Morningstar": 34
+    },
+    {
+      "date": "2026-03-18",
+      "MSCI": 41,
+      "S&P Global": 63,
+      "FTSE Russell": 13,
+      "Bloomberg Terminal": 53,
+      "Morningstar": 33
+    },
+    {
+      "date": "2026-03-19",
+      "MSCI": 44,
+      "S&P Global": 82,
+      "FTSE Russell": 10,
+      "Bloomberg Terminal": 56,
+      "Morningstar": 30
+    },
+    {
+      "date": "2026-03-20",
+      "MSCI": 30,
+      "S&P Global": 80,
+      "FTSE Russell": 13,
+      "Bloomberg Terminal": 52,
+      "Morningstar": 36
+    },
+    {
+      "date": "2026-03-21",
+      "MSCI": 23,
+      "S&P Global": 42,
+      "FTSE Russell": 6,
+      "Bloomberg Terminal": 29,
+      "Morningstar": 23
+    },
+    {
+      "date": "2026-03-22",
+      "MSCI": 26,
+      "S&P Global": 44,
+      "FTSE Russell": 8,
+      "Bloomberg Terminal": 36,
+      "Morningstar": 17
+    },
+    {
+      "date": "2026-03-23",
+      "MSCI": 32,
+      "S&P Global": 66,
+      "FTSE Russell": 14,
+      "Bloomberg Terminal": 65,
+      "Morningstar": 38
+    },
+    {
+      "date": "2026-03-24",
+      "MSCI": 44,
+      "S&P Global": 64,
+      "FTSE Russell": 11,
+      "Bloomberg Terminal": 49,
+      "Morningstar": 37
+    },
+    {
+      "date": "2026-03-25",
+      "MSCI": 44,
+      "S&P Global": 69,
+      "FTSE Russell": 13,
+      "Bloomberg Terminal": 50,
+      "Morningstar": 39
+    },
+    {
+      "date": "2026-03-26",
+      "MSCI": 44,
+      "S&P Global": 86,
+      "FTSE Russell": 13,
+      "Bloomberg Terminal": 67,
+      "Morningstar": 27
+    },
+    {
+      "date": "2026-03-27",
+      "MSCI": 42,
+      "S&P Global": 67,
+      "FTSE Russell": 14,
+      "Bloomberg Terminal": 65,
+      "Morningstar": 38
+    },
+    {
+      "date": "2026-03-28",
+      "MSCI": 26,
+      "S&P Global": 39,
+      "FTSE Russell": 8,
+      "Bloomberg Terminal": 29,
+      "Morningstar": 23
+    },
+    {
+      "date": "2026-03-29",
+      "MSCI": 26,
+      "S&P Global": 38,
+      "FTSE Russell": 8,
+      "Bloomberg Terminal": 34,
+      "Morningstar": 18
+    },
+    {
+      "date": "2026-03-30",
+      "MSCI": 42,
+      "S&P Global": 64,
+      "FTSE Russell": 10,
+      "Bloomberg Terminal": 51,
+      "Morningstar": 31
+    },
+    {
+      "date": "2026-03-31",
+      "MSCI": 44,
+      "S&P Global": 85,
+      "FTSE Russell": 11,
+      "Bloomberg Terminal": 61,
+      "Morningstar": 32
+    },
+    {
+      "date": "2026-04-01",
+      "MSCI": 45,
+      "S&P Global": 73,
+      "FTSE Russell": 14,
+      "Bloomberg Terminal": 49,
+      "Morningstar": 39
+    },
+    {
+      "date": "2026-04-02",
+      "MSCI": 33,
+      "S&P Global": 85,
+      "FTSE Russell": 11,
+      "Bloomberg Terminal": 49,
+      "Morningstar": 32
+    },
+    {
+      "date": "2026-04-03",
+      "MSCI": 41,
+      "S&P Global": 67,
+      "FTSE Russell": 13,
+      "Bloomberg Terminal": 58,
+      "Morningstar": 31
+    },
+    {
+      "date": "2026-04-04",
+      "MSCI": 23,
+      "S&P Global": 39,
+      "FTSE Russell": 8,
+      "Bloomberg Terminal": 28,
+      "Morningstar": 23
+    },
+    {
+      "date": "2026-04-05",
+      "MSCI": 23,
+      "S&P Global": 47,
+      "FTSE Russell": 8,
+      "Bloomberg Terminal": 37,
+      "Morningstar": 19
+    },
+    {
+      "date": "2026-04-06",
+      "MSCI": 31,
+      "S&P Global": 77,
+      "FTSE Russell": 11,
+      "Bloomberg Terminal": 54,
+      "Morningstar": 38
+    },
+    {
+      "date": "2026-04-07",
+      "MSCI": 41,
+      "S&P Global": 66,
+      "FTSE Russell": 11,
+      "Bloomberg Terminal": 56,
+      "Morningstar": 32
+    },
+    {
+      "date": "2026-04-08",
+      "MSCI": 35,
+      "S&P Global": 61,
+      "FTSE Russell": 12,
+      "Bloomberg Terminal": 68,
+      "Morningstar": 35
+    },
+    {
+      "date": "2026-04-09",
+      "MSCI": 44,
+      "S&P Global": 75,
+      "FTSE Russell": 11,
+      "Bloomberg Terminal": 59,
+      "Morningstar": 26
+    },
+    {
+      "date": "2026-04-10",
+      "MSCI": 35,
+      "S&P Global": 70,
+      "FTSE Russell": 12,
+      "Bloomberg Terminal": 62,
+      "Morningstar": 33
+    },
+    {
+      "date": "2026-04-11",
+      "MSCI": 22,
+      "S&P Global": 38,
+      "FTSE Russell": 7,
+      "Bloomberg Terminal": 40,
+      "Morningstar": 22
+    },
+    {
+      "date": "2026-04-12",
+      "MSCI": 20,
+      "S&P Global": 36,
+      "FTSE Russell": 7,
+      "Bloomberg Terminal": 37,
+      "Morningstar": 18
+    },
+    {
+      "date": "2026-04-13",
+      "MSCI": 43,
+      "S&P Global": 79,
+      "FTSE Russell": 13,
+      "Bloomberg Terminal": 52,
+      "Morningstar": 29
+    },
+    {
+      "date": "2026-04-14",
+      "MSCI": 31,
+      "S&P Global": 65,
+      "FTSE Russell": 12,
+      "Bloomberg Terminal": 66,
+      "Morningstar": 27
+    },
+    {
+      "date": "2026-04-15",
+      "MSCI": 37,
+      "S&P Global": 76,
+      "FTSE Russell": 11,
+      "Bloomberg Terminal": 63,
+      "Morningstar": 33
+    },
+    {
+      "date": "2026-04-16",
+      "MSCI": 34,
+      "S&P Global": 76,
+      "FTSE Russell": 10,
+      "Bloomberg Terminal": 64,
+      "Morningstar": 37
+    },
+    {
+      "date": "2026-04-17",
+      "MSCI": 32,
+      "S&P Global": 70,
+      "FTSE Russell": 10,
+      "Bloomberg Terminal": 69,
+      "Morningstar": 33
+    },
+    {
+      "date": "2026-04-18",
+      "MSCI": 19,
+      "S&P Global": 39,
+      "FTSE Russell": 8,
+      "Bloomberg Terminal": 34,
+      "Morningstar": 22
+    },
+    {
+      "date": "2026-04-19",
+      "MSCI": 24,
+      "S&P Global": 52,
+      "FTSE Russell": 7,
+      "Bloomberg Terminal": 41,
+      "Morningstar": 23
+    },
+    {
+      "date": "2026-04-20",
+      "MSCI": 40,
+      "S&P Global": 78,
+      "FTSE Russell": 12,
+      "Bloomberg Terminal": 66,
+      "Morningstar": 34
+    }
+  ],
+  "top_queries": [
+    {
+      "query": "msci world",
+      "volume_index": 100
+    },
+    {
+      "query": "msci index",
+      "volume_index": 88
+    },
+    {
+      "query": "msci acwi",
+      "volume_index": 74
+    },
+    {
+      "query": "msci emerging markets",
+      "volume_index": 68
+    },
+    {
+      "query": "msci esg",
+      "volume_index": 52
+    },
+    {
+      "query": "msci etf",
+      "volume_index": 47
+    },
+    {
+      "query": "msci climate",
+      "volume_index": 39
+    },
+    {
+      "query": "msci eafe",
+      "volume_index": 34
+    },
+    {
+      "query": "msci stock",
+      "volume_index": 28
+    },
+    {
+      "query": "msci analytics",
+      "volume_index": 21
+    }
+  ],
+  "rising_queries": [
+    {
+      "query": "msci climate action",
+      "growth": "Breakout"
+    },
+    {
+      "query": "msci private capital",
+      "growth": "+240%"
+    },
+    {
+      "query": "msci carbon metrics",
+      "growth": "+180%"
+    },
+    {
+      "query": "msci transition finance",
+      "growth": "+150%"
+    },
+    {
+      "query": "msci ai indexes",
+      "growth": "+95%"
+    },
+    {
+      "query": "msci biodiversity",
+      "growth": "+70%"
+    },
+    {
+      "query": "msci fabric",
+      "growth": "+55%"
+    }
+  ],
+  "regional_interest": [
+    {
+      "country": "United States",
+      "interest": 100
+    },
+    {
+      "country": "United Kingdom",
+      "interest": 74
+    },
+    {
+      "country": "Switzerland",
+      "interest": 61
+    },
+    {
+      "country": "Germany",
+      "interest": 58
+    },
+    {
+      "country": "Singapore",
+      "interest": 49
+    },
+    {
+      "country": "Hong Kong",
+      "interest": 46
+    },
+    {
+      "country": "Japan",
+      "interest": 42
+    },
+    {
+      "country": "France",
+      "interest": 38
+    },
+    {
+      "country": "Netherlands",
+      "interest": 33
+    },
+    {
+      "country": "Canada",
+      "interest": 30
+    },
+    {
+      "country": "Australia",
+      "interest": 27
+    },
+    {
+      "country": "India",
+      "interest": 22
+    }
+  ],
+  "competitor_comparison": [
+    {
+      "brand": "S&P Global",
+      "interest": 78
+    },
+    {
+      "brand": "Bloomberg Terminal",
+      "interest": 66
+    },
+    {
+      "brand": "MSCI",
+      "interest": 40
+    },
+    {
+      "brand": "Morningstar",
+      "interest": 34
+    },
+    {
+      "brand": "FTSE Russell",
+      "interest": 12
+    }
+  ],
+  "sources_attempted": [
+    "seed_baseline"
+  ]
 }
