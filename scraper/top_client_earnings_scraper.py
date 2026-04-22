@@ -33,7 +33,7 @@
 # Run:       python scraper/top_client_earnings_scraper.py
 # Deps:      pip install -r scraper/requirements.txt
 
-import json, os, re, time, hashlib
+import json, os, re, sys, time, hashlib
 from datetime import datetime
 
 import requests
@@ -215,11 +215,12 @@ INSIGHT_TAG_RULES = {
 }
 
 SEGMENT_RULES_TRADITIONAL = {
+    # NOTE: keys here MUST align with frontend TRAD_SEGS in index.html
     "equity":       ["equity aum", "equities aum", "equity assets"],
     "fixed_income": ["fixed income aum", "bonds aum", "fixed-income"],
     "alternatives": ["alternatives aum", "alts aum", "alternative assets"],
     "multi_asset":  ["multi-asset aum", "multi asset aum", "balanced aum"],
-    "cash_other":   ["cash aum", "liquidity aum", "money market aum"],
+    "other":        ["cash aum", "liquidity aum", "money market aum", "other aum"],
 }
 SEGMENT_RULES_PE = {
     "real_estate":      ["real estate aum", "real estate assets"],
@@ -364,21 +365,45 @@ def parse_money_to_usd(raw, unit):
     return n
 
 
-def find_metric(text, keywords, context_chars=140):
-    """Find a money value near any of the keywords. Returns first hit."""
+def find_metric(text, keywords, context_chars=60):
+    """Find a money value immediately after any of the keywords.
+
+    Earnings releases write values directly after the keyword:
+      "AUM of $13.46 trillion"
+      "revenue was $5.68 billion"
+      "net inflows were $221 billion"
+
+    Strategy: scan ALL keywords, find their earliest in-text position, and
+    return the match tied to the EARLIEST occurrence. This picks up the
+    headline figure (usually first paragraph) instead of sub-segment numbers
+    (e.g., "Equity AUM of $7.55T") that appear later.
+
+    Window: short (~60 chars) forward from keyword, cut at next sentence
+    boundary so we don't leak into the following sentence's figure.
+    """
     if not text:
         return None, None
     lower = text.lower()
+    best = None  # (position, raw, usd)
     for kw in keywords:
         idx = lower.find(kw.lower())
         if idx < 0:
             continue
-        window = text[max(0, idx - context_chars): idx + context_chars]
+        kw_end = idx + len(kw)
+        window = text[kw_end: kw_end + context_chars]
+        sb = re.search(r"[.!?](?=\s)", window)
+        if sb:
+            window = window[: sb.start()]
         m = MONEY_RE.search(window)
-        if m:
-            usd = parse_money_to_usd(m.group(1), m.group(2))
-            if usd:
-                return m.group(0), usd
+        if not m:
+            continue
+        usd = parse_money_to_usd(m.group(1), m.group(2))
+        if usd is None:
+            continue
+        if best is None or idx < best[0]:
+            best = (idx, m.group(0), usd)
+    if best:
+        return best[1], best[2]
     return None, None
 
 
@@ -646,10 +671,191 @@ def validate_no_duplication(clients_obj, quarters):
     return warnings
 
 
+# ─── MOCK-MODE: synthetic article corpus (offline pipeline validation) ──
+# WHY: CI runners and sandboxed dev environments can't reach Google News
+# / IR pages / SEC. This lets the pipeline be validated end-to-end with
+# quarter-differentiated but clearly-labeled synthetic data. Every mock
+# article ends up tagged with a 'MOCK' source in provenance so the
+# dashboard can distinguish it from real data.
+#
+# Run with:   python scraper/top_client_earnings_scraper.py --mock
+# =======================================================================
+MOCK_ARTICLES = {
+    # Per-client list of synthetic articles — each with a distinct quarter signal.
+    # Numbers here are illustrative ONLY (clearly non-real), used to verify that
+    # the scraper→JSON→frontend pipeline ingests, stores, and renders each field.
+    "BlackRock": [
+        {"q": "Q3 2025", "title": "BlackRock reports third quarter 2025 results",
+         "body": "BlackRock announced net revenues of $5.68 billion for the third quarter 2025. "
+                 "Assets under management reached $13.46 trillion. Net inflows were $221 billion. "
+                 "Equity AUM of $7.20 trillion. Fixed income aum of $3.15 trillion. "
+                 "Operating income of $2.34 billion. Diluted EPS of $11.73. Revenue grew 15% y/y. "
+                 "We launched a new iShares bitcoin ETF and announced a partnership with Microsoft on AI infrastructure. "
+                 "Private credit platform reached record fundraising levels."},
+        {"q": "Q4 2025", "title": "BlackRock Q4 2025 earnings — record year",
+         "body": "BlackRock reported total revenue of $6.12 billion in Q4 2025. "
+                 "AUM was $14.01 trillion at quarter-end. Net inflows of $281 billion for the quarter. "
+                 "Equity AUM of $7.55 trillion. Operating income of $2.52 billion. EPS of $12.11. "
+                 "Revenue grew 19% y/y. Full-year net flows reached a record $650 billion. "
+                 "Tokenization and private markets were highlighted as medium-term growth priorities."},
+        {"q": "Q1 2026", "title": "BlackRock 1Q26 results: AUM crosses $14.5 trillion",
+         "body": "BlackRock Q1 2026 net revenues were $5.92 billion. AUM of $14.58 trillion. "
+                 "Net inflows of $195 billion for the first quarter 2026. Operating income $2.41 billion. "
+                 "Equity aum $7.81 trillion. Active ETF AUM expanded. AI use cases in portfolio construction expanded. "
+                 "Retirement and model portfolios contributed to wealth channel growth."},
+    ],
+    "State Street": [
+        {"q": "Q3 2025", "title": "State Street third quarter 2025 results",
+         "body": "State Street reported total revenue of $3.38 billion in Q3 2025. "
+                 "Assets under management of $4.73 trillion. Net inflows of $82 billion. "
+                 "EPS of $2.26. SPDR ETF flows were strong."},
+        {"q": "Q4 2025", "title": "State Street fourth quarter 2025 results",
+         "body": "State Street Q4 2025 total revenues of $3.49 billion. AUM of $4.86 trillion. "
+                 "Net flows of $54 billion. Revenue grew 8% y/y. ETF platform expanded."},
+        {"q": "Q1 2026", "title": "State Street 1Q 2026 earnings",
+         "body": "State Street Q1 2026 revenue of $3.51 billion. AUM was $4.95 trillion. "
+                 "Net inflows of $71 billion. EPS of $2.38."},
+    ],
+    "Goldman Sachs": [
+        {"q": "Q3 2025", "title": "Goldman Sachs 3Q25 results",
+         "body": "Goldman Sachs net revenues of $13.1 billion in Q3 2025. AUS of $3.1 trillion. "
+                 "AWM segment revenue up. Alternatives aum of $330 billion."},
+        {"q": "Q4 2025", "title": "Goldman Sachs fourth quarter 2025 results",
+         "body": "Goldman Sachs 4Q 2025 revenue of $14.3 billion. Net earnings of $4.1 billion. "
+                 "AUS of $3.23 trillion. EPS of $11.85. Private wealth and AWM margins expanded."},
+        {"q": "Q1 2026", "title": "Goldman Sachs Q1 2026 earnings",
+         "body": "Goldman Sachs first quarter 2026 net revenues of $14.9 billion. AUS $3.31 trillion. "
+                 "AI-led operating model rollout continuing. Fee-based wealth revenue up."},
+    ],
+    "KKR": [
+        {"q": "Q3 2025", "title": "KKR Q3 2025 earnings",
+         "body": "KKR reported assets under management of $700 billion in third quarter 2025. "
+                 "Fee-earning AUM of $550 billion. Distributable earnings of $1.1 billion. "
+                 "Private credit fundraising accelerated."},
+        {"q": "Q4 2025", "title": "KKR 4Q25 results",
+         "body": "KKR AUM of $738 billion in Q4 2025. FPAUM of $575 billion. "
+                 "Record year for fundraising. Capital raised of $92 billion. Insurance general account grew."},
+        {"q": "Q1 2026", "title": "KKR first quarter 2026 earnings",
+         "body": "KKR Q1 2026 AUM of $752 billion. Fee-earning aum $588 billion. "
+                 "Asset-based finance and private credit platform expansion."},
+    ],
+    "Blackstone": [
+        {"q": "Q3 2025", "title": "Blackstone 3Q 2025 earnings",
+         "body": "Blackstone AUM of $1.12 trillion in Q3 2025. Distributable earnings $1.4 billion. "
+                 "Real estate AUM of $345 billion. Private equity aum of $310 billion."},
+        {"q": "Q4 2025", "title": "Blackstone fourth quarter 2025 record year",
+         "body": "Blackstone Q4 2025 AUM of $1.18 trillion — record year. Credit & Insurance segment led inflows. "
+                 "FRE margin expanded. Private credit platform reached $420 billion."},
+        {"q": "Q1 2026", "title": "Blackstone 1Q 2026 earnings results",
+         "body": "Blackstone Q1 2026 AUM of $1.21 trillion. Real estate aum $362 billion. "
+                 "Fundraising remained strong; Athene reinsurance partnership scaled."},
+    ],
+}
+
+
+def mock_pipeline(out, quarters, current_q):
+    """Populate JSON with synthetic quarter-differentiated data for clients
+    in MOCK_ARTICLES. Clearly labels every source as 'MOCK' so real runs
+    can overwrite. Only used when --mock is passed on the CLI."""
+    print("  [MOCK MODE] Injecting synthetic articles (no network calls)")
+    for client_name, articles in MOCK_ARTICLES.items():
+        block = out["clients"].get(client_name)
+        if not block:
+            continue
+        client_meta = CLIENTS[client_name]
+        print(f"  · {client_name} ({len(articles)} mock articles)")
+        for art in articles:
+            q = art["q"]
+            if q not in quarters:
+                continue
+            qb = block["quarters"][q]
+            body = art["body"]
+            title = art["title"]
+            url = f"mock://{client_name.lower().replace(' ', '-')}/{q.replace(' ', '-').lower()}"
+
+            fins = extract_financials(body)
+            themes = mine_themes(body, client_name)
+            tags_new = classify_insight_tags(title + "\n" + body)
+            seg_new = extract_segments(body, client_meta["category"])
+
+            fmap = {
+                "revenue": "revenue_usd",
+                "operating_income": "operating_income_usd",
+                "net_income": "net_income_usd",
+                "aum": "aum_usd",
+                "inflows": "net_inflows_q_usd",
+                "eps": "eps_usd",
+                "aum_yoy_growth_pct": "aum_yoy_growth_pct",
+                "revenue_yoy_pct": "revenue_yoy_pct",
+            }
+            filled = []
+            for metric_src, field in fmap.items():
+                got = fins.get(metric_src)
+                if got:
+                    before = qb["financials"].get(field)
+                    qb["financials"][field] = merge_field(
+                        before, got["value_usd"],
+                        "MOCK", qb["sources"], field, url,
+                    )
+                    if before is None and qb["financials"][field] is not None:
+                        filled.append(f"{field}={got['value_usd']:.2e}")
+
+            for bucket_src, bucket_dst in [
+                ("initiatives", "key_initiatives"),
+                ("cost_pressures", "cost_pressures"),
+                ("strategic_insights", "strategic_insights"),
+            ]:
+                existing_set = set(qb["themes"][bucket_dst])
+                for s in themes.get(bucket_src, []):
+                    if s not in existing_set and len(qb["themes"][bucket_dst]) < 5:
+                        qb["themes"][bucket_dst].append(s)
+
+            qb["insight_tags"] = sorted(set((qb.get("insight_tags") or []) + tags_new))[:10]
+
+            hl_existing = set(qb.get("strategic_highlights") or [])
+            for s in (themes.get("strategic_insights") or [])[:2] + (themes.get("initiatives") or [])[:2]:
+                if s not in hl_existing and len(qb["strategic_highlights"]) < 5:
+                    qb["strategic_highlights"].append(s)
+                    hl_existing.add(s)
+
+            seg_block = qb.get("segments") or {}
+            for col, v in seg_new.items():
+                if seg_block.get(col) in (None, 0):
+                    seg_block[col] = v
+            qb["segments"] = seg_block
+
+            fin = qb.get("financials") or {}
+            if (fin.get("operating_margin_pct") is None
+                    and fin.get("operating_income_usd") is not None
+                    and fin.get("revenue_usd") not in (None, 0)):
+                fin["operating_margin_pct"] = round(
+                    (fin["operating_income_usd"] / fin["revenue_usd"]) * 100.0, 2
+                )
+
+            if len(qb["top_trends"]) < 8:
+                qb["top_trends"].append({
+                    "headline": title, "url": url, "source": "MOCK synthetic",
+                })
+
+            print(f"     ⟶ {q}: extracted {{{', '.join(filled) or 'no new fields'}}} "
+                  f"tags={tags_new} segs={list(seg_new.keys())}")
+
+        # Mirror latest-quarter themes into opinion_mining
+        latest = block["quarters"].get(current_q, {}) or {}
+        t = latest.get("themes", {})
+        om_entry = out["opinion_mining"][client_name]
+        if t.get("key_initiatives"):   om_entry["initiatives"]        = t["key_initiatives"][:3]
+        if t.get("cost_pressures"):    om_entry["cost_pressures"]     = t["cost_pressures"][:3]
+        if t.get("strategic_insights"):om_entry["strategic_insights"] = t["strategic_insights"][:3]
+
+
 # ─── Main pipeline ───────────────────────────────────────────────
 def main():
+    mock_mode = "--mock" in sys.argv
     print("=" * 72)
     print("  MSCI TOP CLIENT EARNINGS SCRAPER  v4.2 (public-data only)")
+    if mock_mode:
+        print("  [MOCK MODE — synthetic data, for pipeline validation only]")
     print(f"  {datetime.now().strftime('%A, %B %d, %Y %I:%M %p')}")
     print("=" * 72)
 
@@ -719,8 +925,14 @@ def main():
             "initiatives": [], "cost_pressures": [], "strategic_insights": [],
         }
 
-    # ── Per-client × per-quarter scraping loop ──
+    # ── MOCK branch: skip all network calls, inject synthetic data ──
+    if mock_mode:
+        mock_pipeline(out, quarters, current_q)
+
+    # ── Per-client × per-quarter scraping loop (skipped entirely in --mock) ──
     for key, client in CLIENTS.items():
+        if mock_mode:
+            break  # don't touch the network in mock mode
         print(f"\n  [{client['category']}] {client['name']} ({client['ticker']})")
         block = out["clients"][key]
 
@@ -819,6 +1031,18 @@ def main():
                 existing_tags.add(t)
             qb["insight_tags"] = sorted(existing_tags)[:10]
 
+            # Strategic highlights = top ~3 initiative / insight sentences for this quarter.
+            # Frontend drill-panel reads qBlock.strategic_highlights — filling from mined themes.
+            hl_existing = set(qb.get("strategic_highlights") or [])
+            highlight_candidates = (
+                (themes.get("strategic_insights") or [])[:2]
+                + (themes.get("initiatives") or [])[:2]
+            )
+            for s in highlight_candidates:
+                if s not in hl_existing and len(qb["strategic_highlights"]) < 5:
+                    qb["strategic_highlights"].append(s)
+                    hl_existing.add(s)
+
             # Segments (only fill nulls)
             seg_block = qb.get("segments") or {}
             for col, v in seg_new.items():
@@ -826,8 +1050,18 @@ def main():
                     seg_block[col] = v
             qb["segments"] = seg_block
 
-            # Top-trend pointer (current quarter only)
-            if q == current_q and title and len(qb["top_trends"]) < 8:
+            # Operating margin (derived when both components present)
+            fin = qb.get("financials") or {}
+            if (fin.get("operating_margin_pct") is None
+                    and fin.get("operating_income_usd") is not None
+                    and fin.get("revenue_usd") not in (None, 0)):
+                fin["operating_margin_pct"] = round(
+                    (fin["operating_income_usd"] / fin["revenue_usd"]) * 100.0, 2
+                )
+
+            # Top-trend pointer (per-quarter — NOT only current quarter,
+            # so Q3 2025 and Q1 2026 also get headlines)
+            if title and len(qb["top_trends"]) < 8:
                 qb["top_trends"].append({
                     "headline": title[:200],
                     "url": url,
