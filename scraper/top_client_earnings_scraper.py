@@ -163,23 +163,89 @@ STRATEGIC_KEYWORDS = [
     "private markets", "private assets", "tokenization", "AI", "digital",
 ]
 
-# ─── Target quarters (last 4, ending in most recent reported) ────
-def target_quarters(n=4):
-    """Return list of quarter strings ordered oldest→newest, ending with the
-    most recently completed calendar quarter."""
-    today = datetime.utcnow()
-    y, m = today.year, today.month
-    q_of_month = (m - 1) // 3 + 1
-    q_idx = (y * 4) + (q_of_month - 1)  # absolute quarter index
-    # Use last *completed* quarter as the newest entry
-    q_idx -= 1
-    out = []
-    for i in range(n):
-        idx = q_idx - (n - 1 - i)
-        yy = idx // 4
-        qq = idx % 4 + 1
-        out.append(f"Q{qq} {yy}")
+# ─── Insight-tag classifier (keyword-based) ──────────────────────
+# Maps catalog tags to trigger phrases used in earnings-call text
+# and press releases. Scraper applies these to build `insight_tags`
+# on each quarter block. The front-end reads the same tag IDs from
+# `insight_tag_catalog` at the JSON root.
+INSIGHT_TAG_RULES = {
+    "ai_growth":        ["ai infrastructure", "ai infra", "ai partnership", "ai-led", "ai use cases",
+                          "data centers", "onegs", "ai operating model"],
+    "private_credit":   ["private credit", "direct lending", "k-abf", "asset-based credit",
+                          "ABS", "asset-backed finance"],
+    "etf_expansion":    ["ishares", "etf inflows", "etf net inflows", "active etf", "etf aum"],
+    "tokenization":     ["tokenization", "tokenized", "digital asset platform", "kinexys", "stablecoin"],
+    "wealth_channel":   ["401(k)", "retirement", "lifepath", "private wealth", "model portfolios",
+                          "wealth platform", "target-date"],
+    "insurance_scale":  ["insurance general account", "athene", "reinsurance", "annuities",
+                          "insurance partners", "bws"],
+    "alts_fundraising": ["fundraising", "record year", "capital raised", "inflows", "fpaum", "fbc"],
+    "margin_expansion": ["margin expanded", "record margin", "margin +", "fre margin", "pre-tax margin"],
+    "revenue_decline":  ["revenue decline", "revenue decreased", "revenue down", "flat revenue"],
+    "cost_pressure":    ["operating expense +", "expenses +", "integration cost", "compensation +",
+                          "cost pressure", "margin pressure"],
+    "integration":      ["integration", "cs integration", "m&a", "acquired", "acquisition complete"],
+    "record_year":      ["record year", "record fy", "all-time high", "highest since", "record revenue"],
+    "retention_risk":   ["retention", "outflow", "switched", "replaced msci", "competitor won"],
+    "run_rate_growth":  ["run rate", "subscription growth", "recurring revenue"],
+}
+
+
+def classify_insight_tags(text):
+    """Scan a block of text; return sorted list of matching catalog tag IDs."""
+    if not text:
+        return []
+    low = text.lower()
+    hits = set()
+    for tag_id, phrases in INSIGHT_TAG_RULES.items():
+        for p in phrases:
+            if p in low:
+                hits.add(tag_id)
+                break
+    return sorted(hits)
+
+
+# ─── Segment-level AUM keyword extractor ─────────────────────────
+# Maps a scraper-side canonical segment name to the keyword triggers
+# that typically appear before a money value in earnings commentary.
+SEGMENT_RULES_TRADITIONAL = {
+    "equity":       ["equity aum", "equities aum", "equity assets"],
+    "fixed_income": ["fixed income aum", "bonds aum", "fixed-income"],
+    "alternatives": ["alternatives aum", "alts aum", "alternative assets"],
+    "multi_asset":  ["multi-asset aum", "multi asset aum", "balanced aum"],
+    "cash_other":   ["cash aum", "liquidity aum", "money market aum"],
+}
+SEGMENT_RULES_PE = {
+    "real_estate":      ["real estate aum", "real estate assets"],
+    "private_equity":   ["private equity aum", "pe aum"],
+    "credit_insurance": ["credit aum", "insurance aum", "credit & insurance"],
+    "multi_asset":      ["multi-asset aum", "balanced aum"],
+    "other":            ["other aum", "multi-strategy aum"],
+}
+
+
+def extract_segments(text, category):
+    """Return dict of segment_name -> usd value by scanning text."""
+    if not text:
+        return {}
+    rules = SEGMENT_RULES_TRADITIONAL if category == "Traditional" else SEGMENT_RULES_PE
+    out = {}
+    for seg, keywords in rules.items():
+        raw, usd = find_metric(text, keywords)
+        if usd is not None:
+            out[seg] = usd
     return out
+
+# ─── Target quarters (explicit 3-quarter window) ─────────────────
+# Q3 2025 (Jul–Sep), Q4 2025 (Oct–Dec), Q1 2026 (Jan–Mar) per the
+# "Top Clients Earnings Summary Q4 2025" intelligence framework. The
+# newest entry (Q4 2025 today) is always treated as the current_quarter.
+TARGET_QUARTERS = ["Q3 2025", "Q4 2025", "Q1 2026"]
+CURRENT_QUARTER = "Q4 2025"
+
+def target_quarters(n=None):
+    """Return the fixed 3-quarter target window."""
+    return list(TARGET_QUARTERS)
 
 
 # ─── Persistence helpers ─────────────────────────────────────────
@@ -402,23 +468,27 @@ def mine_themes(text, client_name):
     }
 
 
-# ─── Empty per-quarter scaffold ──────────────────────────────────
+# ─── Empty per-quarter scaffold (schema v4.1) ────────────────────
 def empty_quarter():
     return {
         "financials": {
-            "revenue_usd": None, "operating_income_usd": None,
+            "revenue_usd": None, "revenue_yoy_pct": None,
+            "operating_income_usd": None, "operating_margin_pct": None,
             "net_income_usd": None, "eps_usd": None,
             "aum_usd": None, "aum_yoy_growth_pct": None,
             "organic_base_fee_growth_pct": None,
             "net_inflows_q_usd": None, "net_inflows_fy_usd": None,
         },
         "aum_breakdown": {},                 # e.g. {"equity": 4500000000000, ...}
+        "segments": {},                      # e.g. {"equity_aum_usd": ..., "fixed_income_aum_usd": ...}
         "msci_relationship": {
             "run_rate_usd": None,
             "run_rate_yoy_growth_pct": None,
             "client_revenue_usd": None,
             "client_revenue_yoy_growth_pct": None,
         },
+        "insight_tags": [],                  # catalog tag IDs: ["ai_growth", "private_credit", ...]
+        "strategic_highlights": [],          # bullet highlights for drilldown
         "themes": {
             "key_initiatives": [],
             "cost_pressures": [],
@@ -469,43 +539,55 @@ def main():
     import urllib3
     urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
-    quarters = target_quarters(4)
-    current_q = quarters[-1]
+    quarters = target_quarters()
+    current_q = CURRENT_QUARTER
     print(f"  Target quarters: {quarters}   (current: {current_q})\n")
 
     existing = load_existing(OUTPUT_FILE) or {}
 
-    # Root payload
+    # Root payload — v4.1 preserves seeded macro_themes, insight_tag_catalog, VoC
     out = {
         "last_updated": datetime.utcnow().isoformat() + "Z",
-        "schema_version": "4.0",
+        "schema_version": "4.1",
         "current_quarter": current_q,
         "quarters": quarters,
         "client_categories": {
             "Traditional": [k for k, c in CLIENTS.items() if c["category"] == "Traditional"],
             "PE/Alternative": [k for k, c in CLIENTS.items() if c["category"] == "PE/Alternative"],
         },
+        # Preserve catalog + curated Q4'25 seed sections; scraper won't overwrite
+        "insight_tag_catalog": existing.get("insight_tag_catalog", []),
         "executive_summary": existing.get("executive_summary", {
             "period": current_q,
-            "themes": [],     # [{title, detail}]
+            "title": "",
+            "macro_themes": [],
+            "themes": [],     # back-compat
         }),
         "fund_family_flows": existing.get("fund_family_flows", {
             "period": current_q,
+            "source": "Morningstar Direct Asset Flows",
+            "note": "",
             "families": [
                 {"family": fam, "active_usd": None, "passive_usd": None,
-                 "ytd_usd": None, "ttm_usd": None, "total_assets_usd": None}
+                 "jan_2026_usd": None, "ytd_usd": None, "ttm_usd": None,
+                 "total_assets_usd": None}
                 for fam in FUND_FAMILIES
             ],
         }),
         "opinion_mining": existing.get("opinion_mining", {}),
         "aum_summary": existing.get("aum_summary", {
-            "traditional": [],   # per-client rows
+            "period": current_q,
+            "note": "",
+            "traditional": [],
             "pe_alternative": [],
         }),
         "voc_analysis": existing.get("voc_analysis", {
             "total_entries": None,
             "period": current_q,
-            "clients": [],       # [{client, entries, top_bu, top_category, theme}]
+            "source": "",
+            "headline": "",
+            "clients": [],
+            "qualitative_insights": {"traditional": {}, "pe_alternative": {}},
         }),
         "clients": {},
     }
@@ -569,6 +651,9 @@ def main():
                 continue
             fins = extract_financials(body)
             themes = mine_themes(body, client["name"])
+            # v4.1: tag classification + segment extraction from the same body
+            tags_new = classify_insight_tags(title + "\n" + body)
+            seg_new  = extract_segments(body, client["category"])
 
             qb = block["quarters"][q]
 
@@ -601,6 +686,20 @@ def main():
                     if s not in existing_set and len(qb["themes"][bucket_dst]) < 5:
                         qb["themes"][bucket_dst].append(s)
                         existing_set.add(s)
+
+            # Merge insight_tags (union, keep sorted, cap 10)
+            existing_tags = set(qb.get("insight_tags") or [])
+            for t in tags_new:
+                existing_tags.add(t)
+            qb["insight_tags"] = sorted(existing_tags)[:10]
+
+            # Merge segments — only fill nulls; normalize keys to *_aum_usd
+            seg_block = qb.get("segments") or {}
+            for seg_name, usd_val in seg_new.items():
+                col = f"{seg_name}_aum_usd"
+                if seg_block.get(col) in (None, 0):
+                    seg_block[col] = usd_val
+            qb["segments"] = seg_block
 
             # Record top-trend headline pointer (current quarter only)
             if q == current_q and title and len(qb["top_trends"]) < 8:
@@ -643,11 +742,23 @@ def main():
                 merged[k] = v
         return merged
 
+    # Segment columns we preserve on each AUM summary row
+    TRAD_SEG_COLS = ["equity_aum_usd", "fixed_income_aum_usd",
+                     "alternatives_aum_usd", "multi_asset_aum_usd",
+                     "other_aum_usd"]
+    PE_SEG_COLS   = ["real_estate_aum_usd", "private_equity_aum_usd",
+                     "credit_insurance_aum_usd", "multi_asset_aum_usd",
+                     "other_aum_usd"]
+
     trad_rows, pe_rows = [], []
     for key, block in out["clients"].items():
         q = block["quarters"].get(current_q, {}) or {}
         fins = q.get("financials", {}) or {}
         rel  = q.get("msci_relationship", {}) or {}
+        segs = q.get("segments", {}) or {}
+        is_trad = block["category"] == "Traditional"
+        seg_cols = TRAD_SEG_COLS if is_trad else PE_SEG_COLS
+
         scraped = {
             "client": block["name"],
             "ticker": block["ticker"],
@@ -658,14 +769,32 @@ def main():
             "msci_run_rate_usd": rel.get("run_rate_usd"),
             "msci_run_rate_yoy_pct": rel.get("run_rate_yoy_growth_pct"),
             "msci_client_revenue_usd": rel.get("client_revenue_usd"),
+            "msci_client_revenue_yoy_pct": rel.get("client_revenue_yoy_growth_pct"),
         }
-        if block["category"] == "Traditional":
+        # carry segment columns over from the per-quarter block so the
+        # AUM summary mirrors the drill-down table
+        for col in seg_cols:
+            scraped[col] = segs.get(col)
+
+        if is_trad:
             trad_rows.append(_merge_aum_row(existing_trad.get(block["name"]), scraped))
         else:
             pe_rows.append(_merge_aum_row(existing_pe.get(block["name"]), scraped))
 
+    # Preserve any hand-curated rows (e.g. Fidelity, non-public firms) that
+    # aren't in CLIENTS but still appear in the existing AUM summary.
+    scraped_trad_names = {r["client"] for r in trad_rows}
+    scraped_pe_names   = {r["client"] for r in pe_rows}
+    for name, row in existing_trad.items():
+        if name not in scraped_trad_names:
+            trad_rows.append(row)
+    for name, row in existing_pe.items():
+        if name not in scraped_pe_names:
+            pe_rows.append(row)
+
     out["aum_summary"] = {
         "period": existing_aum.get("period") or current_q,
+        "note": existing_aum.get("note", ""),
         "traditional": trad_rows,
         "pe_alternative": pe_rows,
     }

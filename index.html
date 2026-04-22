@@ -505,9 +505,83 @@ body {
 .earnings-themes-col li { font-size: 10.5px; color: var(--text-secondary); line-height: 1.45; list-style: none; padding: 4px 0; border-bottom: 1px dashed var(--border); }
 .earnings-themes-col li:last-child { border-bottom: 0; }
 .earnings-themes-col .empty { font-size: 10.5px; color: var(--text-dim); font-style: italic; }
+
+/* v4.1 — macro themes (executive summary) */
+.earnings-macro-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 10px; }
+.earnings-macro-card { position: relative; padding: 14px 14px 12px 14px; background: var(--bg-surface); border: 1px solid var(--border); border-left: 3px solid var(--accent); border-radius: var(--radius); transition: border-color 0.15s, transform 0.15s; }
+.earnings-macro-card:hover { border-color: var(--accent); transform: translateY(-1px); }
+.earnings-macro-head { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
+.earnings-macro-icon { font-size: 20px; line-height: 1; }
+.earnings-macro-title { font-size: 12.5px; font-weight: 700; color: var(--text-primary); letter-spacing: -0.1px; flex: 1; }
+.earnings-macro-detail { font-size: 11px; color: var(--text-secondary); line-height: 1.5; margin-bottom: 8px; }
+.earnings-macro-ev { font-size: 10px; color: var(--text-muted); border-top: 1px dashed var(--border); padding-top: 6px; line-height: 1.5; }
+.earnings-macro-ev li { list-style: none; padding: 2px 0; }
+
+/* v4.1 — insight tag chips (filter + inline) */
+.earnings-tag-chips { display: flex; flex-wrap: wrap; gap: 6px; padding: 8px 0; margin-bottom: 10px; border-bottom: 1px dashed var(--border); }
+.earnings-chip { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; font-size: 10.5px; font-weight: 600; color: var(--text-secondary); background: var(--bg-surface); border: 1px solid var(--border); border-radius: 12px; cursor: pointer; transition: all 0.15s; user-select: none; }
+.earnings-chip:hover { color: var(--text-primary); border-color: var(--border-hover); }
+.earnings-chip.active { color: #0a0e18; font-weight: 700; }
+.earnings-chip-count { font-family: var(--mono); font-size: 9.5px; color: var(--text-muted); background: rgba(255,255,255,0.04); padding: 1px 5px; border-radius: 8px; }
+.earnings-chip.active .earnings-chip-count { background: rgba(0,0,0,0.18); color: inherit; }
+.earnings-chip-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+
+.earnings-tag-inline { display: inline-flex; align-items: center; gap: 4px; padding: 1px 7px; font-size: 9.5px; font-weight: 600; color: #cbd5e1; background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: 10px; line-height: 1.5; }
+.earnings-tag-inline .dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+
+/* v4.1 — page-7-style master table with expand rows */
+.earnings-master-wrap { background: var(--bg-surface); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; }
+.earnings-master { width: 100%; border-collapse: collapse; font-size: 11px; }
+.earnings-master thead th { text-align: left; font-size: 9px; text-transform: uppercase; letter-spacing: 1.2px; color: var(--text-muted); font-weight: 600; padding: 10px 10px; background: var(--bg-raised); border-bottom: 1px solid var(--border); white-space: nowrap; }
+.earnings-master tbody td { padding: 9px 10px; font-size: 11px; color: var(--text-secondary); border-bottom: 1px solid var(--border); vertical-align: middle; }
+.earnings-master tbody td.num { font-family: var(--mono); text-align: right; color: var(--text-primary); }
+.earnings-master tbody td.null { color: var(--text-dim); font-style: italic; text-align: right; font-family: var(--mono); }
+.earnings-master tr.row-click { cursor: pointer; transition: background 0.15s; }
+.earnings-master tr.row-click:hover > td { background: var(--bg-hover); }
+.earnings-master tr.row-click.expanded > td { background: rgba(20, 184, 166, 0.055); }
+.earnings-master .caret { display: inline-block; width: 10px; font-family: var(--mono); color: var(--text-muted); transition: transform 0.15s; margin-right: 4px; font-size: 10px; }
+.earnings-master tr.row-click.expanded .caret { transform: rotate(90deg); color: var(--accent); }
+.earnings-master .delta-up { color: #22c55e; }
+.earnings-master .delta-down { color: #ef4444; }
+.earnings-master .delta-flat { color: var(--text-muted); }
+.earnings-master tr.drill td { padding: 0; background: rgba(20, 184, 166, 0.035); border-bottom: 1px solid var(--border); }
+.earnings-drill-inner { padding: 14px 18px 16px; display: grid; grid-template-columns: 2fr 1fr; gap: 16px; }
+.earnings-drill-inner h6 { font-size: 9px; text-transform: uppercase; letter-spacing: 1.2px; color: var(--text-muted); font-weight: 700; margin: 0 0 6px 0; }
+.earnings-drill-hl ul { margin: 0; padding: 0; }
+.earnings-drill-hl li { list-style: none; padding: 4px 0; font-size: 11px; color: var(--text-secondary); line-height: 1.5; border-bottom: 1px dashed var(--border); }
+.earnings-drill-hl li:last-child { border-bottom: 0; }
+.earnings-drill-hl li:before { content: "▸"; color: var(--accent); margin-right: 6px; font-size: 10px; }
+.earnings-drill-side { display: flex; flex-direction: column; gap: 10px; }
+.earnings-drill-metric { padding: 8px 10px; background: var(--bg-raised); border: 1px solid var(--border); border-radius: 5px; }
+.earnings-drill-metric .lbl { font-size: 9px; text-transform: uppercase; letter-spacing: 1.2px; color: var(--text-muted); font-weight: 600; }
+.earnings-drill-metric .val { font-size: 14px; font-family: var(--mono); color: var(--text-primary); font-weight: 700; margin-top: 2px; }
+.earnings-drill-metric .sub { font-size: 9.5px; color: var(--text-muted); font-family: var(--mono); margin-top: 1px; }
+.earnings-drill-tags { display: flex; flex-wrap: wrap; gap: 4px; padding: 2px 0 6px; }
+
+/* v4.1 — multi-quarter mini trend grid */
+.earnings-chart-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 10px; margin-bottom: 14px; }
+.earnings-chart-card { padding: 12px 14px; background: var(--bg-surface); border: 1px solid var(--border); border-radius: var(--radius); }
+.earnings-chart-card:hover { border-color: var(--accent); }
+.earnings-chart-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px; }
+.earnings-chart-title { font-size: 9px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1.2px; font-weight: 700; }
+.earnings-chart-latest { font-size: 13px; font-family: var(--mono); font-weight: 700; color: var(--text-primary); letter-spacing: -0.2px; }
+.earnings-chart-delta { font-size: 10px; font-family: var(--mono); margin-left: 6px; }
+
+/* v4.1 — qualitative insights (VoC) */
+.earnings-qual-outer { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 12px; }
+.earnings-qual-col { background: var(--bg-surface); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+.earnings-qual-head { padding: 8px 12px; font-size: 10px; font-weight: 700; color: #fff; text-transform: uppercase; letter-spacing: 1.3px; background: var(--accent-glow); border-bottom: 1px solid var(--border); }
+.earnings-qual-body { padding: 10px 12px; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; }
+.earnings-qual-bucket h6 { font-size: 9px; text-transform: uppercase; letter-spacing: 1.2px; color: var(--text-muted); font-weight: 700; margin: 0 0 6px 0; padding-bottom: 4px; border-bottom: 1px solid var(--border); }
+.earnings-qual-bucket ul { margin: 0; padding: 0; list-style: none; }
+.earnings-qual-bucket li { padding: 4px 0; font-size: 10.5px; color: var(--text-secondary); line-height: 1.45; border-bottom: 1px dashed rgba(255,255,255,0.04); }
+.earnings-qual-bucket li:last-child { border-bottom: 0; }
+
 @media (max-width: 900px) {
   .earnings-opinion-row, .earnings-opinion-head { grid-template-columns: 1fr; }
   .earnings-themes-grid { grid-template-columns: 1fr; }
+  .earnings-drill-inner { grid-template-columns: 1fr; }
+  .earnings-qual-outer { grid-template-columns: 1fr; }
 }
 
 /* Responsive */
@@ -718,6 +792,9 @@ let QUARTERLY_DATA = {quarters:[], companies:{}, current_quarter:null};
 let activeSection = "news";
 let msciSubTab = "products";
 let finCompany = "BlackRock";
+// v4.1 — tag filter + expanded rows in the master table
+let earningsFilterTag = null;          // null = no filter; otherwise a catalog tag id
+let earningsExpanded = new Set();       // client keys whose drill panel is open
 
 // ─── STATE ───
 let state = {
@@ -2110,10 +2187,79 @@ function fmtFin(v, mode) {
   return String(v);
 }
 
+// ─── v4.1 helpers: catalog lookup + small SVG sparkline ───
+function earningsTagMap() {
+  const cat = (QUARTERLY_DATA.insight_tag_catalog || []);
+  const m = {};
+  cat.forEach(t => { m[t.id] = t; });
+  return m;
+}
+function earningsRenderTagInline(tagIds) {
+  if (!tagIds || !tagIds.length) return "";
+  const m = earningsTagMap();
+  return tagIds.map(id => {
+    const t = m[id] || {label:id, color:"#64748b"};
+    return `<span class="earnings-tag-inline" title="${esc(id)}"><span class="dot" style="background:${esc(t.color||"#64748b")}"></span>${esc(t.label||id)}</span>`;
+  }).join(" ");
+}
+function earningsRenderMiniChart(points, fmtMode) {
+  // points: [{q, v}]; fmtMode: "usd" | "pctAbs" | etc.
+  const valid = points.filter(p=>p.v!=null);
+  const w=280, h=72, padL=4, padR=4, padT=10, padB=18;
+  const plotW=w-padL-padR, plotH=h-padT-padB;
+  if (!valid.length) {
+    return `<svg viewBox="0 0 ${w} ${h}" width="100%" style="display:block"><text x="${w/2}" y="${h/2}" fill="#475569" font-size="10" text-anchor="middle">no data</text></svg>`;
+  }
+  const vals = valid.map(p=>p.v);
+  const maxV = Math.max(...vals), minV = Math.min(...vals);
+  const range = (maxV-minV) || (Math.abs(maxV)||1);
+  const step = plotW / Math.max(1, points.length-1);
+  let svg = `<svg viewBox="0 0 ${w} ${h}" width="100%" style="display:block">`;
+  // gradient fill polyline
+  let areaPts = [];
+  let linePts = [];
+  points.forEach((p,i)=>{
+    if (p.v==null) return;
+    const x = padL + step*i;
+    const y = padT + plotH - ((p.v-minV)/range)*plotH;
+    linePts.push(`${x},${y}`);
+    areaPts.push(`${x},${y}`);
+  });
+  if (areaPts.length > 1) {
+    const firstX = padL;
+    const lastX  = padL + step*(points.length-1);
+    svg += `<polygon points="${firstX},${padT+plotH} ${areaPts.join(" ")} ${lastX},${padT+plotH}" fill="url(#miniGrad)" opacity="0.35"/>`;
+    svg += `<polyline points="${linePts.join(" ")}" fill="none" stroke="url(#miniStroke)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>`;
+  }
+  points.forEach((p,i)=>{
+    if (p.v==null) return;
+    const x = padL + step*i;
+    const y = padT + plotH - ((p.v-minV)/range)*plotH;
+    const isLast = i === points.length-1;
+    svg += `<circle cx="${x}" cy="${y}" r="${isLast?3.5:2.5}" fill="${isLast?"#14b8a6":"#3b82f6"}" stroke="#0a0e18" stroke-width="1"/>`;
+  });
+  // quarter labels
+  points.forEach((p,i)=>{
+    const x = padL + step*i;
+    svg += `<text x="${x}" y="${h-4}" fill="#64748b" font-size="8.5" text-anchor="middle" font-family="var(--mono)">${esc(p.q.replace(" 20","'"))}</text>`;
+  });
+  svg += `<defs>
+    <linearGradient id="miniGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#14b8a6"/><stop offset="100%" stop-color="#14b8a6" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="miniStroke" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#3b82f6"/><stop offset="100%" stop-color="#14b8a6"/>
+    </linearGradient>
+  </defs></svg>`;
+  return svg;
+}
+
 function renderEarnings() {
   const clientsObj = QUARTERLY_DATA.clients || {};
   const clientKeys = Object.keys(clientsObj);
   const cats = QUARTERLY_DATA.client_categories || {Traditional:[],"PE/Alternative":[]};
+  const catalog = QUARTERLY_DATA.insight_tag_catalog || [];
+  const tagMap = earningsTagMap();
 
   // Quarter toggle (no "All" — earnings are per-quarter only)
   renderQuarterToggle("quarterToggleEarnings","quarterEarnings",()=>renderEarnings(),{includeAll:false});
@@ -2148,13 +2294,38 @@ function renderEarnings() {
 
   let html = "";
 
-  // ── Layer 1: Executive Summary ──
-  const exec = QUARTERLY_DATA.executive_summary || {themes:[]};
+  // ═══════════════════════════════════════════════════════════════
+  // LAYER 1 — Executive Summary (macro theme cards w/ icon+evidence)
+  // ═══════════════════════════════════════════════════════════════
+  const exec = QUARTERLY_DATA.executive_summary || {};
+  const macros = exec.macro_themes || [];
+  const fallbackThemes = exec.themes || [];
   html += `<div class="earnings-layer">
-    <div class="earnings-layer-head">Executive Summary <span class="earnings-layer-sub">Period: ${esc(exec.period||currentQ||"—")}</span></div>`;
-  if ((exec.themes||[]).length) {
+    <div class="earnings-layer-head">Executive Summary <span class="earnings-layer-sub">${esc(exec.title||"")} · ${esc(exec.period||currentQ||"—")}</span></div>`;
+  if (macros.length) {
+    html += `<div class="earnings-macro-grid">`;
+    macros.forEach(m=>{
+      const tag = m.tag && tagMap[m.tag] ? tagMap[m.tag] : null;
+      const bar = tag ? `border-left-color:${esc(tag.color)}` : "";
+      const tagChip = tag ? `<span class="earnings-tag-inline" style="margin-left:auto"><span class="dot" style="background:${esc(tag.color)}"></span>${esc(tag.label||m.tag)}</span>` : "";
+      const evList = (m.evidence||[]).slice(0,4);
+      const evHtml = evList.length
+        ? `<ul class="earnings-macro-ev">${evList.map(e=>`<li>• ${esc(e)}</li>`).join("")}</ul>`
+        : "";
+      html += `<div class="earnings-macro-card" style="${bar}">
+        <div class="earnings-macro-head">
+          <div class="earnings-macro-icon">${esc(m.icon||"✦")}</div>
+          <div class="earnings-macro-title">${esc(m.title||"Macro theme")}</div>
+          ${tagChip}
+        </div>
+        <div class="earnings-macro-detail">${esc(m.detail||"")}</div>
+        ${evHtml}
+      </div>`;
+    });
+    html += `</div>`;
+  } else if (fallbackThemes.length) {
     html += `<div class="earnings-exec-grid">`;
-    exec.themes.forEach(t=>{
+    fallbackThemes.forEach(t=>{
       html += `<div class="earnings-exec-card">
         <div class="earnings-exec-title">${esc(t.title||"Theme")}</div>
         <div class="earnings-exec-detail">${esc(t.detail||"")}</div>
@@ -2166,7 +2337,148 @@ function renderEarnings() {
   }
   html += `</div>`;
 
-  // ── Layer 2: US Fund Family Flows ──
+  // ═══════════════════════════════════════════════════════════════
+  // LAYER 2 — Insight Tag Filter Chips (drive the master table)
+  // ═══════════════════════════════════════════════════════════════
+  // Count how many clients carry each tag in the CURRENT quarter
+  const tagCounts = {};
+  orderedValid.forEach(k=>{
+    const q = (clientsObj[k].quarters||{})[currentQ] || {};
+    (q.insight_tags||[]).forEach(t=>{ tagCounts[t] = (tagCounts[t]||0) + 1; });
+  });
+  html += `<div class="earnings-layer">
+    <div class="earnings-layer-head">Insight Tags <span class="earnings-layer-sub">Filter the master table by strategic theme — ${esc(currentQ||"")}</span></div>
+    <div class="earnings-tag-chips" id="earningsTagChips">`;
+  const allChipActive = earningsFilterTag === null ? " active" : "";
+  html += `<div class="earnings-chip${allChipActive}" data-tag="__all__" style="${earningsFilterTag===null?`color:#0a0e18;background:#cbd5e1;border-color:#cbd5e1`:""}">
+    <span class="earnings-chip-dot" style="background:#94a3b8"></span>All clients
+    <span class="earnings-chip-count">${orderedValid.length}</span>
+  </div>`;
+  catalog.forEach(t=>{
+    const count = tagCounts[t.id] || 0;
+    if (count === 0) return; // hide tags nobody carries this quarter
+    const active = earningsFilterTag === t.id;
+    const styleActive = active ? `color:#0a0e18;background:${esc(t.color)};border-color:${esc(t.color)}` : "";
+    html += `<div class="earnings-chip${active?" active":""}" data-tag="${esc(t.id)}" style="${styleActive}">
+      <span class="earnings-chip-dot" style="background:${esc(t.color)}"></span>${esc(t.label)}
+      <span class="earnings-chip-count">${count}</span>
+    </div>`;
+  });
+  html += `</div></div>`;
+
+  // ═══════════════════════════════════════════════════════════════
+  // LAYER 3 — Master Table (page-7 style, w/ segments + click-expand)
+  // ═══════════════════════════════════════════════════════════════
+  const aum = QUARTERLY_DATA.aum_summary || {traditional:[], pe_alternative:[]};
+  const rowIsFiltered = (key) => {
+    if (!earningsFilterTag) return false;
+    const q = (clientsObj[key]?.quarters||{})[currentQ] || {};
+    return !(q.insight_tags||[]).includes(earningsFilterTag);
+  };
+  const masterTable = (rows, label, segmentCols, kind) => {
+    const segLabels = {
+      equity_aum_usd:"Equity", fixed_income_aum_usd:"Fixed Inc.",
+      alternatives_aum_usd:"Alts", multi_asset_aum_usd:"Multi-Asset",
+      other_aum_usd:"Other", real_estate_aum_usd:"Real Estate",
+      private_equity_aum_usd:"PE", credit_insurance_aum_usd:"Credit/Ins.",
+    };
+    let t = `<div class="earnings-cat-group">
+      <div class="earnings-cat-label">${esc(label)}</div>
+      <div class="earnings-master-wrap">
+      <table class="earnings-master">
+        <thead><tr>
+          <th style="width:32px"></th>
+          <th>Client</th>
+          <th style="text-align:right">AUM</th>
+          <th style="text-align:right">AUM y/y</th>`;
+    segmentCols.forEach(c=>{ t += `<th style="text-align:right">${esc(segLabels[c]||c)}</th>`; });
+    t += `<th style="text-align:right">Net inflows (Q)</th>
+          <th style="text-align:right">MSCI run rate</th>
+          <th style="text-align:right">Run rate y/y</th>
+          <th style="text-align:right">Client revenue</th>
+          <th>Insight tags</th>
+        </tr></thead><tbody>`;
+
+    const totalCols = 6 + segmentCols.length + 4;
+    (rows||[]).forEach(r=>{
+      const key = Object.keys(clientsObj).find(k => clientsObj[k].name === r.client) || r.client;
+      if (rowIsFiltered(key)) return;
+      const qBlock = (clientsObj[key]?.quarters||{})[currentQ] || {};
+      const tags = qBlock.insight_tags || [];
+      const highlights = qBlock.strategic_highlights || [];
+      const isExpanded = earningsExpanded.has(key);
+
+      const cell = (v, mode="usd") => {
+        const f = fmtFin(v, mode);
+        return f===null ? `<td class="null">—</td>` : `<td class="num">${esc(f)}</td>`;
+      };
+      const pctCell = v => {
+        if (v === null || v === undefined) return `<td class="null">—</td>`;
+        const cls = v >= 0 ? "delta-up" : "delta-down";
+        return `<td class="num ${cls}">${(v>=0?"+":"")}${v.toFixed(1)}%</td>`;
+      };
+
+      t += `<tr class="row-click${isExpanded?" expanded":""}" data-client="${esc(key)}">
+        <td style="text-align:center"><span class="caret">▶</span></td>
+        <td><strong style="color:var(--text-primary)">${esc(r.client)}</strong>
+            <div style="font-family:var(--mono);font-size:9.5px;color:var(--text-muted)">${esc(r.ticker||"")}</div></td>
+        ${cell(r.aum_usd,"usd")}
+        ${pctCell(r.aum_yoy_growth_pct)}`;
+      segmentCols.forEach(c=>{ t += cell(r[c], "usd"); });
+      t += `${cell(r.net_inflows_q_usd,"usd")}
+        ${cell(r.msci_run_rate_usd,"usd")}
+        ${pctCell(r.msci_run_rate_yoy_pct)}
+        ${cell(r.msci_client_revenue_usd,"usd")}
+        <td style="max-width:180px"><div class="earnings-drill-tags">${earningsRenderTagInline(tags.slice(0,4))}${tags.length>4?`<span style="color:var(--text-dim);font-size:9.5px;margin-left:4px">+${tags.length-4}</span>`:""}</div></td>
+      </tr>`;
+
+      if (isExpanded) {
+        // Drill panel: strategic highlights + key financial mini-cards
+        const fin = qBlock.financials || {};
+        const rel = qBlock.msci_relationship || {};
+        const drillFmt = (v,m) => fmtFin(v,m) || "—";
+        t += `<tr class="drill"><td colspan="${totalCols}"><div class="earnings-drill-inner">
+          <div class="earnings-drill-hl">
+            <h6>Strategic highlights — ${esc(currentQ||"")}</h6>
+            ${highlights.length
+              ? `<ul>${highlights.map(h=>`<li>${esc(h)}</li>`).join("")}</ul>`
+              : `<div style="color:var(--text-dim);font-size:10.5px;font-style:italic;padding:6px 0">No strategic highlights recorded for ${esc(r.client)} in ${esc(currentQ||"")}.</div>`}
+          </div>
+          <div class="earnings-drill-side">
+            <div class="earnings-drill-metric">
+              <div class="lbl">Revenue</div>
+              <div class="val">${esc(drillFmt(fin.revenue_usd,"usd"))}</div>
+              <div class="sub">${fin.revenue_yoy_pct!=null?(fin.revenue_yoy_pct>=0?"+":"")+fin.revenue_yoy_pct.toFixed(1)+"% y/y":""}</div>
+            </div>
+            <div class="earnings-drill-metric">
+              <div class="lbl">Operating income</div>
+              <div class="val">${esc(drillFmt(fin.operating_income_usd,"usd"))}</div>
+              <div class="sub">${fin.operating_margin_pct!=null?"Margin "+fin.operating_margin_pct.toFixed(1)+"%":""}</div>
+            </div>
+            <div class="earnings-drill-metric">
+              <div class="lbl">EPS (diluted)</div>
+              <div class="val">${fin.eps_usd!=null?"$"+fin.eps_usd.toFixed(2):"—"}</div>
+              <div class="sub">${rel.note?esc(rel.note.slice(0,70)):""}</div>
+            </div>
+          </div>
+        </div></td></tr>`;
+      }
+    });
+    t += `</tbody></table></div></div>`;
+    return t;
+  };
+
+  const TRAD_SEGS = ["equity_aum_usd","fixed_income_aum_usd","alternatives_aum_usd","multi_asset_aum_usd","other_aum_usd"];
+  const PE_SEGS   = ["real_estate_aum_usd","private_equity_aum_usd","credit_insurance_aum_usd","multi_asset_aum_usd","other_aum_usd"];
+  html += `<div class="earnings-layer">
+    <div class="earnings-layer-head">AUM &amp; MSCI Run-Rate — Page 7 Master Table <span class="earnings-layer-sub">Click a row to expand · ${esc(aum.period||currentQ||"—")}${earningsFilterTag?` · filtered by ${esc(tagMap[earningsFilterTag]?.label||earningsFilterTag)}`:""}</span></div>
+    ${masterTable(aum.traditional, "Traditional Asset & Wealth Managers", TRAD_SEGS, "trad")}
+    ${masterTable(aum.pe_alternative, "Private Equity & Alternative Managers", PE_SEGS, "pe")}
+  </div>`;
+
+  // ═══════════════════════════════════════════════════════════════
+  // LAYER 4 — Fund Family Flows (kept as-is)
+  // ═══════════════════════════════════════════════════════════════
   const flows = QUARTERLY_DATA.fund_family_flows || {families:[]};
   html += `<div class="earnings-layer">
     <div class="earnings-layer-head">US Fund Family Flows <span class="earnings-layer-sub">Top 10 · ${esc(flows.period||currentQ||"—")}</span></div>
@@ -2179,7 +2491,9 @@ function renderEarnings() {
   });
   html += `</tbody></table></div>`;
 
-  // ── Layer 3: Opinion Mining ──
+  // ═══════════════════════════════════════════════════════════════
+  // LAYER 5 — Opinion Mining (unchanged; earnings-call signals)
+  // ═══════════════════════════════════════════════════════════════
   const om = QUARTERLY_DATA.opinion_mining || {};
   html += `<div class="earnings-layer">
     <div class="earnings-layer-head">Opinion Mining — Earnings-Call Signals <span class="earnings-layer-sub">Current quarter themes per client</span></div>
@@ -2202,50 +2516,11 @@ function renderEarnings() {
   });
   html += `</div></div>`;
 
-  // ── Layer 4: AUM Summary (Traditional + PE sub-tables) ──
-  const aum = QUARTERLY_DATA.aum_summary || {traditional:[], pe_alternative:[]};
-  const aumTable = (rows, label) => {
-    let t = `<div class="earnings-cat-group">
-      <div class="earnings-cat-label">${esc(label)}</div>
-      <table class="fin-table">
-        <thead><tr>
-          <th>Client</th><th>Ticker</th>
-          <th style="text-align:right">AUM</th>
-          <th style="text-align:right">AUM y/y</th>
-          <th style="text-align:right">Organic fee growth</th>
-          <th style="text-align:right">Net inflows (Q)</th>
-          <th style="text-align:right">MSCI run rate</th>
-          <th style="text-align:right">MSCI run rate y/y</th>
-          <th style="text-align:right">MSCI client revenue</th>
-        </tr></thead><tbody>`;
-    (rows||[]).forEach(r=>{
-      const cell = (v, mode="usd") => {
-        const f = fmtFin(v, mode);
-        return f===null ? `<td class="num null">—</td>` : `<td class="num">${esc(f)}</td>`;
-      };
-      t += `<tr>
-        <td><strong>${esc(r.client)}</strong></td>
-        <td style="font-family:var(--mono);font-size:10px;color:var(--text-muted)">${esc(r.ticker||"")}</td>
-        ${cell(r.aum_usd,"usd")}
-        ${cell(r.aum_yoy_growth_pct,"pctAbs")}
-        ${cell(r.organic_base_fee_growth_pct,"pctAbs")}
-        ${cell(r.net_inflows_q_usd,"usd")}
-        ${cell(r.msci_run_rate_usd,"usd")}
-        ${cell(r.msci_run_rate_yoy_pct,"pctAbs")}
-        ${cell(r.msci_client_revenue_usd,"usd")}
-      </tr>`;
-    });
-    t += `</tbody></table></div>`;
-    return t;
-  };
-  html += `<div class="earnings-layer">
-    <div class="earnings-layer-head">AUM &amp; MSCI Run-Rate Summary <span class="earnings-layer-sub">${esc(aum.period||currentQ||"—")}</span></div>
-    ${aumTable(aum.traditional, "Traditional Asset & Wealth Managers")}
-    ${aumTable(aum.pe_alternative, "Private Equity & Alternative Managers")}
-  </div>`;
-
-  // ── Layer 5: VoC Analysis ──
+  // ═══════════════════════════════════════════════════════════════
+  // LAYER 6 — VoC Analysis + Qualitative Insights grid
+  // ═══════════════════════════════════════════════════════════════
   const voc = QUARTERLY_DATA.voc_analysis || {clients:[]};
+  const qual = voc.qualitative_insights || {traditional:{}, pe_alternative:{}};
   html += `<div class="earnings-layer">
     <div class="earnings-layer-head">Voice of Clients — VoC Analysis <span class="earnings-layer-sub">${voc.total_entries!=null?esc(voc.total_entries.toLocaleString("en-US"))+" entries · ":""}${esc(voc.period||currentQ||"—")}</span></div>
     <table class="fin-table">
@@ -2265,9 +2540,42 @@ function renderEarnings() {
   } else {
     html += `<tr><td colspan="5" class="null" style="padding:14px">No VoC entries recorded yet.</td></tr>`;
   }
-  html += `</tbody></table></div>`;
+  html += `</tbody></table>`;
 
-  // ── Layer 6: Per-Client Deep Dive ──
+  // Qualitative insights grid (Traditional vs PE/Alt)
+  const QUAL_BUCKET_LABELS = {
+    competitive_dynamics:  "Competitive dynamics",
+    strategic_partnerships:"Strategic partnerships",
+    feature_requests:      "Feature requests",
+    regulatory_pricing:    "Regulatory & pricing",
+  };
+  const qualCol = (group, label) => {
+    const g = qual[group] || {};
+    const buckets = Object.keys(QUAL_BUCKET_LABELS).filter(k => (g[k]||[]).length);
+    if (!buckets.length) return "";
+    let inner = `<div class="earnings-qual-col">
+      <div class="earnings-qual-head">${esc(label)}</div>
+      <div class="earnings-qual-body">`;
+    buckets.forEach(b=>{
+      const items = (g[b]||[]).slice(0,5);
+      inner += `<div class="earnings-qual-bucket">
+        <h6>${esc(QUAL_BUCKET_LABELS[b])}</h6>
+        <ul>${items.map(x=>`<li>• ${esc(x)}</li>`).join("")}</ul>
+      </div>`;
+    });
+    inner += `</div></div>`;
+    return inner;
+  };
+  const qualT = qualCol("traditional","Traditional");
+  const qualP = qualCol("pe_alternative","PE / Alternatives");
+  if (qualT || qualP) {
+    html += `<div class="earnings-qual-outer">${qualT}${qualP}</div>`;
+  }
+  html += `</div>`;
+
+  // ═══════════════════════════════════════════════════════════════
+  // LAYER 7 — Per-Client Deep Dive with multi-quarter mini charts
+  // ═══════════════════════════════════════════════════════════════
   const co = clientsObj[finCompany] || {};
   const quarters = QUARTERLY_DATA.quarters || [];
   const qData = (co.quarters||{})[currentQ] || {};
@@ -2288,6 +2596,12 @@ function renderEarnings() {
       </div>
     </div>`;
 
+  // Deep-dive: show insight tag pills for this client/quarter
+  const deepTags = qData.insight_tags || [];
+  if (deepTags.length) {
+    html += `<div class="earnings-drill-tags" style="margin-bottom:10px">${earningsRenderTagInline(deepTags)}</div>`;
+  }
+
   // Metric cards (per-client, for this quarter)
   html += `<div class="fin-grid">`;
   for (const m of FIN_METRICS) {
@@ -2307,82 +2621,69 @@ function renderEarnings() {
   }
   html += `</div>`;
 
-  // Revenue trend SVG across quarters
-  const points = quarters.map(q=>{
+  // ── Multi-quarter trend grid (AUM, Revenue, Run Rate, Inflows) ──
+  const buildSeries = (path) => quarters.map(q=>{
     const d = (co.quarters||{})[q] || {};
-    const v = getPath(d, ["financials","revenue_usd"]);
-    return {q, v: v==null ? null : v};
+    const v = getPath(d, path);
+    return {q, v: (v==null ? null : v)};
   });
-  const hasAnyPoint = points.some(p=>p.v!==null);
-  if (hasAnyPoint) {
-    const valid = points.filter(p=>p.v!==null);
-    const maxV = Math.max(...valid.map(p=>p.v), 1);
-    const minV = Math.min(...valid.map(p=>p.v), 0);
-    const range = maxV-minV || 1;
-    const w=700, h=160, padL=60, padR=20, padT=20, padB=30;
-    const plotW=w-padL-padR, plotH=h-padT-padB;
-    let svg = `<svg viewBox="0 0 ${w} ${h}" width="100%" style="display:block">`;
-    for (let i=0;i<=4;i++){
-      const y = padT+(plotH/4)*i;
-      const val = maxV - (range*i/4);
-      svg += `<line x1="${padL}" y1="${y}" x2="${w-padR}" y2="${y}" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/>`;
-      svg += `<text x="${padL-8}" y="${y+4}" fill="#475569" font-size="9" text-anchor="end" font-family="var(--mono)">${fmtUsd(val)||""}</text>`;
+  const trendDefs = [
+    {title:"AUM trend",            path:["financials","aum_usd"],               fmt:"usd"},
+    {title:"Revenue trend",        path:["financials","revenue_usd"],           fmt:"usd"},
+    {title:"MSCI run rate",        path:["msci_relationship","run_rate_usd"],   fmt:"usd"},
+    {title:"Net inflows (Q)",      path:["financials","net_inflows_q_usd"],     fmt:"usd"},
+  ];
+  html += `<div class="earnings-chart-grid">`;
+  trendDefs.forEach(def=>{
+    const series = buildSeries(def.path);
+    const latest = series[series.length-1] || {v:null};
+    const prev   = series[series.length-2] || {v:null};
+    const latestStr = latest.v==null ? "—" : (fmtFin(latest.v, def.fmt) || "—");
+    let deltaStr = "";
+    if (latest.v!=null && prev.v!=null && prev.v!==0) {
+      const ch = ((latest.v - prev.v)/Math.abs(prev.v))*100;
+      const cls = ch>=0 ? "delta-up" : "delta-down";
+      deltaStr = `<span class="earnings-chart-delta ${cls}">${deltaArrow(ch)} ${fmtPct(ch)}</span>`;
     }
-    const step = plotW/Math.max(1, points.length-1);
-    points.forEach((p,i)=>{
-      const x = padL + step*i;
-      svg += `<text x="${x}" y="${h-8}" fill="${p.q===currentQ?"#f1f5f9":"#64748b"}" font-size="10" font-weight="${p.q===currentQ?"700":"500"}" text-anchor="middle" font-family="var(--mono)">${p.q}</text>`;
-    });
-    const segs = []; let seg = [];
-    points.forEach((p,i)=>{
-      if (p.v===null) { if (seg.length>1) segs.push(seg); seg=[]; return; }
-      const x = padL + step*i;
-      const y = padT + plotH - ((p.v-minV)/range)*plotH;
-      seg.push([x,y]);
-    });
-    if (seg.length>1) segs.push(seg);
-    segs.forEach(s=>{
-      const pts = s.map(([x,y])=>`${x},${y}`).join(" ");
-      svg += `<polyline points="${pts}" fill="none" stroke="url(#finGrad)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>`;
-    });
-    points.forEach((p,i)=>{
-      if (p.v===null) return;
-      const x = padL + step*i;
-      const y = padT + plotH - ((p.v-minV)/range)*plotH;
-      const isCur = p.q===currentQ;
-      svg += `<circle cx="${x}" cy="${y}" r="${isCur?5:3.5}" fill="${isCur?"#14b8a6":"#3b82f6"}" stroke="#0a0e18" stroke-width="1.5"/>`;
-      if (isCur) svg += `<text x="${x}" y="${y-10}" fill="#14b8a6" font-size="10" font-weight="700" text-anchor="middle" font-family="var(--mono)">${fmtUsd(p.v)||""}</text>`;
-    });
-    svg += `<defs><linearGradient id="finGrad" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#3b82f6"/><stop offset="100%" stop-color="#14b8a6"/></linearGradient></defs></svg>`;
-    html += `<div class="fin-trend-card">
-      <div class="fin-trend-title"><span>Revenue trend — ${esc(co.name||finCompany)}</span><span style="color:#64748b;font-weight:500">${valid.length} of ${points.length} quarters reported</span></div>
-      ${svg}
+    html += `<div class="earnings-chart-card">
+      <div class="earnings-chart-head">
+        <div class="earnings-chart-title">${esc(def.title)}</div>
+        <div><span class="earnings-chart-latest">${esc(latestStr)}</span>${deltaStr}</div>
+      </div>
+      ${earningsRenderMiniChart(series, def.fmt)}
     </div>`;
-  } else {
-    html += `<div class="fin-trend-card">
-      <div class="fin-trend-title"><span>Revenue trend — ${esc(co.name||finCompany)}</span></div>
-      <div style="color:#475569;text-align:center;padding:30px;font-size:12px">No revenue data yet across any quarter — waiting for scraper run</div>
-    </div>`;
-  }
+  });
+  html += `</div>`;
 
-  // AUM breakdown (if populated)
-  const aumBreak = qData.aum_breakdown || {};
-  const buckets = co.aum_buckets || [];
-  const filled = buckets.filter(b=>aumBreak[b]!=null);
-  if (filled.length) {
-    html += `<div class="fin-trend-card"><div class="fin-trend-title"><span>AUM breakdown — ${esc(currentQ||"")}</span></div>`;
-    const total = filled.reduce((a,b)=>a+(aumBreak[b]||0),0) || 1;
-    filled.forEach(b=>{
-      const v = aumBreak[b];
+  // AUM breakdown (segments first, fallback to aum_breakdown)
+  const segMap = qData.segments || {};
+  const breakMap = qData.aum_breakdown || {};
+  const segEntries = Object.entries(segMap).filter(([,v])=>v!=null && v!==0);
+  const breakEntries = Object.entries(breakMap).filter(([,v])=>v!=null && v!==0);
+  const aumRender = segEntries.length ? segEntries : breakEntries;
+  if (aumRender.length) {
+    const total = aumRender.reduce((a,[,v])=>a+v,0) || 1;
+    html += `<div class="fin-trend-card"><div class="fin-trend-title"><span>AUM breakdown — ${esc(currentQ||"")}</span><span style="color:#64748b;font-weight:500">${aumRender.length} segments</span></div>`;
+    aumRender.forEach(([key,v])=>{
       const pct = Math.round((v/total)*100);
+      const label = key.replace(/_aum_usd$|_/g, (m)=> m==="_aum_usd"?"":" ").trim();
       html += `<div style="display:flex;align-items:center;gap:10px;margin-bottom:6px">
-        <div style="width:110px;font-size:10px;color:var(--text-muted);text-transform:capitalize">${esc(b.replace(/_/g," "))}</div>
+        <div style="width:130px;font-size:10px;color:var(--text-muted);text-transform:capitalize">${esc(label)}</div>
         <div style="flex:1;height:10px;background:rgba(255,255,255,0.04);border-radius:3px;overflow:hidden"><div style="width:${pct}%;height:100%;background:linear-gradient(90deg,#3b82f6,#14b8a6)"></div></div>
-        <div style="width:90px;text-align:right;font-family:var(--mono);font-size:10px;color:var(--text-secondary)">${esc(fmtUsd(v)||"")}</div>
+        <div style="width:100px;text-align:right;font-family:var(--mono);font-size:10px;color:var(--text-secondary)">${esc(fmtUsd(v)||"")}</div>
         <div style="width:36px;text-align:right;font-family:var(--mono);font-size:10px;color:var(--text-muted)">${pct}%</div>
       </div>`;
     });
     html += `</div>`;
+  }
+
+  // Strategic highlights (from PDF seed / scraper)
+  const hl = qData.strategic_highlights || [];
+  if (hl.length) {
+    html += `<div class="fin-trend-card">
+      <div class="fin-trend-title"><span>Strategic highlights — ${esc(currentQ||"")}</span></div>
+      <ul style="margin:0;padding:0 0 0 14px">${hl.map(h=>`<li style="font-size:11px;color:var(--text-secondary);line-height:1.5;padding:3px 0">${esc(h)}</li>`).join("")}</ul>
+    </div>`;
   }
 
   // Themes (key initiatives / cost pressures / strategic insights)
@@ -2402,7 +2703,7 @@ function renderEarnings() {
     ${themeBlock("Strategic insights", themes.strategic_insights)}
   </div>`;
 
-  // Top Trends headlines (deep-dive bullets from PDF-equivalent sources)
+  // Top Trends headlines
   const trends = qData.top_trends || [];
   if (trends.length) {
     html += `<div style="margin-top:12px">
@@ -2438,7 +2739,29 @@ function renderEarnings() {
   }
   html += `</div></div>`;
 
-  document.getElementById("finContent").innerHTML = html;
+  // ── Commit to DOM + wire up interactive handlers ──
+  const container = document.getElementById("finContent");
+  container.innerHTML = html;
+
+  // Tag filter chips
+  container.querySelectorAll("#earningsTagChips .earnings-chip").forEach(el=>{
+    el.onclick = () => {
+      const tag = el.dataset.tag;
+      earningsFilterTag = (tag === "__all__") ? null : (earningsFilterTag === tag ? null : tag);
+      renderEarnings();
+    };
+  });
+
+  // Row click-to-expand (master table)
+  container.querySelectorAll(".earnings-master tr.row-click").forEach(el=>{
+    el.onclick = () => {
+      const k = el.dataset.client;
+      if (!k) return;
+      if (earningsExpanded.has(k)) earningsExpanded.delete(k);
+      else earningsExpanded.add(k);
+      renderEarnings();
+    };
+  });
 }
 
 // ─── EVENT BINDINGS ───
