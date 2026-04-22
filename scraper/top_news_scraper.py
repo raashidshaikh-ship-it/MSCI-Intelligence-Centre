@@ -9,8 +9,16 @@ reliable, structured data sources instead of fragile HTML scraping.
 
 Data sources
 ------------
-1. Finnhub /company-news  (primary) — 60 req/min, 1-year history, JSON
-2. Competitor press-release RSS feeds (secondary, covers product launches)
+1. Finnhub /company-news       (primary) — 60 req/min, 1-year history, JSON
+2. Competitor press-release RSS feeds (secondary — product launches, direct PR)
+3. Premium paywalled news      (tertiary) — WSJ, FT, Bloomberg, Barron's,
+   MarketWatch, Reuters. Finnhub doesn't index these. Surfaced via two public
+   RSS channels:
+     3a. Google News RSS with site: filters (per-competitor targeting)
+     3b. WSJ / MarketWatch section feeds (broad ingest, keyword-filtered to
+         competitor-relevant items only)
+4. Manual seeds                (data/manual_news_seeds.json) — analyst-curated
+   articles for op-eds, internal press, or anything the above miss.
 
 Inputs
 ------
@@ -38,6 +46,7 @@ import os
 import re
 import sys
 import time
+import urllib.parse
 import xml.etree.ElementTree as ET
 from datetime import datetime, timedelta, timezone
 from email.utils import parsedate_to_datetime
@@ -541,10 +550,231 @@ def fetch_rss(feed_url: str, competitor: str, ticker: str, segment: str,
 
 
 # ──────────────────────────────────────────────────────────────────────────
+# Premium news (paywalled publishers) — WSJ, FT, Barron's, Bloomberg, Reuters
+# Finnhub /company-news doesn't index these. We surface them via two public
+# RSS channels that require no login:
+#   (1) Google News RSS with site: filters — per-competitor targeting
+#   (2) WSJ / MarketWatch section feeds — broad, then keyword-filtered
+# Both return headline + dek + published date, which is what the dashboard
+# classifier and Why-It-Matters engine need. Full-text stays behind the
+# paywall (user clicks through to read).
+# ──────────────────────────────────────────────────────────────────────────
+
+# Keyword → (canonical competitor name, ticker, default segment). Used to
+# re-attribute articles pulled from section feeds that don't carry a ticker.
+# Order matters: we match the first key found in the text, so put the most
+# specific (multi-word) keys before single-word aliases.
+HIGH_SIGNAL_BRANDS: list[tuple[str, tuple[str, str, str]]] = [
+    ("aladdin wealth",   ("BlackRock",            "BLK",     "Asset Managers")),
+    ("aladdin copilot",  ("BlackRock",            "BLK",     "Asset Managers")),
+    ("aladdin",          ("BlackRock",            "BLK",     "Asset Managers")),
+    ("blackrock",        ("BlackRock",            "BLK",     "Asset Managers")),
+    ("state street",     ("State Street",         "STT",     "Asset Managers")),
+    ("charles river",    ("State Street",         "STT",     "Asset Managers")),
+    ("s&p global",       ("S&P Global",           "SPGI",    "Indices / Ratings / Data")),
+    ("s&p dow jones",    ("S&P Global",           "SPGI",    "Indices / Ratings / Data")),
+    ("ftse russell",     ("LSEG (FTSE Russell)",  "LSEG.L",  "Indices / Benchmarking / Data")),
+    ("lseg",             ("LSEG (FTSE Russell)",  "LSEG.L",  "Indices / Benchmarking / Data")),
+    ("london stock exchange", ("LSEG (FTSE Russell)", "LSEG.L", "Indices / Benchmarking / Data")),
+    ("morningstar",      ("Morningstar",          "MORN",    "Research / ESG / Ratings")),
+    ("bloomberg terminal", ("Bloomberg",          "",        "Data / Analytics")),
+    ("bloomberg lp",     ("Bloomberg",            "",        "Data / Analytics")),
+    ("factset",          ("FactSet",              "FDS",     "Analytics / Data Platform")),
+    ("moody's",          ("Moody's",              "MCO",     "Ratings / Risk Analytics")),
+    ("moodys",           ("Moody's",              "MCO",     "Ratings / Risk Analytics")),
+    ("nasdaq",           ("Nasdaq",               "NDAQ",    "Exchanges / Index Licensing")),
+    ("intercontinental exchange", ("Intercontinental Exchange", "ICE", "Exchanges / Data / Indices")),
+    ("cme group",        ("CME Group",            "CME",     "Derivatives / Indices")),
+    ("preqin",           ("BlackRock",            "BLK",     "Private Market Sponsors")),
+    ("burgiss",          ("MSCI (industry mention)", "MSCI", "Private Market Sponsors")),
+    ("riskmetrics",      ("MSCI (industry mention)", "MSCI", "Risk / Analytics")),
+    ("barraone",         ("MSCI (industry mention)", "MSCI", "Risk / Analytics")),
+    ("barra",            ("MSCI (industry mention)", "MSCI", "Risk / Analytics")),
+    ("msci",             ("MSCI (industry mention)", "MSCI", "Indices")),
+]
+
+
+def _google_news_search_url(query: str) -> str:
+    """Build a Google News RSS search URL for the given query."""
+    return (
+        "https://news.google.com/rss/search?"
+        f"q={urllib.parse.quote(query)}&hl=en-US&gl=US&ceid=US:en"
+    )
+
+
+def _clean_google_news_title(title: str) -> tuple[str, str]:
+    """Google News appends ' - Publisher' to every title. Split it off and
+    return (clean_title, publisher_suffix)."""
+    m = re.search(r"^(.*?)\s+[-–—]\s+([^-–—]+)$", title or "")
+    if m:
+        return m.group(1).strip(), m.group(2).strip()
+    return (title or "").strip(), ""
+
+
+def _match_brand(text: str) -> tuple[str, str, str] | None:
+    """Return (competitor, ticker, segment) for the first high-signal brand
+    whose keyword appears in text. Used to re-attribute section-feed items."""
+    low = (text or "").lower()
+    for kw, meta in HIGH_SIGNAL_BRANDS:
+        if kw in low:
+            return meta
+    return None
+
+
+def fetch_premium_news_for_competitor(
+    competitor: str, ticker: str, segment: str,
+    sites: list[str], max_items: int,
+) -> list[dict]:
+    """Query Google News RSS filtered to paywalled publishers.
+
+    Returns articles from WSJ, FT, Bloomberg, Barron's, MarketWatch, Reuters
+    that mention the competitor by name. Google News provides headline + dek
+    + published date for free even when the target article is paywalled —
+    enough to feed our classifier and show an analyst-useful row in the
+    dashboard. Clicking through opens the paywalled article in a new tab.
+    """
+    if not sites:
+        return []
+    site_filter = " OR ".join(f"site:{d}" for d in sites)
+    # Quote the competitor name so Google treats it as a phrase
+    query = f'"{competitor}" ({site_filter})'
+    url = _google_news_search_url(query)
+
+    resp = requests.get(url, headers=HEADERS, timeout=20)
+    resp.raise_for_status()
+    root = ET.fromstring(resp.content)
+    for el in root.iter():
+        if "}" in el.tag:
+            el.tag = el.tag.split("}", 1)[1]
+
+    out = []
+    for it in (root.findall(".//item") or [])[:max_items]:
+        title_el = it.find("title")
+        link_el = it.find("link")
+        desc_el = it.find("description") or it.find("summary")
+        date_el = it.find("pubDate") or it.find("published")
+        source_el = it.find("source")
+
+        raw_title = (title_el.text or "").strip() if title_el is not None else ""
+        url_ = (link_el.text or "").strip() if link_el is not None else ""
+        if not raw_title or not url_:
+            continue
+
+        title, publisher_from_title = _clean_google_news_title(raw_title)
+        source_name = publisher_from_title
+        if source_el is not None and (source_el.text or "").strip():
+            source_name = source_el.text.strip()
+
+        summary_html = desc_el.text or "" if desc_el is not None else ""
+        summary = re.sub(r"<[^>]+>", " ", summary_html)
+        summary = re.sub(r"\s+", " ", summary).strip()[:500]
+
+        published = _parse_rss_date(date_el.text if date_el is not None else "")
+
+        out.append({
+            "title": title,
+            "url": url_,
+            "source": source_name or "Google News",
+            "summary": summary,
+            "published": published,
+            "image": "",
+            "competitor": competitor,
+            "ticker": ticker,
+            "segment": segment,
+            "origin": "premium_google_news",
+            "related": ticker or "",
+            "finnhub_category": "",
+        })
+    return out
+
+
+def fetch_section_feed_filtered(
+    feed_url: str, feed_name: str, max_items: int,
+) -> list[dict]:
+    """Fetch a WSJ/MarketWatch section feed and keep only items whose headline
+    or summary mentions a known competitor, MSCI product, or industry-relevant
+    brand. Catches editorial/CIO-Journal coverage (e.g. 'Inside BlackRock's AI
+    Transformation') that isn't surfaced by per-company queries.
+    """
+    resp = requests.get(feed_url, headers=HEADERS, timeout=15)
+    resp.raise_for_status()
+    root = ET.fromstring(resp.content)
+    for el in root.iter():
+        if "}" in el.tag:
+            el.tag = el.tag.split("}", 1)[1]
+
+    out = []
+    for it in (root.findall(".//item") or [])[:max_items]:
+        title_el = it.find("title")
+        link_el = it.find("link")
+        desc_el = it.find("description") or it.find("summary")
+        date_el = it.find("pubDate") or it.find("published")
+
+        title = (title_el.text or "").strip() if title_el is not None else ""
+        # Atom <link href=...> vs RSS <link>url</link>
+        if link_el is not None:
+            url_ = link_el.get("href") or (link_el.text or "").strip()
+        else:
+            url_ = ""
+        url_ = url_.strip()
+        if not title or not url_:
+            continue
+
+        summary_html = desc_el.text or "" if desc_el is not None else ""
+        summary = re.sub(r"<[^>]+>", " ", summary_html)
+        summary = re.sub(r"\s+", " ", summary).strip()[:500]
+
+        haystack = f"{title} {summary}"
+        match = _match_brand(haystack)
+        if not match:
+            continue  # Not competitor-relevant — drop.
+
+        competitor_name, ticker, segment = match
+        published = _parse_rss_date(date_el.text if date_el is not None else "")
+
+        out.append({
+            "title": title,
+            "url": url_,
+            "source": feed_name,
+            "summary": summary,
+            "published": published,
+            "image": "",
+            "competitor": competitor_name,
+            "ticker": ticker,
+            "segment": segment,
+            "origin": "premium_section_feed",
+            "related": ticker or "",
+            "finnhub_category": "",
+        })
+    return out
+
+
+# ──────────────────────────────────────────────────────────────────────────
 # Dedupe + enrich
 # ──────────────────────────────────────────────────────────────────────────
+def _normalize_title_for_dedupe(title: str) -> str:
+    """Strip Google News publisher suffixes and punctuation so the same story
+    hashes to the same ID whether it came from Finnhub, Google News redirect,
+    WSJ section feed, or a manual seed.
+    """
+    t = (title or "").strip()
+    # Drop trailing " - Publisher" that Google News appends to every headline
+    t = re.sub(r"\s+[-–—]\s+[^-–—]+$", "", t).strip()
+    t = t.lower()
+    t = re.sub(r"[^\w\s]", "", t)
+    t = re.sub(r"\s+", " ", t).strip()
+    return t
+
+
 def article_id(article: dict) -> str:
-    key = (article.get("url", "") or article.get("title", "")).strip().lower()
+    # Prefer title-based dedupe when we have a substantive title. Same story
+    # reaches us via multiple URLs (direct publisher + Google News redirect +
+    # syndicated copy); titles stay stable across them.
+    title_norm = _normalize_title_for_dedupe(article.get("title", ""))
+    if len(title_norm) >= 30:
+        key = title_norm
+    else:
+        key = (article.get("url", "") or title_norm).strip().lower()
     return hashlib.md5(key.encode("utf-8")).hexdigest()[:16]
 
 
@@ -585,18 +815,51 @@ def enrich(article: dict) -> dict:
     return article
 
 
+def _richness_score(a: dict) -> int:
+    """Higher = richer article. Used to pick the best copy when the same
+    story arrives from multiple sources."""
+    score = 0
+    if a.get("published"):
+        score += 4
+    if a.get("image"):
+        score += 3
+    url = (a.get("url") or "").lower()
+    # Direct publisher URL beats a Google News redirect every time —
+    # the redirect URL expires and shows a Google chrome on hover.
+    if url and "news.google.com" not in url:
+        score += 3
+    if len(a.get("summary") or "") > 150:
+        score += 2
+    elif len(a.get("summary") or "") > 60:
+        score += 1
+    # Manual seeds carry analyst context — slight tiebreak preference.
+    if a.get("origin") == "manual":
+        score += 2
+    return score
+
+
 def dedupe(articles: list[dict]) -> list[dict]:
     seen: dict[str, dict] = {}
     for a in articles:
         aid = a.get("id") or article_id(a)
         a["id"] = aid
         prev = seen.get(aid)
-        # Prefer articles with a published date; otherwise keep the first seen.
         if prev is None:
             seen[aid] = a
         else:
-            if not prev.get("published") and a.get("published"):
-                seen[aid] = a
+            # Keep the richest copy. Merge "related" tickers so we don't lose
+            # Finnhub's cross-references when the richer copy came from elsewhere.
+            winner = a if _richness_score(a) > _richness_score(prev) else prev
+            loser = prev if winner is a else a
+            merged_related = ",".join(sorted({
+                t.strip() for t in (
+                    (winner.get("related") or "").split(",")
+                    + (loser.get("related") or "").split(",")
+                ) if t.strip()
+            }))
+            if merged_related:
+                winner["related"] = merged_related
+            seen[aid] = winner
     return list(seen.values())
 
 
@@ -697,6 +960,54 @@ def main() -> int:
                 print(f"[ok] {src_name}: {len(items)} articles")
             except Exception as e:
                 statuses.append({"name": src_name, "status": "error", "error": str(e)[:200], "items": 0})
+                print(f"[err] {src_name}: {e}")
+
+    # ──────────────────────────────────────────────────────────────────
+    # 3. Premium news (paywalled publishers Finnhub misses) — WSJ, FT,
+    # Bloomberg, Barron's, MarketWatch, Reuters. Gated behind the
+    # premium_news.enabled flag in config/sources.json.
+    # ──────────────────────────────────────────────────────────────────
+    premium_cfg = cfg.get("premium_news") or {}
+    if premium_cfg.get("enabled"):
+        sites = premium_cfg.get("sites") or []
+        per_comp_cap = int(premium_cfg.get("per_competitor_cap", 5))
+
+        # 3a. Per-competitor Google News site-filtered queries
+        for comp in cfg.get("competitors", []):
+            name = comp.get("name") or "Unknown"
+            ticker = comp.get("ticker") or ""
+            segment = comp.get("segment") or ""
+            src_name = f"Premium-{name}"
+            try:
+                items = fetch_premium_news_for_competitor(
+                    name, ticker, segment, sites, per_comp_cap,
+                )
+                all_articles.extend(items)
+                statuses.append({"name": src_name, "status": "ok", "items": len(items)})
+                print(f"[ok] {src_name}: {len(items)} articles")
+            except Exception as e:
+                statuses.append({"name": src_name, "status": "error",
+                                 "error": str(e)[:200], "items": 0})
+                print(f"[err] {src_name}: {e}")
+            time.sleep(0.6)  # Google News is lenient but be polite
+
+        # 3b. WSJ / MarketWatch section feeds — broad ingest, then
+        # keyword-filter to competitor-relevant items only.
+        section_cap = int(premium_cfg.get("section_feed_max_items", 40))
+        for feed in premium_cfg.get("section_feeds", []) or []:
+            feed_url = feed.get("url") or ""
+            feed_name = feed.get("name") or feed_url
+            if not feed_url:
+                continue
+            src_name = f"Section-{feed_name}"
+            try:
+                items = fetch_section_feed_filtered(feed_url, feed_name, section_cap)
+                all_articles.extend(items)
+                statuses.append({"name": src_name, "status": "ok", "items": len(items)})
+                print(f"[ok] {src_name}: {len(items)} articles (after relevance filter)")
+            except Exception as e:
+                statuses.append({"name": src_name, "status": "error",
+                                 "error": str(e)[:200], "items": 0})
                 print(f"[err] {src_name}: {e}")
 
     # Merge analyst-curated seeds (WSJ op-eds, direct press releases, etc.)

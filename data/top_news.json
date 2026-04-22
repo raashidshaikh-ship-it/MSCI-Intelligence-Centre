@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-21T23:37:48.877377+00:00",
+  "last_updated": "2026-04-22T07:37:20.362285+00:00",
   "total": 6,
   "articles": [
     {
@@ -25,7 +25,7 @@
       "importance_score": 75,
       "importance": "High",
       "impact_level": "High",
-      "id": "62d212e3cb0c0037",
+      "id": "47270572c80283b2",
       "signals": [
         "Technology / AI",
         "Recent (<3d)",
@@ -62,7 +62,7 @@
       "importance_score": 65,
       "importance": "High",
       "impact_level": "High",
-      "id": "cb077c6e0c05829a",
+      "id": "e1d057e7da93a23c",
       "signals": [
         "Technology / AI"
       ],
@@ -98,7 +98,7 @@
       "importance_score": 55,
       "importance": "Medium",
       "impact_level": "Medium",
-      "id": "3309395da9297984",
+      "id": "ab6354458cbe1884",
       "signals": [
         "Technology / AI"
       ],
@@ -132,7 +132,7 @@
       "importance_score": 55,
       "importance": "Medium",
       "impact_level": "Medium",
-      "id": "5058990817903d6b",
+      "id": "a344b7c5672f8034",
       "signals": [
         "Technology / AI"
       ],
@@ -167,7 +167,7 @@
       "importance_score": 85,
       "importance": "Critical",
       "impact_level": "Critical",
-      "id": "11339b1ffb566381",
+      "id": "b9ec894fc2610806",
       "signals": [
         "Mentions MSCI",
         "Index / ETF",
@@ -204,7 +204,7 @@
       "importance_score": 70,
       "importance": "High",
       "impact_level": "High",
-      "id": "adaa9946295a0b89",
+      "id": "b28ce8abe01d0688",
       "signals": [
         "Product Launch"
       ],

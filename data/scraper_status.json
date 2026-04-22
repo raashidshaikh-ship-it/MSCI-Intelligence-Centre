@@ -1,5 +1,5 @@
 {
-  "last_run": "2026-04-20T14:38:33.848717+00:00",
+  "last_run": "2026-04-22T07:37:20.448118+00:00",
   "sources": [
     {
       "name": "Finnhub-SPGI",
@@ -66,6 +66,83 @@
       "status": "skipped",
       "error": "FINNHUB_API_KEY not set",
       "items": 0
+    },
+    {
+      "name": "Premium-S&P Global",
+      "status": "error",
+      "error": "HTTPSConnectionPool(host='news.google.com', port=443): Max retries exceeded with url: /rss/search?q=%22S%26P%20Global%22%20%28site%3Awsj.com%20OR%20site%3Amarketwatch.com%20OR%20site%3Abarrons.com%20O",
+      "items": 0
+    },
+    {
+      "name": "Premium-London Stock Exchange Group (FTSE Russell)",
+      "status": "error",
+      "error": "HTTPSConnectionPool(host='news.google.com', port=443): Max retries exceeded with url: /rss/search?q=%22London%20Stock%20Exchange%20Group%20%28FTSE%20Russell%29%22%20%28site%3Awsj.com%20OR%20site%3Amar",
+      "items": 0
+    },
+    {
+      "name": "Premium-Morningstar",
+      "status": "error",
+      "error": "HTTPSConnectionPool(host='news.google.com', port=443): Max retries exceeded with url: /rss/search?q=%22Morningstar%22%20%28site%3Awsj.com%20OR%20site%3Amarketwatch.com%20OR%20site%3Abarrons.com%20OR%2",
+      "items": 0
+    },
+    {
+      "name": "Premium-Intercontinental Exchange",
+      "status": "error",
+      "error": "HTTPSConnectionPool(host='news.google.com', port=443): Max retries exceeded with url: /rss/search?q=%22Intercontinental%20Exchange%22%20%28site%3Awsj.com%20OR%20site%3Amarketwatch.com%20OR%20site%3Aba",
+      "items": 0
+    },
+    {
+      "name": "Premium-Nasdaq",
+      "status": "error",
+      "error": "HTTPSConnectionPool(host='news.google.com', port=443): Max retries exceeded with url: /rss/search?q=%22Nasdaq%22%20%28site%3Awsj.com%20OR%20site%3Amarketwatch.com%20OR%20site%3Abarrons.com%20OR%20site",
+      "items": 0
+    },
+    {
+      "name": "Premium-CME Group",
+      "status": "error",
+      "error": "HTTPSConnectionPool(host='news.google.com', port=443): Max retries exceeded with url: /rss/search?q=%22CME%20Group%22%20%28site%3Awsj.com%20OR%20site%3Amarketwatch.com%20OR%20site%3Abarrons.com%20OR%2",
+      "items": 0
+    },
+    {
+      "name": "Premium-FactSet",
+      "status": "error",
+      "error": "HTTPSConnectionPool(host='news.google.com', port=443): Max retries exceeded with url: /rss/search?q=%22FactSet%22%20%28site%3Awsj.com%20OR%20site%3Amarketwatch.com%20OR%20site%3Abarrons.com%20OR%20sit",
+      "items": 0
+    },
+    {
+      "name": "Premium-Moody's",
+      "status": "error",
+      "error": "HTTPSConnectionPool(host='news.google.com', port=443): Max retries exceeded with url: /rss/search?q=%22Moody%27s%22%20%28site%3Awsj.com%20OR%20site%3Amarketwatch.com%20OR%20site%3Abarrons.com%20OR%20s",
+      "items": 0
+    },
+    {
+      "name": "Section-WSJ — Markets",
+      "status": "error",
+      "error": "HTTPSConnectionPool(host='feeds.content.dowjones.io', port=443): Max retries exceeded with url: /public/rss/RSSMarketsMain (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connectio",
+      "items": 0
+    },
+    {
+      "name": "Section-WSJ — Tech",
+      "status": "error",
+      "error": "HTTPSConnectionPool(host='feeds.content.dowjones.io', port=443): Max retries exceeded with url: /public/rss/RSSWSJD (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection faile",
+      "items": 0
+    },
+    {
+      "name": "Section-WSJ — Business",
+      "status": "error",
+      "error": "HTTPSConnectionPool(host='feeds.content.dowjones.io', port=443): Max retries exceeded with url: /public/rss/WSJcomUSBusiness (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connect",
+      "items": 0
+    },
+    {
+      "name": "Section-MarketWatch — Top Stories",
+      "status": "error",
+      "error": "HTTPSConnectionPool(host='feeds.content.dowjones.io', port=443): Max retries exceeded with url: /public/rss/mw_topstories (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection",
+      "items": 0
+    },
+    {
+      "name": "Manual-seeds",
+      "status": "ok",
+      "items": 6
     }
   ]
 }

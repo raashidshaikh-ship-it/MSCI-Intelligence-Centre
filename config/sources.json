@@ -61,5 +61,37 @@
     "max_articles_per_source": 25,
     "total_cap": 200,
     "sentiment_enabled": true
+  },
+  "premium_news": {
+    "_comment": "Paywalled publishers (WSJ, FT, Bloomberg, Barron's, MarketWatch, Reuters) aren't indexed by Finnhub's /company-news endpoint. We route around the paywall via (1) Google News RSS with site-filters per competitor, and (2) WSJ/MarketWatch section feeds filtered for competitor mentions. Both return public headlines + summaries. No login required, no ToS violation — Google News and Dow Jones publish these feeds explicitly for syndication.",
+    "enabled": true,
+    "per_competitor_cap": 5,
+    "sites": [
+      "wsj.com",
+      "marketwatch.com",
+      "barrons.com",
+      "ft.com",
+      "bloomberg.com",
+      "reuters.com"
+    ],
+    "section_feeds": [
+      {
+        "url": "https://feeds.content.dowjones.io/public/rss/RSSMarketsMain",
+        "name": "WSJ — Markets"
+      },
+      {
+        "url": "https://feeds.content.dowjones.io/public/rss/RSSWSJD",
+        "name": "WSJ — Tech"
+      },
+      {
+        "url": "https://feeds.content.dowjones.io/public/rss/WSJcomUSBusiness",
+        "name": "WSJ — Business"
+      },
+      {
+        "url": "https://feeds.content.dowjones.io/public/rss/mw_topstories",
+        "name": "MarketWatch — Top Stories"
+      }
+    ],
+    "section_feed_max_items": 40
   }
 }
