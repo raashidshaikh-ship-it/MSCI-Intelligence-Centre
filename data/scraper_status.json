@@ -1,142 +1,123 @@
 {
-  "last_run": "2026-04-22T07:37:20.448118+00:00",
+  "last_run": "2026-04-22T11:10:37.837026+00:00",
   "sources": [
     {
       "name": "Finnhub-SPGI",
-      "status": "skipped",
-      "error": "FINNHUB_API_KEY not set",
-      "items": 0
+      "status": "ok",
+      "items": 25
     },
     {
       "name": "RSS-press.spglobal.com",
       "status": "error",
-      "error": "HTTPSConnectionPool(host='press.spglobal.com', port=443): Max retries exceeded with url: /index.php?s=20295&mode=rss (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection fail",
+      "error": "404 Client Error: Not Found for url: https://press.spglobal.com/index.php?s=20295&mode=rss",
       "items": 0
     },
     {
       "name": "Finnhub-LSEG.L",
-      "status": "skipped",
-      "error": "FINNHUB_API_KEY not set",
+      "status": "error",
+      "error": "403 Client Error: Forbidden for url: https://finnhub.io/api/v1/company-news?symbol=LSEG.L&from=2026-04-08&to=2026-04-22&token=d7j3h29r01qp3g1rlnh0d7j3h29r01qp3g1rlnhg",
       "items": 0
     },
     {
       "name": "RSS-www.lseg.com",
       "status": "error",
-      "error": "HTTPSConnectionPool(host='www.lseg.com', port=443): Max retries exceeded with url: /en/media-centre/press-releases/rss (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection fa",
+      "error": "404 Client Error: Not Found for url: https://www.lseg.com/en/media-centre/press-releases/rss",
       "items": 0
     },
     {
       "name": "Finnhub-MORN",
-      "status": "skipped",
-      "error": "FINNHUB_API_KEY not set",
-      "items": 0
+      "status": "ok",
+      "items": 20
     },
     {
       "name": "RSS-newsroom.morningstar.com",
       "status": "error",
-      "error": "HTTPSConnectionPool(host='newsroom.morningstar.com', port=443): Max retries exceeded with url: /newsroom/news-archive/press-release-details/rss (Caused by ProxyError('Unable to connect to proxy', OSEr",
+      "error": "403 Client Error: Forbidden for url: https://newsroom.morningstar.com/newsroom/news-archive/press-release-details/rss",
       "items": 0
     },
     {
       "name": "Finnhub-ICE",
-      "status": "skipped",
-      "error": "FINNHUB_API_KEY not set",
-      "items": 0
+      "status": "ok",
+      "items": 25
     },
     {
       "name": "Finnhub-NDAQ",
-      "status": "skipped",
-      "error": "FINNHUB_API_KEY not set",
-      "items": 0
+      "status": "ok",
+      "items": 15
     },
     {
       "name": "Finnhub-CME",
-      "status": "skipped",
-      "error": "FINNHUB_API_KEY not set",
-      "items": 0
+      "status": "ok",
+      "items": 25
     },
     {
       "name": "Finnhub-FDS",
-      "status": "skipped",
-      "error": "FINNHUB_API_KEY not set",
-      "items": 0
+      "status": "ok",
+      "items": 25
     },
     {
       "name": "Finnhub-MCO",
-      "status": "skipped",
-      "error": "FINNHUB_API_KEY not set",
-      "items": 0
+      "status": "ok",
+      "items": 25
     },
     {
       "name": "Premium-S&P Global",
-      "status": "error",
-      "error": "HTTPSConnectionPool(host='news.google.com', port=443): Max retries exceeded with url: /rss/search?q=%22S%26P%20Global%22%20%28site%3Awsj.com%20OR%20site%3Amarketwatch.com%20OR%20site%3Abarrons.com%20O",
-      "items": 0
+      "status": "ok",
+      "items": 5
     },
     {
       "name": "Premium-London Stock Exchange Group (FTSE Russell)",
-      "status": "error",
-      "error": "HTTPSConnectionPool(host='news.google.com', port=443): Max retries exceeded with url: /rss/search?q=%22London%20Stock%20Exchange%20Group%20%28FTSE%20Russell%29%22%20%28site%3Awsj.com%20OR%20site%3Amar",
+      "status": "ok",
       "items": 0
     },
     {
       "name": "Premium-Morningstar",
-      "status": "error",
-      "error": "HTTPSConnectionPool(host='news.google.com', port=443): Max retries exceeded with url: /rss/search?q=%22Morningstar%22%20%28site%3Awsj.com%20OR%20site%3Amarketwatch.com%20OR%20site%3Abarrons.com%20OR%2",
-      "items": 0
+      "status": "ok",
+      "items": 5
     },
     {
       "name": "Premium-Intercontinental Exchange",
-      "status": "error",
-      "error": "HTTPSConnectionPool(host='news.google.com', port=443): Max retries exceeded with url: /rss/search?q=%22Intercontinental%20Exchange%22%20%28site%3Awsj.com%20OR%20site%3Amarketwatch.com%20OR%20site%3Aba",
-      "items": 0
+      "status": "ok",
+      "items": 5
     },
     {
       "name": "Premium-Nasdaq",
-      "status": "error",
-      "error": "HTTPSConnectionPool(host='news.google.com', port=443): Max retries exceeded with url: /rss/search?q=%22Nasdaq%22%20%28site%3Awsj.com%20OR%20site%3Amarketwatch.com%20OR%20site%3Abarrons.com%20OR%20site",
-      "items": 0
+      "status": "ok",
+      "items": 5
     },
     {
       "name": "Premium-CME Group",
-      "status": "error",
-      "error": "HTTPSConnectionPool(host='news.google.com', port=443): Max retries exceeded with url: /rss/search?q=%22CME%20Group%22%20%28site%3Awsj.com%20OR%20site%3Amarketwatch.com%20OR%20site%3Abarrons.com%20OR%2",
-      "items": 0
+      "status": "ok",
+      "items": 5
     },
     {
       "name": "Premium-FactSet",
-      "status": "error",
-      "error": "HTTPSConnectionPool(host='news.google.com', port=443): Max retries exceeded with url: /rss/search?q=%22FactSet%22%20%28site%3Awsj.com%20OR%20site%3Amarketwatch.com%20OR%20site%3Abarrons.com%20OR%20sit",
-      "items": 0
+      "status": "ok",
+      "items": 5
     },
     {
       "name": "Premium-Moody's",
-      "status": "error",
-      "error": "HTTPSConnectionPool(host='news.google.com', port=443): Max retries exceeded with url: /rss/search?q=%22Moody%27s%22%20%28site%3Awsj.com%20OR%20site%3Amarketwatch.com%20OR%20site%3Abarrons.com%20OR%20s",
-      "items": 0
+      "status": "ok",
+      "items": 5
     },
     {
       "name": "Section-WSJ — Markets",
-      "status": "error",
-      "error": "HTTPSConnectionPool(host='feeds.content.dowjones.io', port=443): Max retries exceeded with url: /public/rss/RSSMarketsMain (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connectio",
-      "items": 0
+      "status": "ok",
+      "items": 1
     },
     {
       "name": "Section-WSJ — Tech",
-      "status": "error",
-      "error": "HTTPSConnectionPool(host='feeds.content.dowjones.io', port=443): Max retries exceeded with url: /public/rss/RSSWSJD (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection faile",
-      "items": 0
+      "status": "ok",
+      "items": 1
     },
     {
       "name": "Section-WSJ — Business",
-      "status": "error",
-      "error": "HTTPSConnectionPool(host='feeds.content.dowjones.io', port=443): Max retries exceeded with url: /public/rss/WSJcomUSBusiness (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connect",
+      "status": "ok",
       "items": 0
     },
     {
       "name": "Section-MarketWatch — Top Stories",
-      "status": "error",
-      "error": "HTTPSConnectionPool(host='feeds.content.dowjones.io', port=443): Max retries exceeded with url: /public/rss/mw_topstories (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection",
+      "status": "ok",
       "items": 0
     },
     {

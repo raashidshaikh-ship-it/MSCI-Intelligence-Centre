@@ -1,28 +1,101 @@
 {
-  "_comment": "SCAFFOLD ONLY — all numeric values are null until the scraper populates them from public IR pages, SEC filings, and news. NEVER hardcode values here.",
-  "last_updated": null,
+  "last_updated": "2026-04-22T11:13:07.940621Z",
   "schema_version": "4.2",
   "current_quarter": "Q4 2025",
-  "quarters": ["Q3 2025", "Q4 2025", "Q1 2026"],
+  "quarters": [
+    "Q3 2025",
+    "Q4 2025",
+    "Q1 2026"
+  ],
   "client_categories": {
-    "Traditional": ["BlackRock", "State Street", "Aberdeen", "Amundi", "Goldman Sachs", "J.P. Morgan", "UBS"],
-    "PE/Alternative": ["KKR", "Blackstone", "Carlyle", "Apollo", "Brookfield"]
+    "Traditional": [
+      "BlackRock",
+      "State Street",
+      "Aberdeen",
+      "Amundi",
+      "Goldman Sachs",
+      "J.P. Morgan",
+      "UBS"
+    ],
+    "PE/Alternative": [
+      "KKR",
+      "Blackstone",
+      "Carlyle",
+      "Apollo",
+      "Brookfield"
+    ]
   },
   "insight_tag_catalog": [
-    {"id": "ai_growth",        "label": "AI Growth",        "color": "#14b8a6"},
-    {"id": "private_credit",   "label": "Private Credit",   "color": "#8b5cf6"},
-    {"id": "etf_expansion",    "label": "ETF Expansion",    "color": "#3b82f6"},
-    {"id": "tokenization",     "label": "Tokenization",     "color": "#22c55e"},
-    {"id": "wealth_channel",   "label": "Wealth / 401(k)",  "color": "#f59e0b"},
-    {"id": "insurance_scale",  "label": "Insurance Scale",  "color": "#ec4899"},
-    {"id": "alts_fundraising", "label": "Alts Fundraising", "color": "#06b6d4"},
-    {"id": "margin_expansion", "label": "Margin Expansion", "color": "#10b981"},
-    {"id": "revenue_decline",  "label": "Revenue Decline",  "color": "#ef4444"},
-    {"id": "cost_pressure",    "label": "Cost Pressure",    "color": "#f97316"},
-    {"id": "integration",      "label": "Integration",      "color": "#a855f7"},
-    {"id": "record_year",      "label": "Record Year",      "color": "#eab308"},
-    {"id": "retention_risk",   "label": "Retention Risk",   "color": "#dc2626"},
-    {"id": "run_rate_growth",  "label": "Run Rate Growth",  "color": "#0ea5e9"}
+    {
+      "id": "ai_growth",
+      "label": "AI Growth",
+      "color": "#14b8a6"
+    },
+    {
+      "id": "private_credit",
+      "label": "Private Credit",
+      "color": "#8b5cf6"
+    },
+    {
+      "id": "etf_expansion",
+      "label": "ETF Expansion",
+      "color": "#3b82f6"
+    },
+    {
+      "id": "tokenization",
+      "label": "Tokenization",
+      "color": "#22c55e"
+    },
+    {
+      "id": "wealth_channel",
+      "label": "Wealth / 401(k)",
+      "color": "#f59e0b"
+    },
+    {
+      "id": "insurance_scale",
+      "label": "Insurance Scale",
+      "color": "#ec4899"
+    },
+    {
+      "id": "alts_fundraising",
+      "label": "Alts Fundraising",
+      "color": "#06b6d4"
+    },
+    {
+      "id": "margin_expansion",
+      "label": "Margin Expansion",
+      "color": "#10b981"
+    },
+    {
+      "id": "revenue_decline",
+      "label": "Revenue Decline",
+      "color": "#ef4444"
+    },
+    {
+      "id": "cost_pressure",
+      "label": "Cost Pressure",
+      "color": "#f97316"
+    },
+    {
+      "id": "integration",
+      "label": "Integration",
+      "color": "#a855f7"
+    },
+    {
+      "id": "record_year",
+      "label": "Record Year",
+      "color": "#eab308"
+    },
+    {
+      "id": "retention_risk",
+      "label": "Retention Risk",
+      "color": "#dc2626"
+    },
+    {
+      "id": "run_rate_growth",
+      "label": "Run Rate Growth",
+      "color": "#0ea5e9"
+    }
   ],
   "executive_summary": {
     "period": "Q4 2025",
@@ -35,24 +108,371 @@
     "source": "Morningstar Direct Asset Flows (scraper-populated)",
     "note": "",
     "families": [
-      {"family": "Vanguard",          "active_usd": null, "passive_usd": null, "jan_2026_usd": null, "ytd_usd": null, "ttm_usd": null, "total_assets_usd": null},
-      {"family": "iShares",           "active_usd": null, "passive_usd": null, "jan_2026_usd": null, "ytd_usd": null, "ttm_usd": null, "total_assets_usd": null},
-      {"family": "Fidelity",          "active_usd": null, "passive_usd": null, "jan_2026_usd": null, "ytd_usd": null, "ttm_usd": null, "total_assets_usd": null},
-      {"family": "Capital Group",     "active_usd": null, "passive_usd": null, "jan_2026_usd": null, "ytd_usd": null, "ttm_usd": null, "total_assets_usd": null},
-      {"family": "SPDR State Street", "active_usd": null, "passive_usd": null, "jan_2026_usd": null, "ytd_usd": null, "ttm_usd": null, "total_assets_usd": null},
-      {"family": "Invesco",           "active_usd": null, "passive_usd": null, "jan_2026_usd": null, "ytd_usd": null, "ttm_usd": null, "total_assets_usd": null},
-      {"family": "JPMorgan",          "active_usd": null, "passive_usd": null, "jan_2026_usd": null, "ytd_usd": null, "ttm_usd": null, "total_assets_usd": null},
-      {"family": "T. Rowe Price",     "active_usd": null, "passive_usd": null, "jan_2026_usd": null, "ytd_usd": null, "ttm_usd": null, "total_assets_usd": null},
-      {"family": "Dimensional",       "active_usd": null, "passive_usd": null, "jan_2026_usd": null, "ytd_usd": null, "ttm_usd": null, "total_assets_usd": null},
-      {"family": "Franklin Templeton","active_usd": null, "passive_usd": null, "jan_2026_usd": null, "ytd_usd": null, "ttm_usd": null, "total_assets_usd": null}
+      {
+        "family": "Vanguard",
+        "active_usd": null,
+        "passive_usd": null,
+        "jan_2026_usd": null,
+        "ytd_usd": null,
+        "ttm_usd": null,
+        "total_assets_usd": null
+      },
+      {
+        "family": "iShares",
+        "active_usd": null,
+        "passive_usd": null,
+        "jan_2026_usd": null,
+        "ytd_usd": null,
+        "ttm_usd": null,
+        "total_assets_usd": null
+      },
+      {
+        "family": "Fidelity",
+        "active_usd": null,
+        "passive_usd": null,
+        "jan_2026_usd": null,
+        "ytd_usd": null,
+        "ttm_usd": null,
+        "total_assets_usd": null
+      },
+      {
+        "family": "Capital Group",
+        "active_usd": null,
+        "passive_usd": null,
+        "jan_2026_usd": null,
+        "ytd_usd": null,
+        "ttm_usd": null,
+        "total_assets_usd": null
+      },
+      {
+        "family": "SPDR State Street",
+        "active_usd": null,
+        "passive_usd": null,
+        "jan_2026_usd": null,
+        "ytd_usd": null,
+        "ttm_usd": null,
+        "total_assets_usd": null
+      },
+      {
+        "family": "Invesco",
+        "active_usd": null,
+        "passive_usd": null,
+        "jan_2026_usd": null,
+        "ytd_usd": null,
+        "ttm_usd": null,
+        "total_assets_usd": null
+      },
+      {
+        "family": "JPMorgan",
+        "active_usd": null,
+        "passive_usd": null,
+        "jan_2026_usd": null,
+        "ytd_usd": null,
+        "ttm_usd": null,
+        "total_assets_usd": null
+      },
+      {
+        "family": "T. Rowe Price",
+        "active_usd": null,
+        "passive_usd": null,
+        "jan_2026_usd": null,
+        "ytd_usd": null,
+        "ttm_usd": null,
+        "total_assets_usd": null
+      },
+      {
+        "family": "Dimensional",
+        "active_usd": null,
+        "passive_usd": null,
+        "jan_2026_usd": null,
+        "ytd_usd": null,
+        "ttm_usd": null,
+        "total_assets_usd": null
+      },
+      {
+        "family": "Franklin Templeton",
+        "active_usd": null,
+        "passive_usd": null,
+        "jan_2026_usd": null,
+        "ytd_usd": null,
+        "ttm_usd": null,
+        "total_assets_usd": null
+      }
     ]
   },
-  "opinion_mining": {},
+  "opinion_mining": {
+    "BlackRock": {
+      "initiatives": [],
+      "cost_pressures": [],
+      "strategic_insights": []
+    },
+    "State Street": {
+      "initiatives": [],
+      "cost_pressures": [],
+      "strategic_insights": []
+    },
+    "Aberdeen": {
+      "initiatives": [],
+      "cost_pressures": [],
+      "strategic_insights": []
+    },
+    "Amundi": {
+      "initiatives": [],
+      "cost_pressures": [],
+      "strategic_insights": []
+    },
+    "Goldman Sachs": {
+      "initiatives": [],
+      "cost_pressures": [],
+      "strategic_insights": []
+    },
+    "J.P. Morgan": {
+      "initiatives": [],
+      "cost_pressures": [],
+      "strategic_insights": []
+    },
+    "UBS": {
+      "initiatives": [],
+      "cost_pressures": [],
+      "strategic_insights": []
+    },
+    "KKR": {
+      "initiatives": [],
+      "cost_pressures": [],
+      "strategic_insights": []
+    },
+    "Blackstone": {
+      "initiatives": [],
+      "cost_pressures": [],
+      "strategic_insights": []
+    },
+    "Carlyle": {
+      "initiatives": [],
+      "cost_pressures": [],
+      "strategic_insights": []
+    },
+    "Apollo": {
+      "initiatives": [],
+      "cost_pressures": [],
+      "strategic_insights": []
+    },
+    "Brookfield": {
+      "initiatives": [],
+      "cost_pressures": [],
+      "strategic_insights": []
+    }
+  },
   "aum_summary": {
     "period": "Q4 2025",
     "note": "Populated by scraper per current quarter. Values remain null until a public filing is parsed.",
-    "traditional": [],
-    "pe_alternative": []
+    "traditional": [
+      {
+        "client": "BlackRock",
+        "ticker": "BLK",
+        "aum_usd": null,
+        "aum_yoy_growth_pct": null,
+        "organic_base_fee_growth_pct": null,
+        "net_inflows_q_usd": null,
+        "msci_run_rate_usd": null,
+        "msci_run_rate_yoy_pct": null,
+        "msci_client_revenue_usd": null,
+        "msci_client_revenue_yoy_pct": null,
+        "equity_aum_usd": null,
+        "fixed_income_aum_usd": null,
+        "alternatives_aum_usd": null,
+        "multi_asset_aum_usd": null,
+        "other_aum_usd": null
+      },
+      {
+        "client": "State Street",
+        "ticker": "STT",
+        "aum_usd": null,
+        "aum_yoy_growth_pct": null,
+        "organic_base_fee_growth_pct": null,
+        "net_inflows_q_usd": null,
+        "msci_run_rate_usd": null,
+        "msci_run_rate_yoy_pct": null,
+        "msci_client_revenue_usd": null,
+        "msci_client_revenue_yoy_pct": null,
+        "equity_aum_usd": null,
+        "fixed_income_aum_usd": null,
+        "alternatives_aum_usd": null,
+        "multi_asset_aum_usd": null,
+        "other_aum_usd": null
+      },
+      {
+        "client": "Aberdeen",
+        "ticker": "ABDN.L",
+        "aum_usd": null,
+        "aum_yoy_growth_pct": null,
+        "organic_base_fee_growth_pct": null,
+        "net_inflows_q_usd": null,
+        "msci_run_rate_usd": null,
+        "msci_run_rate_yoy_pct": null,
+        "msci_client_revenue_usd": null,
+        "msci_client_revenue_yoy_pct": null,
+        "equity_aum_usd": null,
+        "fixed_income_aum_usd": null,
+        "alternatives_aum_usd": null,
+        "multi_asset_aum_usd": null,
+        "other_aum_usd": null
+      },
+      {
+        "client": "Amundi",
+        "ticker": "AMUN.PA",
+        "aum_usd": null,
+        "aum_yoy_growth_pct": null,
+        "organic_base_fee_growth_pct": null,
+        "net_inflows_q_usd": null,
+        "msci_run_rate_usd": null,
+        "msci_run_rate_yoy_pct": null,
+        "msci_client_revenue_usd": null,
+        "msci_client_revenue_yoy_pct": null,
+        "equity_aum_usd": null,
+        "fixed_income_aum_usd": null,
+        "alternatives_aum_usd": null,
+        "multi_asset_aum_usd": null,
+        "other_aum_usd": null
+      },
+      {
+        "client": "Goldman Sachs",
+        "ticker": "GS",
+        "aum_usd": null,
+        "aum_yoy_growth_pct": null,
+        "organic_base_fee_growth_pct": null,
+        "net_inflows_q_usd": null,
+        "msci_run_rate_usd": null,
+        "msci_run_rate_yoy_pct": null,
+        "msci_client_revenue_usd": null,
+        "msci_client_revenue_yoy_pct": null,
+        "equity_aum_usd": null,
+        "fixed_income_aum_usd": null,
+        "alternatives_aum_usd": null,
+        "multi_asset_aum_usd": null,
+        "other_aum_usd": null
+      },
+      {
+        "client": "J.P. Morgan",
+        "ticker": "JPM",
+        "aum_usd": null,
+        "aum_yoy_growth_pct": null,
+        "organic_base_fee_growth_pct": null,
+        "net_inflows_q_usd": null,
+        "msci_run_rate_usd": null,
+        "msci_run_rate_yoy_pct": null,
+        "msci_client_revenue_usd": null,
+        "msci_client_revenue_yoy_pct": null,
+        "equity_aum_usd": null,
+        "fixed_income_aum_usd": null,
+        "alternatives_aum_usd": null,
+        "multi_asset_aum_usd": null,
+        "other_aum_usd": null
+      },
+      {
+        "client": "UBS",
+        "ticker": "UBS",
+        "aum_usd": null,
+        "aum_yoy_growth_pct": null,
+        "organic_base_fee_growth_pct": null,
+        "net_inflows_q_usd": null,
+        "msci_run_rate_usd": null,
+        "msci_run_rate_yoy_pct": null,
+        "msci_client_revenue_usd": null,
+        "msci_client_revenue_yoy_pct": null,
+        "equity_aum_usd": null,
+        "fixed_income_aum_usd": null,
+        "alternatives_aum_usd": null,
+        "multi_asset_aum_usd": null,
+        "other_aum_usd": null
+      }
+    ],
+    "pe_alternative": [
+      {
+        "client": "KKR",
+        "ticker": "KKR",
+        "aum_usd": null,
+        "aum_yoy_growth_pct": null,
+        "organic_base_fee_growth_pct": null,
+        "net_inflows_q_usd": null,
+        "msci_run_rate_usd": null,
+        "msci_run_rate_yoy_pct": null,
+        "msci_client_revenue_usd": null,
+        "msci_client_revenue_yoy_pct": null,
+        "real_estate_aum_usd": null,
+        "private_equity_aum_usd": null,
+        "credit_insurance_aum_usd": null,
+        "multi_asset_aum_usd": null,
+        "other_aum_usd": null
+      },
+      {
+        "client": "Blackstone",
+        "ticker": "BX",
+        "aum_usd": null,
+        "aum_yoy_growth_pct": null,
+        "organic_base_fee_growth_pct": null,
+        "net_inflows_q_usd": null,
+        "msci_run_rate_usd": null,
+        "msci_run_rate_yoy_pct": null,
+        "msci_client_revenue_usd": null,
+        "msci_client_revenue_yoy_pct": null,
+        "real_estate_aum_usd": null,
+        "private_equity_aum_usd": null,
+        "credit_insurance_aum_usd": null,
+        "multi_asset_aum_usd": null,
+        "other_aum_usd": null
+      },
+      {
+        "client": "Carlyle",
+        "ticker": "CG",
+        "aum_usd": null,
+        "aum_yoy_growth_pct": null,
+        "organic_base_fee_growth_pct": null,
+        "net_inflows_q_usd": null,
+        "msci_run_rate_usd": null,
+        "msci_run_rate_yoy_pct": null,
+        "msci_client_revenue_usd": null,
+        "msci_client_revenue_yoy_pct": null,
+        "real_estate_aum_usd": null,
+        "private_equity_aum_usd": null,
+        "credit_insurance_aum_usd": null,
+        "multi_asset_aum_usd": null,
+        "other_aum_usd": null
+      },
+      {
+        "client": "Apollo",
+        "ticker": "APO",
+        "aum_usd": null,
+        "aum_yoy_growth_pct": null,
+        "organic_base_fee_growth_pct": null,
+        "net_inflows_q_usd": null,
+        "msci_run_rate_usd": null,
+        "msci_run_rate_yoy_pct": null,
+        "msci_client_revenue_usd": null,
+        "msci_client_revenue_yoy_pct": null,
+        "real_estate_aum_usd": null,
+        "private_equity_aum_usd": null,
+        "credit_insurance_aum_usd": null,
+        "multi_asset_aum_usd": null,
+        "other_aum_usd": null
+      },
+      {
+        "client": "Brookfield",
+        "ticker": "BAM",
+        "aum_usd": null,
+        "aum_yoy_growth_pct": null,
+        "organic_base_fee_growth_pct": null,
+        "net_inflows_q_usd": null,
+        "msci_run_rate_usd": null,
+        "msci_run_rate_yoy_pct": null,
+        "msci_client_revenue_usd": null,
+        "msci_client_revenue_yoy_pct": null,
+        "real_estate_aum_usd": null,
+        "private_equity_aum_usd": null,
+        "credit_insurance_aum_usd": null,
+        "multi_asset_aum_usd": null,
+        "other_aum_usd": null
+      }
+    ]
   },
   "voc_analysis": {
     "total_entries": null,
@@ -60,7 +480,1422 @@
     "source": "",
     "headline": "",
     "clients": [],
-    "qualitative_insights": {"traditional": {}, "pe_alternative": {}}
+    "qualitative_insights": {
+      "traditional": {},
+      "pe_alternative": {}
+    }
   },
-  "clients": {}
+  "clients": {
+    "BlackRock": {
+      "name": "BlackRock",
+      "ticker": "BLK",
+      "cik": "0001364742",
+      "category": "Traditional",
+      "country": "US",
+      "ir_url": "https://ir.blackrock.com/news-and-events/press-releases",
+      "aum_buckets": [
+        "equity",
+        "fixed_income",
+        "multi_asset",
+        "alternatives",
+        "cash_other"
+      ],
+      "quarters": {
+        "Q3 2025": {
+          "financials": {
+            "revenue_usd": null,
+            "revenue_yoy_pct": null,
+            "operating_income_usd": null,
+            "operating_margin_pct": null,
+            "net_income_usd": null,
+            "eps_usd": null,
+            "aum_usd": null,
+            "aum_yoy_growth_pct": null,
+            "organic_base_fee_growth_pct": null,
+            "net_inflows_q_usd": null,
+            "net_inflows_fy_usd": null
+          },
+          "aum_breakdown": {},
+          "segments": {},
+          "msci_relationship": {
+            "run_rate_usd": null,
+            "run_rate_yoy_growth_pct": null,
+            "client_revenue_usd": null,
+            "client_revenue_yoy_growth_pct": null
+          },
+          "insight_tags": [],
+          "strategic_highlights": [],
+          "themes": {
+            "key_initiatives": [],
+            "cost_pressures": [],
+            "strategic_insights": []
+          },
+          "top_trends": [],
+          "sources": [],
+          "notes": []
+        },
+        "Q4 2025": {
+          "financials": {
+            "revenue_usd": null,
+            "revenue_yoy_pct": null,
+            "operating_income_usd": null,
+            "operating_margin_pct": null,
+            "net_income_usd": null,
+            "eps_usd": null,
+            "aum_usd": null,
+            "aum_yoy_growth_pct": null,
+            "organic_base_fee_growth_pct": null,
+            "net_inflows_q_usd": null,
+            "net_inflows_fy_usd": null
+          },
+          "aum_breakdown": {},
+          "segments": {},
+          "msci_relationship": {
+            "run_rate_usd": null,
+            "run_rate_yoy_growth_pct": null,
+            "client_revenue_usd": null,
+            "client_revenue_yoy_growth_pct": null
+          },
+          "insight_tags": [],
+          "strategic_highlights": [],
+          "themes": {
+            "key_initiatives": [],
+            "cost_pressures": [],
+            "strategic_insights": []
+          },
+          "top_trends": [],
+          "sources": [],
+          "notes": []
+        },
+        "Q1 2026": {
+          "financials": {
+            "revenue_usd": null,
+            "revenue_yoy_pct": null,
+            "operating_income_usd": null,
+            "operating_margin_pct": null,
+            "net_income_usd": null,
+            "eps_usd": null,
+            "aum_usd": null,
+            "aum_yoy_growth_pct": null,
+            "organic_base_fee_growth_pct": null,
+            "net_inflows_q_usd": null,
+            "net_inflows_fy_usd": null
+          },
+          "aum_breakdown": {},
+          "segments": {},
+          "msci_relationship": {
+            "run_rate_usd": null,
+            "run_rate_yoy_growth_pct": null,
+            "client_revenue_usd": null,
+            "client_revenue_yoy_growth_pct": null
+          },
+          "insight_tags": [],
+          "strategic_highlights": [],
+          "themes": {
+            "key_initiatives": [],
+            "cost_pressures": [],
+            "strategic_insights": []
+          },
+          "top_trends": [],
+          "sources": [],
+          "notes": []
+        }
+      }
+    },
+    "State Street": {
+      "name": "State Street",
+      "ticker": "STT",
+      "cik": "0000093751",
+      "category": "Traditional",
+      "country": "US",
+      "ir_url": "https://investors.statestreet.com/investors/news-releases/default.aspx",
+      "aum_buckets": [
+        "equity",
+        "fixed_income",
+        "multi_asset",
+        "alternatives",
+        "cash_other"
+      ],
+      "quarters": {
+        "Q3 2025": {
+          "financials": {
+            "revenue_usd": null,
+            "revenue_yoy_pct": null,
+            "operating_income_usd": null,
+            "operating_margin_pct": null,
+            "net_income_usd": null,
+            "eps_usd": null,
+            "aum_usd": null,
+            "aum_yoy_growth_pct": null,
+            "organic_base_fee_growth_pct": null,
+            "net_inflows_q_usd": null,
+            "net_inflows_fy_usd": null
+          },
+          "aum_breakdown": {},
+          "segments": {},
+          "msci_relationship": {
+            "run_rate_usd": null,
+            "run_rate_yoy_growth_pct": null,
+            "client_revenue_usd": null,
+            "client_revenue_yoy_growth_pct": null
+          },
+          "insight_tags": [],
+          "strategic_highlights": [],
+          "themes": {
+            "key_initiatives": [],
+            "cost_pressures": [],
+            "strategic_insights": []
+          },
+          "top_trends": [],
+          "sources": [],
+          "notes": []
+        },
+        "Q4 2025": {
+          "financials": {
+            "revenue_usd": null,
+            "revenue_yoy_pct": null,
+            "operating_income_usd": null,
+            "operating_margin_pct": null,
+            "net_income_usd": null,
+            "eps_usd": null,
+            "aum_usd": null,
+            "aum_yoy_growth_pct": null,
+            "organic_base_fee_growth_pct": null,
+            "net_inflows_q_usd": null,
+            "net_inflows_fy_usd": null
+          },
+          "aum_breakdown": {},
+          "segments": {},
+          "msci_relationship": {
+            "run_rate_usd": null,
+            "run_rate_yoy_growth_pct": null,
+            "client_revenue_usd": null,
+            "client_revenue_yoy_growth_pct": null
+          },
+          "insight_tags": [],
+          "strategic_highlights": [],
+          "themes": {
+            "key_initiatives": [],
+            "cost_pressures": [],
+            "strategic_insights": []
+          },
+          "top_trends": [],
+          "sources": [],
+          "notes": []
+        },
+        "Q1 2026": {
+          "financials": {
+            "revenue_usd": null,
+            "revenue_yoy_pct": null,
+            "operating_income_usd": null,
+            "operating_margin_pct": null,
+            "net_income_usd": null,
+            "eps_usd": null,
+            "aum_usd": null,
+            "aum_yoy_growth_pct": null,
+            "organic_base_fee_growth_pct": null,
+            "net_inflows_q_usd": null,
+            "net_inflows_fy_usd": null
+          },
+          "aum_breakdown": {},
+          "segments": {},
+          "msci_relationship": {
+            "run_rate_usd": null,
+            "run_rate_yoy_growth_pct": null,
+            "client_revenue_usd": null,
+            "client_revenue_yoy_growth_pct": null
+          },
+          "insight_tags": [],
+          "strategic_highlights": [],
+          "themes": {
+            "key_initiatives": [],
+            "cost_pressures": [],
+            "strategic_insights": []
+          },
+          "top_trends": [],
+          "sources": [],
+          "notes": []
+        }
+      }
+    },
+    "Aberdeen": {
+      "name": "Aberdeen",
+      "ticker": "ABDN.L",
+      "cik": null,
+      "category": "Traditional",
+      "country": "UK",
+      "ir_url": "https://www.aberdeeninvestments.com/en-gb/investor/results-reports-and-presentations",
+      "aum_buckets": [
+        "investments",
+        "adviser",
+        "ii_wealth",
+        "insurance_partners",
+        "other"
+      ],
+      "quarters": {
+        "Q3 2025": {
+          "financials": {
+            "revenue_usd": null,
+            "revenue_yoy_pct": null,
+            "operating_income_usd": null,
+            "operating_margin_pct": null,
+            "net_income_usd": null,
+            "eps_usd": null,
+            "aum_usd": null,
+            "aum_yoy_growth_pct": null,
+            "organic_base_fee_growth_pct": null,
+            "net_inflows_q_usd": null,
+            "net_inflows_fy_usd": null
+          },
+          "aum_breakdown": {},
+          "segments": {},
+          "msci_relationship": {
+            "run_rate_usd": null,
+            "run_rate_yoy_growth_pct": null,
+            "client_revenue_usd": null,
+            "client_revenue_yoy_growth_pct": null
+          },
+          "insight_tags": [],
+          "strategic_highlights": [],
+          "themes": {
+            "key_initiatives": [],
+            "cost_pressures": [],
+            "strategic_insights": []
+          },
+          "top_trends": [],
+          "sources": [],
+          "notes": []
+        },
+        "Q4 2025": {
+          "financials": {
+            "revenue_usd": null,
+            "revenue_yoy_pct": null,
+            "operating_income_usd": null,
+            "operating_margin_pct": null,
+            "net_income_usd": null,
+            "eps_usd": null,
+            "aum_usd": null,
+            "aum_yoy_growth_pct": null,
+            "organic_base_fee_growth_pct": null,
+            "net_inflows_q_usd": null,
+            "net_inflows_fy_usd": null
+          },
+          "aum_breakdown": {},
+          "segments": {},
+          "msci_relationship": {
+            "run_rate_usd": null,
+            "run_rate_yoy_growth_pct": null,
+            "client_revenue_usd": null,
+            "client_revenue_yoy_growth_pct": null
+          },
+          "insight_tags": [],
+          "strategic_highlights": [],
+          "themes": {
+            "key_initiatives": [],
+            "cost_pressures": [],
+            "strategic_insights": []
+          },
+          "top_trends": [],
+          "sources": [],
+          "notes": []
+        },
+        "Q1 2026": {
+          "financials": {
+            "revenue_usd": null,
+            "revenue_yoy_pct": null,
+            "operating_income_usd": null,
+            "operating_margin_pct": null,
+            "net_income_usd": null,
+            "eps_usd": null,
+            "aum_usd": null,
+            "aum_yoy_growth_pct": null,
+            "organic_base_fee_growth_pct": null,
+            "net_inflows_q_usd": null,
+            "net_inflows_fy_usd": null
+          },
+          "aum_breakdown": {},
+          "segments": {},
+          "msci_relationship": {
+            "run_rate_usd": null,
+            "run_rate_yoy_growth_pct": null,
+            "client_revenue_usd": null,
+            "client_revenue_yoy_growth_pct": null
+          },
+          "insight_tags": [],
+          "strategic_highlights": [],
+          "themes": {
+            "key_initiatives": [],
+            "cost_pressures": [],
+            "strategic_insights": []
+          },
+          "top_trends": [],
+          "sources": [],
+          "notes": []
+        }
+      }
+    },
+    "Amundi": {
+      "name": "Amundi",
+      "ticker": "AMUN.PA",
+      "cik": null,
+      "category": "Traditional",
+      "country": "France",
+      "ir_url": "https://about.amundi.com/Investor-relations/Results",
+      "aum_buckets": [
+        "equity",
+        "bonds",
+        "multi_asset",
+        "treasury",
+        "alternatives"
+      ],
+      "quarters": {
+        "Q3 2025": {
+          "financials": {
+            "revenue_usd": null,
+            "revenue_yoy_pct": null,
+            "operating_income_usd": null,
+            "operating_margin_pct": null,
+            "net_income_usd": null,
+            "eps_usd": null,
+            "aum_usd": null,
+            "aum_yoy_growth_pct": null,
+            "organic_base_fee_growth_pct": null,
+            "net_inflows_q_usd": null,
+            "net_inflows_fy_usd": null
+          },
+          "aum_breakdown": {},
+          "segments": {},
+          "msci_relationship": {
+            "run_rate_usd": null,
+            "run_rate_yoy_growth_pct": null,
+            "client_revenue_usd": null,
+            "client_revenue_yoy_growth_pct": null
+          },
+          "insight_tags": [],
+          "strategic_highlights": [],
+          "themes": {
+            "key_initiatives": [],
+            "cost_pressures": [],
+            "strategic_insights": []
+          },
+          "top_trends": [],
+          "sources": [],
+          "notes": []
+        },
+        "Q4 2025": {
+          "financials": {
+            "revenue_usd": null,
+            "revenue_yoy_pct": null,
+            "operating_income_usd": null,
+            "operating_margin_pct": null,
+            "net_income_usd": null,
+            "eps_usd": null,
+            "aum_usd": null,
+            "aum_yoy_growth_pct": null,
+            "organic_base_fee_growth_pct": null,
+            "net_inflows_q_usd": null,
+            "net_inflows_fy_usd": null
+          },
+          "aum_breakdown": {},
+          "segments": {},
+          "msci_relationship": {
+            "run_rate_usd": null,
+            "run_rate_yoy_growth_pct": null,
+            "client_revenue_usd": null,
+            "client_revenue_yoy_growth_pct": null
+          },
+          "insight_tags": [],
+          "strategic_highlights": [],
+          "themes": {
+            "key_initiatives": [],
+            "cost_pressures": [],
+            "strategic_insights": []
+          },
+          "top_trends": [],
+          "sources": [],
+          "notes": []
+        },
+        "Q1 2026": {
+          "financials": {
+            "revenue_usd": null,
+            "revenue_yoy_pct": null,
+            "operating_income_usd": null,
+            "operating_margin_pct": null,
+            "net_income_usd": null,
+            "eps_usd": null,
+            "aum_usd": null,
+            "aum_yoy_growth_pct": null,
+            "organic_base_fee_growth_pct": null,
+            "net_inflows_q_usd": null,
+            "net_inflows_fy_usd": null
+          },
+          "aum_breakdown": {},
+          "segments": {},
+          "msci_relationship": {
+            "run_rate_usd": null,
+            "run_rate_yoy_growth_pct": null,
+            "client_revenue_usd": null,
+            "client_revenue_yoy_growth_pct": null
+          },
+          "insight_tags": [],
+          "strategic_highlights": [],
+          "themes": {
+            "key_initiatives": [],
+            "cost_pressures": [],
+            "strategic_insights": []
+          },
+          "top_trends": [],
+          "sources": [],
+          "notes": []
+        }
+      }
+    },
+    "Goldman Sachs": {
+      "name": "Goldman Sachs",
+      "ticker": "GS",
+      "cik": "0000886982",
+      "category": "Traditional",
+      "country": "US",
+      "ir_url": "https://www.goldmansachs.com/investor-relations/financials/current/press-releases/",
+      "aum_buckets": [
+        "equity",
+        "fixed_income",
+        "alternatives",
+        "liquidity",
+        "multi_asset"
+      ],
+      "quarters": {
+        "Q3 2025": {
+          "financials": {
+            "revenue_usd": null,
+            "revenue_yoy_pct": null,
+            "operating_income_usd": null,
+            "operating_margin_pct": null,
+            "net_income_usd": null,
+            "eps_usd": null,
+            "aum_usd": null,
+            "aum_yoy_growth_pct": null,
+            "organic_base_fee_growth_pct": null,
+            "net_inflows_q_usd": null,
+            "net_inflows_fy_usd": null
+          },
+          "aum_breakdown": {},
+          "segments": {},
+          "msci_relationship": {
+            "run_rate_usd": null,
+            "run_rate_yoy_growth_pct": null,
+            "client_revenue_usd": null,
+            "client_revenue_yoy_growth_pct": null
+          },
+          "insight_tags": [],
+          "strategic_highlights": [],
+          "themes": {
+            "key_initiatives": [],
+            "cost_pressures": [],
+            "strategic_insights": []
+          },
+          "top_trends": [],
+          "sources": [],
+          "notes": []
+        },
+        "Q4 2025": {
+          "financials": {
+            "revenue_usd": null,
+            "revenue_yoy_pct": null,
+            "operating_income_usd": null,
+            "operating_margin_pct": null,
+            "net_income_usd": null,
+            "eps_usd": null,
+            "aum_usd": null,
+            "aum_yoy_growth_pct": null,
+            "organic_base_fee_growth_pct": null,
+            "net_inflows_q_usd": null,
+            "net_inflows_fy_usd": null
+          },
+          "aum_breakdown": {},
+          "segments": {},
+          "msci_relationship": {
+            "run_rate_usd": null,
+            "run_rate_yoy_growth_pct": null,
+            "client_revenue_usd": null,
+            "client_revenue_yoy_growth_pct": null
+          },
+          "insight_tags": [],
+          "strategic_highlights": [],
+          "themes": {
+            "key_initiatives": [],
+            "cost_pressures": [],
+            "strategic_insights": []
+          },
+          "top_trends": [],
+          "sources": [],
+          "notes": []
+        },
+        "Q1 2026": {
+          "financials": {
+            "revenue_usd": null,
+            "revenue_yoy_pct": null,
+            "operating_income_usd": null,
+            "operating_margin_pct": null,
+            "net_income_usd": null,
+            "eps_usd": null,
+            "aum_usd": null,
+            "aum_yoy_growth_pct": null,
+            "organic_base_fee_growth_pct": null,
+            "net_inflows_q_usd": null,
+            "net_inflows_fy_usd": null
+          },
+          "aum_breakdown": {},
+          "segments": {},
+          "msci_relationship": {
+            "run_rate_usd": null,
+            "run_rate_yoy_growth_pct": null,
+            "client_revenue_usd": null,
+            "client_revenue_yoy_growth_pct": null
+          },
+          "insight_tags": [],
+          "strategic_highlights": [],
+          "themes": {
+            "key_initiatives": [],
+            "cost_pressures": [],
+            "strategic_insights": []
+          },
+          "top_trends": [],
+          "sources": [],
+          "notes": []
+        }
+      }
+    },
+    "J.P. Morgan": {
+      "name": "J.P. Morgan",
+      "ticker": "JPM",
+      "cik": "0000019617",
+      "category": "Traditional",
+      "country": "US",
+      "ir_url": "https://www.jpmorganchase.com/ir/news",
+      "aum_buckets": [
+        "equity",
+        "fixed_income",
+        "multi_asset",
+        "alternatives",
+        "liquidity"
+      ],
+      "quarters": {
+        "Q3 2025": {
+          "financials": {
+            "revenue_usd": null,
+            "revenue_yoy_pct": null,
+            "operating_income_usd": null,
+            "operating_margin_pct": null,
+            "net_income_usd": null,
+            "eps_usd": null,
+            "aum_usd": null,
+            "aum_yoy_growth_pct": null,
+            "organic_base_fee_growth_pct": null,
+            "net_inflows_q_usd": null,
+            "net_inflows_fy_usd": null
+          },
+          "aum_breakdown": {},
+          "segments": {},
+          "msci_relationship": {
+            "run_rate_usd": null,
+            "run_rate_yoy_growth_pct": null,
+            "client_revenue_usd": null,
+            "client_revenue_yoy_growth_pct": null
+          },
+          "insight_tags": [],
+          "strategic_highlights": [],
+          "themes": {
+            "key_initiatives": [],
+            "cost_pressures": [],
+            "strategic_insights": []
+          },
+          "top_trends": [],
+          "sources": [],
+          "notes": []
+        },
+        "Q4 2025": {
+          "financials": {
+            "revenue_usd": null,
+            "revenue_yoy_pct": null,
+            "operating_income_usd": null,
+            "operating_margin_pct": null,
+            "net_income_usd": null,
+            "eps_usd": null,
+            "aum_usd": null,
+            "aum_yoy_growth_pct": null,
+            "organic_base_fee_growth_pct": null,
+            "net_inflows_q_usd": null,
+            "net_inflows_fy_usd": null
+          },
+          "aum_breakdown": {},
+          "segments": {},
+          "msci_relationship": {
+            "run_rate_usd": null,
+            "run_rate_yoy_growth_pct": null,
+            "client_revenue_usd": null,
+            "client_revenue_yoy_growth_pct": null
+          },
+          "insight_tags": [],
+          "strategic_highlights": [],
+          "themes": {
+            "key_initiatives": [],
+            "cost_pressures": [],
+            "strategic_insights": []
+          },
+          "top_trends": [],
+          "sources": [],
+          "notes": []
+        },
+        "Q1 2026": {
+          "financials": {
+            "revenue_usd": null,
+            "revenue_yoy_pct": null,
+            "operating_income_usd": null,
+            "operating_margin_pct": null,
+            "net_income_usd": null,
+            "eps_usd": null,
+            "aum_usd": null,
+            "aum_yoy_growth_pct": null,
+            "organic_base_fee_growth_pct": null,
+            "net_inflows_q_usd": null,
+            "net_inflows_fy_usd": null
+          },
+          "aum_breakdown": {},
+          "segments": {},
+          "msci_relationship": {
+            "run_rate_usd": null,
+            "run_rate_yoy_growth_pct": null,
+            "client_revenue_usd": null,
+            "client_revenue_yoy_growth_pct": null
+          },
+          "insight_tags": [],
+          "strategic_highlights": [],
+          "themes": {
+            "key_initiatives": [],
+            "cost_pressures": [],
+            "strategic_insights": []
+          },
+          "top_trends": [],
+          "sources": [],
+          "notes": []
+        }
+      }
+    },
+    "UBS": {
+      "name": "UBS",
+      "ticker": "UBS",
+      "cik": "0001114446",
+      "category": "Traditional",
+      "country": "Switzerland",
+      "ir_url": "https://www.ubs.com/global/en/investor-relations/financial-information/quarterly-reporting.html",
+      "aum_buckets": [
+        "equity",
+        "fixed_income",
+        "multi_asset",
+        "alternatives",
+        "money_market"
+      ],
+      "quarters": {
+        "Q3 2025": {
+          "financials": {
+            "revenue_usd": null,
+            "revenue_yoy_pct": null,
+            "operating_income_usd": null,
+            "operating_margin_pct": null,
+            "net_income_usd": null,
+            "eps_usd": null,
+            "aum_usd": null,
+            "aum_yoy_growth_pct": null,
+            "organic_base_fee_growth_pct": null,
+            "net_inflows_q_usd": null,
+            "net_inflows_fy_usd": null
+          },
+          "aum_breakdown": {},
+          "segments": {},
+          "msci_relationship": {
+            "run_rate_usd": null,
+            "run_rate_yoy_growth_pct": null,
+            "client_revenue_usd": null,
+            "client_revenue_yoy_growth_pct": null
+          },
+          "insight_tags": [],
+          "strategic_highlights": [],
+          "themes": {
+            "key_initiatives": [],
+            "cost_pressures": [],
+            "strategic_insights": []
+          },
+          "top_trends": [],
+          "sources": [],
+          "notes": []
+        },
+        "Q4 2025": {
+          "financials": {
+            "revenue_usd": null,
+            "revenue_yoy_pct": null,
+            "operating_income_usd": null,
+            "operating_margin_pct": null,
+            "net_income_usd": null,
+            "eps_usd": null,
+            "aum_usd": null,
+            "aum_yoy_growth_pct": null,
+            "organic_base_fee_growth_pct": null,
+            "net_inflows_q_usd": null,
+            "net_inflows_fy_usd": null
+          },
+          "aum_breakdown": {},
+          "segments": {},
+          "msci_relationship": {
+            "run_rate_usd": null,
+            "run_rate_yoy_growth_pct": null,
+            "client_revenue_usd": null,
+            "client_revenue_yoy_growth_pct": null
+          },
+          "insight_tags": [],
+          "strategic_highlights": [],
+          "themes": {
+            "key_initiatives": [],
+            "cost_pressures": [],
+            "strategic_insights": []
+          },
+          "top_trends": [],
+          "sources": [],
+          "notes": []
+        },
+        "Q1 2026": {
+          "financials": {
+            "revenue_usd": null,
+            "revenue_yoy_pct": null,
+            "operating_income_usd": null,
+            "operating_margin_pct": null,
+            "net_income_usd": null,
+            "eps_usd": null,
+            "aum_usd": null,
+            "aum_yoy_growth_pct": null,
+            "organic_base_fee_growth_pct": null,
+            "net_inflows_q_usd": null,
+            "net_inflows_fy_usd": null
+          },
+          "aum_breakdown": {},
+          "segments": {},
+          "msci_relationship": {
+            "run_rate_usd": null,
+            "run_rate_yoy_growth_pct": null,
+            "client_revenue_usd": null,
+            "client_revenue_yoy_growth_pct": null
+          },
+          "insight_tags": [],
+          "strategic_highlights": [],
+          "themes": {
+            "key_initiatives": [],
+            "cost_pressures": [],
+            "strategic_insights": []
+          },
+          "top_trends": [],
+          "sources": [],
+          "notes": []
+        }
+      }
+    },
+    "KKR": {
+      "name": "KKR",
+      "ticker": "KKR",
+      "cik": "0001404912",
+      "category": "PE/Alternative",
+      "country": "US",
+      "ir_url": "https://ir.kkr.com/events-presentations/press-releases/",
+      "aum_buckets": [
+        "private_equity",
+        "real_assets",
+        "credit_liquid",
+        "insurance",
+        "other"
+      ],
+      "quarters": {
+        "Q3 2025": {
+          "financials": {
+            "revenue_usd": null,
+            "revenue_yoy_pct": null,
+            "operating_income_usd": null,
+            "operating_margin_pct": null,
+            "net_income_usd": null,
+            "eps_usd": null,
+            "aum_usd": null,
+            "aum_yoy_growth_pct": null,
+            "organic_base_fee_growth_pct": null,
+            "net_inflows_q_usd": null,
+            "net_inflows_fy_usd": null
+          },
+          "aum_breakdown": {},
+          "segments": {},
+          "msci_relationship": {
+            "run_rate_usd": null,
+            "run_rate_yoy_growth_pct": null,
+            "client_revenue_usd": null,
+            "client_revenue_yoy_growth_pct": null
+          },
+          "insight_tags": [],
+          "strategic_highlights": [],
+          "themes": {
+            "key_initiatives": [],
+            "cost_pressures": [],
+            "strategic_insights": []
+          },
+          "top_trends": [],
+          "sources": [],
+          "notes": []
+        },
+        "Q4 2025": {
+          "financials": {
+            "revenue_usd": null,
+            "revenue_yoy_pct": null,
+            "operating_income_usd": null,
+            "operating_margin_pct": null,
+            "net_income_usd": null,
+            "eps_usd": null,
+            "aum_usd": null,
+            "aum_yoy_growth_pct": null,
+            "organic_base_fee_growth_pct": null,
+            "net_inflows_q_usd": null,
+            "net_inflows_fy_usd": null
+          },
+          "aum_breakdown": {},
+          "segments": {},
+          "msci_relationship": {
+            "run_rate_usd": null,
+            "run_rate_yoy_growth_pct": null,
+            "client_revenue_usd": null,
+            "client_revenue_yoy_growth_pct": null
+          },
+          "insight_tags": [],
+          "strategic_highlights": [],
+          "themes": {
+            "key_initiatives": [],
+            "cost_pressures": [],
+            "strategic_insights": []
+          },
+          "top_trends": [],
+          "sources": [],
+          "notes": []
+        },
+        "Q1 2026": {
+          "financials": {
+            "revenue_usd": null,
+            "revenue_yoy_pct": null,
+            "operating_income_usd": null,
+            "operating_margin_pct": null,
+            "net_income_usd": null,
+            "eps_usd": null,
+            "aum_usd": null,
+            "aum_yoy_growth_pct": null,
+            "organic_base_fee_growth_pct": null,
+            "net_inflows_q_usd": null,
+            "net_inflows_fy_usd": null
+          },
+          "aum_breakdown": {},
+          "segments": {},
+          "msci_relationship": {
+            "run_rate_usd": null,
+            "run_rate_yoy_growth_pct": null,
+            "client_revenue_usd": null,
+            "client_revenue_yoy_growth_pct": null
+          },
+          "insight_tags": [],
+          "strategic_highlights": [],
+          "themes": {
+            "key_initiatives": [],
+            "cost_pressures": [],
+            "strategic_insights": []
+          },
+          "top_trends": [],
+          "sources": [],
+          "notes": []
+        }
+      }
+    },
+    "Blackstone": {
+      "name": "Blackstone",
+      "ticker": "BX",
+      "cik": "0001393818",
+      "category": "PE/Alternative",
+      "country": "US",
+      "ir_url": "https://ir.blackstone.com/news-events/press-releases",
+      "aum_buckets": [
+        "real_estate",
+        "private_equity",
+        "credit_insurance",
+        "multi_asset",
+        "other"
+      ],
+      "quarters": {
+        "Q3 2025": {
+          "financials": {
+            "revenue_usd": null,
+            "revenue_yoy_pct": null,
+            "operating_income_usd": null,
+            "operating_margin_pct": null,
+            "net_income_usd": null,
+            "eps_usd": null,
+            "aum_usd": null,
+            "aum_yoy_growth_pct": null,
+            "organic_base_fee_growth_pct": null,
+            "net_inflows_q_usd": null,
+            "net_inflows_fy_usd": null
+          },
+          "aum_breakdown": {},
+          "segments": {},
+          "msci_relationship": {
+            "run_rate_usd": null,
+            "run_rate_yoy_growth_pct": null,
+            "client_revenue_usd": null,
+            "client_revenue_yoy_growth_pct": null
+          },
+          "insight_tags": [],
+          "strategic_highlights": [],
+          "themes": {
+            "key_initiatives": [],
+            "cost_pressures": [],
+            "strategic_insights": []
+          },
+          "top_trends": [],
+          "sources": [],
+          "notes": []
+        },
+        "Q4 2025": {
+          "financials": {
+            "revenue_usd": null,
+            "revenue_yoy_pct": null,
+            "operating_income_usd": null,
+            "operating_margin_pct": null,
+            "net_income_usd": null,
+            "eps_usd": null,
+            "aum_usd": null,
+            "aum_yoy_growth_pct": null,
+            "organic_base_fee_growth_pct": null,
+            "net_inflows_q_usd": null,
+            "net_inflows_fy_usd": null
+          },
+          "aum_breakdown": {},
+          "segments": {},
+          "msci_relationship": {
+            "run_rate_usd": null,
+            "run_rate_yoy_growth_pct": null,
+            "client_revenue_usd": null,
+            "client_revenue_yoy_growth_pct": null
+          },
+          "insight_tags": [],
+          "strategic_highlights": [],
+          "themes": {
+            "key_initiatives": [],
+            "cost_pressures": [],
+            "strategic_insights": []
+          },
+          "top_trends": [],
+          "sources": [],
+          "notes": []
+        },
+        "Q1 2026": {
+          "financials": {
+            "revenue_usd": null,
+            "revenue_yoy_pct": null,
+            "operating_income_usd": null,
+            "operating_margin_pct": null,
+            "net_income_usd": null,
+            "eps_usd": null,
+            "aum_usd": null,
+            "aum_yoy_growth_pct": null,
+            "organic_base_fee_growth_pct": null,
+            "net_inflows_q_usd": null,
+            "net_inflows_fy_usd": null
+          },
+          "aum_breakdown": {},
+          "segments": {},
+          "msci_relationship": {
+            "run_rate_usd": null,
+            "run_rate_yoy_growth_pct": null,
+            "client_revenue_usd": null,
+            "client_revenue_yoy_growth_pct": null
+          },
+          "insight_tags": [],
+          "strategic_highlights": [],
+          "themes": {
+            "key_initiatives": [],
+            "cost_pressures": [],
+            "strategic_insights": []
+          },
+          "top_trends": [],
+          "sources": [],
+          "notes": []
+        }
+      }
+    },
+    "Carlyle": {
+      "name": "Carlyle",
+      "ticker": "CG",
+      "cik": "0001527166",
+      "category": "PE/Alternative",
+      "country": "US",
+      "ir_url": "https://ir.carlyle.com/press-releases/",
+      "aum_buckets": [
+        "global_private_equity",
+        "global_credit",
+        "alpinvest",
+        "other",
+        "fee_earning"
+      ],
+      "quarters": {
+        "Q3 2025": {
+          "financials": {
+            "revenue_usd": null,
+            "revenue_yoy_pct": null,
+            "operating_income_usd": null,
+            "operating_margin_pct": null,
+            "net_income_usd": null,
+            "eps_usd": null,
+            "aum_usd": null,
+            "aum_yoy_growth_pct": null,
+            "organic_base_fee_growth_pct": null,
+            "net_inflows_q_usd": null,
+            "net_inflows_fy_usd": null
+          },
+          "aum_breakdown": {},
+          "segments": {},
+          "msci_relationship": {
+            "run_rate_usd": null,
+            "run_rate_yoy_growth_pct": null,
+            "client_revenue_usd": null,
+            "client_revenue_yoy_growth_pct": null
+          },
+          "insight_tags": [],
+          "strategic_highlights": [],
+          "themes": {
+            "key_initiatives": [],
+            "cost_pressures": [],
+            "strategic_insights": []
+          },
+          "top_trends": [],
+          "sources": [],
+          "notes": []
+        },
+        "Q4 2025": {
+          "financials": {
+            "revenue_usd": null,
+            "revenue_yoy_pct": null,
+            "operating_income_usd": null,
+            "operating_margin_pct": null,
+            "net_income_usd": null,
+            "eps_usd": null,
+            "aum_usd": null,
+            "aum_yoy_growth_pct": null,
+            "organic_base_fee_growth_pct": null,
+            "net_inflows_q_usd": null,
+            "net_inflows_fy_usd": null
+          },
+          "aum_breakdown": {},
+          "segments": {},
+          "msci_relationship": {
+            "run_rate_usd": null,
+            "run_rate_yoy_growth_pct": null,
+            "client_revenue_usd": null,
+            "client_revenue_yoy_growth_pct": null
+          },
+          "insight_tags": [],
+          "strategic_highlights": [],
+          "themes": {
+            "key_initiatives": [],
+            "cost_pressures": [],
+            "strategic_insights": []
+          },
+          "top_trends": [],
+          "sources": [],
+          "notes": []
+        },
+        "Q1 2026": {
+          "financials": {
+            "revenue_usd": null,
+            "revenue_yoy_pct": null,
+            "operating_income_usd": null,
+            "operating_margin_pct": null,
+            "net_income_usd": null,
+            "eps_usd": null,
+            "aum_usd": null,
+            "aum_yoy_growth_pct": null,
+            "organic_base_fee_growth_pct": null,
+            "net_inflows_q_usd": null,
+            "net_inflows_fy_usd": null
+          },
+          "aum_breakdown": {},
+          "segments": {},
+          "msci_relationship": {
+            "run_rate_usd": null,
+            "run_rate_yoy_growth_pct": null,
+            "client_revenue_usd": null,
+            "client_revenue_yoy_growth_pct": null
+          },
+          "insight_tags": [],
+          "strategic_highlights": [],
+          "themes": {
+            "key_initiatives": [],
+            "cost_pressures": [],
+            "strategic_insights": []
+          },
+          "top_trends": [],
+          "sources": [],
+          "notes": []
+        }
+      }
+    },
+    "Apollo": {
+      "name": "Apollo",
+      "ticker": "APO",
+      "cik": "0001858681",
+      "category": "PE/Alternative",
+      "country": "US",
+      "ir_url": "https://ir.apollo.com/news-events/press-releases",
+      "aum_buckets": [
+        "credit",
+        "equity",
+        "insurance_athene",
+        "global_wealth",
+        "other"
+      ],
+      "quarters": {
+        "Q3 2025": {
+          "financials": {
+            "revenue_usd": null,
+            "revenue_yoy_pct": null,
+            "operating_income_usd": null,
+            "operating_margin_pct": null,
+            "net_income_usd": null,
+            "eps_usd": null,
+            "aum_usd": null,
+            "aum_yoy_growth_pct": null,
+            "organic_base_fee_growth_pct": null,
+            "net_inflows_q_usd": null,
+            "net_inflows_fy_usd": null
+          },
+          "aum_breakdown": {},
+          "segments": {},
+          "msci_relationship": {
+            "run_rate_usd": null,
+            "run_rate_yoy_growth_pct": null,
+            "client_revenue_usd": null,
+            "client_revenue_yoy_growth_pct": null
+          },
+          "insight_tags": [],
+          "strategic_highlights": [],
+          "themes": {
+            "key_initiatives": [],
+            "cost_pressures": [],
+            "strategic_insights": []
+          },
+          "top_trends": [],
+          "sources": [],
+          "notes": []
+        },
+        "Q4 2025": {
+          "financials": {
+            "revenue_usd": null,
+            "revenue_yoy_pct": null,
+            "operating_income_usd": null,
+            "operating_margin_pct": null,
+            "net_income_usd": null,
+            "eps_usd": null,
+            "aum_usd": null,
+            "aum_yoy_growth_pct": null,
+            "organic_base_fee_growth_pct": null,
+            "net_inflows_q_usd": null,
+            "net_inflows_fy_usd": null
+          },
+          "aum_breakdown": {},
+          "segments": {},
+          "msci_relationship": {
+            "run_rate_usd": null,
+            "run_rate_yoy_growth_pct": null,
+            "client_revenue_usd": null,
+            "client_revenue_yoy_growth_pct": null
+          },
+          "insight_tags": [],
+          "strategic_highlights": [],
+          "themes": {
+            "key_initiatives": [],
+            "cost_pressures": [],
+            "strategic_insights": []
+          },
+          "top_trends": [],
+          "sources": [],
+          "notes": []
+        },
+        "Q1 2026": {
+          "financials": {
+            "revenue_usd": null,
+            "revenue_yoy_pct": null,
+            "operating_income_usd": null,
+            "operating_margin_pct": null,
+            "net_income_usd": null,
+            "eps_usd": null,
+            "aum_usd": null,
+            "aum_yoy_growth_pct": null,
+            "organic_base_fee_growth_pct": null,
+            "net_inflows_q_usd": null,
+            "net_inflows_fy_usd": null
+          },
+          "aum_breakdown": {},
+          "segments": {},
+          "msci_relationship": {
+            "run_rate_usd": null,
+            "run_rate_yoy_growth_pct": null,
+            "client_revenue_usd": null,
+            "client_revenue_yoy_growth_pct": null
+          },
+          "insight_tags": [
+            "insurance_scale",
+            "wealth_channel"
+          ],
+          "strategic_highlights": [
+            "Apollo is a high-growth, global alternative asset manager.",
+            "For more than three decades, our investing expertise across our fully integrated platform has served the financial return needs of our clients and provided businesses with innovative capital solutions for growth.",
+            "Our patient, creative, and knowledgeable approach to investing aligns our clients, businesses we invest in, our employees, and the communities we impact, to expand opportunity and achieve positive outcomes."
+          ],
+          "themes": {
+            "key_initiatives": [
+              "For more than three decades, our investing expertise across our fully integrated platform has served the financial return needs of our clients and provided businesses with innovative capital solutions for growth.",
+              "Our patient, creative, and knowledgeable approach to investing aligns our clients, businesses we invest in, our employees, and the communities we impact, to expand opportunity and achieve positive outcomes."
+            ],
+            "cost_pressures": [],
+            "strategic_insights": [
+              "Apollo is a high-growth, global alternative asset manager.",
+              "For more than three decades, our investing expertise across our fully integrated platform has served the financial return needs of our clients and provided businesses with innovative capital solutions for growth."
+            ]
+          },
+          "top_trends": [
+            {
+              "headline": "Apollo to Announce First Quarter 2026 Financial Results on May 6, 2026",
+              "url": "https://ir.apollo.com/news-events/press-releases/detail/617/apollo-to-announce-first-quarter-2026-financial-results-on",
+              "source": "Apollo IR"
+            }
+          ],
+          "sources": [],
+          "notes": []
+        }
+      }
+    },
+    "Brookfield": {
+      "name": "Brookfield",
+      "ticker": "BAM",
+      "cik": "0001001250",
+      "category": "PE/Alternative",
+      "country": "Canada",
+      "ir_url": "https://bam.brookfield.com/investors/news-presentations",
+      "aum_buckets": [
+        "infrastructure",
+        "renewable_power",
+        "real_estate",
+        "private_equity",
+        "credit"
+      ],
+      "quarters": {
+        "Q3 2025": {
+          "financials": {
+            "revenue_usd": null,
+            "revenue_yoy_pct": null,
+            "operating_income_usd": null,
+            "operating_margin_pct": null,
+            "net_income_usd": null,
+            "eps_usd": null,
+            "aum_usd": null,
+            "aum_yoy_growth_pct": null,
+            "organic_base_fee_growth_pct": null,
+            "net_inflows_q_usd": null,
+            "net_inflows_fy_usd": null
+          },
+          "aum_breakdown": {},
+          "segments": {},
+          "msci_relationship": {
+            "run_rate_usd": null,
+            "run_rate_yoy_growth_pct": null,
+            "client_revenue_usd": null,
+            "client_revenue_yoy_growth_pct": null
+          },
+          "insight_tags": [],
+          "strategic_highlights": [],
+          "themes": {
+            "key_initiatives": [],
+            "cost_pressures": [],
+            "strategic_insights": []
+          },
+          "top_trends": [],
+          "sources": [],
+          "notes": []
+        },
+        "Q4 2025": {
+          "financials": {
+            "revenue_usd": null,
+            "revenue_yoy_pct": null,
+            "operating_income_usd": null,
+            "operating_margin_pct": null,
+            "net_income_usd": null,
+            "eps_usd": null,
+            "aum_usd": null,
+            "aum_yoy_growth_pct": null,
+            "organic_base_fee_growth_pct": null,
+            "net_inflows_q_usd": null,
+            "net_inflows_fy_usd": null
+          },
+          "aum_breakdown": {},
+          "segments": {},
+          "msci_relationship": {
+            "run_rate_usd": null,
+            "run_rate_yoy_growth_pct": null,
+            "client_revenue_usd": null,
+            "client_revenue_yoy_growth_pct": null
+          },
+          "insight_tags": [],
+          "strategic_highlights": [],
+          "themes": {
+            "key_initiatives": [],
+            "cost_pressures": [],
+            "strategic_insights": []
+          },
+          "top_trends": [],
+          "sources": [],
+          "notes": []
+        },
+        "Q1 2026": {
+          "financials": {
+            "revenue_usd": null,
+            "revenue_yoy_pct": null,
+            "operating_income_usd": null,
+            "operating_margin_pct": null,
+            "net_income_usd": null,
+            "eps_usd": null,
+            "aum_usd": null,
+            "aum_yoy_growth_pct": null,
+            "organic_base_fee_growth_pct": null,
+            "net_inflows_q_usd": null,
+            "net_inflows_fy_usd": null
+          },
+          "aum_breakdown": {},
+          "segments": {},
+          "msci_relationship": {
+            "run_rate_usd": null,
+            "run_rate_yoy_growth_pct": null,
+            "client_revenue_usd": null,
+            "client_revenue_yoy_growth_pct": null
+          },
+          "insight_tags": [],
+          "strategic_highlights": [],
+          "themes": {
+            "key_initiatives": [],
+            "cost_pressures": [],
+            "strategic_insights": []
+          },
+          "top_trends": [],
+          "sources": [],
+          "notes": []
+        }
+      }
+    }
+  }
 }
