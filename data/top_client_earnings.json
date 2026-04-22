@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-04-22T09:16:33Z",
-  "schema_version": "4.1",
+  "last_updated": "2026-04-22T10:26:28.210455Z",
+  "schema_version": "4.2",
   "current_quarter": "Q4 2025",
   "quarters": [
     "Q3 2025",
@@ -59,7 +59,7 @@
     {
       "id": "alts_fundraising",
       "label": "Alts Fundraising",
-      "color": "#a855f7"
+      "color": "#06b6d4"
     },
     {
       "id": "margin_expansion",
@@ -78,821 +78,411 @@
     },
     {
       "id": "integration",
-      "label": "Integration / M&A",
-      "color": "#6366f1"
+      "label": "Integration",
+      "color": "#a855f7"
     },
     {
       "id": "record_year",
       "label": "Record Year",
-      "color": "#facc15"
+      "color": "#eab308"
     },
     {
       "id": "retention_risk",
-      "label": "MSCI Retention Risk",
+      "label": "Retention Risk",
       "color": "#dc2626"
     },
     {
       "id": "run_rate_growth",
-      "label": "MSCI Run-Rate ↑",
+      "label": "Run Rate Growth",
       "color": "#0ea5e9"
     }
   ],
   "executive_summary": {
     "period": "Q4 2025",
-    "title": "Growth Engines Reset: New Capital Pools, Credit Breadth and AI Infrastructure Drive the Next Leg",
-    "macro_themes": [
-      {
-        "id": "new_capital_pools",
-        "icon": "🏦",
-        "title": "New capital pools open",
-        "tag": "wealth_channel",
-        "detail": "Retirement, insurance and 401(k) channels becoming explicit growth vectors: BlackRock's LifePath with private markets; Brookfield sees more from private wealth, annuities & 401(k); Amundi won Ireland's auto-enrolment pension scheme.",
-        "evidence": [
-          "BlackRock LifePath + private markets for 401(k)",
-          "Brookfield: private wealth, annuities, 401(k) tailwinds",
-          "Amundi: Ireland auto-enrolment win (€20B 10-yr pot)"
-        ]
-      },
-      {
-        "id": "wealth_productized",
-        "icon": "📦",
-        "title": "Wealth distribution gets productized",
-        "tag": "wealth_channel",
-        "detail": "Distribution is shifting from simple alternatives access to packaged public-private solutions: Goldman/T. Rowe co-branded model portfolios; KKR+Capital Group building target-date & model-portfolio solutions; Amundi gathered €10B from digital players.",
-        "evidence": [
-          "Goldman + T. Rowe Price co-branded model portfolios",
-          "KKR × Capital Group target-date / model portfolios",
-          "Amundi: €10B from digital platforms"
-        ]
-      },
-      {
-        "id": "private_credit_breadth",
-        "icon": "💼",
-        "title": "Private Credit broadens out",
-        "tag": "private_credit",
-        "detail": "Private credit is broadening beyond classic direct lending: KKR raised $68B in credit and launched K-ABF; Brookfield scaling real-asset, ABS and insurance-oriented credit; BlackRock working with insurers on private high-grade portfolios.",
-        "evidence": [
-          "KKR: $68B FY credit raised; K-ABF launched",
-          "Brookfield: real-asset + ABS + insurance credit",
-          "BlackRock: private high-grade insurance portfolios"
-        ]
-      },
-      {
-        "id": "ai_infra_funded",
-        "icon": "⚙️",
-        "title": "AI infra: funded capex, not just narrative",
-        "tag": "ai_growth",
-        "detail": "AI infrastructure is now funded capital expenditure, not just narrative: Brookfield launched a $100B AI infrastructure program and a $20B Qatar JV; BlackRock's AI partnership has raised more than $12.5B.",
-        "evidence": [
-          "Brookfield: $100B AI infra program, $20B Qatar JV",
-          "BlackRock AIP partnership: >$12.5B raised",
-          "Blackstone: 75% of RE equity in data centers/logistics/rental"
-        ]
-      },
-      {
-        "id": "tokenization_ai_productivity",
-        "icon": "🔗",
-        "title": "Tokenization + AI productivity ship",
-        "tag": "tokenization",
-        "detail": "Tokenization and AI-led efficiency are moving into execution: State Street launched tokenization of assets, funds and cash and delivered $500M of productivity savings; Goldman's OneGS 3.0 makes AI-led process redesign strategic; Amundi launched its first tokenized MMF share.",
-        "evidence": [
-          "State Street Digital Asset Platform + $500M productivity",
-          "Goldman OneGS 3.0 — AI-led operating model",
-          "Amundi: first tokenized money-market-fund share"
-        ]
-      }
-    ],
-    "themes": [
-      {
-        "title": "New capital pools open",
-        "detail": "Retirement, insurance and 401(k) channels becoming explicit growth vectors: BlackRock's LifePath with private markets; Brookfield sees more from private wealth, annuities & 401(k); Amundi won Ireland's auto-enrolment pension scheme."
-      },
-      {
-        "title": "Wealth distribution gets productized",
-        "detail": "Distribution is shifting from simple alternatives access to packaged public-private solutions: Goldman/T. Rowe co-branded model portfolios; KKR+Capital Group building target-date & model-portfolio solutions; Amundi gathered €10B from digital players."
-      },
-      {
-        "title": "Private Credit broadens out",
-        "detail": "Private credit is broadening beyond classic direct lending: KKR raised $68B in credit and launched K-ABF; Brookfield scaling real-asset, ABS and insurance-oriented credit; BlackRock working with insurers on private high-grade portfolios."
-      },
-      {
-        "title": "AI infra: funded capex, not just narrative",
-        "detail": "AI infrastructure is now funded capital expenditure, not just narrative: Brookfield launched a $100B AI infrastructure program and a $20B Qatar JV; BlackRock's AI partnership has raised more than $12.5B."
-      },
-      {
-        "title": "Tokenization + AI productivity ship",
-        "detail": "Tokenization and AI-led efficiency are moving into execution: State Street launched tokenization of assets, funds and cash and delivered $500M of productivity savings; Goldman's OneGS 3.0 makes AI-led process redesign strategic; Amundi launched its first tokenized MMF share."
-      }
-    ]
+    "title": "",
+    "macro_themes": [],
+    "themes": []
   },
   "fund_family_flows": {
-    "period": "Jan 2026",
-    "source": "Morningstar Direct Asset Flows",
-    "note": "Top three families (Vanguard, iShares, Fidelity) captured ~82% of January's net inflows among the top 10.",
+    "period": "Q4 2025",
+    "source": "Morningstar Direct Asset Flows (scraper-populated)",
+    "note": "",
     "families": [
       {
         "family": "Vanguard",
-        "active_usd": 1044000000,
-        "passive_usd": 54788000000,
-        "jan_2026_usd": 55832000000,
-        "ytd_usd": 55832000000,
-        "ttm_usd": 271895000000,
-        "total_assets_usd": 10156000000000
+        "active_usd": null,
+        "passive_usd": null,
+        "jan_2026_usd": null,
+        "ytd_usd": null,
+        "ttm_usd": null,
+        "total_assets_usd": null
       },
       {
         "family": "iShares",
-        "active_usd": 2905000000,
-        "passive_usd": 15997000000,
-        "jan_2026_usd": 18902000000,
-        "ytd_usd": 18902000000,
-        "ttm_usd": 371882000000,
-        "total_assets_usd": 4108000000000
+        "active_usd": null,
+        "passive_usd": null,
+        "jan_2026_usd": null,
+        "ytd_usd": null,
+        "ttm_usd": null,
+        "total_assets_usd": null
       },
       {
-        "family": "Fidelity Investments",
-        "active_usd": 1238000000,
-        "passive_usd": 10254000000,
-        "jan_2026_usd": 11491000000,
-        "ytd_usd": 11491000000,
-        "ttm_usd": 67261000000,
-        "total_assets_usd": 3723000000000
+        "family": "Fidelity",
+        "active_usd": null,
+        "passive_usd": null,
+        "jan_2026_usd": null,
+        "ytd_usd": null,
+        "ttm_usd": null,
+        "total_assets_usd": null
       },
       {
         "family": "Capital Group",
-        "active_usd": -764000000,
-        "passive_usd": 0,
-        "jan_2026_usd": -764000000,
-        "ytd_usd": -764000000,
-        "ttm_usd": -68754000000,
-        "total_assets_usd": 2833000000000
+        "active_usd": null,
+        "passive_usd": null,
+        "jan_2026_usd": null,
+        "ytd_usd": null,
+        "ttm_usd": null,
+        "total_assets_usd": null
       },
       {
         "family": "SPDR State Street",
-        "active_usd": 1000000,
-        "passive_usd": 8830000000,
-        "jan_2026_usd": 8831000000,
-        "ytd_usd": 8831000000,
-        "ttm_usd": 104421000000,
-        "total_assets_usd": 1962000000000
+        "active_usd": null,
+        "passive_usd": null,
+        "jan_2026_usd": null,
+        "ytd_usd": null,
+        "ttm_usd": null,
+        "total_assets_usd": null
       },
       {
         "family": "Invesco",
-        "active_usd": -1558000000,
-        "passive_usd": 7842000000,
-        "jan_2026_usd": 6284000000,
-        "ytd_usd": 6284000000,
-        "ttm_usd": 39426000000,
-        "total_assets_usd": 1091000000000
+        "active_usd": null,
+        "passive_usd": null,
+        "jan_2026_usd": null,
+        "ytd_usd": null,
+        "ttm_usd": null,
+        "total_assets_usd": null
       },
       {
-        "family": "J.P. Morgan",
-        "active_usd": -1041000000,
-        "passive_usd": 465000000,
-        "jan_2026_usd": -576000000,
-        "ytd_usd": -576000000,
-        "ttm_usd": 64838000000,
-        "total_assets_usd": 823000000000
+        "family": "JPMorgan",
+        "active_usd": null,
+        "passive_usd": null,
+        "jan_2026_usd": null,
+        "ytd_usd": null,
+        "ttm_usd": null,
+        "total_assets_usd": null
       },
       {
         "family": "T. Rowe Price",
-        "active_usd": -5598000000,
-        "passive_usd": -114000000,
-        "jan_2026_usd": -5712000000,
-        "ytd_usd": -5712000000,
-        "ttm_usd": -63527000000,
-        "total_assets_usd": 770000000000
+        "active_usd": null,
+        "passive_usd": null,
+        "jan_2026_usd": null,
+        "ytd_usd": null,
+        "ttm_usd": null,
+        "total_assets_usd": null
       },
       {
-        "family": "Dimensional Fund Advisors",
-        "active_usd": 3323000000,
-        "passive_usd": -62000000,
-        "jan_2026_usd": 3260000000,
-        "ytd_usd": 3260000000,
-        "ttm_usd": 17464000000,
-        "total_assets_usd": 710000000000
+        "family": "Dimensional",
+        "active_usd": null,
+        "passive_usd": null,
+        "jan_2026_usd": null,
+        "ytd_usd": null,
+        "ttm_usd": null,
+        "total_assets_usd": null
       },
       {
         "family": "Franklin Templeton",
-        "active_usd": -731000000,
-        "passive_usd": 680000000,
-        "jan_2026_usd": -51000000,
-        "ytd_usd": -51000000,
-        "ttm_usd": -14372000000,
-        "total_assets_usd": 554000000000
+        "active_usd": null,
+        "passive_usd": null,
+        "jan_2026_usd": null,
+        "ytd_usd": null,
+        "ttm_usd": null,
+        "total_assets_usd": null
       }
     ]
   },
   "opinion_mining": {
     "BlackRock": {
-      "summary": "~$700B net new FY; iShares $527B record; >$675B alts; GIP+HPS+Preqin integrated",
-      "initiatives": [
-        "~$700B net new FY; iShares $527B record",
-        ">$675B alts platform (top-5)",
-        "GIP+HPS+Preqin integrated; AIP >$12.5B"
-      ],
-      "cost_pressures": [
-        "Expense +19% y/y (comp, acquisitions)",
-        "Institutional index outflows $119B FY",
-        "$109M Q4 charitable contribution, $483M contingent-consideration drag"
-      ],
-      "strategic_insights": [
-        "Public-private convergence: LifePath + private markets for 401(k)",
-        "Aladdin/eFront/Preqin unified tech+data platform",
-        "Active ETFs and tokenization as growth vectors"
-      ]
+      "initiatives": [],
+      "cost_pressures": [],
+      "strategic_insights": []
     },
     "State Street": {
-      "summary": "AUM $5.7T; AUC/A $53.8T; Q4 margin ~31%; front-office backlog +16%",
-      "initiatives": [
-        "AUM $5.7T; AUC/A $53.8T; 134 new products FY",
-        "Q4 SSGA inflows $85B; FY $181B",
-        "Digital Asset Platform launched; Apex JV for Wealth"
-      ],
-      "cost_pressures": [
-        "Expenses +5% y/y; reinvesting in tech",
-        "$226M repositioning charge in Q4",
-        "Swiss-franc-adjacent NIB pressure moderating 2026"
-      ],
-      "strategic_insights": [
-        "Platform pivot: Alpha, Wealth Services, digital-asset tokenization",
-        "$500M FY25 productivity saves delivered",
-        "Private-markets servicing now ~10% of servicing fees"
-      ]
+      "initiatives": [],
+      "cost_pressures": [],
+      "strategic_insights": []
     },
     "Aberdeen": {
-      "summary": "AUMA £556B (highest since Covid); ii 500K customers; AUM >£390B",
-      "initiatives": [
-        "AUMA £556B (+9% y/y)",
-        "ii 500k customers (+14%); SIPP 105k (+30%)",
-        "Stagecoach £1.2B win + MFS £1.5B CEF deal"
-      ],
-      "cost_pressures": [
-        "Adviser still in outflow (-£2.2B FY)",
-        "Tax-free cash withdrawals pre-Budget (~£250M)",
-        "Investments margin ~19.2bps (mix shift)"
-      ],
-      "strategic_insights": [
-        "UK Wealth & Investments strategy paying off",
-        "Platform investment to drive Adviser return to growth",
-        "Gross flows best in years but net still negative"
-      ]
+      "initiatives": [],
+      "cost_pressures": [],
+      "strategic_insights": []
     },
     "Amundi": {
-      "summary": "AUM €2.38T; record €88B inflows; #1 European ETF provider; passive €76B",
-      "initiatives": [
-        "Record AuM €2.38T; FY inflows €87.6B",
-        "ETF AuM €342B (+27%); +€46B inflows FY",
-        "ICG 4.64% stake, targeting 9.9%"
-      ],
-      "cost_pressures": [
-        "Costs +6% q/q; margin 15.9bps (mix shift)",
-        "France tax surcharge -€74M FY25; renewed 2026",
-        "UniCredit retail outflow -€16B FY25"
-      ],
-      "strategic_insights": [
-        "ETFs + Asia JVs + digital drive growth",
-        "Tech platform scaling as revenue line (+45% FY)",
-        "Ireland auto-enrolment + Moneybox UK"
-      ]
+      "initiatives": [],
+      "cost_pressures": [],
+      "strategic_insights": []
     },
     "Goldman Sachs": {
-      "summary": "Revenue $41.5B (+18%); AUS $3.6T; alts $115B record; EPS $51.32 (+27%)",
-      "initiatives": [
-        "Record AUS $3.606T; FY LT inflows $168B",
-        "Alts $115B FY fundraising; $438B since 2019",
-        "Industry Ventures + Aptitude ETF + T. Rowe collab"
-      ],
-      "cost_pressures": [
-        "Comp $18.9B; efficiency ratio 64.4%",
-        "Apple Card $2.26B markdown (offset by reserves)",
-        "HPI reduced to $6.0B (-$3.4B FY)"
-      ],
-      "strategic_insights": [
-        "AWM margin target 30% (from 25%); alts target $75-100B/yr",
-        "$2030 alts AUS target $750B; OneGS 3.0 AI model",
-        "XIG secondaries + origination as integrated drivers"
-      ]
+      "initiatives": [],
+      "cost_pressures": [],
+      "strategic_insights": []
     },
     "J.P. Morgan": {
-      "summary": "AWM NI $1.8B; margin 38%; LT inflows $209B; client net inflows $553B",
-      "initiatives": [
-        "Record AWM revenue $6.52B (+13%)",
-        "AUM $4.8T (+18%); client assets $7.1T (+20%)",
-        "Kinexys tokenized MMF; Coinbase in CCB"
-      ],
-      "cost_pressures": [
-        "FY expense ~$105B guided; advisor hiring",
-        "Apple Card $2.26B markdown (offset by reserves)",
-        "Dimon flags market complacency risk"
-      ],
-      "strategic_insights": [
-        "Scale drives cross-sell across IB, wealth, retail",
-        "Private Bank advisor expansion (4,101, +9%)",
-        "Private credit and infrastructure as key levers"
-      ]
+      "initiatives": [],
+      "cost_pressures": [],
+      "strategic_insights": []
     },
     "UBS": {
-      "summary": "Invested assets >$7T; GWM $4.8T; FY NNM $30B; CET1 14.4%",
-      "initiatives": [
-        "Group invested assets >$7T (+15% y/y)",
-        "FY25 net profit $7.77B (+53%)",
-        "OCC approved U.S. national bank charter"
-      ],
-      "cost_pressures": [
-        "Integration $1.1B Q4; $2.8B more saves to deliver",
-        "Post-acquisition ~$6B Tier 1 add-on (phased to 2030)",
-        "CS legacy debt buyback -$457M (NPV-accretive)"
-      ],
-      "strategic_insights": [
-        "CS integration at scale: save target raised to $13.5B",
-        "Group underlying PBT +62%; GWM PBT +23% FY",
-        "Structured solutions, tokenized deposits, digital wealth"
-      ]
+      "initiatives": [],
+      "cost_pressures": [],
+      "strategic_insights": []
     },
     "KKR": {
-      "summary": "Raised $129B (record); invested $95B; mgmt fees $4.1B; FRE margin ~69%",
-      "initiatives": [
-        "Record $129B raised; $95B invested FY",
-        "K-Series >$35B (2x y/y); GA insurance $1.9B",
-        "Arctos Partners $15B AUM acquisition"
-      ],
-      "cost_pressures": [
-        "Monetizations accelerating; carry +30% y/y",
-        "Comp at guide; strategic holdings long-dated",
-        "$60B AUM not yet paying fees"
-      ],
-      "strategic_insights": [
-        "GA ($1.9B), K-Series ($35B+), infra ($16B flagship) diversify fees",
-        "ABF and Asia data-centers as priorities",
-        "KKR Solutions: $100B+ AUM target (sports/GP/secondaries)"
-      ]
+      "initiatives": [],
+      "cost_pressures": [],
+      "strategic_insights": []
     },
     "Blackstone": {
-      "summary": "AUM $1,275B; Q4 inflows $71B; FY ~$240B; perpetual 48% of fee-earning",
-      "initiatives": [
-        "AUM $1,275B; Q4 inflows $71.5B",
-        "Private wealth AUM >$300B (+16% y/y)",
-        "Hologic $18B privatization + Medline $7.2B IPO"
-      ],
-      "cost_pressures": [
-        "FRE margin record (+100bps); mgmt fees +11% y/y",
-        "RE mgmt fees -3% y/y; one soft segment",
-        "Dry powder war-chest $198B to deploy"
-      ],
-      "strategic_insights": [
-        "Three-channel: institutional, wealth (+53%), insurance (+18%)",
-        "Credit $520B; AI infra & data centers thematic",
-        "DOL 401(k) alts rulemaking expected 2026"
-      ]
+      "initiatives": [],
+      "cost_pressures": [],
+      "strategic_insights": []
     },
     "Carlyle": {
-      "summary": "AUM $477B; $54B inflows (+32%); FRE margins 47%; $54B deployed",
-      "initiatives": [
-        "AUM $477B; FRE $1.24B (+12%) @ 47% margin",
-        "AlpInvest largest-ever secondary $20B",
-        "#1 PE sponsor by IPO proceeds since 2024"
-      ],
-      "cost_pressures": [
-        "Margin +100bps y/y; comp discipline held",
-        "Realized perf revenues $357M FY",
-        "CLO margin pressure offset by volume"
-      ],
-      "strategic_insights": [
-        "Recurring-fee shift: AlpInvest, evergreen >2x, CPEP",
-        "Medline IPO ($7B+) + Rigaku + Hexaware",
-        "FRE expected to expand further in 2026"
-      ]
+      "initiatives": [],
+      "cost_pressures": [],
+      "strategic_insights": []
     },
     "Apollo": {
-      "summary": "AUM $938B (+25%); FRE $2.5B (+23%); SRE $3.4B; $228B inflows",
-      "initiatives": [
-        "AUM $938B (+25%); inflows $228B FY",
-        "Record origination $309B FY (+40%)",
-        "Schroders partnership; ARI $9B CML acquisition"
-      ],
-      "cost_pressures": [
-        "Spread risk; software near-zero; Athene defensive",
-        "Perf-eligible AUM $322B generating $222B",
-        "Athene $24B cash/treasuries (defensive)"
-      ],
-      "strategic_insights": [
-        "Origination flywheel as moat; $40T IG target",
-        "Individual ($18B) + retirement (Athene $292B) engines",
-        "3rd-party insurance >$15B new mandates"
-      ]
+      "initiatives": [],
+      "cost_pressures": [],
+      "strategic_insights": []
     },
     "Brookfield": {
-      "summary": "Raised $112B; fee-bearing >$600B (+12%); FRE $3B (+22%); DE $2.7B",
-      "initiatives": [
-        "Record $112B raised; FBC $603B (+12%)",
-        "FRE $3.0B FY (+22%) @ 58% margin",
-        "Oaktree 26% buyout; Angel Oak $10B+ FBC"
-      ],
-      "cost_pressures": [
-        "Operating leverage driving margin expansion",
-        "Connor Teskey appointed CEO (Flatt remains Chair)",
-        "BN share of Oaktree $1.4B deal"
-      ],
-      "strategic_insights": [
-        "AI infra stack + decarbonization as secular tailwinds",
-        "BWS >$100B FBC; insurance pillar scaling",
-        "$20B Qatar AI JV; $100B+ global AI infra program"
-      ]
+      "initiatives": [],
+      "cost_pressures": [],
+      "strategic_insights": []
     }
   },
   "aum_summary": {
     "period": "Q4 2025",
-    "note": "Aberdeen, Goldman Sachs & KKR showing client-revenue decline — immediate retention action needed to safeguard run rate.",
+    "note": "Populated by scraper per current quarter. Values remain null until a public filing is parsed.",
     "traditional": [
       {
         "client": "BlackRock",
         "ticker": "BLK",
-        "aum_usd": 14042000000000,
-        "aum_yoy_growth_pct": 22.0,
-        "equity_aum_usd": 7794000000000,
-        "fixed_income_aum_usd": 3272000000000,
-        "alternatives_aum_usd": 424000000000,
-        "multi_asset_aum_usd": 1224000000000,
-        "other_aum_usd": 1328000000000,
+        "aum_usd": null,
+        "aum_yoy_growth_pct": null,
         "organic_base_fee_growth_pct": null,
         "net_inflows_q_usd": null,
-        "msci_run_rate_usd": 383600000.0,
-        "msci_run_rate_yoy_pct": 28.9,
-        "msci_client_revenue_usd": 7000000000.0,
-        "msci_client_revenue_yoy_pct": 23.0,
-        "msci_client_revenue_note": "$7.0B FY revenue"
-      },
-      {
-        "client": "Fidelity",
-        "ticker": null,
-        "aum_usd": 7100000000000,
-        "aum_yoy_growth_pct": 19.0,
+        "msci_run_rate_usd": null,
+        "msci_run_rate_yoy_pct": null,
+        "msci_client_revenue_usd": null,
+        "msci_client_revenue_yoy_pct": null,
         "equity_aum_usd": null,
         "fixed_income_aum_usd": null,
         "alternatives_aum_usd": null,
         "multi_asset_aum_usd": null,
-        "other_aum_usd": null,
-        "organic_base_fee_growth_pct": null,
-        "net_inflows_q_usd": null,
-        "msci_run_rate_usd": 31700000.0,
-        "msci_run_rate_yoy_pct": 2.4,
-        "msci_client_revenue_usd": null,
-        "msci_client_revenue_yoy_pct": null,
-        "msci_client_revenue_note": "Privately held; AUA $18,000B"
+        "other_aum_usd": null
       },
       {
         "client": "State Street",
         "ticker": "STT",
-        "aum_usd": 5665000000000,
-        "aum_yoy_growth_pct": 20.0,
-        "equity_aum_usd": 3589000000000,
-        "fixed_income_aum_usd": 734000000000,
-        "alternatives_aum_usd": 271000000000,
-        "multi_asset_aum_usd": 501000000000,
-        "other_aum_usd": 570000000000,
+        "aum_usd": null,
+        "aum_yoy_growth_pct": null,
         "organic_base_fee_growth_pct": null,
         "net_inflows_q_usd": null,
-        "msci_run_rate_usd": 67900000.0,
-        "msci_run_rate_yoy_pct": 38.2,
-        "msci_client_revenue_usd": 3700000000.0,
-        "msci_client_revenue_yoy_pct": 7.0,
-        "msci_client_revenue_note": "$3.7B Q4 revenue"
-      },
-      {
-        "client": "Amundi",
-        "ticker": "AMUN.PA",
-        "aum_usd": 2792000000000,
-        "aum_yoy_growth_pct": 6.0,
-        "equity_aum_usd": 731000000000,
-        "fixed_income_aum_usd": 893000000000,
-        "alternatives_aum_usd": 124000000000,
-        "multi_asset_aum_usd": 336000000000,
-        "other_aum_usd": 709000000000,
-        "organic_base_fee_growth_pct": null,
-        "net_inflows_q_usd": null,
-        "msci_run_rate_usd": 75400000.0,
-        "msci_run_rate_yoy_pct": 25.0,
-        "msci_client_revenue_usd": 1054796700.0,
-        "msci_client_revenue_yoy_pct": 8.0,
-        "msci_client_revenue_note": "€899M Q4 (at 1.1733 USD/EUR)"
+        "msci_run_rate_usd": null,
+        "msci_run_rate_yoy_pct": null,
+        "msci_client_revenue_usd": null,
+        "msci_client_revenue_yoy_pct": null,
+        "equity_aum_usd": null,
+        "fixed_income_aum_usd": null,
+        "alternatives_aum_usd": null,
+        "multi_asset_aum_usd": null,
+        "other_aum_usd": null
       },
       {
         "client": "Aberdeen",
         "ticker": "ABDN.L",
-        "aum_usd": 525000000000,
-        "aum_yoy_growth_pct": 6.0,
-        "equity_aum_usd": 54000000000,
-        "fixed_income_aum_usd": 54000000000,
-        "alternatives_aum_usd": 48000000000,
-        "multi_asset_aum_usd": 32000000000,
-        "other_aum_usd": 337000000000,
+        "aum_usd": null,
+        "aum_yoy_growth_pct": null,
         "organic_base_fee_growth_pct": null,
         "net_inflows_q_usd": null,
-        "msci_run_rate_usd": 50000.0,
-        "msci_run_rate_yoy_pct": 16.9,
-        "msci_client_revenue_usd": 1748240000.0,
-        "msci_client_revenue_yoy_pct": -3.0,
-        "msci_client_revenue_note": "£1.3B FY (at 1.3448 USD/GBP)"
+        "msci_run_rate_usd": null,
+        "msci_run_rate_yoy_pct": null,
+        "msci_client_revenue_usd": null,
+        "msci_client_revenue_yoy_pct": null,
+        "equity_aum_usd": null,
+        "fixed_income_aum_usd": null,
+        "alternatives_aum_usd": null,
+        "multi_asset_aum_usd": null,
+        "other_aum_usd": null
       },
       {
-        "client": "J.P. Morgan",
-        "ticker": "JPM",
-        "aum_usd": 4791000000000,
-        "aum_yoy_growth_pct": 18.0,
-        "equity_aum_usd": 1400000000000,
-        "fixed_income_aum_usd": 998000000000,
-        "alternatives_aum_usd": 230000000000,
-        "multi_asset_aum_usd": 884000000000,
-        "other_aum_usd": 1279000000000,
+        "client": "Amundi",
+        "ticker": "AMUN.PA",
+        "aum_usd": null,
+        "aum_yoy_growth_pct": null,
         "organic_base_fee_growth_pct": null,
         "net_inflows_q_usd": null,
-        "msci_run_rate_usd": 70300000.0,
-        "msci_run_rate_yoy_pct": 10.3,
-        "msci_client_revenue_usd": 45800000000.0,
-        "msci_client_revenue_yoy_pct": 7.0,
-        "msci_client_revenue_note": "$45.8B firm revenue"
+        "msci_run_rate_usd": null,
+        "msci_run_rate_yoy_pct": null,
+        "msci_client_revenue_usd": null,
+        "msci_client_revenue_yoy_pct": null,
+        "equity_aum_usd": null,
+        "fixed_income_aum_usd": null,
+        "alternatives_aum_usd": null,
+        "multi_asset_aum_usd": null,
+        "other_aum_usd": null
       },
       {
         "client": "Goldman Sachs",
         "ticker": "GS",
-        "aum_usd": 3606000000000,
-        "aum_yoy_growth_pct": 15.0,
-        "equity_aum_usd": 951000000000,
-        "fixed_income_aum_usd": 1334000000000,
-        "alternatives_aum_usd": 420000000000,
-        "multi_asset_aum_usd": null,
-        "other_aum_usd": 901000000000,
+        "aum_usd": null,
+        "aum_yoy_growth_pct": null,
         "organic_base_fee_growth_pct": null,
         "net_inflows_q_usd": null,
-        "msci_run_rate_usd": 35400000.0,
-        "msci_run_rate_yoy_pct": 12.0,
-        "msci_client_revenue_usd": 13500000000.0,
-        "msci_client_revenue_yoy_pct": -3.0,
-        "msci_client_revenue_note": "$13.5B AWM revenue"
+        "msci_run_rate_usd": null,
+        "msci_run_rate_yoy_pct": null,
+        "msci_client_revenue_usd": null,
+        "msci_client_revenue_yoy_pct": null,
+        "equity_aum_usd": null,
+        "fixed_income_aum_usd": null,
+        "alternatives_aum_usd": null,
+        "multi_asset_aum_usd": null,
+        "other_aum_usd": null
+      },
+      {
+        "client": "J.P. Morgan",
+        "ticker": "JPM",
+        "aum_usd": null,
+        "aum_yoy_growth_pct": null,
+        "organic_base_fee_growth_pct": null,
+        "net_inflows_q_usd": null,
+        "msci_run_rate_usd": null,
+        "msci_run_rate_yoy_pct": null,
+        "msci_client_revenue_usd": null,
+        "msci_client_revenue_yoy_pct": null,
+        "equity_aum_usd": null,
+        "fixed_income_aum_usd": null,
+        "alternatives_aum_usd": null,
+        "multi_asset_aum_usd": null,
+        "other_aum_usd": null
       },
       {
         "client": "UBS",
         "ticker": "UBS",
-        "aum_usd": 2098000000000,
-        "aum_yoy_growth_pct": 18.0,
-        "equity_aum_usd": 904000000000,
-        "fixed_income_aum_usd": 506000000000,
-        "alternatives_aum_usd": 160000000000,
-        "multi_asset_aum_usd": 372000000000,
-        "other_aum_usd": 156000000000,
+        "aum_usd": null,
+        "aum_yoy_growth_pct": null,
         "organic_base_fee_growth_pct": null,
         "net_inflows_q_usd": null,
-        "msci_run_rate_usd": 84600000.0,
-        "msci_run_rate_yoy_pct": 17.2,
-        "msci_client_revenue_usd": 12100000000.0,
-        "msci_client_revenue_yoy_pct": 4.0,
-        "msci_client_revenue_note": "$12.1B GWM revenue"
+        "msci_run_rate_usd": null,
+        "msci_run_rate_yoy_pct": null,
+        "msci_client_revenue_usd": null,
+        "msci_client_revenue_yoy_pct": null,
+        "equity_aum_usd": null,
+        "fixed_income_aum_usd": null,
+        "alternatives_aum_usd": null,
+        "multi_asset_aum_usd": null,
+        "other_aum_usd": null
       }
     ],
     "pe_alternative": [
       {
-        "client": "Blackstone",
-        "ticker": "BX",
-        "aum_usd": 1275000000000,
-        "aum_yoy_growth_pct": 13.0,
-        "real_estate_aum_usd": 319000000000,
-        "private_equity_aum_usd": 416000000000,
-        "credit_insurance_aum_usd": 443000000000,
-        "multi_asset_aum_usd": 96000000000,
-        "other_aum_usd": null,
-        "organic_base_fee_growth_pct": null,
-        "net_inflows_q_usd": null,
-        "msci_run_rate_usd": 5200000.0,
-        "msci_run_rate_yoy_pct": -22.1,
-        "msci_client_revenue_usd": 4400000000.0,
-        "msci_client_revenue_yoy_pct": 41.0,
-        "msci_client_revenue_note": "$4.4B FY revenue"
-      },
-      {
-        "client": "Brookfield",
-        "ticker": "BAM",
-        "aum_usd": 1181000000000,
-        "aum_yoy_growth_pct": 15.0,
-        "real_estate_aum_usd": 273000000000,
-        "private_equity_aum_usd": 155000000000,
-        "credit_insurance_aum_usd": 363000000000,
-        "multi_asset_aum_usd": null,
-        "other_aum_usd": 390000000000,
-        "organic_base_fee_growth_pct": null,
-        "net_inflows_q_usd": null,
-        "msci_run_rate_usd": 1200000.0,
-        "msci_run_rate_yoy_pct": 23.2,
-        "msci_client_revenue_usd": 1500000000.0,
-        "msci_client_revenue_yoy_pct": 22.0,
-        "msci_client_revenue_note": "$1.5B FY revenue"
-      },
-      {
-        "client": "Apollo",
-        "ticker": "APO",
-        "aum_usd": 938000000000,
-        "aum_yoy_growth_pct": 25.0,
-        "real_estate_aum_usd": null,
-        "private_equity_aum_usd": 189000000000,
-        "credit_insurance_aum_usd": 749000000000,
-        "multi_asset_aum_usd": null,
-        "other_aum_usd": null,
-        "organic_base_fee_growth_pct": null,
-        "net_inflows_q_usd": null,
-        "msci_run_rate_usd": 1700000.0,
-        "msci_run_rate_yoy_pct": 18.3,
-        "msci_client_revenue_usd": 9900000000.0,
-        "msci_client_revenue_yoy_pct": 87.0,
-        "msci_client_revenue_note": "$9.9B FY revenue"
-      },
-      {
         "client": "KKR",
         "ticker": "KKR",
-        "aum_usd": 744000000000,
-        "aum_yoy_growth_pct": 17.0,
-        "real_estate_aum_usd": 192000000000,
-        "private_equity_aum_usd": 229000000000,
-        "credit_insurance_aum_usd": 322000000000,
-        "multi_asset_aum_usd": null,
-        "other_aum_usd": null,
+        "aum_usd": null,
+        "aum_yoy_growth_pct": null,
         "organic_base_fee_growth_pct": null,
         "net_inflows_q_usd": null,
-        "msci_run_rate_usd": 2500000.0,
-        "msci_run_rate_yoy_pct": 5.0,
-        "msci_client_revenue_usd": 1600000000.0,
-        "msci_client_revenue_yoy_pct": -20.0,
-        "msci_client_revenue_note": "$1.6B FY revenue"
+        "msci_run_rate_usd": null,
+        "msci_run_rate_yoy_pct": null,
+        "msci_client_revenue_usd": null,
+        "msci_client_revenue_yoy_pct": null,
+        "real_estate_aum_usd": null,
+        "private_equity_aum_usd": null,
+        "credit_insurance_aum_usd": null,
+        "multi_asset_aum_usd": null,
+        "other_aum_usd": null
+      },
+      {
+        "client": "Blackstone",
+        "ticker": "BX",
+        "aum_usd": null,
+        "aum_yoy_growth_pct": null,
+        "organic_base_fee_growth_pct": null,
+        "net_inflows_q_usd": null,
+        "msci_run_rate_usd": null,
+        "msci_run_rate_yoy_pct": null,
+        "msci_client_revenue_usd": null,
+        "msci_client_revenue_yoy_pct": null,
+        "real_estate_aum_usd": null,
+        "private_equity_aum_usd": null,
+        "credit_insurance_aum_usd": null,
+        "multi_asset_aum_usd": null,
+        "other_aum_usd": null
       },
       {
         "client": "Carlyle",
         "ticker": "CG",
-        "aum_usd": 477000000000,
-        "aum_yoy_growth_pct": 8.0,
-        "real_estate_aum_usd": null,
-        "private_equity_aum_usd": 164000000000,
-        "credit_insurance_aum_usd": 211000000000,
-        "multi_asset_aum_usd": null,
-        "other_aum_usd": 102000000000,
+        "aum_usd": null,
+        "aum_yoy_growth_pct": null,
         "organic_base_fee_growth_pct": null,
         "net_inflows_q_usd": null,
-        "msci_run_rate_usd": 900000.0,
-        "msci_run_rate_yoy_pct": 14.5,
-        "msci_client_revenue_usd": 1100000000.0,
-        "msci_client_revenue_yoy_pct": 15.0,
-        "msci_client_revenue_note": "$1.1B FY revenue"
+        "msci_run_rate_usd": null,
+        "msci_run_rate_yoy_pct": null,
+        "msci_client_revenue_usd": null,
+        "msci_client_revenue_yoy_pct": null,
+        "real_estate_aum_usd": null,
+        "private_equity_aum_usd": null,
+        "credit_insurance_aum_usd": null,
+        "multi_asset_aum_usd": null,
+        "other_aum_usd": null
+      },
+      {
+        "client": "Apollo",
+        "ticker": "APO",
+        "aum_usd": null,
+        "aum_yoy_growth_pct": null,
+        "organic_base_fee_growth_pct": null,
+        "net_inflows_q_usd": null,
+        "msci_run_rate_usd": null,
+        "msci_run_rate_yoy_pct": null,
+        "msci_client_revenue_usd": null,
+        "msci_client_revenue_yoy_pct": null,
+        "real_estate_aum_usd": null,
+        "private_equity_aum_usd": null,
+        "credit_insurance_aum_usd": null,
+        "multi_asset_aum_usd": null,
+        "other_aum_usd": null
+      },
+      {
+        "client": "Brookfield",
+        "ticker": "BAM",
+        "aum_usd": null,
+        "aum_yoy_growth_pct": null,
+        "organic_base_fee_growth_pct": null,
+        "net_inflows_q_usd": null,
+        "msci_run_rate_usd": null,
+        "msci_run_rate_yoy_pct": null,
+        "msci_client_revenue_usd": null,
+        "msci_client_revenue_yoy_pct": null,
+        "real_estate_aum_usd": null,
+        "private_equity_aum_usd": null,
+        "credit_insurance_aum_usd": null,
+        "multi_asset_aum_usd": null,
+        "other_aum_usd": null
       }
     ]
   },
   "voc_analysis": {
-    "total_entries": 5627,
-    "period": "Q4 2025 (Oct 2025 – Mar 25, 2026)",
-    "source": "MSCI Voice of Clients",
-    "headline": "VoC signals clear: resolve operational friction & accelerate delivery to defend Index & S&C wallet share against rising competitor activity at top clients.",
-    "clients": [
-      {
-        "client": "BlackRock",
-        "entries": 1110,
-        "top_bu": "Index (69%)",
-        "top_category": "Operational request (29%)",
-        "theme": "Index data access & onboarding; ESG rating discrepancies vs. S&P/FTSE"
-      },
-      {
-        "client": "J.P. Morgan",
-        "entries": 1369,
-        "top_bu": "S&C (30%), Index (29%)",
-        "top_category": "Operational request (24%)",
-        "theme": "License confirmations; custom index creation; geospatial trial expansion"
-      },
-      {
-        "client": "UBS",
-        "entries": 687,
-        "top_bu": "Index (33%), Analytics (26%)",
-        "top_category": "Operational request (25%)",
-        "theme": "Seat over-allocation; ISIN processing errors; annual-review partnership"
-      },
-      {
-        "client": "Goldman Sachs",
-        "entries": 539,
-        "top_bu": "Index (55%)",
-        "top_category": "Client strategy (20%)",
-        "theme": "Snowflake renewal requests; FI roadmap discussions; Arcana competition"
-      },
-      {
-        "client": "Amundi",
-        "entries": 493,
-        "top_bu": "Index (39%), Analytics (37%)",
-        "top_category": "Inquiry (18%)",
-        "theme": "Processing delays; ESG project showcases; report-generation issues"
-      },
-      {
-        "client": "Fidelity",
-        "entries": 395,
-        "top_bu": "Analytics (46%)",
-        "top_category": "System error (23%)",
-        "theme": "File missing errors; A&D metrics demo engagement; competitor index talks"
-      },
-      {
-        "client": "State Street",
-        "entries": 375,
-        "top_bu": "Index (43%), Analytics (36%)",
-        "top_category": "Operational request (26%)",
-        "theme": "Index access issues; PCS competitor dynamics (Canoe, Accellex)"
-      },
-      {
-        "client": "Aberdeen",
-        "entries": 218,
-        "top_bu": "S&C (41%), Analytics (32%)",
-        "top_category": "Operational request (21%)",
-        "theme": "Controversial holdings monitor; POC on Snowflake; RM4 performance"
-      },
-      {
-        "client": "Apollo",
-        "entries": 126,
-        "top_bu": "S&C (84%)",
-        "top_category": "Operational request (28%)",
-        "theme": "PCDC access; smart beta demand; EU BSLs follow-up; RILA competition vs. S&P"
-      },
-      {
-        "client": "Blackstone",
-        "entries": 116,
-        "top_bu": "Real Assets (44%), Analytics (40%)",
-        "top_category": "Operational request (17%)",
-        "theme": "RM web services; Snowflake integration; private-prison data; RE debt benchmarking"
-      },
-      {
-        "client": "KKR",
-        "entries": 97,
-        "top_bu": "S&C (69%)",
-        "top_category": "System request (18%)",
-        "theme": "Sustainability data submissions; API breakage; data-center proposals; MSCI ONE access"
-      },
-      {
-        "client": "Brookfield",
-        "entries": 68,
-        "top_bu": "PCS (47%), Real Assets (44%)",
-        "top_category": "Project delivery (15%)",
-        "theme": "TPM alignment with existing workflows; Private-i migration; index superiority vs. Cambridge"
-      },
-      {
-        "client": "Carlyle",
-        "entries": 34,
-        "top_bu": "S&C (53%), Analytics (29%)",
-        "top_category": "System request (21%)",
-        "theme": "Portfolio mapping at PCAF level 3; conference collaboration; Snowflake feed; AI integration"
-      }
-    ],
+    "total_entries": null,
+    "period": "Q4 2025",
+    "source": "",
+    "headline": "",
+    "clients": [],
     "qualitative_insights": {
-      "traditional": {
-        "competitive_dynamics": [
-          "BlackRock: ESG rating gaps vs. S&P/FTSE; ESG attribution on fact sheets would be first-to-market",
-          "Fidelity: Late-stage talks with two MSCI index competitors for proprietary index services",
-          "JPM: Competitor bidding lower for EET; geospatial trial expanding into adaptation data",
-          "Goldman: Arcana/CentreBook threatens OmegaPoint with VC-funded engineering advantage"
-        ],
-        "strategic_partnerships": [
-          "BlackRock: Joint BLK-MSCI event 4 June Zurich; active ETFs as top strategic priority",
-          "Goldman: FI sustainability roadmap active; strategic meeting on full PCS + analytics",
-          "UBS: Holistic annual reviews from 2026; Green Equity Framework for green labels",
-          "Aberdeen: Invited MSCI to present at client event; Snowflake POC for MAC/FI funds"
-        ],
-        "feature_requests": [
-          "BlackRock: Daily capping for 5/25 QUAL compliance; ESG attribution on fact sheets",
-          "JPM: Private-company analysis, integrated reporting, non-ETF AUM data product",
-          "Aberdeen: Controversial holdings monitor incl. conflict-zone data (Russia, Israel)",
-          "State Street: Proactive ideas requested; ETF pipeline expanding with two new ETFs"
-        ],
-        "regulatory_pricing": [
-          "BlackRock: Firm on pricing post-IEMG 2025; 6–8 wk notice needed for data changes",
-          "JPM: Competitor undercutting EET pricing; Vietnam reclassification on radar",
-          "UBS: Pricing concerns raised; Barra vs. Axioma model comparison ongoing",
-          "State Street: Canoe not viable; Accellex displaced in favor of MSCI PCTD"
-        ]
-      },
-      "pe_alternative": {
-        "competitive_dynamics": [
-          "Apollo: Competing with S&P in RILA space; prefers ETFs for better bank hedging",
-          "KKR: Relies on broker comps, CoStar, Green Street — limited and not comprehensive",
-          "Brookfield: MSCI indexes superior to Cambridge; less GP data fluctuation",
-          "Blackstone: RE debt fund benchmarking needed in Europe — no existing index"
-        ],
-        "strategic_partnerships": [
-          "Brookfield: Evaluating TPM as upgrade from Private-i; fundraising storytelling focus",
-          "Carlyle: Invited MSCI to conference on emerging risks; AI integration with tech teams",
-          "Blackstone: Holistic account mgmt stressed; RM Web Services for ad-hoc analysis",
-          "KKR: $50k data-center proposal pending; evaluating Lead Gen and Advisor tools"
-        ],
-        "feature_requests": [
-          "Brookfield: TPM aligns well; values scenario/stress testing; distressed-equity index interest",
-          "Apollo: Emissions coverage across munis and securitized; fund-level financed emissions",
-          "KKR: Portfolio-level DV01, DV100, CS01 across time horizons; geospatial interest",
-          "Carlyle: Expanding data coverage; TPF module interest; manager-name disclosure request"
-        ],
-        "regulatory_pricing": [
-          "Apollo: PCAF driving data-score questions; SFDR requires private-entity revenue estimates",
-          "Blackstone: Concerns over 40% price increase; reviewing RM Web Services terms",
-          "Carlyle: 55% of Fortitude at PCAF score 3; private-credit emissions demand rising",
-          "Apollo: No US/Bermuda decarbonisation pressure; SFDR mandates weapons/coal data"
-        ]
-      }
+      "traditional": {},
+      "pe_alternative": {}
     }
   },
   "clients": {
@@ -946,110 +536,35 @@
         },
         "Q4 2025": {
           "financials": {
-            "revenue_usd": 7010000000.0,
-            "revenue_yoy_pct": 23.0,
-            "operating_income_usd": 2850000000.0,
-            "operating_margin_pct": 45.0,
+            "revenue_usd": null,
+            "revenue_yoy_pct": null,
+            "operating_income_usd": null,
+            "operating_margin_pct": null,
             "net_income_usd": null,
-            "eps_usd": 13.16,
-            "aum_usd": 14042000000000.0,
-            "aum_yoy_growth_pct": 22.0,
-            "organic_base_fee_growth_pct": 9.0,
-            "net_inflows_q_usd": 342000000000,
-            "net_inflows_fy_usd": 698000000000,
-            "eps_gaap_usd": 7.16
+            "eps_usd": null,
+            "aum_usd": null,
+            "aum_yoy_growth_pct": null,
+            "organic_base_fee_growth_pct": null,
+            "net_inflows_q_usd": null,
+            "net_inflows_fy_usd": null
           },
-          "aum_breakdown": {
-            "equity": 7794000000000,
-            "fixed_income": 3272000000000,
-            "multi_asset": 1224000000000,
-            "alternatives": 424000000000
-          },
-          "segments": {
-            "equity_aum_usd": 7794000000000,
-            "fixed_income_aum_usd": 3272000000000,
-            "alternatives_aum_usd": 424000000000,
-            "multi_asset_aum_usd": 1224000000000,
-            "other_aum_usd": 1328000000000
-          },
+          "aum_breakdown": {},
+          "segments": {},
           "msci_relationship": {
-            "run_rate_usd": 383600000.0,
-            "run_rate_yoy_growth_pct": 28.9,
-            "client_revenue_usd": 7000000000.0,
-            "client_revenue_yoy_growth_pct": 23.0,
-            "note": "Highest MSCI run-rate among tracked clients; record retention."
+            "run_rate_usd": null,
+            "run_rate_yoy_growth_pct": null,
+            "client_revenue_usd": null,
+            "client_revenue_yoy_growth_pct": null
           },
-          "insight_tags": [
-            "ai_growth",
-            "private_credit",
-            "etf_expansion",
-            "tokenization",
-            "wealth_channel",
-            "record_year",
-            "run_rate_growth"
-          ],
-          "strategic_highlights": [
-            "Record $342B Q4 / $698B FY net inflows; AUM $14.0T all-time high",
-            "iShares $527B FY inflows, 13% organic base-fee growth; AUM $5.5T",
-            "GIP + HPS + Preqin integrated as unified platform ($121B AUM added via M&A)",
-            "AI infrastructure partnership (AIP) raised >$12.5B; target $30B/$100B incl. debt",
-            "LifePath + private markets for 401(k) launching 2026; $600B franchise",
-            "Targeting $400B gross private-markets fundraising through 2030"
-          ],
+          "insight_tags": [],
+          "strategic_highlights": [],
           "themes": {
-            "key_initiatives": [
-              "iShares $527B record year; active ETF leader ($14B DYNF flagship)",
-              "Preqin contribution $213M FY tech-services revenue",
-              "HPS added $230M Q4 base fees + $158M perf fees"
-            ],
-            "cost_pressures": [
-              "Op-expense +$1.745B y/y in Q4 ($5.35B); comp +$699M, G&A +$190M",
-              "Institutional index outflows $119B FY (low-fee equity redemptions)",
-              "$109M charitable contribution + $483M contingent-consideration mark"
-            ],
-            "strategic_insights": [
-              "Aladdin + eFront + Preqin unified tech-data platform",
-              "Private-market investable indices targeted via Preqin data",
-              "Digital assets $78.4B AUM; $34.8B FY inflows; Circle reserve funds partnership"
-            ]
+            "key_initiatives": [],
+            "cost_pressures": [],
+            "strategic_insights": []
           },
-          "top_trends": [
-            {
-              "headline": "BlackRock delivers record $342B Q4 inflows; $698B FY powers AUM to $14.0T",
-              "url": "https://ir.blackrock.com/news-and-events/press-releases",
-              "source": "BlackRock Q4 2025 IR"
-            },
-            {
-              "headline": "Aladdin + Preqin to power first investable private-market indices",
-              "url": "https://ir.blackrock.com/news-and-events/press-releases",
-              "source": "BlackRock Q4 2025 Earnings Call"
-            },
-            {
-              "headline": "AIP + Microsoft + MGX $12.5B AI infrastructure partnership scales",
-              "url": "https://ir.blackrock.com/news-and-events/press-releases",
-              "source": "BlackRock Q4 2025 IR"
-            }
-          ],
-          "sources": [
-            {
-              "metric": "aum_usd",
-              "type": "pdf_baseline",
-              "url": "",
-              "accessed": "2026-04-22"
-            },
-            {
-              "metric": "revenue_usd",
-              "type": "pdf_baseline",
-              "url": "https://ir.blackrock.com/news-and-events/press-releases",
-              "accessed": "2026-04-22"
-            },
-            {
-              "metric": "msci_run_rate_usd",
-              "type": "pdf_baseline",
-              "url": "",
-              "accessed": "2026-04-22"
-            }
-          ],
+          "top_trends": [],
+          "sources": [],
           "notes": []
         },
         "Q1 2026": {
@@ -1137,99 +652,35 @@
         },
         "Q4 2025": {
           "financials": {
-            "revenue_usd": 3667000000.0,
-            "revenue_yoy_pct": 7.0,
+            "revenue_usd": null,
+            "revenue_yoy_pct": null,
             "operating_income_usd": null,
-            "operating_margin_pct": 30.7,
-            "net_income_usd": 747000000.0,
-            "eps_usd": 2.42,
-            "aum_usd": 5665000000000.0,
-            "aum_yoy_growth_pct": 20.0,
+            "operating_margin_pct": null,
+            "net_income_usd": null,
+            "eps_usd": null,
+            "aum_usd": null,
+            "aum_yoy_growth_pct": null,
             "organic_base_fee_growth_pct": null,
-            "net_inflows_q_usd": 85000000000,
-            "net_inflows_fy_usd": 181000000000,
-            "eps_adj_usd": 2.97,
-            "auca_usd": 53800000000000.0,
-            "auca_yoy_pct": 16.0
+            "net_inflows_q_usd": null,
+            "net_inflows_fy_usd": null
           },
-          "aum_breakdown": {
-            "equity": 3589000000000,
-            "fixed_income": 734000000000,
-            "multi_asset": 501000000000,
-            "alternatives": 271000000000
-          },
-          "segments": {
-            "equity_aum_usd": 3589000000000,
-            "fixed_income_aum_usd": 734000000000,
-            "alternatives_aum_usd": 271000000000,
-            "multi_asset_aum_usd": 501000000000,
-            "other_aum_usd": 570000000000
-          },
+          "aum_breakdown": {},
+          "segments": {},
           "msci_relationship": {
-            "run_rate_usd": 67900000.0,
-            "run_rate_yoy_growth_pct": 38.2,
-            "client_revenue_usd": 3700000000.0,
-            "client_revenue_yoy_growth_pct": 7.0,
-            "note": "Run-rate growth leader among Traditionals (+38%)."
+            "run_rate_usd": null,
+            "run_rate_yoy_growth_pct": null,
+            "client_revenue_usd": null,
+            "client_revenue_yoy_growth_pct": null
           },
-          "insight_tags": [
-            "tokenization",
-            "ai_growth",
-            "etf_expansion",
-            "margin_expansion",
-            "run_rate_growth",
-            "record_year"
-          ],
-          "strategic_highlights": [
-            "AUC/A $53.8T (+16%); AUM $5.7T (+20%); record revenue quarter",
-            "Q4 SSGA inflows $85B; FY $181B; Private-Markets servicing now ~10% of servicing",
-            "Launched Digital Asset Platform (tokenized funds/cash); 134 new products in FY25",
-            "$500M FY25 productivity savings delivered",
-            "Apex Fintech partnership + Coller Capital stake + Groww AMC investment"
-          ],
+          "insight_tags": [],
+          "strategic_highlights": [],
           "themes": {
-            "key_initiatives": [
-              "AUC/A wins $484B Q4 / $2.1T FY; servicing fee backlog $320M",
-              "Front-office software & data ARR $418M (+11%); backlog +16%",
-              "134 new products launched FY25 (37 in Q4 incl. Japan Onshore ETF)"
-            ],
-            "cost_pressures": [
-              "Q4 expenses $2.74B (incl. $206M notables); ex-notables +6% y/y",
-              "Repositioning charge $226M offset by $20M FDIC release",
-              "NIM 1.10% (FTE); seasonal NIB deposit boost may moderate 2026"
-            ],
-            "strategic_insights": [
-              "Platform pivot: Alpha, Wealth Services, Digital Asset Platform",
-              "Private-Markets servicing ~10% of servicing fees, growing 12% y/y",
-              "AI-enabled transformation accelerating in 2H26 / 2027"
-            ]
+            "key_initiatives": [],
+            "cost_pressures": [],
+            "strategic_insights": []
           },
-          "top_trends": [
-            {
-              "headline": "State Street: AUC/A $53.8T & AUM $5.7T — Record Revenue Quarter, +7% y/y",
-              "url": "https://investors.statestreet.com/investors/news-releases/default.aspx",
-              "source": "State Street Q4 2025 IR"
-            },
-            {
-              "headline": "Digital Asset Platform launched for tokenized funds, collateral, and cash",
-              "url": "https://investors.statestreet.com/investors/news-releases/default.aspx",
-              "source": "State Street Q4 2025 IR"
-            }
-          ],
-          "sources": [
-            {
-              "metric": "aum_usd",
-              "type": "pdf_baseline",
-              "url": "",
-              "accessed": "2026-04-22"
-            },
-            {
-              "metric": "revenue_usd",
-              "type": "pdf_baseline",
-              "url": "",
-              "accessed": "2026-04-22"
-            }
-          ],
+          "top_trends": [],
+          "sources": [],
           "notes": []
         },
         "Q1 2026": {
@@ -1323,78 +774,29 @@
             "operating_margin_pct": null,
             "net_income_usd": null,
             "eps_usd": null,
-            "aum_usd": 525000000000,
-            "aum_yoy_growth_pct": 6.0,
+            "aum_usd": null,
+            "aum_yoy_growth_pct": null,
             "organic_base_fee_growth_pct": null,
-            "net_inflows_q_usd": -3362000000.0,
-            "net_inflows_fy_usd": -5244720000.0,
-            "auma_gbp_usd": 556000000000.0,
-            "fx_gbp_usd": 1.3448
+            "net_inflows_q_usd": null,
+            "net_inflows_fy_usd": null
           },
-          "aum_breakdown": {
-            "investments": 390000000000,
-            "adviser": 80000000000,
-            "ii_wealth": 97500000000.0,
-            "insurance_partners": 167700000000.0
-          },
-          "segments": {
-            "investments_aum_usd": 390000000000,
-            "adviser_aum_usd": 80000000000,
-            "ii_wealth_aum_usd": 97500000000.0,
-            "insurance_partners_aum_usd": 167700000000.0,
-            "other_aum_usd": null
-          },
+          "aum_breakdown": {},
+          "segments": {},
           "msci_relationship": {
-            "run_rate_usd": 50000.0,
-            "run_rate_yoy_growth_pct": 16.9,
-            "client_revenue_usd": 1748240000.0,
-            "client_revenue_yoy_growth_pct": -3.0,
-            "note": "Smallest MSCI run-rate in roster but growing +17% y/y; revenue decline = retention risk flag."
+            "run_rate_usd": null,
+            "run_rate_yoy_growth_pct": null,
+            "client_revenue_usd": null,
+            "client_revenue_yoy_growth_pct": null
           },
-          "insight_tags": [
-            "wealth_channel",
-            "revenue_decline",
-            "retention_risk"
-          ],
-          "strategic_highlights": [
-            "AUMA £556B (+9% y/y) — highest since Covid",
-            "ii hits 500k customers (+14% y/y); SIPP 105k (+30%); daily trades record 29.2k",
-            "Stagecoach Pension Scheme £1.2B multi-asset win in Q4",
-            "MFS £1.5B closed-end fund acquisition pending",
-            "FY25 adj. operating profit in line; FY26 targets reaffirmed (≥£300M)"
-          ],
+          "insight_tags": [],
+          "strategic_highlights": [],
           "themes": {
-            "key_initiatives": [
-              "ii Managed SIPP launched; iiAdvice + ii360 in rollout",
-              "Aberdeen SIPP launched Dec 2025; ~1,000 accounts added",
-              "Commodity ETF AUM +35% in Q4 to £15.8B"
-            ],
-            "cost_pressures": [
-              "Adviser Q4 net outflows £0.8B (UK Budget-driven tax-free cash)",
-              "£4.5B low-margin quants withdrawal completed",
-              "Investments revenue margin ~19.2bps (mix shift to quants/liquidity)"
-            ],
-            "strategic_insights": [
-              "UK Wealth & Investments strategy driving ii growth",
-              "Capital requirement moving to ICARA (lower)",
-              "CEO 'optimistic about 2026 outlook' with improving gross flows"
-            ]
+            "key_initiatives": [],
+            "cost_pressures": [],
+            "strategic_insights": []
           },
-          "top_trends": [
-            {
-              "headline": "Aberdeen AUMA +9% y/y to £556B; ii hits 500k customers; FY targets reaffirmed",
-              "url": "https://www.aberdeeninvestments.com/en-gb/investor/results-reports-and-presentations",
-              "source": "Aberdeen FY25 IR"
-            }
-          ],
-          "sources": [
-            {
-              "metric": "aum_usd",
-              "type": "pdf_baseline",
-              "url": "",
-              "accessed": "2026-04-22"
-            }
-          ],
+          "top_trends": [],
+          "sources": [],
           "notes": []
         },
         "Q1 2026": {
@@ -1482,83 +884,35 @@
         },
         "Q4 2025": {
           "financials": {
-            "revenue_usd": 1054796700.0,
-            "revenue_yoy_pct": 8.2,
-            "operating_income_usd": 608942700.0,
-            "operating_margin_pct": 49.9,
-            "net_income_usd": 441160800.0,
-            "eps_usd": 2.135406,
-            "aum_usd": 2792454000000.0,
-            "aum_yoy_growth_pct": 6.2,
+            "revenue_usd": null,
+            "revenue_yoy_pct": null,
+            "operating_income_usd": null,
+            "operating_margin_pct": null,
+            "net_income_usd": null,
+            "eps_usd": null,
+            "aum_usd": null,
+            "aum_yoy_growth_pct": null,
             "organic_base_fee_growth_pct": null,
-            "net_inflows_q_usd": 24521970000.0,
-            "net_inflows_fy_usd": 102781080000.0,
-            "fx_eur_usd": 1.1733
+            "net_inflows_q_usd": null,
+            "net_inflows_fy_usd": null
           },
-          "aum_breakdown": {
-            "equity": 731000000000,
-            "multi_asset": 336000000000,
-            "alternatives": 124000000000
-          },
-          "segments": {
-            "equity_aum_usd": 731000000000,
-            "fixed_income_aum_usd": 893000000000,
-            "alternatives_aum_usd": 124000000000,
-            "multi_asset_aum_usd": 336000000000,
-            "other_aum_usd": 709000000000
-          },
+          "aum_breakdown": {},
+          "segments": {},
           "msci_relationship": {
-            "run_rate_usd": 75400000.0,
-            "run_rate_yoy_growth_pct": 25.0,
-            "client_revenue_usd": 1054796700.0,
-            "client_revenue_yoy_growth_pct": 8.0,
-            "note": "Strong run-rate growth tied to ETF expansion."
+            "run_rate_usd": null,
+            "run_rate_yoy_growth_pct": null,
+            "client_revenue_usd": null,
+            "client_revenue_yoy_growth_pct": null
           },
-          "insight_tags": [
-            "etf_expansion",
-            "tokenization",
-            "wealth_channel",
-            "run_rate_growth"
-          ],
-          "strategic_highlights": [
-            "Record AuM €2.38T (+6.2%); FY inflows €87.6B (record)",
-            "ETF AuM €342B (+27%); record Q4 +€18B / FY +€46B; #1 European ETF equity collector",
-            "ICG 4.64% stake acquired; targeting 9.9% (full stake by early 2027)",
-            "Ireland auto-enrolment pension mandate won (€20B over 10 yrs, shared)",
-            "Amundi Technology FY revenue €116M (+45% y/y)"
-          ],
+          "insight_tags": [],
+          "strategic_highlights": [],
           "themes": {
-            "key_initiatives": [
-              "First tokenized money-market-fund share launched",
-              "Victory Capital FY contribution €95M (+12%); 3 new UCITS",
-              "Smart Solutions AuM >€41B (+€20B in 2025)"
-            ],
-            "cost_pressures": [
-              "Costs +6% q/q; margin 15.9bps (mix shift)",
-              "France exceptional tax surcharge -€74M FY25; renewed 2026",
-              "UniCredit retail -€16B FY (partnership runs to Jul 2027)"
-            ],
-            "strategic_insights": [
-              "ETFs + Asia JVs (€33B) + digital (€10B) drive growth",
-              "Moneybox UK launched; tech platform scaling as revenue line",
-              "€500M buyback + €4.25 dividend (~10% of market cap return)"
-            ]
+            "key_initiatives": [],
+            "cost_pressures": [],
+            "strategic_insights": []
           },
-          "top_trends": [
-            {
-              "headline": "Amundi: Record AuM €2.4T (+6%); FY net inflows +€88B; €4.25 dividend + €500M buyback",
-              "url": "https://about.amundi.com/Investor-relations/Results",
-              "source": "Amundi Q4 2025 IR"
-            }
-          ],
-          "sources": [
-            {
-              "metric": "aum_usd",
-              "type": "pdf_baseline",
-              "url": "",
-              "accessed": "2026-04-22"
-            }
-          ],
+          "top_trends": [],
+          "sources": [],
           "notes": []
         },
         "Q1 2026": {
@@ -1646,92 +1000,35 @@
         },
         "Q4 2025": {
           "financials": {
-            "revenue_usd": 41450000000.0,
-            "revenue_yoy_pct": 18.0,
+            "revenue_usd": null,
+            "revenue_yoy_pct": null,
             "operating_income_usd": null,
             "operating_margin_pct": null,
-            "net_income_usd": 17180000000.0,
-            "eps_usd": 51.32,
-            "aum_usd": 3606000000000.0,
-            "aum_yoy_growth_pct": 15.0,
+            "net_income_usd": null,
+            "eps_usd": null,
+            "aum_usd": null,
+            "aum_yoy_growth_pct": null,
             "organic_base_fee_growth_pct": null,
-            "net_inflows_q_usd": 116000000000,
-            "net_inflows_fy_usd": 224000000000,
-            "eps_yoy_pct": 27.0,
-            "roe_pct": 15.0
+            "net_inflows_q_usd": null,
+            "net_inflows_fy_usd": null
           },
-          "aum_breakdown": {
-            "equity": 951000000000,
-            "fixed_income": 1334000000000,
-            "alternatives": 420000000000
-          },
-          "segments": {
-            "equity_aum_usd": 951000000000,
-            "fixed_income_aum_usd": 1334000000000,
-            "alternatives_aum_usd": 420000000000,
-            "multi_asset_aum_usd": null,
-            "other_aum_usd": 901000000000
-          },
+          "aum_breakdown": {},
+          "segments": {},
           "msci_relationship": {
-            "run_rate_usd": 35400000.0,
-            "run_rate_yoy_growth_pct": 12.0,
-            "client_revenue_usd": 13500000000.0,
-            "client_revenue_yoy_growth_pct": -3.0,
-            "note": "Client revenue -3% y/y flagged as retention risk — immediate action needed."
+            "run_rate_usd": null,
+            "run_rate_yoy_growth_pct": null,
+            "client_revenue_usd": null,
+            "client_revenue_yoy_growth_pct": null
           },
-          "insight_tags": [
-            "alts_fundraising",
-            "ai_growth",
-            "revenue_decline",
-            "retention_risk",
-            "integration",
-            "record_year"
-          ],
-          "strategic_highlights": [
-            "Record AUS $3.606T (+15%); FY LT inflows $168B (+58% y/y)",
-            "Record alternatives fundraising $115B FY ($438B since 2019)",
-            "FY EPS $51.32 (+27%); GBM net revenues $41.45B (+18%)",
-            "OneGS 3.0 launched — AI-driven operating model across 6 workstreams",
-            "Industry Ventures + Aptitude (active ETF) acquisitions; T. Rowe partnership",
-            "Updated AWM targets: pre-tax margin ~30% (from mid-20s); $750B 2030 alts AUS"
-          ],
+          "insight_tags": [],
+          "strategic_highlights": [],
           "themes": {
-            "key_initiatives": [
-              "Record alternatives fundraising: $115B FY, $438B since 2019",
-              "Won major OCIO mandates: Shell ($40B pension) + Eli Lilly ($25B)",
-              "IB backlog 4-year high; management expects 2026 acceleration"
-            ],
-            "cost_pressures": [
-              "FY operating expenses $37.54B (+11%); efficiency ratio 64.4%",
-              "Apple Card program markdowns $2.26B (offset by $2.48B reserve release)",
-              "FY effective tax rate 21.4%"
-            ],
-            "strategic_insights": [
-              "AWM margin target 30% (from mid-20s); new alts target $75-100B/yr",
-              "2030 alts AUS target $750B; $438B alts raised since 2019",
-              "XIG secondaries + origination as integrated drivers"
-            ]
+            "key_initiatives": [],
+            "cost_pressures": [],
+            "strategic_insights": []
           },
-          "top_trends": [
-            {
-              "headline": "Goldman: FY EPS $51.32, ROE 15.0%; record GBM & AUS of $3.61T",
-              "url": "https://www.goldmansachs.com/investor-relations/financials/current/press-releases/",
-              "source": "Goldman Sachs Q4 2025 IR"
-            },
-            {
-              "headline": "One Goldman Sachs 3.0 — AI-driven operating model across 6 workstreams",
-              "url": "https://www.goldmansachs.com/investor-relations/financials/current/press-releases/",
-              "source": "Goldman Sachs Q4 2025 IR"
-            }
-          ],
-          "sources": [
-            {
-              "metric": "aum_usd",
-              "type": "pdf_baseline",
-              "url": "",
-              "accessed": "2026-04-22"
-            }
-          ],
+          "top_trends": [],
+          "sources": [],
           "notes": []
         },
         "Q1 2026": {
@@ -1819,90 +1116,35 @@
         },
         "Q4 2025": {
           "financials": {
-            "revenue_usd": 6520000000.0,
-            "revenue_yoy_pct": 13.0,
+            "revenue_usd": null,
+            "revenue_yoy_pct": null,
             "operating_income_usd": null,
-            "operating_margin_pct": 38.0,
-            "net_income_usd": 1810000000.0,
-            "eps_usd": 4.63,
-            "aum_usd": 4800000000000.0,
-            "aum_yoy_growth_pct": 18.0,
+            "operating_margin_pct": null,
+            "net_income_usd": null,
+            "eps_usd": null,
+            "aum_usd": null,
+            "aum_yoy_growth_pct": null,
             "organic_base_fee_growth_pct": null,
-            "net_inflows_q_usd": 157000000000,
-            "net_inflows_fy_usd": 553000000000,
-            "eps_adj_usd": 5.23,
-            "awm_roe_pct": 44.0
+            "net_inflows_q_usd": null,
+            "net_inflows_fy_usd": null
           },
-          "aum_breakdown": {
-            "equity": 1400000000000,
-            "fixed_income": 998000000000,
-            "multi_asset": 884000000000,
-            "alternatives": 230000000000
-          },
-          "segments": {
-            "equity_aum_usd": 1400000000000,
-            "fixed_income_aum_usd": 998000000000,
-            "alternatives_aum_usd": 230000000000,
-            "multi_asset_aum_usd": 884000000000,
-            "other_aum_usd": 1279000000000
-          },
+          "aum_breakdown": {},
+          "segments": {},
           "msci_relationship": {
-            "run_rate_usd": 70300000.0,
-            "run_rate_yoy_growth_pct": 10.3,
-            "client_revenue_usd": 45800000000.0,
-            "client_revenue_yoy_growth_pct": 7.0,
-            "note": "Run-rate growth in double digits; largest revenue base in roster."
+            "run_rate_usd": null,
+            "run_rate_yoy_growth_pct": null,
+            "client_revenue_usd": null,
+            "client_revenue_yoy_growth_pct": null
           },
-          "insight_tags": [
-            "wealth_channel",
-            "tokenization",
-            "private_credit",
-            "run_rate_growth"
-          ],
-          "strategic_highlights": [
-            "AWM record revenue $6.52B (+13%); AUM $4.8T (+18%); client assets $7.1T (+20%)",
-            "Q4 net inflows $157B; FY25 $553B (liquidity $183B + long-term $209B)",
-            "Private Bank advisors 4,101 (+9% y/y)",
-            "First tokenized MMF via Kinexys platform; Coinbase crypto in CCB",
-            "2026: NII ex-Markets ~$95B; adjusted expense ~$105B"
-          ],
+          "insight_tags": [],
+          "strategic_highlights": [],
           "themes": {
-            "key_initiatives": [
-              "Long-term Q4 inflows $52B (FI $25B, Equity $11B, MA $11B, Alts $5B)",
-              "Franchise growth: 1.7M net new checking, 10.4M new cards, >3M WM households",
-              "5,083 branches (+2%); 10,150 firmwide advisors (+7%)"
-            ],
-            "cost_pressures": [
-              "2026 adjusted expense guide ~$105B; advisor hiring",
-              "Apple Card program markdowns ($2.26B; $104B total credit exposure)",
-              "Dimon: markets underappreciate geopolitics/sticky-inflation risk"
-            ],
-            "strategic_insights": [
-              "Scale drives cross-sell across IB, wealth, retail",
-              "Private Bank advisor expansion fuels AUM growth",
-              "Private credit and infrastructure as key strategic levers"
-            ]
+            "key_initiatives": [],
+            "cost_pressures": [],
+            "strategic_insights": []
           },
-          "top_trends": [
-            {
-              "headline": "JPM AWM posts record $6.5B revenue; AUM reaches $4.8T (+18%)",
-              "url": "https://www.jpmorganchase.com/ir/news",
-              "source": "JPM Q4 2025 IR"
-            },
-            {
-              "headline": "JPM launches first tokenized MMF via Kinexys platform",
-              "url": "https://www.jpmorganchase.com/ir/news",
-              "source": "JPM Q4 2025 IR"
-            }
-          ],
-          "sources": [
-            {
-              "metric": "aum_usd",
-              "type": "pdf_baseline",
-              "url": "",
-              "accessed": "2026-04-22"
-            }
-          ],
+          "top_trends": [],
+          "sources": [],
           "notes": []
         },
         "Q1 2026": {
@@ -1990,90 +1232,35 @@
         },
         "Q4 2025": {
           "financials": {
-            "revenue_usd": 12145000000.0,
-            "revenue_yoy_pct": 4.0,
-            "operating_income_usd": 2871000000.0,
+            "revenue_usd": null,
+            "revenue_yoy_pct": null,
+            "operating_income_usd": null,
             "operating_margin_pct": null,
-            "net_income_usd": 1199000000.0,
-            "eps_usd": 0.37,
-            "aum_usd": 2097999999999.9998,
-            "aum_yoy_growth_pct": 3.0,
+            "net_income_usd": null,
+            "eps_usd": null,
+            "aum_usd": null,
+            "aum_yoy_growth_pct": null,
             "organic_base_fee_growth_pct": null,
-            "net_inflows_q_usd": 7600000000.0,
-            "net_inflows_fy_usd": 30400000000.0,
-            "group_invested_assets_usd": 7000000000000.0
+            "net_inflows_q_usd": null,
+            "net_inflows_fy_usd": null
           },
-          "aum_breakdown": {
-            "equity": 904000000000,
-            "fixed_income": 506000000000,
-            "multi_asset": 372000000000,
-            "alternatives": 160000000000
-          },
-          "segments": {
-            "equity_aum_usd": 904000000000,
-            "fixed_income_aum_usd": 506000000000,
-            "alternatives_aum_usd": 160000000000,
-            "multi_asset_aum_usd": 372000000000,
-            "other_aum_usd": 156000000000
-          },
+          "aum_breakdown": {},
+          "segments": {},
           "msci_relationship": {
-            "run_rate_usd": 84600000.0,
-            "run_rate_yoy_growth_pct": 17.2,
-            "client_revenue_usd": 12100000000.0,
-            "client_revenue_yoy_growth_pct": 4.0,
-            "note": "Second-largest run-rate among clients; positive momentum through CS integration."
+            "run_rate_usd": null,
+            "run_rate_yoy_growth_pct": null,
+            "client_revenue_usd": null,
+            "client_revenue_yoy_growth_pct": null
           },
-          "insight_tags": [
-            "integration",
-            "ai_growth",
-            "tokenization",
-            "cost_pressure",
-            "run_rate_growth"
-          ],
-          "strategic_highlights": [
-            "Group invested assets >$7T (+15% y/y) for first time",
-            "AM invested assets $2.098T; FY25 NNM $30.4B",
-            "OCC approved U.S. national bank charter (Jan 2026)",
-            "CS integration: raised cost-save target to $13.5B by end-2026",
-            "380 live AI use cases + 780 in development; 1,598 apps decommissioned"
-          ],
+          "insight_tags": [],
+          "strategic_highlights": [],
           "themes": {
-            "key_initiatives": [
-              "AM Q4 flows: FI $5.2B (MM $2.5B), RE/PM $0.7B, Equities $0.3B",
-              "Unified Global Alternatives: $9B net new commitments; $330B invested",
-              "~85% Swiss-booked accounts migrated; integration substantially complete end-2026"
-            ],
-            "cost_pressures": [
-              "Integration costs $1.1B Q4; cumulative ~$15B expected by end-2026",
-              "Post-acquisition capital add-ons ~$6B Tier 1 phased to 2030",
-              "CS legacy debt buyback -$457M (NPV-accretive)"
-            ],
-            "strategic_insights": [
-              "2028 ambitions: reported RoCET1 ~18%, C/I ~67%; AM ambition ~3% NNM growth, ~65% C/I",
-              "$3B buyback 2026 (subject to Swiss regulatory clarity)",
-              "Structured solutions, tokenized deposits, digital wealth as pillars"
-            ]
+            "key_initiatives": [],
+            "cost_pressures": [],
+            "strategic_insights": []
           },
-          "top_trends": [
-            {
-              "headline": "UBS: Group invested assets exceeded $7T; AM reached $2.1T; OCC approved U.S. national bank",
-              "url": "https://www.ubs.com/global/en/investor-relations/financial-information/quarterly-reporting.html",
-              "source": "UBS Q4 2025 IR"
-            },
-            {
-              "headline": "UBS raises CS cost-save target to $13.5B by end-2026",
-              "url": "https://www.ubs.com/global/en/investor-relations/financial-information/quarterly-reporting.html",
-              "source": "UBS Q4 2025 IR"
-            }
-          ],
-          "sources": [
-            {
-              "metric": "aum_usd",
-              "type": "pdf_baseline",
-              "url": "",
-              "accessed": "2026-04-22"
-            }
-          ],
+          "top_trends": [],
+          "sources": [],
           "notes": []
         },
         "Q1 2026": {
@@ -2161,89 +1348,35 @@
         },
         "Q4 2025": {
           "financials": {
-            "revenue_usd": 5739000000.0,
+            "revenue_usd": null,
             "revenue_yoy_pct": null,
             "operating_income_usd": null,
-            "operating_margin_pct": 69.0,
-            "net_income_usd": 1105000000.0,
-            "eps_usd": 1.16,
-            "aum_usd": 744000000000,
-            "aum_yoy_growth_pct": 17.0,
+            "operating_margin_pct": null,
+            "net_income_usd": null,
+            "eps_usd": null,
+            "aum_usd": null,
+            "aum_yoy_growth_pct": null,
             "organic_base_fee_growth_pct": null,
-            "net_inflows_q_usd": 28000000000,
-            "net_inflows_fy_usd": 129000000000,
-            "fpaum_usd": 604000000000,
-            "fre_usd": 972000000.0
+            "net_inflows_q_usd": null,
+            "net_inflows_fy_usd": null
           },
-          "aum_breakdown": {
-            "private_equity": 229000000000
-          },
-          "segments": {
-            "real_estate_aum_usd": 192000000000,
-            "private_equity_aum_usd": 229000000000,
-            "credit_insurance_aum_usd": 322000000000,
-            "multi_asset_aum_usd": null,
-            "other_aum_usd": null
-          },
+          "aum_breakdown": {},
+          "segments": {},
           "msci_relationship": {
-            "run_rate_usd": 2500000.0,
-            "run_rate_yoy_growth_pct": 5.0,
-            "client_revenue_usd": 1600000000.0,
-            "client_revenue_yoy_growth_pct": -20.0,
-            "note": "Client revenue -20% y/y — immediate retention action required to safeguard run-rate."
+            "run_rate_usd": null,
+            "run_rate_yoy_growth_pct": null,
+            "client_revenue_usd": null,
+            "client_revenue_yoy_growth_pct": null
           },
-          "insight_tags": [
-            "private_credit",
-            "alts_fundraising",
-            "insurance_scale",
-            "revenue_decline",
-            "retention_risk",
-            "record_year"
-          ],
-          "strategic_highlights": [
-            "Record $129B raised FY ($28B Q4); $95B invested; FRE $3.7B FY",
-            "K-Series wealth: >$35B (2x y/y); FY raised >$16B (~2x FY24)",
-            "Strategic acquisition of Arctos Partners ($15B AUM in sports/GP solutions)",
-            "GA insurance: total economics $1.9B FY25 (+15%)",
-            "Credit raised record $68B FY; K-ABF launched"
-          ],
+          "insight_tags": [],
+          "strategic_highlights": [],
           "themes": {
-            "key_initiatives": [
-              "Record $129B FY raised (43% above FY24); flagships = only 14%",
-              "Most active investing quarter in KKR history ($32B Q4; $95B FY)",
-              "Ivy III closed $4.5B + Japan Post $2B = ~$6.5B third-party capacity"
-            ],
-            "cost_pressures": [
-              "Monetizations accelerating; carry +30% y/y; comp at guide",
-              "$60B AUM not yet paying fees (activation at ~80bps)",
-              "Software exposure ~7% of AUM (broad definition)"
-            ],
-            "strategic_insights": [
-              "GA ($1.9B), K-Series ($35B+), infra ($16B flagship) diversify fees",
-              "ABF and Asia data centers as priorities",
-              "KKR Solutions vertical: $100B+ AUM target (sports/GP/secondaries)"
-            ]
+            "key_initiatives": [],
+            "cost_pressures": [],
+            "strategic_insights": []
           },
-          "top_trends": [
-            {
-              "headline": "KKR: Record fundraising year ($129B); record deployment quarter; 85% of earnings from durable sources",
-              "url": "https://ir.kkr.com/events-presentations/press-releases/",
-              "source": "KKR Q4 2025 IR"
-            },
-            {
-              "headline": "KKR announces strategic acquisition of Arctos Partners ($15B AUM)",
-              "url": "https://ir.kkr.com/events-presentations/press-releases/",
-              "source": "KKR Q4 2025 IR"
-            }
-          ],
-          "sources": [
-            {
-              "metric": "aum_usd",
-              "type": "pdf_baseline",
-              "url": "",
-              "accessed": "2026-04-22"
-            }
-          ],
+          "top_trends": [],
+          "sources": [],
           "notes": []
         },
         "Q1 2026": {
@@ -2331,87 +1464,35 @@
         },
         "Q4 2025": {
           "financials": {
-            "revenue_usd": 2061999999.9999998,
-            "revenue_yoy_pct": 11.0,
-            "operating_income_usd": 1535000000.0,
+            "revenue_usd": null,
+            "revenue_yoy_pct": null,
+            "operating_income_usd": null,
             "operating_margin_pct": null,
-            "net_income_usd": 2000000000.0,
-            "eps_usd": 1.75,
-            "aum_usd": 1275000000000.0,
-            "aum_yoy_growth_pct": 13.0,
+            "net_income_usd": null,
+            "eps_usd": null,
+            "aum_usd": null,
+            "aum_yoy_growth_pct": null,
             "organic_base_fee_growth_pct": null,
-            "net_inflows_q_usd": 71500000000.0,
-            "net_inflows_fy_usd": 239400000000.0,
-            "fpaum_usd": 921700000000.0,
-            "de_usd": 2245000000.0
+            "net_inflows_q_usd": null,
+            "net_inflows_fy_usd": null
           },
-          "aum_breakdown": {
-            "real_estate": 319000000000,
-            "private_equity": 416000000000,
-            "credit_insurance": 443000000000,
-            "multi_asset": 96000000000
-          },
-          "segments": {
-            "real_estate_aum_usd": 319000000000,
-            "private_equity_aum_usd": 416000000000,
-            "credit_insurance_aum_usd": 443000000000,
-            "multi_asset_aum_usd": 96000000000,
-            "other_aum_usd": null
-          },
+          "aum_breakdown": {},
+          "segments": {},
           "msci_relationship": {
-            "run_rate_usd": 5200000.0,
-            "run_rate_yoy_growth_pct": -22.1,
-            "client_revenue_usd": 4400000000.0,
-            "client_revenue_yoy_growth_pct": 41.0,
-            "note": "Run-rate -22% y/y but client revenue +41% — mixed signal; price increase friction in VoC."
+            "run_rate_usd": null,
+            "run_rate_yoy_growth_pct": null,
+            "client_revenue_usd": null,
+            "client_revenue_yoy_growth_pct": null
           },
-          "insight_tags": [
-            "alts_fundraising",
-            "ai_growth",
-            "wealth_channel",
-            "insurance_scale",
-            "record_year",
-            "cost_pressure"
-          ],
-          "strategic_highlights": [
-            "Record year across all metrics; AUM $1,275B (+13%); Q4 inflows $71B (highest in 3.5yrs)",
-            "DE $2.245B ($1.75/share) — best quarter ever; FY DE $7.1B (+20%)",
-            "Private wealth AUM >$300B (+16%); 3x in 5 years; Q4 PW sales >$11B",
-            "Hologic $18B privatization + Medline $7.2B IPO (largest since 2021)",
-            "Dry powder $198B; invested perf-eligible AUM $624B (+11%)"
-          ],
+          "insight_tags": [],
+          "strategic_highlights": [],
           "themes": {
-            "key_initiatives": [
-              "Credit & Insurance: $39B Q4 inflows; direct lending $16.6B",
-              "New PE drawdown cycle: 5 funds targeting >$50B",
-              "Secondaries X initial close $5B (targeting ≥$22B)"
-            ],
-            "cost_pressures": [
-              "RE mgmt fees -3% y/y (one soft segment)",
-              "Perpetual capital 48% of fee-earning AUM",
-              "40% price-increase friction flagged in VoC"
-            ],
-            "strategic_insights": [
-              "Three-channel growth: institutional, wealth (+53% to $43B), insurance (+18%)",
-              "Credit $520B; AI infra + data centers thematic investment priority",
-              "DOL 401(k) alts rulemaking expected 2026; Vanguard/Wellington product 1H26"
-            ]
+            "key_initiatives": [],
+            "cost_pressures": [],
+            "strategic_insights": []
           },
-          "top_trends": [
-            {
-              "headline": "Blackstone record year: $71B Q4 inflows (highest in 3.5yrs); DE $2.2B best quarter ever",
-              "url": "https://ir.blackstone.com/news-events/press-releases",
-              "source": "Blackstone Q4 2025 IR"
-            }
-          ],
-          "sources": [
-            {
-              "metric": "aum_usd",
-              "type": "pdf_baseline",
-              "url": "",
-              "accessed": "2026-04-22"
-            }
-          ],
+          "top_trends": [],
+          "sources": [],
           "notes": []
         },
         "Q1 2026": {
@@ -2499,84 +1580,35 @@
         },
         "Q4 2025": {
           "financials": {
-            "revenue_usd": 2600000000.0,
-            "revenue_yoy_pct": 10.0,
-            "operating_income_usd": 290000000.0,
-            "operating_margin_pct": 43.0,
-            "net_income_usd": 436000000.0,
-            "eps_usd": 1.01,
-            "aum_usd": 477000000000,
-            "aum_yoy_growth_pct": 8.0,
+            "revenue_usd": null,
+            "revenue_yoy_pct": null,
+            "operating_income_usd": null,
+            "operating_margin_pct": null,
+            "net_income_usd": null,
+            "eps_usd": null,
+            "aum_usd": null,
+            "aum_yoy_growth_pct": null,
             "organic_base_fee_growth_pct": null,
-            "net_inflows_q_usd": 9200000000.0,
-            "net_inflows_fy_usd": 53700000000.0,
-            "feaum_usd": 337000000000
+            "net_inflows_q_usd": null,
+            "net_inflows_fy_usd": null
           },
-          "aum_breakdown": {
-            "global_private_equity": 163500000000.0,
-            "global_credit": 211300000000.0,
-            "alpinvest": 102000000000.0
-          },
-          "segments": {
-            "global_private_equity_aum_usd": 163500000000.0,
-            "global_credit_aum_usd": 211300000000.0,
-            "alpinvest_aum_usd": 102000000000.0,
-            "multi_asset_aum_usd": null,
-            "other_aum_usd": null
-          },
+          "aum_breakdown": {},
+          "segments": {},
           "msci_relationship": {
-            "run_rate_usd": 900000.0,
-            "run_rate_yoy_growth_pct": 14.5,
-            "client_revenue_usd": 1100000000.0,
-            "client_revenue_yoy_growth_pct": 15.0,
-            "note": "Healthy growth both ways; AI-integration conversation in VoC."
+            "run_rate_usd": null,
+            "run_rate_yoy_growth_pct": null,
+            "client_revenue_usd": null,
+            "client_revenue_yoy_growth_pct": null
           },
-          "insight_tags": [
-            "private_credit",
-            "alts_fundraising",
-            "margin_expansion",
-            "record_year",
-            "run_rate_growth"
-          ],
-          "strategic_highlights": [
-            "Record year: FRE $1.24B (+12%) at 47% margin",
-            "FY inflows $54B (+32%) — beat $40B target",
-            "#1 PE sponsor by IPO proceeds since 2024 (~$10B over 2 yrs)",
-            "AlpInvest closed largest-ever secondary strategy at $20B",
-            "Medline IPO (>$7B; largest sponsor-backed ever, >50% above IPO price)"
-          ],
+          "insight_tags": [],
+          "strategic_highlights": [],
           "themes": {
-            "key_initiatives": [
-              "CPEP (evergreen PE for individuals) soft-launched",
-              "Record 39 CLOs priced in 2025 (most active US CLO manager)",
-              "US buyout fund +17% FY; Japan buyout +60%/+30%; EU tech +20%"
-            ],
-            "cost_pressures": [
-              "Credit spreads near all-time tights; equity at all-time highs",
-              "Net accrued perf revenues $2.9B",
-              "Softness in GPE FEAUM partially offset by AlpInvest"
-            ],
-            "strategic_insights": [
-              "Recurring-fee shift: AlpInvest $20B secondary, evergreen >2x prior",
-              "Global Wealth, Insurance Solutions & ABF as priority growth areas",
-              "FRE margins expected to further expand as revenues scale"
-            ]
+            "key_initiatives": [],
+            "cost_pressures": [],
+            "strategic_insights": []
           },
-          "top_trends": [
-            {
-              "headline": "Carlyle record year: FRE $1.24B (+12%) at 47% margin; $54B inflows beat target",
-              "url": "https://ir.carlyle.com/press-releases/",
-              "source": "Carlyle Q4 2025 IR"
-            }
-          ],
-          "sources": [
-            {
-              "metric": "aum_usd",
-              "type": "pdf_baseline",
-              "url": "",
-              "accessed": "2026-04-22"
-            }
-          ],
+          "top_trends": [],
+          "sources": [],
           "notes": []
         },
         "Q1 2026": {
@@ -2666,91 +1698,33 @@
           "financials": {
             "revenue_usd": null,
             "revenue_yoy_pct": null,
-            "operating_income_usd": 690000000.0,
-            "operating_margin_pct": 55.5,
-            "net_income_usd": 660000000.0,
-            "eps_usd": 2.47,
-            "aum_usd": 938000000000,
-            "aum_yoy_growth_pct": 25.0,
+            "operating_income_usd": null,
+            "operating_margin_pct": null,
+            "net_income_usd": null,
+            "eps_usd": null,
+            "aum_usd": null,
+            "aum_yoy_growth_pct": null,
             "organic_base_fee_growth_pct": null,
-            "net_inflows_q_usd": 42000000000,
-            "net_inflows_fy_usd": 228000000000,
-            "fgaum_usd": 709000000000,
-            "fre_usd": 690000000.0,
-            "sre_usd": 865000000.0
+            "net_inflows_q_usd": null,
+            "net_inflows_fy_usd": null
           },
-          "aum_breakdown": {
-            "credit": 749000000000,
-            "equity": 189000000000,
-            "insurance_athene": 292000000000,
-            "global_wealth": 18000000000
-          },
-          "segments": {
-            "credit_aum_usd": 749000000000,
-            "equity_aum_usd": 189000000000,
-            "insurance_athene_aum_usd": 292000000000,
-            "global_wealth_aum_usd": 18000000000,
-            "other_aum_usd": null
-          },
+          "aum_breakdown": {},
+          "segments": {},
           "msci_relationship": {
-            "run_rate_usd": 1700000.0,
-            "run_rate_yoy_growth_pct": 18.3,
-            "client_revenue_usd": 9900000000.0,
-            "client_revenue_yoy_growth_pct": 87.0,
-            "note": "Client revenue +87% — strongest growth in the roster; run-rate compounding."
+            "run_rate_usd": null,
+            "run_rate_yoy_growth_pct": null,
+            "client_revenue_usd": null,
+            "client_revenue_yoy_growth_pct": null
           },
-          "insight_tags": [
-            "private_credit",
-            "insurance_scale",
-            "alts_fundraising",
-            "wealth_channel",
-            "record_year",
-            "run_rate_growth"
-          ],
-          "strategic_highlights": [
-            "Record FRE+SRE $5.9B FY; origination exceeds $300B FY (+40% y/y)",
-            "AUM $938B (+25%); FGAUM $709B (+25%); inflows $228B FY",
-            "Global Wealth: $4B Q4 / record $18B FY (~50% y/y)",
-            "Athene to acquire ARI ($9B CML assets, 50-75bps additional spread)",
-            "Schroders partnership announced; 3rd-party insurance >$135B across 30 mandates"
-          ],
+          "insight_tags": [],
+          "strategic_highlights": [],
           "themes": {
-            "key_initiatives": [
-              "Record origination $309B FY (~40% y/y); gross deployment $386B",
-              "Dividend increased 10%: $2.04 → $2.25/share starting Q1 2026",
-              "$3.5B Valor/xAI data center financing; $3B QXO convertible preferred"
-            ],
-            "cost_pressures": [
-              "Spread risk; software near-zero; Athene defensive",
-              "Repurchased $260M Q4 / ~$1.4B FY",
-              "Perf-fee eligible AUM $322B (+44% y/y); generating $222B (+48%)"
-            ],
-            "strategic_insights": [
-              "Origination flywheel as moat; targeting $40T IG market beyond direct lending",
-              "Individual ($18B) + retirement (Athene $292B) as engines",
-              "2026: 20%+ FRE growth AM; ~$85B Athene inflows; 10% SRE growth"
-            ]
+            "key_initiatives": [],
+            "cost_pressures": [],
+            "strategic_insights": []
           },
-          "top_trends": [
-            {
-              "headline": "Apollo: Record FRE+SRE $5.9B; origination exceeds $300B; AUM $938B (+25%)",
-              "url": "https://ir.apollo.com/news-events/press-releases",
-              "source": "Apollo Q4 2025 IR"
-            },
-            {
-              "headline": "Athene to acquire ARI ($9B CML assets, 50-75bps additional spread)",
-              "url": "https://ir.apollo.com/news-events/press-releases",
-              "source": "Apollo Q4 2025 IR"
-            }
-          ],
-          "sources": [
-            {
-              "metric": "aum_usd",
-              "type": "pdf_baseline",
-              "url": "",
-              "accessed": "2026-04-22"
-            }
-          ],
+          "top_trends": [],
+          "sources": [],
           "notes": []
         },
         "Q1 2026": {
@@ -2838,95 +1812,35 @@
         },
         "Q4 2025": {
           "financials": {
-            "revenue_usd": 1500000000.0,
+            "revenue_usd": null,
             "revenue_yoy_pct": null,
-            "operating_income_usd": 867000000.0,
-            "operating_margin_pct": 61.0,
-            "net_income_usd": 615000000.0,
-            "eps_usd": 0.35,
-            "aum_usd": 1000000000000.0,
+            "operating_income_usd": null,
+            "operating_margin_pct": null,
+            "net_income_usd": null,
+            "eps_usd": null,
+            "aum_usd": null,
             "aum_yoy_growth_pct": null,
             "organic_base_fee_growth_pct": null,
-            "net_inflows_q_usd": 35000000000,
-            "net_inflows_fy_usd": 112000000000,
-            "fbc_usd": 603000000000,
-            "fre_usd": 867000000.0,
-            "de_usd": 767000000.0
+            "net_inflows_q_usd": null,
+            "net_inflows_fy_usd": null
           },
-          "aum_breakdown": {
-            "infrastructure": 106000000000,
-            "renewable_power": 67000000000,
-            "real_estate": 102000000000,
-            "private_equity": 48000000000,
-            "credit": 280000000000
-          },
-          "segments": {
-            "infrastructure_aum_usd": 106000000000,
-            "renewable_power_aum_usd": 67000000000,
-            "real_estate_aum_usd": 102000000000,
-            "private_equity_aum_usd": 48000000000,
-            "credit_aum_usd": 280000000000
-          },
+          "aum_breakdown": {},
+          "segments": {},
           "msci_relationship": {
-            "run_rate_usd": 1200000.0,
-            "run_rate_yoy_growth_pct": 23.2,
-            "client_revenue_usd": 1500000000.0,
-            "client_revenue_yoy_growth_pct": 22.0,
-            "note": "Both run-rate and client revenue in strong double-digit growth."
+            "run_rate_usd": null,
+            "run_rate_yoy_growth_pct": null,
+            "client_revenue_usd": null,
+            "client_revenue_yoy_growth_pct": null
           },
-          "insight_tags": [
-            "ai_growth",
-            "private_credit",
-            "insurance_scale",
-            "alts_fundraising",
-            "record_year",
-            "margin_expansion",
-            "run_rate_growth"
-          ],
-          "strategic_highlights": [
-            "Record FRE $3.0B FY (+22%); Q4 $867M (+28% y/y); margin 61% Q4",
-            "Raised $112B FY across 50+ strategies; FBC $603B (+12%)",
-            "Oaktree buyout (remaining 26% for ~$3B; closing H1 2026)",
-            "$20B Qatar AI JV (via BAIIF); $100B+ global AI infra program",
-            "Connor Teskey appointed CEO (Flatt continues as Chair); dividend +15%"
-          ],
+          "insight_tags": [],
+          "strategic_highlights": [],
           "themes": {
-            "key_initiatives": [
-              "Q4 raised $35B; credit $23B (incl. $9B BWS, $5.6B LT private)",
-              "BWS >$100B FBC; Q4 fees $82M (+31% y/y)",
-              "BAIIF targeting $10B with $5B secured; first close H1 2026"
-            ],
-            "cost_pressures": [
-              "Direct comp $443M Q4 / $1.7B FY",
-              "Corporate liquidity $3.0B",
-              "BN + BAM split of Oaktree deal funding"
-            ],
-            "strategic_insights": [
-              "AI infra stack + decarbonization as secular tailwinds",
-              "Oaktree + Just Group + Q4 credit acquisitions = >$200M incremental FRE",
-              "~60 strategies in market for 2026; targeting 15% annualized earnings growth"
-            ]
+            "key_initiatives": [],
+            "cost_pressures": [],
+            "strategic_insights": []
           },
-          "top_trends": [
-            {
-              "headline": "Brookfield record FRE $3.0B (+22%); $112B raised; FBC $603B (+12%)",
-              "url": "https://bam.brookfield.com/investors/news-presentations",
-              "source": "Brookfield Q4 2025 IR"
-            },
-            {
-              "headline": "Brookfield launches $20B Qatar AI infrastructure JV (part of $100B+ global program)",
-              "url": "https://bam.brookfield.com/investors/news-presentations",
-              "source": "Brookfield Q4 2025 IR"
-            }
-          ],
-          "sources": [
-            {
-              "metric": "aum_usd",
-              "type": "pdf_baseline",
-              "url": "",
-              "accessed": "2026-04-22"
-            }
-          ],
+          "top_trends": [],
+          "sources": [],
           "notes": []
         },
         "Q1 2026": {

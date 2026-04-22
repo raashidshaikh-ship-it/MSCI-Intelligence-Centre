@@ -2264,6 +2264,23 @@ function renderEarnings() {
   // Quarter toggle (no "All" — earnings are per-quarter only)
   renderQuarterToggle("quarterToggleEarnings","quarterEarnings",()=>renderEarnings(),{includeAll:false});
   const currentQ = state.quarterEarnings || QUARTERLY_DATA.current_quarter || (QUARTERLY_DATA.quarters||[])[0] || null;
+  // ── DEBUG: frontend quarter binding validation ───────────────────────────
+  console.group("🎯 renderEarnings() — quarter binding debug");
+  console.log("   state.quarterEarnings:", state.quarterEarnings);
+  console.log("   QUARTERLY_DATA.current_quarter:", QUARTERLY_DATA.current_quarter);
+  console.log("   QUARTERLY_DATA.quarters:", QUARTERLY_DATA.quarters);
+  console.log("   → resolved currentQ:", currentQ);
+  console.log("   clients loaded:", clientKeys.length, clientKeys);
+  // Per-quarter data inventory — how many clients have usable data per quarter
+  (QUARTERLY_DATA.quarters||[]).forEach(q=>{
+    const filled = clientKeys.filter(k=>{
+      const qd = ((clientsObj[k]||{}).quarters||{})[q] || {};
+      const f  = qd.financials || {};
+      return (f.revenue_usd!=null) || (f.aum_usd!=null) || (f.net_inflows_q_usd!=null) || (qd.insight_tags||[]).length>0;
+    });
+    console.log(`   ${q}: ${filled.length}/${clientKeys.length} clients have data`, filled);
+  });
+  console.groupEnd();
   document.getElementById("quarterMetaEarnings").textContent = currentQ
     ? `${clientKeys.length} clients · ${currentQ}`
     : "No quarterly data loaded";
@@ -2293,6 +2310,24 @@ function renderEarnings() {
   });
 
   let html = "";
+
+  // ── Quarter-level empty state: if NO client has any financials/tags for currentQ, show friendly notice
+  const quarterHasAnyData = clientKeys.some(k=>{
+    const qd = ((clientsObj[k]||{}).quarters||{})[currentQ] || {};
+    const f  = qd.financials || {};
+    return (f.revenue_usd!=null) || (f.aum_usd!=null) || (f.net_inflows_q_usd!=null)
+        || (f.net_income_usd!=null) || (qd.insight_tags||[]).length>0
+        || (qd.strategic_highlights||[]).length>0 || (qd.top_trends||[]).length>0;
+  });
+  if (!quarterHasAnyData && currentQ) {
+    html += `<div class="feed-empty" style="padding:40px 20px;margin-bottom:20px;border:1px dashed rgba(148,163,184,0.25);border-radius:10px">
+      <div class="feed-empty-icon">⏳</div>
+      <div class="feed-empty-title">No data for ${esc(currentQ)} — scraper hasn't captured this period yet</div>
+      <div class="feed-empty-sub">Public earnings releases &amp; SEC filings for this quarter may not be published.
+      The scraper will populate values from IR pages, SEC EDGAR, and news RSS on its next run.
+      <strong>No values are hardcoded or fabricated.</strong></div>
+    </div>`;
+  }
 
   // ═══════════════════════════════════════════════════════════════
   // LAYER 1 — Executive Summary (macro theme cards w/ icon+evidence)
@@ -2582,6 +2617,15 @@ function renderEarnings() {
   const prevIdx = quarters.indexOf(currentQ)-1;
   const prevQ = prevIdx>=0 ? quarters[prevIdx] : null;
   const prevData = prevQ ? ((co.quarters||{})[prevQ] || {}) : {};
+  console.log(`📊 Deep-dive → ${finCompany} · ${currentQ}`, {
+    path: `QUARTERLY_DATA.clients["${finCompany}"].quarters["${currentQ}"]`,
+    qData,
+    prevQ,
+    hasFinancials: !!(qData.financials && Object.values(qData.financials).some(v=>v!=null)),
+    hasTags: (qData.insight_tags||[]).length,
+    hasHighlights: (qData.strategic_highlights||[]).length,
+    hasTrends: (qData.top_trends||[]).length,
+  });
 
   html += `<div class="earnings-layer">
     <div class="earnings-layer-head">Per-Client Deep Dive <span class="earnings-layer-sub">Select a client tab above</span></div>
