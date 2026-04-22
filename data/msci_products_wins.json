@@ -1,7 +1,46 @@
 {
-  "last_updated": "2026-04-22T11:12:42.321050Z",
-  "total_items": 35,
+  "last_updated": "2026-04-22T16:55:25.545308Z",
+  "total_items": 39,
   "products": [
+    {
+      "title": "NetDragon Upgraded to \"A\" by MSCI ESG Rating - Yahoo Finance",
+      "source": "Yahoo Finance",
+      "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPMHRvZDJUNWxJUXoyV0hidlBQR3JvcTB5eGdObGEzTHlRTW9qWW1lZWpUbzB4b3NQRmktaTRiNXBNcHBVRDVoa1lGSmZrbmttdndxaEZSZ013ZUR6enNhRG0yVjlJb3lDNV9Id0x2TU9HSjNVWWI0QzgxNkxWRjFDalhNM0pBMEFjb1hHUVNCSW9sVGpDX0hmMmktTjV1UDhF?oc=5",
+      "published": "Mon, 30 Mar 2026 07:00:00 GMT",
+      "id": "cc35a097550e",
+      "product_line": "ESG & Climate",
+      "launch_type": "Enhancement",
+      "section": "Product",
+      "summary": "Details not available.",
+      "competitive_edge": "N/A",
+      "scraped_at": "2026-04-22T16:55:20.875476Z"
+    },
+    {
+      "title": "SF Holding Upgraded to \"AA\" in MSCI ESG Ratings, Reinforcing Its Global Leadership in Sustainable Logistics - PR Newswire",
+      "source": "PR Newswire",
+      "url": "https://news.google.com/rss/articles/CBMi-AFBVV95cUxNeFNpbEkxRzZaeklzZ2wzeVlOcXhWbm5oOTJzb180bVJMN3RPT2E4YXl6NnFseEdoa1JkcGNQc01iSlgzV0pPTm1hZFBXRk5QV2czTFZCZEVUZlY0YXpQRlkzM1FOTE9qQWZiMUxmcnFsR1JzZE1IQkhGS1FfeEtBRWJrOXJqWllGQ0ptVEpfcjhCMWtfNTd5aDNzaGRVYllxaXQwd01na1NMZ1p2SmZNS3k3d21MSFdwbXZsX24yZ2k5cmZpMF9OdDExdUhzY2pNbVdiMmw5b05HUkNzQVdaY2dvVnRUMlNyamwwSW92UFVpTVRTRmp2ZQ?oc=5",
+      "published": "Wed, 25 Mar 2026 07:00:00 GMT",
+      "id": "2f3cf769621e",
+      "product_line": "ESG & Climate",
+      "launch_type": "Enhancement",
+      "section": "Product",
+      "summary": "Details not available.",
+      "competitive_edge": "AI-powered innovation",
+      "scraped_at": "2026-04-22T16:55:22.108734Z"
+    },
+    {
+      "title": "MSCI mulls changes to climate benchmarks methodology - Responsible Investor",
+      "source": "Responsible Investor",
+      "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxOSlZ4Tk9IQl9BNzRkaGw2Q0c0cFdIQnM1U1Eyd2JsbGU4N04xZG96QmVOb3dYTDdUMDBLUE1OU2FXYXFuQThvZ05pR2JVU1VReWlGVGNMbW1VZ1U0NWZUem9HTHNOaGprSFRoUk9od3M0amxOQUVla2p3MFpMQnlVazlydWhkUWR1ZEY4SEhpLW03WXlB?oc=5",
+      "published": "Tue, 07 Apr 2026 07:00:00 GMT",
+      "id": "1400183ce338",
+      "product_line": "Index Solutions",
+      "launch_type": "Announcement",
+      "section": "Product",
+      "summary": "Details not available.",
+      "competitive_edge": "N/A",
+      "scraped_at": "2026-04-22T16:55:23.328555Z"
+    },
     {
       "title": "MSCI to Reclassify the MSCI Greece Indexes from Emerging Market to Developed Market status - The Norfolk Daily News",
       "source": "The Norfolk Daily News",
@@ -346,6 +385,19 @@
     }
   ],
   "milestones": [
+    {
+      "title": "MSCI Inc (NYSE: MSCI) Jumps 4% After Q1 2026 Earnings Beat as Index Business Delivers Record Asset-Based Fee Run Rate - foreignpolicyjournal.com",
+      "source": "foreignpolicyjournal.com",
+      "url": "https://news.google.com/rss/articles/CBMi9AFBVV95cUxNYXFqcnJtNGxHX1dmcG01c04tbzFrbm9KQk5XM0FqUUloRHdFLXZiTnNlbmhmNUU1YWdTZ2cwUE1XNlBYakswLTN2d0pmNjlZZGk5c21icmhhMXRSamVma0tKUUZuUUQwbXBKLVRnX21fN0JncUd2VTJVaS1ZZlhINTg5RlJEYWN5bTUwU3haa0lVdWMzeEoyM1hVQ0lXMDFPYmVqbHRCSndyaXB0SUdjQzY0OEJDSUwxb0U5SUVWRU5fNmlFcTFhMUJfbUZvS3E3SVZHVDJUcWoyYTEteXFncVpTZ3JwYXVmSGstYURWSHFKQjB3?oc=5",
+      "published": "Wed, 22 Apr 2026 16:00:53 GMT",
+      "id": "a229a4ecf094",
+      "product_line": "Index Solutions",
+      "launch_type": "Milestone",
+      "section": "Milestone",
+      "summary": "Details not available.",
+      "competitive_edge": "N/A",
+      "scraped_at": "2026-04-22T16:55:24.545192Z"
+    },
     {
       "title": "MSCI Inc. Q1 2026 Earnings Call Summary - Yahoo Finance",
       "source": "Yahoo Finance",
