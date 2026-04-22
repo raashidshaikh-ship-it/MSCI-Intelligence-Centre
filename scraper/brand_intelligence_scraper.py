@@ -721,6 +721,100 @@ def seed_baseline() -> dict:
     competitor_comparison = sorted(
         [{"brand": b, "interest": latest.get(b, 0)} for b in BRANDS],
         key=lambda x: x["interest"], reverse=True)
+
+    # ── Seed sentiment_daily + summary so the Sentiment Pulse widget renders ──
+    # Real values come from VADER on Google News headlines when the network
+    # is available. Seed values are modest (near-neutral, slightly positive
+    # for MSCI) so a live scraper run produces larger, clearly-different
+    # numbers — no risk of baseline masking a real move.
+    sentiment_daily = []
+    sentiment_totals = {b: {"sum": 0.0, "n": 0} for b in BRANDS}
+    sentiment_totals_30 = {b: {"sum": 0.0, "n": 0} for b in BRANDS}
+    sentiment_totals_prior = {b: {"sum": 0.0, "n": 0} for b in BRANDS}
+    base_sent = {"MSCI": 0.12, "S&P Global": 0.08, "FTSE Russell": 0.05,
+                 "Bloomberg Terminal": 0.10, "Morningstar": 0.07}
+    for i in range(90):
+        d = (end - timedelta(days=89 - i)).isoformat()
+        row = {"date": d}
+        for b in BRANDS:
+            score = round(base_sent[b] + random.uniform(-0.08, 0.08), 3)
+            row[b] = score
+            # Last 7 days
+            if i >= 83:
+                sentiment_totals[b]["sum"] += score
+                sentiment_totals[b]["n"] += 1
+            # Last 30 days
+            if i >= 60:
+                sentiment_totals_30[b]["sum"] += score
+                sentiment_totals_30[b]["n"] += 1
+            # Prior 30 days (days 30-59 back)
+            if 30 <= i < 60:
+                sentiment_totals_prior[b]["sum"] += score
+                sentiment_totals_prior[b]["n"] += 1
+        sentiment_daily.append(row)
+
+    def _label(v):
+        if v is None:
+            return "n/a"
+        return "positive" if v >= 0.05 else ("negative" if v <= -0.05 else "neutral")
+
+    sentiment_summary = {}
+    for b in BRANDS:
+        n7 = sentiment_totals[b]["n"] or 1
+        n30 = sentiment_totals_30[b]["n"] or 1
+        n_prior = sentiment_totals_prior[b]["n"] or 1
+        s7 = round(sentiment_totals[b]["sum"] / n7, 3)
+        s30 = round(sentiment_totals_30[b]["sum"] / n30, 3)
+        s_prior = sentiment_totals_prior[b]["sum"] / n_prior
+        sentiment_summary[b] = {
+            "sentiment_7d": s7,
+            "sentiment_30d": s30,
+            "delta_30d_vs_prior": round(s30 - s_prior, 3),
+            "label_7d": _label(s7),
+            "articles_7d": random.randint(8, 18),
+            "articles_30d": random.randint(35, 70),
+        }
+
+    # ── Seed share_of_voice + summary ──
+    # SoV is news-volume share. Real values come from Google News article
+    # counts per brand. Seed values reflect typical article-count distribution
+    # across these five brands.
+    sov_weights = {"MSCI": 0.22, "S&P Global": 0.31, "FTSE Russell": 0.08,
+                   "Bloomberg Terminal": 0.26, "Morningstar": 0.13}
+    share_of_voice = []
+    sov_7d_totals = {b: 0.0 for b in BRANDS}
+    sov_prior_7d_totals = {b: 0.0 for b in BRANDS}
+    for i in range(90):
+        d = (end - timedelta(days=89 - i)).isoformat()
+        row = {"date": d}
+        raw = {}
+        for b in BRANDS:
+            raw[b] = max(0.01, sov_weights[b] + random.uniform(-0.04, 0.04))
+        tot = sum(raw.values())
+        for b in BRANDS:
+            pct = round((raw[b] / tot) * 100, 2)
+            row[b] = pct
+            if i >= 83:
+                sov_7d_totals[b] += pct
+            if 76 <= i < 83:
+                sov_prior_7d_totals[b] += pct
+        share_of_voice.append(row)
+
+    share_of_voice_summary = {}
+    for b in BRANDS:
+        sov_7d = round(sov_7d_totals[b] / 7, 2)
+        sov_prior = sov_prior_7d_totals[b] / 7
+        share_of_voice_summary[b] = {
+            "sov_7d_pct": sov_7d,
+            "delta_pct_points": round(sov_7d - sov_prior, 2),
+            "rank": 0,  # filled after sort
+        }
+    # Assign ranks
+    for rank, b in enumerate(
+        sorted(share_of_voice_summary, key=lambda x: share_of_voice_summary[x]["sov_7d_pct"], reverse=True), start=1
+    ):
+        share_of_voice_summary[b]["rank"] = rank
+
     return {
         "last_updated": datetime.utcnow().isoformat() + "Z",
         "data_source": "seed_baseline",
@@ -729,6 +823,11 @@ def seed_baseline() -> dict:
         "rising_queries": rising_queries,
         "regional_interest": regional_interest,
         "competitor_comparison": competitor_comparison,
+        "sentiment_daily": sentiment_daily,
+        "sentiment_summary": sentiment_summary,
+        "share_of_voice": share_of_voice,
+        "share_of_voice_summary": share_of_voice_summary,
+        "market_footprint": {},
     }
 
 
@@ -891,16 +990,26 @@ def main():
         log("All network sources failed — using seeded baseline", 0)
         base = seed_baseline()
         for k in ("brand_trend", "top_queries", "rising_queries",
-                  "regional_interest", "competitor_comparison"):
+                  "regional_interest", "competitor_comparison",
+                  "sentiment_daily", "sentiment_summary",
+                  "share_of_voice", "share_of_voice_summary"):
             if not output.get(k):
                 output[k] = base[k]
         output["data_source"] = "seed_baseline"
 
-    # Back-fill missing sections from seed to guarantee dashboard renders
+    # Back-fill missing sections from seed to guarantee dashboard renders.
+    # Sentiment + SoV + market_footprint are seeded too so the widgets never
+    # show blank placeholders — live values replace seed values the moment
+    # the scraper successfully hits Google News RSS / yfinance.
     base = None
     for key in ("brand_trend", "top_queries", "rising_queries",
-                "regional_interest", "competitor_comparison"):
-        if not output.get(key):
+                "regional_interest", "competitor_comparison",
+                "sentiment_daily", "sentiment_summary",
+                "share_of_voice", "share_of_voice_summary"):
+        # dicts are "missing" when empty {} too, not just None
+        val = output.get(key)
+        is_empty = val in (None, [], {})
+        if is_empty:
             if base is None: base = seed_baseline()
             output[key] = base[key]
             output["sources_attempted"].append(f"{key}:seeded")
