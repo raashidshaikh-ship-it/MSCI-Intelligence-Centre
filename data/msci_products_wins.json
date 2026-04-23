@@ -1,7 +1,20 @@
 {
-  "last_updated": "2026-04-23T02:07:31.605635Z",
-  "total_items": 41,
+  "last_updated": "2026-04-23T09:23:27.620895Z",
+  "total_items": 42,
   "products": [
+    {
+      "title": "List of 13 Acquisitions by MSCI (Apr 2026) - Tracxn",
+      "source": "Tracxn",
+      "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQMkt0djEzZDBpQXo3Y2RGWTI3cnJQeUd5eHBjXzkyWUkxM2pVN1paYmlnbzZBUlAtRnhGRi1udlNDNFhpR19Kb3doX1Y0NmdiTnA4SEIxTk90UTFCMG85Z2JabnFrNFhxY0ZjdmNoQy1lM3JDX05zOFRYeDdUSjJaeXROc1hyb0NQcl9YSndtVjlNLWZsZTcxNUEyRFFtNWdhRUE?oc=5",
+      "published": "Thu, 09 Apr 2026 07:00:00 GMT",
+      "id": "ccffc191f655",
+      "product_line": "General",
+      "launch_type": "Acquisition",
+      "section": "Product",
+      "summary": "Details not available.",
+      "competitive_edge": "N/A",
+      "scraped_at": "2026-04-23T09:23:26.620750Z"
+    },
     {
       "title": "Is iShares Paris-Aligned Climate Optimized MSCI USA ETF (PABU) a Strong ETF Right Now? - Yahoo Finance",
       "source": "Yahoo Finance",
