@@ -1,7 +1,20 @@
 {
-  "last_updated": "2026-04-22T16:55:25.545308Z",
-  "total_items": 39,
+  "last_updated": "2026-04-23T02:07:31.605635Z",
+  "total_items": 41,
   "products": [
+    {
+      "title": "Is iShares Paris-Aligned Climate Optimized MSCI USA ETF (PABU) a Strong ETF Right Now? - Yahoo Finance",
+      "source": "Yahoo Finance",
+      "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxPZmZoN21xa1EwRU8yUVN6SW5DQmlnSktBdVo2bXFVcDQ2c3RSUU1YajNPdFZXSkVDQzNMcFNfOW5Gb0lVVUhHd29aZVJjRkNHR1dJY2pfWGdPOXhWdG44RUZmMWJCOFFJeDl1LU56MkgzeFpZQkt2NWRHY00zUUl3UjkySDJBcG1KZFN5dW90ZHpmVU94bks2eUNRQmV1d0F4OFZmUHdvYw?oc=5",
+      "published": "Tue, 31 Mar 2026 07:00:00 GMT",
+      "id": "23eb81228183",
+      "product_line": "ESG & Climate",
+      "launch_type": "Announcement",
+      "section": "Product",
+      "summary": "Details not available.",
+      "competitive_edge": "N/A",
+      "scraped_at": "2026-04-23T02:07:29.322710Z"
+    },
     {
       "title": "NetDragon Upgraded to \"A\" by MSCI ESG Rating - Yahoo Finance",
       "source": "Yahoo Finance",
@@ -385,6 +398,19 @@
     }
   ],
   "milestones": [
+    {
+      "title": "MSCI Approaches Q1 Earnings With Index Division Running at Record $7 Trillion in ETF-Linked Assets - foreignpolicyjournal.com",
+      "source": "foreignpolicyjournal.com",
+      "url": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxObHVVdHU4Y3p2cUNPRkIxSllXVnl6bC1abDF6eFl5YTJ4YUpRMEZ6ZHBaMldKMUhxNDdYcWVndlk1TVNCZU85ZnJqdXB6NGdVWlUzVXN0Y1JhUkhOWVRPc0VrcG1Da1BNVkg4S2dmZTh6aEVPdDB3bDRKeHJLdm00eEpUQ3JIV1RnZ0ZONDY3LWJuTXMtSUxxMHVISGZ0VVJld2lIYmpJMG9EODdsam83TXF3cW5naWFmNzZLWFlUS1RjWWpYMkhSamFuU3FWNnBodUg3bUkzcUE1SVNUaTBZ?oc=5",
+      "published": "Sat, 18 Apr 2026 16:58:23 GMT",
+      "id": "f8dc9274de5b",
+      "product_line": "Index Solutions",
+      "launch_type": "Milestone",
+      "section": "Milestone",
+      "summary": "Details not available.",
+      "competitive_edge": "N/A",
+      "scraped_at": "2026-04-23T02:07:30.605452Z"
+    },
     {
       "title": "MSCI Inc (NYSE: MSCI) Jumps 4% After Q1 2026 Earnings Beat as Index Business Delivers Record Asset-Based Fee Run Rate - foreignpolicyjournal.com",
       "source": "foreignpolicyjournal.com",
