@@ -1,7 +1,20 @@
 {
-  "last_updated": "2026-04-23T17:16:13.779826Z",
-  "total_items": 43,
+  "last_updated": "2026-04-24T02:07:59.458407Z",
+  "total_items": 44,
   "products": [
+    {
+      "title": "News - NC Achieves AAA Rating in 2026 MSCI ESG Assessment - NC - NC",
+      "source": "NC",
+      "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxNSEVha2p3TE9za2RXTzNRT0Y5el96YkhjQTlNRmVOb0htTlpGM2lYR1oyeUVLNi1GVmQwXzFSUGJWbmhZdlQ2OUxFYjVxV3otbGRFOFozMVR1VW1LcnRZdkdCc1piOW5UV1BNSm5CMno1Z3FsRjdsb0hWQXVSY18wWWdDN2RDZWpZVWtqNlc5bnpBVHNlaUVCNFpB?oc=5",
+      "published": "Wed, 08 Apr 2026 07:00:00 GMT",
+      "id": "908f56081948",
+      "product_line": "ESG & Climate",
+      "launch_type": "Announcement",
+      "section": "Product",
+      "summary": "Details not available.",
+      "competitive_edge": "N/A",
+      "scraped_at": "2026-04-24T02:07:58.458245Z"
+    },
     {
       "title": "List of 13 Acquisitions by MSCI (Apr 2026) - Tracxn",
       "source": "Tracxn",
