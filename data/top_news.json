@@ -1,7 +1,524 @@
 {
-  "last_updated": "2026-04-24T16:50:34.509010+00:00",
+  "last_updated": "2026-04-25T01:56:45.303485+00:00",
   "total": 200,
   "articles": [
+    {
+      "title": "NDAQ Q1 Deep Dive: AI and Cloud Growth Drive Strong Start for Nasdaq",
+      "url": "https://finnhub.io/api/news?id=b20ad9d3c52713f8aedb2371e494169e4724e97c2a7aef0c6e84f08cd9e300f4",
+      "source": "Yahoo",
+      "summary": "Global exchange operator Nasdaq (NASDAQ:NDAQ) reported Q1 CY2026 results exceeding the market’s revenue expectations, with sales up 13.7% year on year to $1.41 billion. Its non-GAAP profit of $0.96 per share was 3.1% above analysts’ consensus estimates.",
+      "published": "2026-04-24T23:41:23+00:00",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "competitor": "Nasdaq",
+      "ticker": "NDAQ",
+      "segment": "Exchanges / Index Licensing",
+      "origin": "finnhub",
+      "related": "NDAQ",
+      "finnhub_category": "company",
+      "category": "Technology / AI",
+      "sentiment": "Positive",
+      "product_line": "Non-core",
+      "segments": [
+        "Non-core"
+      ],
+      "non_core": true,
+      "importance_score": 75,
+      "importance": "High",
+      "impact_level": "High",
+      "id": "d7813ea3091b8c71",
+      "signals": [
+        "Technology / AI",
+        "Breaking (<24h)",
+        "High priority"
+      ],
+      "why_it_matters": "Tech / AI move — potential differentiation versus MSCI analytics.",
+      "key_points": [
+        "Global exchange operator Nasdaq (NASDAQ:NDAQ) reported Q1 CY2026 results exceeding the market’s revenue expectations, with sales up 13.7% year on year to $1.41 billion.",
+        "Its non-GAAP profit of $0.96 per share was 3.1% above analysts’ consensus estimates."
+      ],
+      "reading_time": "1 min read"
+    },
+    {
+      "title": "Dividend Champion, Contender, And Challenger Highlights: Week Of April 26",
+      "url": "https://finnhub.io/api/news?id=19957f4453d0e1e79fb4e0780f32c03feead8f44f3d398be6c2e3abbebf66834",
+      "source": "SeekingAlpha",
+      "summary": "Weekly dividend summary for Dividend Champions, Contenders & Challengers: dividend changes, upcoming ex-dividend dates and pay dates.",
+      "published": "2026-04-24T20:45:00+00:00",
+      "image": "https://static.seekingalpha.com/cdn/s3/uploads/getty_images/1072593728/image_1072593728.jpg?io=getty-c-w1536",
+      "competitor": "Nasdaq",
+      "ticker": "NDAQ",
+      "segment": "Exchanges / Index Licensing",
+      "origin": "finnhub",
+      "related": "NDAQ",
+      "finnhub_category": "company",
+      "category": "General",
+      "sentiment": "Neutral",
+      "product_line": "Non-core",
+      "segments": [
+        "Non-core"
+      ],
+      "non_core": true,
+      "importance_score": 40,
+      "importance": "Medium",
+      "impact_level": "Medium",
+      "id": "59927c05a787a17c",
+      "signals": [
+        "Breaking (<24h)"
+      ],
+      "why_it_matters": "News mention involving Nasdaq in Exchanges / Index Licensing.",
+      "key_points": [
+        "Weekly dividend summary for Dividend Champions, Contenders & Challengers: dividend changes, upcoming ex-dividend dates and pay dates."
+      ],
+      "reading_time": "1 min read"
+    },
+    {
+      "title": "Best Dividend Kings: April 2026",
+      "url": "https://finnhub.io/api/news?id=17d072be3c2e3c14c0de6cc049ae37e3aad6d33565f5290f096d5c0dab42bc91",
+      "source": "SeekingAlpha",
+      "summary": "Dividend Kings beat SPY YTD. See which are undervalued with 10%+ expected returns using Dividend Yield Theory, plus dividend growth trendsâread now.",
+      "published": "2026-04-24T20:26:15+00:00",
+      "image": "https://static.seekingalpha.com/cdn/s3/uploads/getty_images/2232970921/image_2232970921.jpg?io=getty-c-w1536",
+      "competitor": "S&P Global",
+      "ticker": "SPGI",
+      "segment": "Indices / Ratings / Data",
+      "origin": "finnhub",
+      "related": "SPGI",
+      "finnhub_category": "company",
+      "category": "General",
+      "sentiment": "Positive",
+      "product_line": "Non-core",
+      "segments": [
+        "Non-core"
+      ],
+      "non_core": true,
+      "importance_score": 40,
+      "importance": "Medium",
+      "impact_level": "Medium",
+      "id": "821ecf70c21e41a9",
+      "signals": [
+        "Breaking (<24h)"
+      ],
+      "why_it_matters": "News mention involving S&P Global in Indices / Ratings / Data.",
+      "key_points": [
+        "See which are undervalued with 10%+ expected returns using Dividend Yield Theory, plus dividend growth trendsâread now."
+      ],
+      "reading_time": "1 min read"
+    },
+    {
+      "title": "S&P Global 2026 Annual Meeting of Shareholders to be Held on May 20",
+      "url": "https://finnhub.io/api/news?id=ee4b5b1b8d1c7cc7fd6dabe0d0641f10d7d7ef7f330ad49a888e8bc60261683b",
+      "source": "Yahoo",
+      "summary": "S&P Global (NYSE: SPGI) will hold its Annual Meeting of Shareholders on May 20, 2026 at 8:30 a.m. (EDT) in a virtual-only meeting format. The Company's Proxy Statement and the latest Annual Report are available at www.edocumentview.com/SPGI. Shareholders of Record were mailed their proxy materials with instructions on how to attend, vote, and submit questions online.",
+      "published": "2026-04-24T20:15:00+00:00",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "competitor": "S&P Global",
+      "ticker": "SPGI",
+      "segment": "Indices / Ratings / Data",
+      "origin": "finnhub",
+      "related": "SPGI",
+      "finnhub_category": "company",
+      "category": "General",
+      "sentiment": "Neutral",
+      "product_line": "Non-core",
+      "segments": [
+        "Non-core"
+      ],
+      "non_core": true,
+      "importance_score": 65,
+      "importance": "High",
+      "impact_level": "High",
+      "id": "cffcdd6191663c67",
+      "signals": [
+        "Breaking (<24h)"
+      ],
+      "why_it_matters": "News mention involving S&P Global in Indices / Ratings / Data.",
+      "key_points": [
+        "S&P Global (NYSE: SPGI) will hold its Annual Meeting of Shareholders on May 20, 2026 at 8:30 a.m.",
+        "(EDT) in a virtual-only meeting format.",
+        "The Company's Proxy Statement and the latest Annual Report are available at www.edocumentview.com/SPGI."
+      ],
+      "reading_time": "1 min read"
+    },
+    {
+      "title": "Nasdaq Announces Mid-Month Open Short Interest Positions in Nasdaq Stocks as of Settlement Date April 15, 2026",
+      "url": "https://finnhub.io/api/news?id=ef31b5a8fe6e39fc0b00be85ffe1018d57e42b110eacdd9e59e0931d13e08e29",
+      "source": "Yahoo",
+      "summary": "NEW YORK, April 24, 2026 (GLOBE NEWSWIRE) -- At the end of the settlement date of April 15, 2026, short interest in 3,689 Nasdaq Global MarketSM securities totaled 16,579,123,734 shares compared with 16,513,796,397 shares in 3,694 Global Market issues reported for the prior settlement date of March 31, 2026. The mid-April short interest represents 2.71 days compared with 2.73 days for the prior reporting period. Short interest in 1,643 securities on The Nasdaq Capital MarketSM totaled 3,919,142,",
+      "published": "2026-04-24T20:05:00+00:00",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "competitor": "Nasdaq",
+      "ticker": "NDAQ",
+      "segment": "Exchanges / Index Licensing",
+      "origin": "finnhub",
+      "related": "NDAQ",
+      "finnhub_category": "company",
+      "category": "Legal / Litigation",
+      "sentiment": "Neutral",
+      "product_line": "Non-core",
+      "segments": [
+        "Non-core"
+      ],
+      "non_core": true,
+      "importance_score": 80,
+      "importance": "Critical",
+      "impact_level": "Critical",
+      "id": "34179cab1a8a29f3",
+      "signals": [
+        "Legal / Litigation",
+        "Breaking (<24h)",
+        "High priority"
+      ],
+      "why_it_matters": "Litigation risk — may constrain Nasdaq's near-term posture.",
+      "key_points": [
+        "NEW YORK, April 24, 2026 (GLOBE NEWSWIRE) -- At the end of the settlement date of April 15, 2026, short interest in 3,689 Nasdaq Global MarketSM securities totaled 16,579,123,734 shares compared with 16,513,796,397 shares in 3,694 Global Market issues reported for the prior settlement date of March 31, 2026.",
+        "The mid-April short interest represents 2.71 days compared with 2.73 days for the prior reporting period.",
+        "Short interest in 1,643 securities on The Nasdaq Capital MarketSM totaled 3,919,142,"
+      ],
+      "reading_time": "1 min read"
+    },
+    {
+      "title": "Nasdaq Faces Upside as AI Fears Fade and Investors Feel Confident About Growth, UBS Says",
+      "url": "https://finnhub.io/api/news?id=4780baa174de9885417be01a83a5cc89b2e416b02149627505094465e04fb16f",
+      "source": "Yahoo",
+      "summary": "Nasdaq (NDAQ) continues to execute well, and the stock could move higher as concerns around artifici",
+      "published": "2026-04-24T19:15:17+00:00",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "competitor": "Nasdaq",
+      "ticker": "NDAQ",
+      "segment": "Exchanges / Index Licensing",
+      "origin": "finnhub",
+      "related": "NDAQ",
+      "finnhub_category": "company",
+      "category": "Technology / AI",
+      "sentiment": "Neutral",
+      "product_line": "Non-core",
+      "segments": [
+        "Wealth Managers"
+      ],
+      "non_core": false,
+      "importance_score": 75,
+      "importance": "High",
+      "impact_level": "High",
+      "id": "8d8f9dc3d26ae999",
+      "signals": [
+        "Technology / AI",
+        "Breaking (<24h)",
+        "High priority"
+      ],
+      "why_it_matters": "Tech / AI move — potential differentiation versus MSCI analytics.",
+      "key_points": [
+        "Nasdaq (NDAQ) continues to execute well, and the stock could move higher as concerns around artifici"
+      ],
+      "reading_time": "1 min read"
+    },
+    {
+      "title": "CME : Five central bank decisions and Iran talks define the week.",
+      "url": "https://finnhub.io/api/news?id=4e86a92ef48ec146a75a9aa2b77e399996d3c3dc2de7a7b56e53a50c6ed44e88",
+      "source": "Finnhub",
+      "summary": "With the Strait of Hormuz functionally closed by a U.S. naval blockade, ongoing Iran ceasefire talks act as the ultimate wildcard for WTI Crude Oil futures, gold, and currencies. A breakthrough could...",
+      "published": "2026-04-24T18:41:08+00:00",
+      "image": "",
+      "competitor": "CME Group",
+      "ticker": "CME",
+      "segment": "Derivatives / Indices",
+      "origin": "finnhub",
+      "related": "CME",
+      "finnhub_category": "company",
+      "category": "General",
+      "sentiment": "Neutral",
+      "product_line": "Non-core",
+      "segments": [
+        "Banks"
+      ],
+      "non_core": false,
+      "importance_score": 40,
+      "importance": "Medium",
+      "impact_level": "Medium",
+      "id": "aa41ef766460ab1c",
+      "signals": [
+        "Breaking (<24h)"
+      ],
+      "why_it_matters": "News mention involving CME Group in Derivatives / Indices.",
+      "key_points": [
+        "With the Strait of Hormuz functionally closed by a U.S.",
+        "naval blockade, ongoing Iran ceasefire talks act as the ultimate wildcard for WTI Crude Oil futures, gold, and currencies."
+      ],
+      "reading_time": "1 min read"
+    },
+    {
+      "title": "CME : Wheat futures gain 18 cents as corn posts higher weekly close.",
+      "url": "https://finnhub.io/api/news?id=561a9f55656fb86c7b2016541c71fabeb61376e5e39176f2f8bd4adb914f48ce",
+      "source": "Finnhub",
+      "summary": "An analysis of the grain markets following May options expiration reveals shifting volume to July contracts and mixed price action. July Corn futures maintained a second consecutive week of higher...",
+      "published": "2026-04-24T17:13:15+00:00",
+      "image": "",
+      "competitor": "CME Group",
+      "ticker": "CME",
+      "segment": "Derivatives / Indices",
+      "origin": "finnhub",
+      "related": "CME",
+      "finnhub_category": "company",
+      "category": "General",
+      "sentiment": "Neutral",
+      "product_line": "Non-core",
+      "segments": [
+        "Non-core"
+      ],
+      "non_core": true,
+      "importance_score": 40,
+      "importance": "Medium",
+      "impact_level": "Medium",
+      "id": "8f0b069e9065c1a5",
+      "signals": [
+        "Breaking (<24h)"
+      ],
+      "why_it_matters": "News mention involving CME Group in Derivatives / Indices.",
+      "key_points": [
+        "An analysis of the grain markets following May options expiration reveals shifting volume to July contracts and mixed price action.",
+        "July Corn futures maintained a second consecutive week of higher..."
+      ],
+      "reading_time": "1 min read"
+    },
+    {
+      "title": "CME : WTI Crude Oil futures fell as natural gas hit a 19-month low.",
+      "url": "https://finnhub.io/api/news?id=116498d1a366a27f5fb8d750066f2a4fd070fa52cd00f4198659851a746fe2bc",
+      "source": "Finnhub",
+      "summary": "Taking a look at energy markets, WTI Crude Oil futures traded lower, dropping around 2% to the $94 level after three consecutive higher closes. The primary driver behind this headwind appears to be...",
+      "published": "2026-04-24T17:13:14+00:00",
+      "image": "",
+      "competitor": "CME Group",
+      "ticker": "CME",
+      "segment": "Derivatives / Indices",
+      "origin": "finnhub",
+      "related": "CME",
+      "finnhub_category": "company",
+      "category": "General",
+      "sentiment": "Neutral",
+      "product_line": "Non-core",
+      "segments": [
+        "Non-core"
+      ],
+      "non_core": true,
+      "importance_score": 40,
+      "importance": "Medium",
+      "impact_level": "Medium",
+      "id": "6e9ae1e3dca5c728",
+      "signals": [
+        "Breaking (<24h)"
+      ],
+      "why_it_matters": "News mention involving CME Group in Derivatives / Indices.",
+      "key_points": [
+        "Taking a look at energy markets, WTI Crude Oil futures traded lower, dropping around 2% to the $94 level after three consecutive higher closes.",
+        "The primary driver behind this headwind appears to be..."
+      ],
+      "reading_time": "1 min read"
+    },
+    {
+      "title": "S&P Global Belgium long-term sovereign ratings lowered to 'Aa-' on budgetary imbalances outlook stable",
+      "url": "https://finnhub.io/api/news?id=a7b3f598a209f8d06b530a0d7b7aadf04f9ac418c107dac8770b6a95e2779e6c",
+      "source": "Finnhub",
+      "summary": "April 24 - S&P Global - Belgium long-term sovereign ratings lowered to 'Aa-' on budgetary imbalances; outlook stable S&P on Belgium - faces fiscal challenges, illustrated by widening budget...",
+      "published": "2026-04-24T17:12:27+00:00",
+      "image": "",
+      "competitor": "S&P Global",
+      "ticker": "SPGI",
+      "segment": "Indices / Ratings / Data",
+      "origin": "finnhub",
+      "related": "SPGI",
+      "finnhub_category": "company",
+      "category": "Fixed Income / Credit",
+      "sentiment": "Neutral",
+      "product_line": "Non-core",
+      "segments": [
+        "Non-core"
+      ],
+      "non_core": true,
+      "importance_score": 65,
+      "importance": "High",
+      "impact_level": "High",
+      "id": "349fef52783be04d",
+      "signals": [
+        "Fixed Income / Credit",
+        "Breaking (<24h)"
+      ],
+      "why_it_matters": "Credit / fixed-income development — read across to credit analytics demand.",
+      "key_points": [
+        "April 24 - S&P Global - Belgium long-term sovereign ratings lowered to 'Aa-' on budgetary imbalances; outlook stable S&P on Belgium - faces fiscal challenges, illustrated by widening budget..."
+      ],
+      "reading_time": "1 min read"
+    },
+    {
+      "title": "Nasdaq Inc CEO Adena T. Friedman 2025 total compensation $25 million",
+      "url": "https://finnhub.io/api/news?id=577d202f20a3b56002008bcbfa911d1e065afeaefa09abe95e53bc1c72f4ffdb",
+      "source": "Finnhub",
+      "summary": "Nasdaq Inc: Nasdaq Inc: CEO Adena T. Friedman 2025 total compensation $25 million - SEC filing...",
+      "published": "2026-04-24T17:05:40+00:00",
+      "image": "",
+      "competitor": "Nasdaq",
+      "ticker": "NDAQ",
+      "segment": "Exchanges / Index Licensing",
+      "origin": "finnhub",
+      "related": "NDAQ",
+      "finnhub_category": "company",
+      "category": "Regulatory",
+      "sentiment": "Neutral",
+      "product_line": "Non-core",
+      "segments": [
+        "Non-core"
+      ],
+      "non_core": true,
+      "importance_score": 80,
+      "importance": "Critical",
+      "impact_level": "Critical",
+      "id": "9a2387aa1b02c1aa",
+      "signals": [
+        "Regulatory",
+        "Breaking (<24h)",
+        "High priority"
+      ],
+      "why_it_matters": "Regulatory development affecting Exchanges / Index Licensing market structure.",
+      "key_points": [
+        "Nasdaq Inc: Nasdaq Inc: CEO Adena T.",
+        "Friedman 2025 total compensation $25 million - SEC filing..."
+      ],
+      "reading_time": "1 min read"
+    },
+    {
+      "title": "Belgium Downgrade Pressures Bond Yields As Debt Seen Hitting 122% GDP",
+      "url": "https://finnhub.io/api/news?id=f03334f40a7670efa5bbdf8a7dd160bec4284713a77632b7e85af9e8ceae584c",
+      "source": "Yahoo",
+      "summary": "Moody's cut and pending S&P review come as Belgian borrowing costs rise above Spain and Portugal",
+      "published": "2026-04-24T16:51:19+00:00",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "competitor": "Moody's",
+      "ticker": "MCO",
+      "segment": "Ratings / Risk Analytics",
+      "origin": "finnhub",
+      "related": "MCO",
+      "finnhub_category": "company",
+      "category": "Fixed Income / Credit",
+      "sentiment": "Neutral",
+      "product_line": "Non-core",
+      "segments": [
+        "Non-core"
+      ],
+      "non_core": true,
+      "importance_score": 65,
+      "importance": "High",
+      "impact_level": "High",
+      "id": "7f00203bab0a0ca3",
+      "signals": [
+        "Fixed Income / Credit",
+        "Breaking (<24h)"
+      ],
+      "why_it_matters": "Credit / fixed-income development — read across to credit analytics demand.",
+      "key_points": [
+        "Moody's cut and pending S&P review come as Belgian borrowing costs rise above Spain and Portugal"
+      ],
+      "reading_time": "1 min read"
+    },
+    {
+      "title": "Flagstar Financial, Inc. Q1 2026 Earnings Call Summary",
+      "url": "https://finnhub.io/api/news?id=737e3be87e133908f3253224ca2643d51704b03595c98fea21f3bcc54e797d74",
+      "source": "Yahoo",
+      "summary": "Moby summary of Flagstar Financial, Inc.'s Q1 2026 earnings call",
+      "published": "2026-04-24T16:46:32+00:00",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "competitor": "Moody's",
+      "ticker": "MCO",
+      "segment": "Ratings / Risk Analytics",
+      "origin": "finnhub",
+      "related": "MCO",
+      "finnhub_category": "company",
+      "category": "Earnings",
+      "sentiment": "Neutral",
+      "product_line": "Non-core",
+      "segments": [
+        "Non-core"
+      ],
+      "non_core": true,
+      "importance_score": 55,
+      "importance": "Medium",
+      "impact_level": "Medium",
+      "id": "54b4407b2b0b3309",
+      "signals": [
+        "Earnings",
+        "Breaking (<24h)"
+      ],
+      "why_it_matters": "Financial print signals competitor health and client-spend implications.",
+      "key_points": [
+        "Moby summary of Flagstar Financial, Inc.'s Q1 2026 earnings call"
+      ],
+      "reading_time": "1 min read"
+    },
+    {
+      "title": "Nasdaq short interest up 0.5% in mid-April",
+      "url": "https://finnhub.io/api/news?id=52b75b330cba0c5f7e7bcb3be43937b316f76c36304289cbd0ebe3504e96d480",
+      "source": "Finnhub",
+      "summary": "Short interest on the Nasdaq rose0.5% in mid-April, the exchange said on Friday. As of April 15, short interest rose to 20,498,266,178shares, compared with 20,395,670,061 shares as of...",
+      "published": "2026-04-24T16:43:19+00:00",
+      "image": "",
+      "competitor": "Nasdaq",
+      "ticker": "NDAQ",
+      "segment": "Exchanges / Index Licensing",
+      "origin": "finnhub",
+      "related": "NDAQ",
+      "finnhub_category": "company",
+      "category": "General",
+      "sentiment": "Neutral",
+      "product_line": "Non-core",
+      "segments": [
+        "Non-core"
+      ],
+      "non_core": true,
+      "importance_score": 65,
+      "importance": "High",
+      "impact_level": "High",
+      "id": "85c4c52cd3c581ee",
+      "signals": [
+        "Breaking (<24h)"
+      ],
+      "why_it_matters": "News mention involving Nasdaq in Exchanges / Index Licensing.",
+      "key_points": [
+        "Short interest on the Nasdaq rose0.5% in mid-April, the exchange said on Friday.",
+        "As of April 15, short interest rose to 20,498,266,178shares, compared with 20,395,670,061 shares as of..."
+      ],
+      "reading_time": "1 min read"
+    },
+    {
+      "title": "2 of Wall Street’s Favorite Stocks with Competitive Advantages and 1 Facing Challenges",
+      "url": "https://finnhub.io/api/news?id=4b9ea98f81e4094701498dcc93413a9f5d0c1090e9ab2bd83f202c14a019c650",
+      "source": "Yahoo",
+      "summary": "The stocks in this article have caught Wall Street’s attention in a big way, with price targets implying returns above 20%. But investors should take these forecasts with a grain of salt because analysts typically say nice things about companies so their firms can win business in other product lines like M&A advisory.",
+      "published": "2026-04-24T16:37:23+00:00",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "competitor": "S&P Global",
+      "ticker": "SPGI",
+      "segment": "Indices / Ratings / Data",
+      "origin": "finnhub",
+      "related": "SPGI",
+      "finnhub_category": "company",
+      "category": "General",
+      "sentiment": "Neutral",
+      "product_line": "Non-core",
+      "segments": [
+        "Non-core"
+      ],
+      "non_core": true,
+      "importance_score": 40,
+      "importance": "Medium",
+      "impact_level": "Medium",
+      "id": "88a5d034913030b4",
+      "signals": [
+        "Breaking (<24h)"
+      ],
+      "why_it_matters": "News mention involving S&P Global in Indices / Ratings / Data.",
+      "key_points": [
+        "The stocks in this article have caught Wall Street’s attention in a big way, with price targets implying returns above 20%.",
+        "But investors should take these forecasts with a grain of salt because analysts typically say nice things about companies so their firms can win business in other product lines like M&A advisory."
+      ],
+      "reading_time": "1 min read"
+    },
     {
       "title": "Assessing CME Group (CME) Valuation After Recent Share Price Weakness",
       "url": "https://finnhub.io/api/news?id=dde7e78e7ed6deb2ca337e1255f964a34008fb840a9577dec82ceb9e6d5b7bb6",
@@ -38,6 +555,39 @@
       "reading_time": "1 min read"
     },
     {
+      "title": "Nasdaq : Selected Comments from First Quarter 2026 Results",
+      "url": "https://finnhub.io/api/news?id=05e0f9e82fb1f6723aebc6b2fc8aa915c38ecdf71a05c15bddaeef714efefb9d",
+      "source": "Finnhub",
+      "summary": "‌We are publishing a summary of certain comments that we provided on April 23, 2026 in our 1Q26 earnings materials regarding our 1Q26 earnings results, including the additional commentary we...",
+      "published": "2026-04-24T15:04:13+00:00",
+      "image": "",
+      "competitor": "Nasdaq",
+      "ticker": "NDAQ",
+      "segment": "Exchanges / Index Licensing",
+      "origin": "finnhub",
+      "related": "NDAQ",
+      "finnhub_category": "company",
+      "category": "General",
+      "sentiment": "Neutral",
+      "product_line": "Non-core",
+      "segments": [
+        "Non-core"
+      ],
+      "non_core": true,
+      "importance_score": 65,
+      "importance": "High",
+      "impact_level": "High",
+      "id": "7d4909baa60ac6f9",
+      "signals": [
+        "Breaking (<24h)"
+      ],
+      "why_it_matters": "News mention involving Nasdaq in Exchanges / Index Licensing.",
+      "key_points": [
+        "‌We are publishing a summary of certain comments that we provided on April 23, 2026 in our 1Q26 earnings materials regarding our 1Q26 earnings results, including the additional commentary we..."
+      ],
+      "reading_time": "1 min read"
+    },
+    {
       "title": "HCA Healthcare Tops First-Quarter Estimates; Respiratory Admissions Fall",
       "url": "https://finnhub.io/api/news?id=752c20b784fc9ff26d3d2f652316963ed8e604bc1d1a735b9160234df7e5f977",
       "source": "Yahoo",
@@ -67,6 +617,40 @@
       "why_it_matters": "News mention involving FactSet in Analytics / Data Platform.",
       "key_points": [
         "HCA Healthcare's (HCA) first-quarter results exceeded market expectations, though the hospital opera"
+      ],
+      "reading_time": "1 min read"
+    },
+    {
+      "title": "CBOE Global (CBOE) Reports Next Week: Wall Street Expects Earnings Growth",
+      "url": "https://finnhub.io/api/news?id=b6a1d1d14498dbc1e99b549b0c7b9696db250099c8362dfca77d867826c171b6",
+      "source": "Yahoo",
+      "summary": "CBOE (CBOE) possesses the right combination of the two key ingredients for a likely earnings beat in its upcoming report. Get prepared with the key expectations.",
+      "published": "2026-04-24T14:00:08+00:00",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "competitor": "Intercontinental Exchange",
+      "ticker": "ICE",
+      "segment": "Exchanges / Data / Indices",
+      "origin": "finnhub",
+      "related": "ICE",
+      "finnhub_category": "company",
+      "category": "General",
+      "sentiment": "Positive",
+      "product_line": "Non-core",
+      "segments": [
+        "Non-core"
+      ],
+      "non_core": true,
+      "importance_score": 40,
+      "importance": "Medium",
+      "impact_level": "Medium",
+      "id": "04371f043e557147",
+      "signals": [
+        "Breaking (<24h)"
+      ],
+      "why_it_matters": "News mention involving Intercontinental Exchange in Exchanges / Data / Indices.",
+      "key_points": [
+        "CBOE (CBOE) possesses the right combination of the two key ingredients for a likely earnings beat in its upcoming report.",
+        "Get prepared with the key expectations."
       ],
       "reading_time": "1 min read"
     },
@@ -212,6 +796,40 @@
       "reading_time": "1 min read"
     },
     {
+      "title": "Fed is likely to hold rates steady — here's how that impacts consumer costs",
+      "url": "https://finnhub.io/api/news?id=be20d46db5aea0bf7c08794c09a80afd57f6c438a3443bb1cb62c45a97d6f5cc",
+      "source": "CNBC",
+      "summary": "The Federal Reserve's April meeting, potentially Jerome Powell's last as chair, may impact many consumer borrowing and savings rates.",
+      "published": "2026-04-24T11:37:48+00:00",
+      "image": "https://image.cnbcfm.com/api/v1/image/108251345-1768244807810-gettyimages-2209252596-20250131_dcsaturday_1017.jpeg?v=1776966268&w=1920&h=1080",
+      "competitor": "CME Group",
+      "ticker": "CME",
+      "segment": "Derivatives / Indices",
+      "origin": "finnhub",
+      "related": "CME",
+      "finnhub_category": "company",
+      "category": "Macro / Markets",
+      "sentiment": "Neutral",
+      "product_line": "Non-core",
+      "segments": [
+        "Non-core"
+      ],
+      "non_core": true,
+      "importance_score": 40,
+      "importance": "Medium",
+      "impact_level": "Medium",
+      "id": "a5eb34320c2fd439",
+      "signals": [
+        "Macro / Markets",
+        "Breaking (<24h)"
+      ],
+      "why_it_matters": "Macro backdrop — shapes client risk appetite and spend cycle.",
+      "key_points": [
+        "The Federal Reserve's April meeting, potentially Jerome Powell's last as chair, may impact many consumer borrowing and savings rates."
+      ],
+      "reading_time": "1 min read"
+    },
+    {
       "title": "S&P Global Announces New Strategic Direction for Upstream Energy Business",
       "url": "https://finnhub.io/api/news?id=f6917548a420a404a2520722fb558f0c7a9eb15a4c79bec8939baab075c09744",
       "source": "Yahoo",
@@ -243,6 +861,39 @@
         "Today, S&P Global announced strategic innovations and changes to its upstream energy business, beginning with a definitive agreement to sell S&P Global Energy's geoscience and petroleum engineering software portfolio to SLB, a global technology company driving energy innovation across more than 100 countries.",
         "This portfolio of subsurface and engineering software, widely used by U.S.",
         "onshore and unconventional operators, includes Kingdom Software, Petra, Harmony Enterprise, Analytics Explorer, Su"
+      ],
+      "reading_time": "1 min read"
+    },
+    {
+      "title": "Trump Says He's 'Not A Fan' Of Prediction Markets, But Soldier Betting On His Own Raid Gets A Pass",
+      "url": "https://finnhub.io/api/news?id=d5e333855ef42ec2ce382350e69fad6f3de0035a035735cc3f66f6fce7cdfaf9",
+      "source": "Benzinga",
+      "summary": "Trump said he&#39;s &#34;not happy&#34; with prediction markets after a soldier made $409,000 on Polymarket betting on the Maduro raid he helped plan.",
+      "published": "2026-04-24T10:46:19+00:00",
+      "image": "https://cdn.benzinga.com/files/images/story/2026/04/24/Yokosuka--Japan--October-28--2025-Presid.jpeg?width=2048&height=1536",
+      "competitor": "Intercontinental Exchange",
+      "ticker": "ICE",
+      "segment": "Exchanges / Data / Indices",
+      "origin": "finnhub",
+      "related": "ICE",
+      "finnhub_category": "company",
+      "category": "General",
+      "sentiment": "Neutral",
+      "product_line": "Non-core",
+      "segments": [
+        "Non-core"
+      ],
+      "non_core": true,
+      "importance_score": 40,
+      "importance": "Medium",
+      "impact_level": "Medium",
+      "id": "340878e868a42f4c",
+      "signals": [
+        "Breaking (<24h)"
+      ],
+      "why_it_matters": "News mention involving Intercontinental Exchange in Exchanges / Data / Indices.",
+      "key_points": [
+        "Trump said he&#39;s &#34;not happy&#34; with prediction markets after a soldier made $409,000 on Polymarket betting on the Maduro raid he helped plan."
       ],
       "reading_time": "1 min read"
     },
@@ -519,6 +1170,40 @@
       "reading_time": "1 min read"
     },
     {
+      "title": "Pacific Gas & Electric Q1 Earnings Call Highlights",
+      "url": "https://finnhub.io/api/news?id=23c554f388ae832b625b8549fbc0eb5873f301e585d6b0cdc707ddac765613f2",
+      "source": "Yahoo",
+      "summary": "Pacific Gas & Electric (NYSE:PCG) reported first-quarter 2026 core earnings per share of $0.43 and reaffirmed its full-year 2026 core EPS guidance range of $1.64 to $1.66, citing continued execution on wildfire mitigation, affordability initiatives, and capital deployment. Management said the co",
+      "published": "2026-04-24T07:07:34+00:00",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "competitor": "Moody's",
+      "ticker": "MCO",
+      "segment": "Ratings / Risk Analytics",
+      "origin": "finnhub",
+      "related": "MCO",
+      "finnhub_category": "company",
+      "category": "Earnings",
+      "sentiment": "Neutral",
+      "product_line": "Non-core",
+      "segments": [
+        "Non-core"
+      ],
+      "non_core": true,
+      "importance_score": 55,
+      "importance": "Medium",
+      "impact_level": "Medium",
+      "id": "460b1aaa8c6080e1",
+      "signals": [
+        "Earnings",
+        "Breaking (<24h)"
+      ],
+      "why_it_matters": "Financial print signals competitor health and client-spend implications.",
+      "key_points": [
+        "Pacific Gas & Electric (NYSE:PCG) reported first-quarter 2026 core earnings per share of $0.43 and reaffirmed its full-year 2026 core EPS guidance range of $1.64 to $1.66, citing continued execution on wildfire mitigation, affordability initiatives, and capital deployment."
+      ],
+      "reading_time": "1 min read"
+    },
+    {
       "title": "Nasdaq Inc (NDAQ) Q1 2026 Earnings Call Highlights: Strong Revenue Growth and Strategic AI ...",
       "url": "https://finnhub.io/api/news?id=2d313079815807dbf9b5eab134877e173df1eea40383f9ee35a26ed8adad5f2e",
       "source": "Yahoo",
@@ -552,6 +1237,38 @@
         "Nasdaq Inc (NDAQ) reports a 13% increase in net revenue and unveils ambitious AI-driven efficiency goals amid market volatility."
       ],
       "reading_time": "1 min read"
+    },
+    {
+      "title": "S&P Global To Sell Upstream Software Portfolio To SLB, Launch AI Platform Titan And Expand Data Partnership",
+      "url": "https://finnhub.io/api/news?id=c540e1e239a059520fafefb0b4bbd71990b45c29344037936a237129ec156d40",
+      "source": "Benzinga",
+      "summary": "",
+      "published": "2026-04-24T06:52:00+00:00",
+      "image": "",
+      "competitor": "S&P Global",
+      "ticker": "SPGI",
+      "segment": "Indices / Ratings / Data",
+      "origin": "finnhub",
+      "related": "SPGI",
+      "finnhub_category": "company",
+      "category": "Partnership",
+      "sentiment": "Positive",
+      "product_line": "Non-core",
+      "segments": [
+        "Non-core"
+      ],
+      "non_core": true,
+      "importance_score": 65,
+      "importance": "High",
+      "impact_level": "High",
+      "id": "41fe3a4e4c9442ab",
+      "signals": [
+        "Partnership",
+        "Breaking (<24h)"
+      ],
+      "why_it_matters": "Strategic alliance may alter distribution or data access in Indices / Ratings / Data.",
+      "key_points": [],
+      "reading_time": "<1 min read"
     },
     {
       "title": "German Business Sentiment Collapses to Lowest Since 2020 as War Hits Outlook -- 2nd Update",
@@ -1490,6 +2207,39 @@
       "reading_time": "1 min read"
     },
     {
+      "title": "Morgan Stanley Maintains Overweight on CME Group, Lowers Price Target to $353",
+      "url": "https://finnhub.io/api/news?id=b2d843e58192be88650e7162e9e75717aa76fad8c9a991239835193e7b0a750d",
+      "source": "Benzinga",
+      "summary": "Morgan Stanley  analyst Michael Cyprys   maintains CME Group (NASDAQ:CME) with a Overweight and lowers the price target from $362 to $353.",
+      "published": "2026-04-23T13:38:04+00:00",
+      "image": "",
+      "competitor": "CME Group",
+      "ticker": "CME",
+      "segment": "Derivatives / Indices",
+      "origin": "finnhub",
+      "related": "CME",
+      "finnhub_category": "company",
+      "category": "General",
+      "sentiment": "Neutral",
+      "product_line": "Non-core",
+      "segments": [
+        "Non-core"
+      ],
+      "non_core": true,
+      "importance_score": 65,
+      "importance": "High",
+      "impact_level": "High",
+      "id": "910fb256afb1ab17",
+      "signals": [
+        "Breaking (<24h)"
+      ],
+      "why_it_matters": "News mention involving CME Group in Derivatives / Indices.",
+      "key_points": [
+        "Morgan Stanley  analyst Michael Cyprys   maintains CME Group (NASDAQ:CME) with a Overweight and lowers the price target from $362 to $353."
+      ],
+      "reading_time": "1 min read"
+    },
+    {
       "title": "Here’s S&P Global’s (SPGI) Valuation Analysis",
       "url": "https://finnhub.io/api/news?id=72eed90882646e3ea766366342edea60e4cafed51be215a247f2ae446a62a22e",
       "source": "Yahoo",
@@ -2085,6 +2835,39 @@
       "reading_time": "1 min read"
     },
     {
+      "title": "Barclays Maintains Equal-Weight on CME Group, Lowers Price Target to $316",
+      "url": "https://finnhub.io/api/news?id=6f06a468108a8c01b16b4f90ab289de6720094868249bb91b656b8f54c983b04",
+      "source": "Benzinga",
+      "summary": "Barclays  analyst Benjamin Budish   maintains CME Group (NASDAQ:CME) with a Equal-Weight and lowers the price target from $343 to $316.",
+      "published": "2026-04-23T11:11:22+00:00",
+      "image": "",
+      "competitor": "CME Group",
+      "ticker": "CME",
+      "segment": "Derivatives / Indices",
+      "origin": "finnhub",
+      "related": "CME",
+      "finnhub_category": "company",
+      "category": "General",
+      "sentiment": "Neutral",
+      "product_line": "Non-core",
+      "segments": [
+        "Banks"
+      ],
+      "non_core": false,
+      "importance_score": 65,
+      "importance": "High",
+      "impact_level": "High",
+      "id": "9576d08f9783842e",
+      "signals": [
+        "Breaking (<24h)"
+      ],
+      "why_it_matters": "News mention involving CME Group in Derivatives / Indices.",
+      "key_points": [
+        "Barclays  analyst Benjamin Budish   maintains CME Group (NASDAQ:CME) with a Equal-Weight and lowers the price target from $343 to $316."
+      ],
+      "reading_time": "1 min read"
+    },
+    {
       "title": "Assessing Nasdaq (NDAQ) Valuation After Recent Share Price Weakness And Growth Expectations",
       "url": "https://finnhub.io/api/news?id=df6b97aa717a4e76f94123f1fb290a6f52e6eb2b2a12f435becb6b9ae6470e59",
       "source": "Yahoo",
@@ -2532,112 +3315,6 @@
       "reading_time": "1 min read"
     },
     {
-      "title": "Nasdaq quarterly profit rises on trading boom amid volatility",
-      "url": "https://finnhub.io/api/news?id=6546f8553110ce90931d8067e5da8a71b4916b6c4936abd860d59cb6f96fdbbc",
-      "source": "Finnhub",
-      "summary": "Nasdaq reported a rise in its first-quarter profit on Thursday, as the exchange operator gained from higher trading volumes boosted by investors looking to rebalance their portfolios in an uncertain...",
-      "published": "2026-04-23T08:29:01+00:00",
-      "image": "",
-      "competitor": "Nasdaq",
-      "ticker": "NDAQ",
-      "segment": "Exchanges / Index Licensing",
-      "origin": "finnhub",
-      "related": "NDAQ",
-      "finnhub_category": "company",
-      "category": "Indices / Benchmarks",
-      "sentiment": "Positive",
-      "product_line": "Index",
-      "segments": [
-        "Non-core"
-      ],
-      "non_core": false,
-      "importance_score": 80,
-      "importance": "Critical",
-      "impact_level": "Critical",
-      "id": "3c2f5750ef6586ad",
-      "signals": [
-        "Indices / Benchmarks",
-        "Breaking (<24h)",
-        "High priority"
-      ],
-      "why_it_matters": "Benchmark move — watch for licensing / AUM impact on index franchise.",
-      "key_points": [
-        "Nasdaq reported a rise in its first-quarter profit on Thursday, as the exchange operator gained from higher trading volumes boosted by investors looking to rebalance their portfolios in an uncertain..."
-      ],
-      "reading_time": "1 min read"
-    },
-    {
-      "title": "Nasdaq CEO Adena Friedman says launching 23x5 trading on December 6, 2026 - CNBC interview",
-      "url": "https://finnhub.io/api/news?id=b441810009d610ec7b2d3ffea4e9f1c849ec4a9d7710ad14d6381c71df653e97",
-      "source": "Finnhub",
-      "summary": "April 23 - Nasdaq CEO Adena Friedman: going to be launching 23x5 trading on December 6, 2026 - CNBC interview...",
-      "published": "2026-04-23T08:22:47+00:00",
-      "image": "",
-      "competitor": "Nasdaq",
-      "ticker": "NDAQ",
-      "segment": "Exchanges / Index Licensing",
-      "origin": "finnhub",
-      "related": "NDAQ",
-      "finnhub_category": "company",
-      "category": "Product Launch",
-      "sentiment": "Neutral",
-      "product_line": "Non-core",
-      "segments": [
-        "Non-core"
-      ],
-      "non_core": true,
-      "importance_score": 90,
-      "importance": "Critical",
-      "impact_level": "Critical",
-      "id": "963cbddf0629b95d",
-      "signals": [
-        "Product Launch",
-        "Breaking (<24h)",
-        "High priority"
-      ],
-      "why_it_matters": "New Exchanges / Index Licensing offering — potential pressure on MSCI's roadmap.",
-      "key_points": [
-        "April 23 - Nasdaq CEO Adena Friedman: going to be launching 23x5 trading on December 6, 2026 - CNBC interview..."
-      ],
-      "reading_time": "1 min read"
-    },
-    {
-      "title": "Nasdaq CEO Adena Friedman on Q1 results, IPO landscape and Nasdaq-100 index rule changes",
-      "url": "https://finnhub.io/api/news?id=2792353bab6bc0c81a5d9ed65c83e0ddb12e2f564c891bcd6083bc0c41218ede",
-      "source": "CNBC",
-      "summary": "Nasdaq CEO and Chair Adena Friedman joins 'Squawk Box' to discuss the company's quarterly earnings results, implementation of AI, state of the IPO landscape, changes to the Nasdaq-100, launch of 23x5 trading, and more.",
-      "published": "2026-04-23T07:56:17+00:00",
-      "image": "https://image.cnbcfm.com/api/v1/image/108296091-17769449061776944902-45456244286-1080pnbcnews.jpg?v=1776944905&w=1920&h=1080",
-      "competitor": "Nasdaq",
-      "ticker": "NDAQ",
-      "segment": "Exchanges / Index Licensing",
-      "origin": "finnhub",
-      "related": "NDAQ",
-      "finnhub_category": "company",
-      "category": "Indices / Benchmarks",
-      "sentiment": "Neutral",
-      "product_line": "Index",
-      "segments": [
-        "Non-core"
-      ],
-      "non_core": false,
-      "importance_score": 95,
-      "importance": "Critical",
-      "impact_level": "Critical",
-      "id": "3287691dac8ea09d",
-      "signals": [
-        "Index / ETF",
-        "Indices / Benchmarks",
-        "Breaking (<24h)",
-        "High priority"
-      ],
-      "why_it_matters": "Benchmark move — watch for licensing / AUM impact on index franchise. Index/benchmark angle present.",
-      "key_points": [
-        "Nasdaq CEO and Chair Adena Friedman joins 'Squawk Box' to discuss the company's quarterly earnings results, implementation of AI, state of the IPO landscape, changes to the Nasdaq-100, launch of 23x5 trading, and more."
-      ],
-      "reading_time": "1 min read"
-    },
-    {
       "title": "CME Group Q1 Earnings Show Strength, But The Stock Still Looks Expensive",
       "url": "https://finnhub.io/api/news?id=85e80736a346f304c689afe8474ed04f67973938b81ad774c31ef3076fdf0119",
       "source": "SeekingAlpha",
@@ -2674,41 +3351,6 @@
       "reading_time": "1 min read"
     },
     {
-      "title": "Nasdaq CEO Adena Friedman: Going to be launching 23x5 trading on December 6, 2026 - CNBC interview",
-      "url": "https://finnhub.io/api/news?id=3f0dff5a05b9a35ce64fd79948802bad527d03a6b838a5f5b496622785317798",
-      "source": "Finnhub",
-      "summary": "Nasdaq CEO Adena Friedman: Going to be launching 23x5 trading on December 6, 2026 - CNBC interview...",
-      "published": "2026-04-23T07:41:38+00:00",
-      "image": "",
-      "competitor": "Nasdaq",
-      "ticker": "NDAQ",
-      "segment": "Exchanges / Index Licensing",
-      "origin": "finnhub",
-      "related": "NDAQ",
-      "finnhub_category": "company",
-      "category": "Product Launch",
-      "sentiment": "Neutral",
-      "product_line": "Non-core",
-      "segments": [
-        "Non-core"
-      ],
-      "non_core": true,
-      "importance_score": 90,
-      "importance": "Critical",
-      "impact_level": "Critical",
-      "id": "0733e265f7a53bea",
-      "signals": [
-        "Product Launch",
-        "Breaking (<24h)",
-        "High priority"
-      ],
-      "why_it_matters": "New Exchanges / Index Licensing offering — potential pressure on MSCI's roadmap.",
-      "key_points": [
-        "Nasdaq CEO Adena Friedman: Going to be launching 23x5 trading on December 6, 2026 - CNBC interview..."
-      ],
-      "reading_time": "1 min read"
-    },
-    {
       "title": "Euro zone bond yields up as Hormuz risks outweigh weak PMI data",
       "url": "https://finnhub.io/api/news?id=6428cfd34e06a093b6f19e52baa9811ce3fd69b38634a807162826b7db785944",
       "source": "Finnhub",
@@ -2741,74 +3383,6 @@
         "The euro zone's short-datedgovernment bond yields ticked lower on the heels of weakeconomic data, but remained on track for their fourth daily riseas tensions around the Strait of Hormuz bolstered..."
       ],
       "reading_time": "1 min read"
-    },
-    {
-      "title": "Nasdaq : Q1 26 Earnings Press Release",
-      "url": "https://finnhub.io/api/news?id=93aa0a5c982cdd3e5175c4e677f94c0b359ee78f06dc1067a811b7c0474bb324",
-      "source": "Finnhub",
-      "summary": "NEW YORK, April 23, 2026 - Nasdaq, Inc. today reported financial results for the first quarter of 2026. First quarter 2026 net revenue1 was $1.4 billion, an...",
-      "published": "2026-04-23T07:12:13+00:00",
-      "image": "",
-      "competitor": "Nasdaq",
-      "ticker": "NDAQ",
-      "segment": "Exchanges / Index Licensing",
-      "origin": "finnhub",
-      "related": "NDAQ",
-      "finnhub_category": "company",
-      "category": "Earnings",
-      "sentiment": "Neutral",
-      "product_line": "Non-core",
-      "segments": [
-        "Non-core"
-      ],
-      "non_core": true,
-      "importance_score": 80,
-      "importance": "Critical",
-      "impact_level": "Critical",
-      "id": "7333d35d228e502e",
-      "signals": [
-        "Earnings",
-        "Breaking (<24h)",
-        "High priority"
-      ],
-      "why_it_matters": "Financial print signals competitor health and client-spend implications.",
-      "key_points": [
-        "NEW YORK, April 23, 2026 - Nasdaq, Inc.",
-        "today reported financial results for the first quarter of 2026.",
-        "First quarter 2026 net revenue1 was $1.4 billion, an..."
-      ],
-      "reading_time": "1 min read"
-    },
-    {
-      "title": "Earnings Scheduled For April 23, 2026",
-      "url": "https://finnhub.io/api/news?id=8c563fc2379fa00c5d61da639c5622b1afb5e4f0e546029b6c462f78a95936f6",
-      "source": "Benzinga",
-      "summary": "",
-      "published": "2026-04-23T07:11:29+00:00",
-      "image": "https://cdn.benzinga.com/files/images/story/2025/11/06/earnings_scheduled_1.jpg?width=2048&height=1536",
-      "competitor": "Nasdaq",
-      "ticker": "NDAQ",
-      "segment": "Exchanges / Index Licensing",
-      "origin": "finnhub",
-      "related": "NDAQ",
-      "finnhub_category": "company",
-      "category": "General",
-      "sentiment": "Neutral",
-      "product_line": "Non-core",
-      "segments": [
-        "Non-core"
-      ],
-      "non_core": true,
-      "importance_score": 40,
-      "importance": "Medium",
-      "impact_level": "Medium",
-      "id": "32162224f7588463",
-      "signals": [
-        "Breaking (<24h)"
-      ],
-      "why_it_matters": "News mention involving Nasdaq in Exchanges / Index Licensing.",
-      "key_points": [],
-      "reading_time": "<1 min read"
     },
     {
       "title": "Moodys Corp (MCO) Q1 2026 Earnings Call Highlights: Strong Revenue Growth and Increased ...",
@@ -2876,42 +3450,6 @@
       "why_it_matters": "Regulatory development affecting Derivatives / Indices market structure.",
       "key_points": [
         "CME Group Inc (CME) reports unprecedented growth with a 22% increase in average daily volume and a 14% rise in total revenue, despite facing regulatory and geopolitical challenges."
-      ],
-      "reading_time": "1 min read"
-    },
-    {
-      "title": "Nasdaq Q1 Adj. EPS $0.96 Beats $0.93 Estimate, Sales $1.407B Beat $1.372B Estimate",
-      "url": "https://finnhub.io/api/news?id=222a2d6fa7d8f94e887d5433e0caf3fb55486f7c4964b0077fb0ac94a395e834",
-      "source": "Benzinga",
-      "summary": "Nasdaq (NASDAQ:NDAQ) reported quarterly earnings of $0.96 per share which beat the analyst consensus estimate of $0.93 by 3.23 percent. This is a 21.52 percent increase over earnings of $0.79 per share from the same",
-      "published": "2026-04-23T07:01:19+00:00",
-      "image": "",
-      "competitor": "Nasdaq",
-      "ticker": "NDAQ",
-      "segment": "Exchanges / Index Licensing",
-      "origin": "finnhub",
-      "related": "NDAQ",
-      "finnhub_category": "company",
-      "category": "Earnings",
-      "sentiment": "Neutral",
-      "product_line": "Non-core",
-      "segments": [
-        "Non-core"
-      ],
-      "non_core": true,
-      "importance_score": 80,
-      "importance": "Critical",
-      "impact_level": "Critical",
-      "id": "fd35f05a927df090",
-      "signals": [
-        "Earnings",
-        "Breaking (<24h)",
-        "High priority"
-      ],
-      "why_it_matters": "Financial print signals competitor health and client-spend implications.",
-      "key_points": [
-        "Nasdaq (NASDAQ:NDAQ) reported quarterly earnings of $0.96 per share which beat the analyst consensus estimate of $0.93 by 3.23 percent.",
-        "This is a 21.52 percent increase over earnings of $0.79 per share from the same"
       ],
       "reading_time": "1 min read"
     },
@@ -2987,173 +3525,6 @@
       "reading_time": "1 min read"
     },
     {
-      "title": "How the Iran war has stoked competition between India and China for Russian oil",
-      "url": "https://finnhub.io/api/news?id=a0ad76755f389eadf6c2d5671c9d49d274beed57518cb2ebd9db910522d20405",
-      "source": "CNBC",
-      "summary": "As the Iran war drags on and the Strait of Hormuz stays shut, India and China are increasingly competing against each other for shrinking crude oil supplies.",
-      "published": "2026-04-23T04:53:40+00:00",
-      "image": "https://image.cnbcfm.com/api/v1/image/108192828-1756730177551-gettyimages-2232556977-CHINA_SOC_SUMMIT.jpeg?v=1756775496&w=1920&h=1080",
-      "competitor": "S&P Global",
-      "ticker": "SPGI",
-      "segment": "Indices / Ratings / Data",
-      "origin": "finnhub",
-      "related": "SPGI",
-      "finnhub_category": "company",
-      "category": "General",
-      "sentiment": "Neutral",
-      "product_line": "Non-core",
-      "segments": [
-        "Non-core"
-      ],
-      "non_core": true,
-      "importance_score": 40,
-      "importance": "Medium",
-      "impact_level": "Medium",
-      "id": "7df5e01f6e706b16",
-      "signals": [
-        "Breaking (<24h)"
-      ],
-      "why_it_matters": "News mention involving S&P Global in Indices / Ratings / Data.",
-      "key_points": [
-        "As the Iran war drags on and the Strait of Hormuz stays shut, India and China are increasingly competing against each other for shrinking crude oil supplies."
-      ],
-      "reading_time": "1 min read"
-    },
-    {
-      "title": "UK companies see cost pressures spreading at record pace, PMI shows",
-      "url": "https://finnhub.io/api/news?id=88e0c06a89367087ec418b7ce6d4a72a409be4ed2b1e78dce4ab2700d378ca14",
-      "source": "Finnhub",
-      "summary": "The share of British companies reporting rising costs surged by a record amount this month, a clear warning of higher inflation ahead as fallout from the Iran war spreads through the economy, a survey...",
-      "published": "2026-04-23T04:35:52+00:00",
-      "image": "",
-      "competitor": "S&P Global",
-      "ticker": "SPGI",
-      "segment": "Indices / Ratings / Data",
-      "origin": "finnhub",
-      "related": "SPGI",
-      "finnhub_category": "company",
-      "category": "Macro / Markets",
-      "sentiment": "Neutral",
-      "product_line": "Non-core",
-      "segments": [
-        "Non-core"
-      ],
-      "non_core": true,
-      "importance_score": 40,
-      "importance": "Medium",
-      "impact_level": "Medium",
-      "id": "028d8eaee516bb67",
-      "signals": [
-        "Macro / Markets",
-        "Breaking (<24h)"
-      ],
-      "why_it_matters": "Macro backdrop — shapes client risk appetite and spend cycle.",
-      "key_points": [
-        "The share of British companies reporting rising costs surged by a record amount this month, a clear warning of higher inflation ahead as fallout from the Iran war spreads through the economy, a survey..."
-      ],
-      "reading_time": "1 min read"
-    },
-    {
-      "title": "Euro zone business activity contracted in April as costs rocketed, PMI shows",
-      "url": "https://finnhub.io/api/news?id=66bdc57eb0eabf7b9822b75064407d53057b98679ab15abc25cb65926cc341f3",
-      "source": "Finnhub",
-      "summary": "Business activity in the euro zone suffered a surprise contraction in April with the U.S.-Israeli war with Iran sapping demand as prices soared, a closely watched survey showed on Thursday. ...",
-      "published": "2026-04-23T04:04:09+00:00",
-      "image": "",
-      "competitor": "S&P Global",
-      "ticker": "SPGI",
-      "segment": "Indices / Ratings / Data",
-      "origin": "finnhub",
-      "related": "SPGI",
-      "finnhub_category": "company",
-      "category": "General",
-      "sentiment": "Positive",
-      "product_line": "Non-core",
-      "segments": [
-        "Non-core"
-      ],
-      "non_core": true,
-      "importance_score": 40,
-      "importance": "Medium",
-      "impact_level": "Medium",
-      "id": "1326c7fc45973429",
-      "signals": [
-        "Breaking (<24h)"
-      ],
-      "why_it_matters": "News mention involving S&P Global in Indices / Ratings / Data.",
-      "key_points": [
-        "Business activity in the euro zone suffered a surprise contraction in April with the U.S.-Israeli war with Iran sapping demand as prices soared, a closely watched survey showed on Thursday."
-      ],
-      "reading_time": "1 min read"
-    },
-    {
-      "title": "Philippine central bank hikes policy rate by 25 basis points",
-      "url": "https://finnhub.io/api/news?id=0ca07ad40a4e79309e1ddee09fe76e617823c238d5b36f01865bded2fecb89a6",
-      "source": "Finnhub",
-      "summary": "The Philippine central bankhiked its key interest rate to 4.50% on Thursday to keep a lidon inflation, driven by rising fuel costs caused by disruptionsin the Middle East. In an April...",
-      "published": "2026-04-23T04:02:08+00:00",
-      "image": "",
-      "competitor": "S&P Global",
-      "ticker": "SPGI",
-      "segment": "Indices / Ratings / Data",
-      "origin": "finnhub",
-      "related": "SPGI",
-      "finnhub_category": "company",
-      "category": "Macro / Markets",
-      "sentiment": "Neutral",
-      "product_line": "Non-core",
-      "segments": [
-        "Banks"
-      ],
-      "non_core": false,
-      "importance_score": 40,
-      "importance": "Medium",
-      "impact_level": "Medium",
-      "id": "2c8572d4ad577c68",
-      "signals": [
-        "Macro / Markets",
-        "Breaking (<24h)"
-      ],
-      "why_it_matters": "Macro backdrop — shapes client risk appetite and spend cycle.",
-      "key_points": [
-        "The Philippine central bankhiked its key interest rate to 4.50% on Thursday to keep a lidon inflation, driven by rising fuel costs caused by disruptionsin the Middle East."
-      ],
-      "reading_time": "1 min read"
-    },
-    {
-      "title": "German private sector contracts for first time in nearly a year, PMI shows",
-      "url": "https://finnhub.io/api/news?id=d7cd2d352e36e41301c133ffac61c073b321bef40f7774f7617f586b69912c75",
-      "source": "Finnhub",
-      "summary": "Germany's private sector contracted for the first time in almost a year in April as the Iran war put the brakes on the country's economic recovery, hitting demand and driving up prices, a survey...",
-      "published": "2026-04-23T03:37:51+00:00",
-      "image": "",
-      "competitor": "S&P Global",
-      "ticker": "SPGI",
-      "segment": "Indices / Ratings / Data",
-      "origin": "finnhub",
-      "related": "SPGI",
-      "finnhub_category": "company",
-      "category": "General",
-      "sentiment": "Neutral",
-      "product_line": "Non-core",
-      "segments": [
-        "Non-core"
-      ],
-      "non_core": true,
-      "importance_score": 40,
-      "importance": "Medium",
-      "impact_level": "Medium",
-      "id": "3da5e1afead27bdb",
-      "signals": [
-        "Breaking (<24h)"
-      ],
-      "why_it_matters": "News mention involving S&P Global in Indices / Ratings / Data.",
-      "key_points": [
-        "Germany's private sector contracted for the first time in almost a year in April as the Iran war put the brakes on the country's economic recovery, hitting demand and driving up prices, a survey..."
-      ],
-      "reading_time": "1 min read"
-    },
-    {
       "title": "Waste Connections Up 2.9% After Hours as It Posts Higher Adjusted Earnings and Revenue for the First Quarter",
       "url": "https://finnhub.io/api/news?id=03e98307f97edafce38ca247798ca48bb97aa085d30093f1e1c4de0dacb244f8",
       "source": "Yahoo",
@@ -3178,7 +3549,7 @@
       "impact_level": "Medium",
       "id": "f89b252227d73666",
       "signals": [
-        "Breaking (<24h)"
+        "Recent (<3d)"
       ],
       "why_it_matters": "News mention involving FactSet in Analytics / Data Platform.",
       "key_points": [
@@ -3212,7 +3583,7 @@
       "id": "79f6d89d392bac3b",
       "signals": [
         "Private Assets / Alternatives",
-        "Breaking (<24h)"
+        "Recent (<3d)"
       ],
       "why_it_matters": "Private-markets move — adjacent to MSCI's Burgiss/PrivatePulse stack.",
       "key_points": [
@@ -3247,7 +3618,7 @@
       "impact_level": "Medium",
       "id": "10a7a427ce3363c2",
       "signals": [
-        "Breaking (<24h)"
+        "Recent (<3d)"
       ],
       "why_it_matters": "News mention involving Intercontinental Exchange in Exchanges / Data / Indices.",
       "key_points": [
@@ -3283,7 +3654,7 @@
       "signals": [
         "Index / ETF",
         "Indices / Benchmarks",
-        "Breaking (<24h)",
+        "Recent (<3d)",
         "High priority"
       ],
       "why_it_matters": "Benchmark move — watch for licensing / AUM impact on index franchise. Index/benchmark angle present.",
@@ -3320,11 +3691,48 @@
       "id": "959b904a5e6a20f0",
       "signals": [
         "Product Launch",
-        "Breaking (<24h)"
+        "Recent (<3d)"
       ],
       "why_it_matters": "New Derivatives / Indices offering — potential pressure on MSCI's roadmap.",
       "key_points": [
         "Prediction market Kalshi has launched a new Commodities Hub that offers betting on oil, gold (TVC: $GOLD), lithium,..."
+      ],
+      "reading_time": "1 min read"
+    },
+    {
+      "title": "Active Mutual Funds Owning at Least 1 ETF More Than Doubled",
+      "url": "https://finnhub.io/api/news?id=4faf39a4d6450cd46cfeff25e377682c266618ad99a6f263c307984c251e7e4c",
+      "source": "Yahoo",
+      "summary": "Even before the first active dual share class fund from Dimensional launched, active mutual funds and ETFs were already roommates rather than existing in separate silos. Ben Johnson, head of client solutions at Morningstar, revealed in a LinkedIn post that active managers are increasingly using ETFs as essential tools for building portfolios. “These funds’ managers [...]",
+      "published": "2026-04-22T18:32:11+00:00",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "competitor": "Morningstar",
+      "ticker": "MORN",
+      "segment": "Research / ESG / Ratings",
+      "origin": "finnhub",
+      "related": "MORN",
+      "finnhub_category": "company",
+      "category": "ETF / Fund Flows",
+      "sentiment": "Neutral",
+      "product_line": "Index",
+      "segments": [
+        "Non-core"
+      ],
+      "non_core": false,
+      "importance_score": 90,
+      "importance": "Critical",
+      "impact_level": "Critical",
+      "id": "69fca277f83e0ab6",
+      "signals": [
+        "Index / ETF",
+        "ETF / Fund Flows",
+        "Recent (<3d)",
+        "High priority"
+      ],
+      "why_it_matters": "ETF / fund-flow signal — read-through for index licensing revenue.",
+      "key_points": [
+        "Even before the first active dual share class fund from Dimensional launched, active mutual funds and ETFs were already roommates rather than existing in separate silos.",
+        "Ben Johnson, head of client solutions at Morningstar, revealed in a LinkedIn post that active managers are increasingly using ETFs as essential tools for building portfolios."
       ],
       "reading_time": "1 min read"
     },
@@ -3353,7 +3761,7 @@
       "impact_level": "Medium",
       "id": "fa8e255df2b5263b",
       "signals": [
-        "Breaking (<24h)"
+        "Recent (<3d)"
       ],
       "why_it_matters": "News mention involving Morningstar in Research / ESG / Ratings.",
       "key_points": [
@@ -3389,7 +3797,7 @@
       "signals": [
         "Index / ETF",
         "Indices / Benchmarks",
-        "Breaking (<24h)",
+        "Recent (<3d)",
         "High priority"
       ],
       "why_it_matters": "Benchmark move — watch for licensing / AUM impact on index franchise. Index/benchmark angle present.",
@@ -3426,7 +3834,7 @@
       "id": "d8193a03ea860149",
       "signals": [
         "Earnings",
-        "Breaking (<24h)"
+        "Recent (<3d)"
       ],
       "why_it_matters": "Financial print signals competitor health and client-spend implications.",
       "key_points": [
@@ -3459,7 +3867,7 @@
       "impact_level": "Medium",
       "id": "cf414af5d5126d9c",
       "signals": [
-        "Breaking (<24h)"
+        "Recent (<3d)"
       ],
       "why_it_matters": "News mention involving CME Group in Derivatives / Indices.",
       "key_points": [
@@ -3493,7 +3901,7 @@
       "id": "21b0de81519de071",
       "signals": [
         "Technology / AI",
-        "Breaking (<24h)",
+        "Recent (<3d)",
         "High priority"
       ],
       "why_it_matters": "Tech / AI move — potential differentiation versus MSCI analytics.",
@@ -3527,7 +3935,7 @@
       "impact_level": "Medium",
       "id": "6772e29c8a53ab88",
       "signals": [
-        "Breaking (<24h)"
+        "Recent (<3d)"
       ],
       "why_it_matters": "News mention involving CME Group in Derivatives / Indices.",
       "key_points": [
@@ -3747,80 +4155,6 @@
       "reading_time": "1 min read"
     },
     {
-      "title": "CME (CME) Q4 2024 Earnings Call Transcript",
-      "url": "https://finnhub.io/api/news?id=46915293e24057fa2848071d31863d4c41af9b48fa59057fef8fd30bd734dc7b",
-      "source": "Yahoo",
-      "summary": "Terry Duffy: Thanks, Adam, and thank you all for joining us this morning.  Following that, Lynne will provide an overview of our financial results and our 2025 guidance.  2024 was the best year in CME Group's history and our fourth consecutive year of record volume with average daily volume increasing 9% to 26.9 million contracts.",
-      "published": "2026-04-22T14:58:45+00:00",
-      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
-      "competitor": "CME Group",
-      "ticker": "CME",
-      "segment": "Derivatives / Indices",
-      "origin": "finnhub",
-      "related": "CME",
-      "finnhub_category": "company",
-      "category": "Earnings",
-      "sentiment": "Neutral",
-      "product_line": "Non-core",
-      "segments": [
-        "Non-core"
-      ],
-      "non_core": true,
-      "importance_score": 80,
-      "importance": "Critical",
-      "impact_level": "Critical",
-      "id": "584edfd68a660e1c",
-      "signals": [
-        "Earnings",
-        "Recent (<3d)",
-        "High priority"
-      ],
-      "why_it_matters": "Financial print signals competitor health and client-spend implications.",
-      "key_points": [
-        "Terry Duffy: Thanks, Adam, and thank you all for joining us this morning.",
-        "Following that, Lynne will provide an overview of our financial results and our 2025 guidance.",
-        "2024 was the best year in CME Group's history and our fourth consecutive year of record volume with average daily volume increasing 9% to 26.9 million contracts."
-      ],
-      "reading_time": "1 min read"
-    },
-    {
-      "title": "CME (CME) Q2 2025 Earnings Call Transcript",
-      "url": "https://finnhub.io/api/news?id=add92ba89b7529027740f00266a01d4535e5c17f9b31cefa4b1111d9045b6aa4",
-      "source": "Yahoo",
-      "summary": "Terrence Duffy: Thanks, Adam, and thank you all for joining us this morning.  For the first time in CME Group's history, average daily volume exceeded 30 million contracts for this quarter.  Second quarter average daily volume of 30.2 million contracts represented an increase of 16% compared to the same period last year and included all-time records in each month of the quarter.",
-      "published": "2026-04-22T14:54:52+00:00",
-      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
-      "competitor": "CME Group",
-      "ticker": "CME",
-      "segment": "Derivatives / Indices",
-      "origin": "finnhub",
-      "related": "CME",
-      "finnhub_category": "company",
-      "category": "Earnings",
-      "sentiment": "Positive",
-      "product_line": "Non-core",
-      "segments": [
-        "Non-core"
-      ],
-      "non_core": true,
-      "importance_score": 80,
-      "importance": "Critical",
-      "impact_level": "Critical",
-      "id": "da908750454864d6",
-      "signals": [
-        "Earnings",
-        "Recent (<3d)",
-        "High priority"
-      ],
-      "why_it_matters": "Financial print signals competitor health and client-spend implications.",
-      "key_points": [
-        "Terrence Duffy: Thanks, Adam, and thank you all for joining us this morning.",
-        "For the first time in CME Group's history, average daily volume exceeded 30 million contracts for this quarter.",
-        "Second quarter average daily volume of 30.2 million contracts represented an increase of 16% compared to the same period last year and included all-time records in each month of the quarter."
-      ],
-      "reading_time": "1 min read"
-    },
-    {
       "title": "MCO Q1 Earnings Beat on Rising Analytics Demand & Higher Issuances",
       "url": "https://finnhub.io/api/news?id=41cdb2be39a1feaec7f2eeda9d2a6aa71efa9635c7065a414bd8353cb32a2780",
       "source": "Yahoo",
@@ -3890,39 +4224,6 @@
       "reading_time": "1 min read"
     },
     {
-      "title": "Nasdaq 100 Tops Records As Iran Ceasefire Extends, GE Vernova Soars 13%: Stock Market Today",
-      "url": "https://finnhub.io/api/news?id=57808e97307dbffd0e07df952b05a5abba22debcbc30e267ce503ca1b7def584",
-      "source": "Benzinga",
-      "summary": "Tech stocks brushed new record highs during midday Wednesday, as a fresh wave of blockbuster corporate earnings propelled mega-cap technology and speculative names higher.",
-      "published": "2026-04-22T13:57:12+00:00",
-      "image": "https://cdn.benzinga.com/files/images/story/2026/04/22/3d-Render-Closeup-Of-Computer-Keyboard-W.jpeg?width=2048&height=1536",
-      "competitor": "CME Group",
-      "ticker": "CME",
-      "segment": "Derivatives / Indices",
-      "origin": "finnhub",
-      "related": "CME",
-      "finnhub_category": "company",
-      "category": "General",
-      "sentiment": "Positive",
-      "product_line": "Non-core",
-      "segments": [
-        "Corporates"
-      ],
-      "non_core": false,
-      "importance_score": 40,
-      "importance": "Medium",
-      "impact_level": "Medium",
-      "id": "7a884b660370049c",
-      "signals": [
-        "Recent (<3d)"
-      ],
-      "why_it_matters": "News mention involving CME Group in Derivatives / Indices.",
-      "key_points": [
-        "Tech stocks brushed new record highs during midday Wednesday, as a fresh wave of blockbuster corporate earnings propelled mega-cap technology and speculative names higher."
-      ],
-      "reading_time": "1 min read"
-    },
-    {
       "title": "Compared to Estimates, Moody's (MCO) Q1 Earnings: A Look at Key Metrics",
       "url": "https://finnhub.io/api/news?id=bca57ecc6ad5a1b112909135263b10224a2c72ccf606a4c6dd4835384ce09f2c",
       "source": "Yahoo",
@@ -3958,75 +4259,6 @@
       "reading_time": "1 min read"
     },
     {
-      "title": "CME (CME) Q1 Earnings: How Key Metrics Compare to Wall Street Estimates",
-      "url": "https://finnhub.io/api/news?id=77ae745f50e630ebfb550bea9b4236b84bc2b7ef32f99c41408c33a87a4ecba1",
-      "source": "Yahoo",
-      "summary": "Although the revenue and EPS for CME (CME) give a sense of how its business performed in the quarter ended March 2026, it might be worth considering how some key metrics compare with Wall Street estimates and the year-ago numbers.",
-      "published": "2026-04-22T13:30:02+00:00",
-      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
-      "competitor": "CME Group",
-      "ticker": "CME",
-      "segment": "Derivatives / Indices",
-      "origin": "finnhub",
-      "related": "CME",
-      "finnhub_category": "company",
-      "category": "Earnings",
-      "sentiment": "Neutral",
-      "product_line": "Non-core",
-      "segments": [
-        "Non-core"
-      ],
-      "non_core": true,
-      "importance_score": 55,
-      "importance": "Medium",
-      "impact_level": "Medium",
-      "id": "5e794cd2f3a3c0e0",
-      "signals": [
-        "Earnings",
-        "Recent (<3d)"
-      ],
-      "why_it_matters": "Financial print signals competitor health and client-spend implications.",
-      "key_points": [
-        "Although the revenue and EPS for CME (CME) give a sense of how its business performed in the quarter ended March 2026, it might be worth considering how some key metrics compare with Wall Street estimates and the year-ago numbers."
-      ],
-      "reading_time": "1 min read"
-    },
-    {
-      "title": "CME Group Inc. (CME) Q1 2026 Earnings Call Transcript",
-      "url": "https://finnhub.io/api/news?id=420f12cbdab5c2c2f5ca92fc238fa1d7c0e429e537b433b0712936d6a517ea5d",
-      "source": "SeekingAlpha",
-      "summary": "CME Group Inc. (CME) Q1 2026 Earnings Call April 22, 2026 8:30 AM EDTCompany ParticipantsAdam Minick - Investor ContactTerrence Duffy - Chairman &...",
-      "published": "2026-04-22T13:10:35+00:00",
-      "image": "https://static.seekingalpha.com/assets/og_image_1200-29b2bfe1a595477db6826bd2126c63ac2091efb7ec76347a8e7f81ba17e3de6c.png",
-      "competitor": "CME Group",
-      "ticker": "CME",
-      "segment": "Derivatives / Indices",
-      "origin": "finnhub",
-      "related": "CME",
-      "finnhub_category": "company",
-      "category": "Earnings",
-      "sentiment": "Neutral",
-      "product_line": "Non-core",
-      "segments": [
-        "Non-core"
-      ],
-      "non_core": true,
-      "importance_score": 80,
-      "importance": "Critical",
-      "impact_level": "Critical",
-      "id": "e2e7e640ff751925",
-      "signals": [
-        "Earnings",
-        "Recent (<3d)",
-        "High priority"
-      ],
-      "why_it_matters": "Financial print signals competitor health and client-spend implications.",
-      "key_points": [
-        "(CME) Q1 2026 Earnings Call April 22, 2026 8:30 AM EDTCompany ParticipantsAdam Minick - Investor ContactTerrence Duffy - Chairman &..."
-      ],
-      "reading_time": "1 min read"
-    },
-    {
       "title": "Moody's Corporation (MCO) Q1 2026 Earnings Call Transcript",
       "url": "https://finnhub.io/api/news?id=485bb8660adb0208be1176607491d345c635ba7087bf81a7889c20afe77321fb",
       "source": "SeekingAlpha",
@@ -4058,40 +4290,6 @@
       "why_it_matters": "Financial print signals competitor health and client-spend implications.",
       "key_points": [
         "Moody's Corporation (MCO) Q1 2026 Earnings Call April 22, 2026 9:00 AM EDTCompany ParticipantsShivani Kak - Head of Investor RelationsRobert Fauber -..."
-      ],
-      "reading_time": "1 min read"
-    },
-    {
-      "title": "Barchart's cmdtyView Platform Brings Powerful AI to the Global Commodity Industry",
-      "url": "https://finnhub.io/api/news?id=33d1fe29351734c80e1d80f3ce7dee60ad9768c20d7de6f922dbaf2e39961361",
-      "source": "Yahoo",
-      "summary": "Barchart, a leading provider of data, intelligence and trading solutions for commodity and financial markets, today announced the launch of Carl, an artificial intelligence assistant, directly into cmdtyView, Barchart's flagship platform for global commodity traders, merchandisers, brokers and analysts.",
-      "published": "2026-04-22T13:00:00+00:00",
-      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
-      "competitor": "CME Group",
-      "ticker": "CME",
-      "segment": "Derivatives / Indices",
-      "origin": "finnhub",
-      "related": "CME",
-      "finnhub_category": "company",
-      "category": "Technology / AI",
-      "sentiment": "Neutral",
-      "product_line": "Non-core",
-      "segments": [
-        "Non-core"
-      ],
-      "non_core": true,
-      "importance_score": 50,
-      "importance": "Medium",
-      "impact_level": "Medium",
-      "id": "6619627a8f9a2399",
-      "signals": [
-        "Technology / AI",
-        "Recent (<3d)"
-      ],
-      "why_it_matters": "Tech / AI move — potential differentiation versus MSCI analytics.",
-      "key_points": [
-        "Barchart, a leading provider of data, intelligence and trading solutions for commodity and financial markets, today announced the launch of Carl, an artificial intelligence assistant, directly into cmdtyView, Barchart's flagship platform for global commodity traders, merchandisers, brokers and analysts."
       ],
       "reading_time": "1 min read"
     },
@@ -4577,112 +4775,6 @@
       "why_it_matters": "Financial print signals competitor health and client-spend implications.",
       "key_points": [
         "The following slide deck was published by Moody's Corporation in conjunction with their 2026 Q1 earnings call."
-      ],
-      "reading_time": "1 min read"
-    },
-    {
-      "title": "Moody's Corporation Reports Earnings Results for the First Quarter Ended March 31, 2026",
-      "url": "https://finnhub.io/api/news?id=ee4db1d27b53788ccbe9f86b6fb1ef68bd160c9e56edfeec61c2807de152b0df",
-      "source": "Finnhub",
-      "summary": "Moody's Corporation reported earnings results for the first quarter ended March 31, 2026. For the first quarter, the company reported sales was USD 2,079 million compared to USD 1,924 million a year...",
-      "published": "2026-04-22T09:06:34+00:00",
-      "image": "",
-      "competitor": "Moody's",
-      "ticker": "MCO",
-      "segment": "Ratings / Risk Analytics",
-      "origin": "finnhub",
-      "related": "MCO",
-      "finnhub_category": "company",
-      "category": "Earnings",
-      "sentiment": "Neutral",
-      "product_line": "Non-core",
-      "segments": [
-        "Corporates"
-      ],
-      "non_core": false,
-      "importance_score": 80,
-      "importance": "Critical",
-      "impact_level": "Critical",
-      "id": "51e16a675ca3bb91",
-      "signals": [
-        "Earnings",
-        "Recent (<3d)",
-        "High priority"
-      ],
-      "why_it_matters": "Financial print signals competitor health and client-spend implications.",
-      "key_points": [
-        "Moody's Corporation reported earnings results for the first quarter ended March 31, 2026.",
-        "For the first quarter, the company reported sales was USD 2,079 million compared to USD 1,924 million a year..."
-      ],
-      "reading_time": "1 min read"
-    },
-    {
-      "title": "Moody's profit rises on strong analytics growth, lifts annual forecast",
-      "url": "https://finnhub.io/api/news?id=3299b02cef05a6a78bc06076f54345add901ae4ecf7974d8e1c7f1636e6d1c55",
-      "source": "Finnhub",
-      "summary": "Ratings agency Moody's reported a rise in first-quarter profit on Wednesday, driven by strong demand for its research and analytics products, and raised its 2026 earnings forecast. ...",
-      "published": "2026-04-22T08:13:34+00:00",
-      "image": "",
-      "competitor": "Moody's",
-      "ticker": "MCO",
-      "segment": "Ratings / Risk Analytics",
-      "origin": "finnhub",
-      "related": "MCO",
-      "finnhub_category": "company",
-      "category": "General",
-      "sentiment": "Positive",
-      "product_line": "Analytics",
-      "segments": [
-        "Non-core"
-      ],
-      "non_core": false,
-      "importance_score": 65,
-      "importance": "High",
-      "impact_level": "High",
-      "id": "8b3aa53706a5e94f",
-      "signals": [
-        "Recent (<3d)"
-      ],
-      "why_it_matters": "News mention involving Moody's in Ratings / Risk Analytics.",
-      "key_points": [
-        "Ratings agency Moody's reported a rise in first-quarter profit on Wednesday, driven by strong demand for its research and analytics products, and raised its 2026 earnings forecast."
-      ],
-      "reading_time": "1 min read"
-    },
-    {
-      "title": "Moody's: Q1 Earnings Snapshot",
-      "url": "https://finnhub.io/api/news?id=501dd1af5a6d9c7d12fad9c9e3ebd7b6bb9296eac83530b0ecfa1b3c49475953",
-      "source": "Finnhub",
-      "summary": "NEW YORK — NEW YORK — Moody's Corp. on Wednesday reported first-quarter profit of $661 million. The New York-based company said it had net income of $3.73 per share. Earnings, adjusted for...",
-      "published": "2026-04-22T07:56:10+00:00",
-      "image": "",
-      "competitor": "Moody's",
-      "ticker": "MCO",
-      "segment": "Ratings / Risk Analytics",
-      "origin": "finnhub",
-      "related": "MCO",
-      "finnhub_category": "company",
-      "category": "Earnings",
-      "sentiment": "Neutral",
-      "product_line": "Non-core",
-      "segments": [
-        "Non-core"
-      ],
-      "non_core": true,
-      "importance_score": 80,
-      "importance": "Critical",
-      "impact_level": "Critical",
-      "id": "b39776e2bf81ab61",
-      "signals": [
-        "Earnings",
-        "Recent (<3d)",
-        "High priority"
-      ],
-      "why_it_matters": "Financial print signals competitor health and client-spend implications.",
-      "key_points": [
-        "NEW YORK — NEW YORK — Moody's Corp.",
-        "on Wednesday reported first-quarter profit of $661 million.",
-        "The New York-based company said it had net income of $3.73 per share."
       ],
       "reading_time": "1 min read"
     },
@@ -5184,14 +5276,13 @@
         "Non-core"
       ],
       "non_core": false,
-      "importance_score": 95,
+      "importance_score": 85,
       "importance": "Critical",
       "impact_level": "Critical",
       "id": "3adfd58f35a57373",
       "signals": [
         "Index / ETF",
         "Indices / Benchmarks",
-        "Recent (<3d)",
         "High priority"
       ],
       "why_it_matters": "Benchmark move — watch for licensing / AUM impact on index franchise. Index/benchmark angle present.",
@@ -5222,14 +5313,13 @@
         "Non-core"
       ],
       "non_core": false,
-      "importance_score": 70,
+      "importance_score": 60,
       "importance": "High",
       "impact_level": "High",
       "id": "bad1ab4f4fe68536",
       "signals": [
         "Index / ETF",
-        "Indices / Benchmarks",
-        "Recent (<3d)"
+        "Indices / Benchmarks"
       ],
       "why_it_matters": "Benchmark move — watch for licensing / AUM impact on index franchise. Index/benchmark angle present.",
       "key_points": [
@@ -5257,13 +5347,11 @@
         "Non-core"
       ],
       "non_core": true,
-      "importance_score": 40,
-      "importance": "Medium",
-      "impact_level": "Medium",
+      "importance_score": 30,
+      "importance": "Low",
+      "impact_level": "Low",
       "id": "d4c532c44c55543a",
-      "signals": [
-        "Recent (<3d)"
-      ],
+      "signals": [],
       "why_it_matters": "News mention involving Intercontinental Exchange in Exchanges / Data / Indices.",
       "key_points": [
         "Crypto exchange Coinbase Global (NASDAQ: $COIN) is reportedly working with Bybit on the tokenization, custody, and ..."
@@ -5363,73 +5451,6 @@
       "why_it_matters": "News mention involving Intercontinental Exchange in Exchanges / Data / Indices.",
       "key_points": [
         "The round comes on the heels of NYSE parent company Intercontinental Exchange’s $2 billion investment in the prediction market firm."
-      ],
-      "reading_time": "1 min read"
-    },
-    {
-      "title": "Is a Beat in the Cards for Nasdaq This Earnings Season?",
-      "url": "https://finnhub.io/api/news?id=0c8573615aef17a869b97ded3d50424afacdcfa275fc7dd9a420ae14fc0dde78",
-      "source": "Yahoo",
-      "summary": "NDAQ's Q1 results are likely to reflect strong organic growth, rising tech revenues and surging trading volumes.",
-      "published": "2026-04-20T14:55:00+00:00",
-      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
-      "competitor": "Intercontinental Exchange",
-      "ticker": "ICE",
-      "segment": "Exchanges / Data / Indices",
-      "origin": "finnhub",
-      "related": "ICE",
-      "finnhub_category": "company",
-      "category": "Earnings",
-      "sentiment": "Positive",
-      "product_line": "Non-core",
-      "segments": [
-        "Non-core"
-      ],
-      "non_core": true,
-      "importance_score": 45,
-      "importance": "Medium",
-      "impact_level": "Medium",
-      "id": "462f1441dbaa9ed4",
-      "signals": [
-        "Earnings"
-      ],
-      "why_it_matters": "Financial print signals competitor health and client-spend implications.",
-      "key_points": [
-        "NDAQ's Q1 results are likely to reflect strong organic growth, rising tech revenues and surging trading volumes."
-      ],
-      "reading_time": "1 min read"
-    },
-    {
-      "title": "NYSE Content Update: SEC Chair Paul Atkins to Ring Opening Bell at NYSE",
-      "url": "https://finnhub.io/api/news?id=1014d8e2caff0106a1e60126a641e1067cbf4e00fae48b6dc687782fdffb7189",
-      "source": "Yahoo",
-      "summary": "The New York Stock Exchange (NYSE) provides a daily pre-market update directly from the NYSE Trading Floor. Access today's NYSE Pre-market update for market insights before trading begins.",
-      "published": "2026-04-20T12:55:00+00:00",
-      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
-      "competitor": "Intercontinental Exchange",
-      "ticker": "ICE",
-      "segment": "Exchanges / Data / Indices",
-      "origin": "finnhub",
-      "related": "ICE",
-      "finnhub_category": "company",
-      "category": "Regulatory",
-      "sentiment": "Neutral",
-      "product_line": "Non-core",
-      "segments": [
-        "Non-core"
-      ],
-      "non_core": true,
-      "importance_score": 45,
-      "importance": "Medium",
-      "impact_level": "Medium",
-      "id": "32b626f031792929",
-      "signals": [
-        "Regulatory"
-      ],
-      "why_it_matters": "Regulatory development affecting Exchanges / Data / Indices market structure.",
-      "key_points": [
-        "The New York Stock Exchange (NYSE) provides a daily pre-market update directly from the NYSE Trading Floor.",
-        "Access today's NYSE Pre-market update for market insights before trading begins."
       ],
       "reading_time": "1 min read"
     },
@@ -6043,45 +6064,16 @@
       "reading_time": "<1 min read"
     },
     {
-      "title": "Watch S&P Global Vice Chairman: Hormuz Crisis Is Driving Global Change",
-      "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOV1JsOHJVT2poRWNmUEJIX201dElfV0VrZE1xOXFobmFXVGdKcEdBaVJCV1BRYW1UUTZ5bVVKUGpyVkN1SnJaNmV3WDNvQVcyc1JwcTgzWWdqdGJBY2NqQU5rOTNTWEpRNDRvWS05dnl1UTZZQktVSXNYcXRXblpleWdhR05MSmluRTB5c3VkUmRSUG9aUktURXFJSkprT1hsaktja1F0akZtaDQ0MDFhcndR?oc=5",
-      "source": "Bloomberg.com",
-      "summary": "",
-      "published": "",
-      "image": "",
-      "competitor": "S&P Global",
-      "ticker": "SPGI",
-      "segment": "Indices / Ratings / Data",
-      "origin": "premium_google_news",
-      "related": "SPGI",
-      "finnhub_category": "",
-      "category": "General",
-      "sentiment": "Neutral",
-      "product_line": "Non-core",
-      "segments": [
-        "Non-core"
-      ],
-      "non_core": true,
-      "importance_score": 45,
-      "importance": "Medium",
-      "impact_level": "Medium",
-      "id": "57ce4e7a65d14b46",
-      "signals": [],
-      "why_it_matters": "News mention involving S&P Global in Indices / Ratings / Data.",
-      "key_points": [],
-      "reading_time": "<1 min read"
-    },
-    {
-      "title": "S&P 500 and Nasdaq rise on fresh hopes of US-Iran talks, Intel boost",
-      "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNeFI0QnNnNVVVckNHY3RrNk9MQTd1aS1ZRzFVZ2FzZEIycjhqSjdndzdyYkdXdGNPSThqc1lrSURHeUdQQk9JLW1KTHlUWkZweGxibG1YRVJhN2F6b0dhb0loZGo1NUtWU3FOeVNIcG1oWDY2QnppRXdVTkh5LTE4MkZoaGxWNmFTQ3JoQkxGWWRVb0c2TjRSTnMxUzA3cHp5ZDc2N1d1Z2tMOThqcFE?oc=5",
-      "source": "Reuters",
+      "title": "Intel Surge Propels S&P 500, Nasdaq to New Records",
+      "url": "https://www.wsj.com/finance/stocks/intel-surge-propels-s-p-500-nasdaq-to-new-records-2447af94?mod=rss_markets_main",
+      "source": "WSJ — Markets",
       "summary": "",
       "published": "",
       "image": "",
       "competitor": "Nasdaq",
       "ticker": "NDAQ",
       "segment": "Exchanges / Index Licensing",
-      "origin": "premium_google_news",
+      "origin": "premium_section_feed",
       "related": "NDAQ",
       "finnhub_category": "",
       "category": "General",
@@ -6094,7 +6086,36 @@
       "importance_score": 45,
       "importance": "Medium",
       "impact_level": "Medium",
-      "id": "8779e82ab227ccf5",
+      "id": "be6412429c7b3cad",
+      "signals": [],
+      "why_it_matters": "News mention involving Nasdaq in Exchanges / Index Licensing.",
+      "key_points": [],
+      "reading_time": "<1 min read"
+    },
+    {
+      "title": "S&P 500, Nasdaq close at records on tech lift, Iran peace talk hopes",
+      "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNeFI0QnNnNVVVckNHY3RrNk9MQTd1aS1ZRzFVZ2FzZEIycjhqSjdndzdyYkdXdGNPSThqc1lrSURHeUdQQk9JLW1KTHlUWkZweGxibG1YRVJhN2F6b0dhb0loZGo1NUtWU3FOeVNIcG1oWDY2QnppRXdVTkh5LTE4MkZoaGxWNmFTQ3JoQkxGWWRVb0c2TjRSTnMxUzA3cHp5ZDc2N1d1Z2tMOThqcFE?oc=5",
+      "source": "Reuters",
+      "summary": "",
+      "published": "",
+      "image": "",
+      "competitor": "Nasdaq",
+      "ticker": "NDAQ",
+      "segment": "Exchanges / Index Licensing",
+      "origin": "premium_google_news",
+      "related": "NDAQ",
+      "finnhub_category": "",
+      "category": "General",
+      "sentiment": "Neutral",
+      "product_line": "Non-core",
+      "segments": [
+        "Non-core"
+      ],
+      "non_core": true,
+      "importance_score": 45,
+      "importance": "Medium",
+      "impact_level": "Medium",
+      "id": "65c5042e84dab95e",
       "signals": [],
       "why_it_matters": "News mention involving Nasdaq in Exchanges / Index Licensing.",
       "key_points": [],
@@ -6159,35 +6180,6 @@
       "reading_time": "<1 min read"
     },
     {
-      "title": "Review & Preview: The Nasdaq’s Historic Week",
-      "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE5sdnF5djhZYzFyRXhEUm00VU5OOVphVFY5Umx4SUlXU1Z1TVRlMW93cEc5MzVyM1AtUjE2dEdIM2sxbGp1VjR4VU03UUhnUWt0MEhDM0JHR0JQUTE4RWk2NGZFSjVoUWRTcENpYVVDeEVFN1hpbkVZN1JOSGM?oc=5",
-      "source": "Barron's",
-      "summary": "",
-      "published": "",
-      "image": "",
-      "competitor": "Nasdaq",
-      "ticker": "NDAQ",
-      "segment": "Exchanges / Index Licensing",
-      "origin": "premium_google_news",
-      "related": "NDAQ",
-      "finnhub_category": "",
-      "category": "General",
-      "sentiment": "Neutral",
-      "product_line": "Non-core",
-      "segments": [
-        "Non-core"
-      ],
-      "non_core": true,
-      "importance_score": 45,
-      "importance": "Medium",
-      "impact_level": "Medium",
-      "id": "d53b3ea5606c824b",
-      "signals": [],
-      "why_it_matters": "News mention involving Nasdaq in Exchanges / Index Licensing.",
-      "key_points": [],
-      "reading_time": "<1 min read"
-    },
-    {
       "title": "Prolonged energy disruption to widen India trade deficit, strain fiscal account, Moody's says",
       "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxOQW9fRkk3M3B5YXZnZzg0bmxQdUNhOWF4bU5iQkZ5WnFiZHZHd3BFczM5cXlsb2txVWk4YnIteHpkWWZZSXZscmpld1N0cnBPd1Z5dlozaTI1WDAzWHY3a2I3WklZZFNaOWd0T0ZzMXJpQjBkOHZIdXB4ZUluRnpPcWJBTGpIVWwwVHh3U2c5REthLUFFZzV5ZFlvQ1R5RXI5WEJpQ2NKWEJlQlZSQml2QUQ5ODVobXpKbFFHek5ncXI?oc=5",
       "source": "Reuters",
@@ -6217,31 +6209,34 @@
       "reading_time": "<1 min read"
     },
     {
-      "title": "Stock Market Today: Nasdaq Opens Higher, Oil Gains",
-      "url": "https://www.wsj.com/livecoverage/stock-market-today-dow-sp-500-nasdaq-04-24-2026?mod=rss_markets_main",
-      "source": "WSJ — Markets",
+      "title": "Investors are worried about private credit’s close ties to software stocks. So, why is money flooding into these ETFs?",
+      "url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxPbzN2Zk1OUVJmNU1YTE5UOW8xbGxDYkZvR09qMW1BNHVFSEpsbGYzSFVLaHh5cWtNYUZUTWxwUmcxaVpwZlFQMFhWOWJYa2g1Xy03bUs4Q0U5NjM3TFhmNFFtbUh2cENudkFGeEtRS3V1eng3OEY2bWt6Q2dUUlJOWG84T2tVenBlTE8wZnp0V3JleXRnNGpKeWhPX0hRSlY1VC01Qmc0S1htZnhCbncxa3B3cjZjRzNuZFJ5R0psZmI1ZHJJeVZvUVpuTTBnWGN1Z3RYX2hBRmo?oc=5",
+      "source": "MarketWatch",
       "summary": "",
       "published": "",
       "image": "",
-      "competitor": "Nasdaq",
-      "ticker": "NDAQ",
-      "segment": "Exchanges / Index Licensing",
-      "origin": "premium_section_feed",
-      "related": "NDAQ",
+      "competitor": "Moody's",
+      "ticker": "MCO",
+      "segment": "Ratings / Risk Analytics",
+      "origin": "premium_google_news",
+      "related": "MCO",
       "finnhub_category": "",
-      "category": "General",
+      "category": "Private Assets / Alternatives",
       "sentiment": "Neutral",
-      "product_line": "Non-core",
+      "product_line": "Private Capital",
       "segments": [
         "Non-core"
       ],
-      "non_core": true,
+      "non_core": false,
       "importance_score": 45,
       "importance": "Medium",
       "impact_level": "Medium",
-      "id": "e9864cd260809ea5",
-      "signals": [],
-      "why_it_matters": "News mention involving Nasdaq in Exchanges / Index Licensing.",
+      "id": "483038334fc18e4a",
+      "signals": [
+        "Index / ETF",
+        "Private Assets / Alternatives"
+      ],
+      "why_it_matters": "Private-markets move — adjacent to MSCI's Burgiss/PrivatePulse stack.",
       "key_points": [],
       "reading_time": "<1 min read"
     },
@@ -6271,6 +6266,37 @@
       "id": "62c40b12bc704185",
       "signals": [],
       "why_it_matters": "News mention involving S&P Global in Indices / Ratings / Data.",
+      "key_points": [],
+      "reading_time": "<1 min read"
+    },
+    {
+      "title": "At SpaceX, AI is burning the cash that Starlink earns",
+      "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxNSEc0dUVZdllFemdNaWlmQlRZOHN4NlpTOGQ4WnRIaVB2UThnVklVR3psX3FVV25FREZRODVtTGZ1RzlFd0h4V2hhUGFKRmxyQy1tZ3Vid3ZIaEJPbTY0SndOMk4xOW8tWV9pX2dHT2FZbmVieDAxZXRrNUNoRkg5VDBqMkZpT2lxa1RlSTZBd256S2c2UmhHRDc4TWVGck0?oc=5",
+      "source": "Reuters",
+      "summary": "",
+      "published": "",
+      "image": "",
+      "competitor": "S&P Global",
+      "ticker": "SPGI",
+      "segment": "Indices / Ratings / Data",
+      "origin": "premium_google_news",
+      "related": "SPGI",
+      "finnhub_category": "",
+      "category": "Technology / AI",
+      "sentiment": "Neutral",
+      "product_line": "Non-core",
+      "segments": [
+        "Non-core"
+      ],
+      "non_core": true,
+      "importance_score": 30,
+      "importance": "Low",
+      "impact_level": "Low",
+      "id": "4901d2961914b345",
+      "signals": [
+        "Technology / AI"
+      ],
+      "why_it_matters": "Tech / AI move — potential differentiation versus MSCI analytics.",
       "key_points": [],
       "reading_time": "<1 min read"
     },
@@ -6335,9 +6361,9 @@
       "reading_time": "<1 min read"
     },
     {
-      "title": "Broadcom just became the sixth company in U.S. history to achieve this feat",
-      "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxQZ3BaVUczUXBfVjUyOW1VaWtTRmRPeUoxQ0tjekRORGNNc1hJdDlmSUJQa1JTamIzQTMycFUyWEwxUWlVdkxGeTdWNHNKY2dPNk95NXhfLTh2b25sRmNydFI2X3ZiRTQxaVI5blZjS2lSdWc0UnRHQ3lKMFpLazJacjlyeGNhWlRNRVdoQ3U2LS1Ed3ZpY2dudC1iWEFpYUJ3emxIZVhJTVBZd0lDYzBEbS1LVnhYQVEz?oc=5",
-      "source": "MarketWatch",
+      "title": "Struggling Nike will cut around 1,400 jobs in efficiency push",
+      "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE5SeTZBQkRhelZvZ0lDYjNuZk50LUxPODdnRHpxWmN4MUEtbkxybFAwN09URUo3ZUhwYzJNZjdBWXptZ1RBNDVpcmV1czcxczd1MVdSX09KbjJHeGM2cG5Idmg1M1hqcDlCazdmWXQwZVY?oc=5",
+      "source": "Reuters",
       "summary": "",
       "published": "",
       "image": "",
@@ -6357,7 +6383,7 @@
       "importance_score": 20,
       "importance": "Low",
       "impact_level": "Low",
-      "id": "bc5e8e64ba9822f3",
+      "id": "09a0e1c45ce029a1",
       "signals": [],
       "why_it_matters": "News mention involving Morningstar in Research / ESG / Ratings.",
       "key_points": [],
@@ -6480,9 +6506,9 @@
       "reading_time": "<1 min read"
     },
     {
-      "title": "Polymarket In Talks For New Investment At $15 Billion Valuation",
-      "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxONFo5VDNMemxQblV2a0NJb1AzWUdYVjhEMnZkcFNRUTIxMnBHZVlGaVo1d2JBODFXMktoQUpmM3pDb0NBWFV0QXRRT1JhZUx6b0J5dWxEOEdneUcydFRUNXRHUzJyNmJqNV84RGFNUk50cXdialdVNUhSZkZsZElCemxRUHRNTnZQVUlrazVwWkZ2V0YyUThxVHlxSXB4SUN4MGVnWE5pMXpoZGd3dUdvenp1OA?oc=5",
-      "source": "Bloomberg.com",
+      "title": "Polymarket in Talks to Raise Money at About $15 Billion Valuation",
+      "url": "https://news.google.com/rss/articles/CBMimwVBVV95cUxQcklWQjhrM3Jvb3N5blZmWHBnN3Q0bFVKUkFGV3UxSHZENUtMM0hUYkFvc3RUXzBkUmktQ1IwZnpQUlB1ZFNaYzhKWEJVUG1yLUhjUzNOcHZsU2JHTzVOVkg0V1o5aUNDVFVsTElSSGNNbFc3eEItejYxYm5wOFI1UFp2QmlqSVZsVUx3NURCeG55RHZQMG5vZ1hUYmtiSUNDMmZwSDNPZW9RcklqWHQweThxakxoNmZMMThhZEdqZUZ1YUlnMEtqcFZoaFYweVlPdW56ejhDM1RjZ2tEdmY2YnAyVmhORUdYN2Y2V2MxQ1pxLTRVME5TNG5GTDhFejNwLXZOQ1c3T0dENF9SSDI1Q3c0UVltUk5lcmNUUllHOV9Ya2stY2VjTEJ4dzUyQTlFRVpPSVVxeGRWYmp3Z0p1a2ZoYnhGRDAyYXMtNnk5NjdZaDQ0TVBzeUJhbmJuU2lvZVBrV0t0WHRxcTlMX0lTMXVSeHI3TWJFU1E2dTRWTWxxdVlTcEI4NDF6NWhwNFR4VGg3anBuMlFHbEpvYnlVa3o4N2tRSEYySU9CNmczNk1ta3hsakFMTDNJNmRYTWpNd3lGNldsYzFrZjB0blBCYlk5bFF3Vm1FSDZJbjFOSjdlUWdwa05kaGFkMEFwY3RKMnVJQUhmSnB6MHRqd3ltM0lzWHU5N3ZxazMyQkJIaTFPdkJaUENzNUNIMndoQzNFTzU5S01CQUdQNWpZaEtUcFlKUVJmX0RIWTc3T01wa0RRbDluRWhSREszcXpUSEw3aFdndzJ4dnpOZV96RjBqenFnd3lqVnc4anQxdVpySXJfbUhIa0MwRGkycU9FbG8yNEhoNm14cXJwVzZtNkJHcDdrSGpIbTNNOXpF?oc=5",
+      "source": "links.message.bloomberg.com",
       "summary": "",
       "published": "",
       "image": "",
@@ -6502,7 +6528,7 @@
       "importance_score": 20,
       "importance": "Low",
       "impact_level": "Low",
-      "id": "a479cbe290922834",
+      "id": "41043bb893a04218",
       "signals": [],
       "why_it_matters": "News mention involving Intercontinental Exchange in Exchanges / Data / Indices.",
       "key_points": [],
@@ -6538,35 +6564,6 @@
       "reading_time": "<1 min read"
     },
     {
-      "title": "Tesla, Intel, Boeing, Capital One, and Many More Stocks to Watch This Week",
-      "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxOTDVjTkd3ekVUTnhSc1c0dmdCQk9rMGRGSzExV3JtbzdMaTNUcWZoSHpZN3pYcmpHaGM0c3VWUUhVZlg2RFhaLS1rd2VtTUl2ZG9ER0I3RWQwTk9mazhDVkd0ZUlDX0U1ellWQVZaWm0taG5UYkhKMWNzc2N1ckxZZG5kTFlpZ2RVNVpkZVBMMW4?oc=5",
-      "source": "Barron's",
-      "summary": "",
-      "published": "",
-      "image": "",
-      "competitor": "CME Group",
-      "ticker": "CME",
-      "segment": "Derivatives / Indices",
-      "origin": "premium_google_news",
-      "related": "CME",
-      "finnhub_category": "",
-      "category": "General",
-      "sentiment": "Neutral",
-      "product_line": "Non-core",
-      "segments": [
-        "Non-core"
-      ],
-      "non_core": true,
-      "importance_score": 20,
-      "importance": "Low",
-      "impact_level": "Low",
-      "id": "c6f2ab7fcdf76365",
-      "signals": [],
-      "why_it_matters": "News mention involving CME Group in Derivatives / Indices.",
-      "key_points": [],
-      "reading_time": "<1 min read"
-    },
-    {
       "title": "Stocks Are Back at Records, but Bond Investors Haven’t Joined the Party",
       "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPNzhHeG0zZXFLSkxBdzNIUXlLaTZSWXRrZ0Z5TXZ2cnRXOWdvWlotakxXZFpwTDI3QVQ2ZkpvZzRpeDV1ZUREdHhINkhBcklYN0xfUG1tRXNQTEhoOXVtbXhtdy1EbXJPNjl2QWtucFVCekVaSUpZS3pXS0FYMTZNWWJ6VXlBeVE0b1BGZkV6dVNaVmRBR3dqRDJfeDgtei1oZkFXRElQd2Z6WEFQUjVrTDU4ZVFRR2M?oc=5",
       "source": "WSJ",
@@ -6594,6 +6591,35 @@
         "Fixed Income / Credit"
       ],
       "why_it_matters": "Credit / fixed-income development — read across to credit analytics demand.",
+      "key_points": [],
+      "reading_time": "<1 min read"
+    },
+    {
+      "title": "Tesla, Intel, Boeing, Capital One, and Many More Stocks to Watch This Week",
+      "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxOTDVjTkd3ekVUTnhSc1c0dmdCQk9rMGRGSzExV3JtbzdMaTNUcWZoSHpZN3pYcmpHaGM0c3VWUUhVZlg2RFhaLS1rd2VtTUl2ZG9ER0I3RWQwTk9mazhDVkd0ZUlDX0U1ellWQVZaWm0taG5UYkhKMWNzc2N1ckxZZG5kTFlpZ2RVNVpkZVBMMW4?oc=5",
+      "source": "Barron's",
+      "summary": "",
+      "published": "",
+      "image": "",
+      "competitor": "CME Group",
+      "ticker": "CME",
+      "segment": "Derivatives / Indices",
+      "origin": "premium_google_news",
+      "related": "CME",
+      "finnhub_category": "",
+      "category": "General",
+      "sentiment": "Neutral",
+      "product_line": "Non-core",
+      "segments": [
+        "Non-core"
+      ],
+      "non_core": true,
+      "importance_score": 20,
+      "importance": "Low",
+      "impact_level": "Low",
+      "id": "c6f2ab7fcdf76365",
+      "signals": [],
+      "why_it_matters": "News mention involving CME Group in Derivatives / Indices.",
       "key_points": [],
       "reading_time": "<1 min read"
     },
@@ -6739,37 +6765,6 @@
       "id": "6008648bfc0c0478",
       "signals": [],
       "why_it_matters": "News mention involving FactSet in Analytics / Data Platform.",
-      "key_points": [],
-      "reading_time": "<1 min read"
-    },
-    {
-      "title": "Here’s what will really matter to Tesla investors when the company reports earnings",
-      "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNNk9OcUNTZFZ4TGJ0WFR2NjY5ZmVSTkNnWHhoTWhXVGFMNW9wWmN3Vy1PNDh5blhDbHljbzFlZmpaVzJJODFxZTd0UmluUlUyZ1MwUHBMcW1kc3J5ZE1ZU21UOWVUa20ta3ZORS1oTEZ2MVQzWWtmUmlDbTk0RWZGSDZCeS13WG9CX1lIMHRORWtBU1hKRzhZT0pock5pekF4TmQ4cjJNcXlzMWxhSC01V3lYd2MtQTA?oc=5",
-      "source": "MarketWatch",
-      "summary": "",
-      "published": "",
-      "image": "",
-      "competitor": "FactSet",
-      "ticker": "FDS",
-      "segment": "Analytics / Data Platform",
-      "origin": "premium_google_news",
-      "related": "FDS",
-      "finnhub_category": "",
-      "category": "Earnings",
-      "sentiment": "Neutral",
-      "product_line": "Non-core",
-      "segments": [
-        "Non-core"
-      ],
-      "non_core": true,
-      "importance_score": 35,
-      "importance": "Low",
-      "impact_level": "Low",
-      "id": "43df6088a713f609",
-      "signals": [
-        "Earnings"
-      ],
-      "why_it_matters": "Financial print signals competitor health and client-spend implications.",
       "key_points": [],
       "reading_time": "<1 min read"
     }

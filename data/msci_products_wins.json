@@ -1,7 +1,33 @@
 {
-  "last_updated": "2026-04-24T16:51:39.903632Z",
-  "total_items": 45,
+  "last_updated": "2026-04-25T01:58:05.020559Z",
+  "total_items": 47,
   "products": [
+    {
+      "title": "MSCI acquires PM Insights to expand private markets data - Investing.com",
+      "source": "Investing.com",
+      "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPV1dwWEpFVm9NZW05d0lkeFlvdENKbjNUaXhHTDFVdS1tb0FiWGlGVk5wR29RRTFOOHg2Tm9PWmMyM29hdEJTbW93c1M5ZlZoZklKUGZBZzBZMXkxZE4teVdiNTI3MXNNZElDSEIzQjVra0ExQmZKQ21hNWVaYy1SWGZfVllvUnI3NEs1YmNzb0ZqWm1mbFFrbzR5NkRlalpXNTNpSm16TE1nS2FZb1dHZ0hsRQ?oc=5",
+      "published": "Tue, 07 Apr 2026 07:00:00 GMT",
+      "id": "5df701159597",
+      "product_line": "Data & Content",
+      "launch_type": "Acquisition",
+      "section": "Product",
+      "summary": "Details not available.",
+      "competitive_edge": "N/A",
+      "scraped_at": "2026-04-25T01:58:02.544007Z"
+    },
+    {
+      "title": "Assessing MSCI’s Valuation After Strong Q1 2026 Beat And AI Driven Growth Momentum - simplywall.st",
+      "source": "simplywall.st",
+      "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxQXy1nSkZxM1NNUjJzU2JTTVg2aVZESUtXdC1ldjhLUEh5eUpkY2x5dUZfVVJqeFRhUHp3Um04QXZ1dzlrM1N2azRTSmhMQ3JMXzloclJ6T000VlhJSUxDS1dIUmEyOThBM3VIS3ZKN2dsb3hRclVNMXVtdkpMb1dTWXJQSmhjVVU4SjlRM0VTbVB1TFQzaEFJUVJ3RDFWV2dZcHdiS0lLM202YTA3SzhhdkFnNklNT05tWkNfUFp5UGZzSHVXaWtNWGdYbF9hb0hPcTFsWU930gHWAUFVX3lxTFBfLWdKRnEzU01SMnNTYlNNWDZpVkRJS1d0LWV2OEtQSHl5SmRjbHl1Rl9VUmp4VGFQendSbThBdnV3OWszU3ZrNFNKaExDckxfOWhyUnpPTTRWWElJTENLV0hSYTI5OEEzdUhLdko3Z2xveFFyVU0xdW12SkxvV1NZclBKaGNVVThKOVEzRVNtUHVMVDNoQUlRUndEMVZXZ1lwd2JLSUszbTZhMDdLOGF2QWc2SU1PTm1aQ19QWnlQZnNIdVdpa01YZ1hsX2FvSE9xMWxZT3c?oc=5",
+      "published": "Fri, 24 Apr 2026 21:17:24 GMT",
+      "id": "e80e5f7722d1",
+      "product_line": "Technology & AI",
+      "launch_type": "Announcement",
+      "section": "Product",
+      "summary": "Details not available.",
+      "competitive_edge": "AI-powered innovation",
+      "scraped_at": "2026-04-25T01:58:04.020364Z"
+    },
     {
       "title": "News - NC Achieves AAA Rating in 2026 MSCI ESG Assessment - NC - NC",
       "source": "NC",
