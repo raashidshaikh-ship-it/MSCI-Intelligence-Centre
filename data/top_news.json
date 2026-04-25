@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-25T01:56:45.303485+00:00",
+  "last_updated": "2026-04-25T08:45:23.358924+00:00",
   "total": 200,
   "articles": [
     {
@@ -3305,7 +3305,7 @@
       "id": "fdc8ab5488161c47",
       "signals": [
         "Earnings",
-        "Breaking (<24h)",
+        "Recent (<3d)",
         "High priority"
       ],
       "why_it_matters": "Financial print signals competitor health and client-spend implications.",
@@ -3340,7 +3340,7 @@
       "id": "21a0033c3052b4b1",
       "signals": [
         "Earnings",
-        "Breaking (<24h)",
+        "Recent (<3d)",
         "High priority"
       ],
       "why_it_matters": "Financial print signals competitor health and client-spend implications.",
@@ -3376,7 +3376,7 @@
       "id": "7091b96285cffc90",
       "signals": [
         "Fixed Income / Credit",
-        "Breaking (<24h)"
+        "Recent (<3d)"
       ],
       "why_it_matters": "Credit / fixed-income development — read across to credit analytics demand.",
       "key_points": [
@@ -3410,7 +3410,7 @@
       "id": "31dd2ca0ed972a21",
       "signals": [
         "Earnings",
-        "Breaking (<24h)"
+        "Recent (<3d)"
       ],
       "why_it_matters": "Financial print signals competitor health and client-spend implications.",
       "key_points": [
@@ -3444,7 +3444,7 @@
       "id": "ab8f271d2af1825e",
       "signals": [
         "Regulatory",
-        "Breaking (<24h)",
+        "Recent (<3d)",
         "High priority"
       ],
       "why_it_matters": "Regulatory development affecting Derivatives / Indices market structure.",
@@ -3479,7 +3479,7 @@
       "id": "485cf16fcea1ea69",
       "signals": [
         "Technology / AI",
-        "Breaking (<24h)"
+        "Recent (<3d)"
       ],
       "why_it_matters": "Tech / AI move — potential differentiation versus MSCI analytics.",
       "key_points": [
@@ -3514,7 +3514,7 @@
       "signals": [
         "Index / ETF",
         "Indices / Benchmarks",
-        "Breaking (<24h)",
+        "Recent (<3d)",
         "High priority"
       ],
       "why_it_matters": "Benchmark move — watch for licensing / AUM impact on index franchise. Index/benchmark angle present.",
@@ -6209,38 +6209,6 @@
       "reading_time": "<1 min read"
     },
     {
-      "title": "Investors are worried about private credit’s close ties to software stocks. So, why is money flooding into these ETFs?",
-      "url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxPbzN2Zk1OUVJmNU1YTE5UOW8xbGxDYkZvR09qMW1BNHVFSEpsbGYzSFVLaHh5cWtNYUZUTWxwUmcxaVpwZlFQMFhWOWJYa2g1Xy03bUs4Q0U5NjM3TFhmNFFtbUh2cENudkFGeEtRS3V1eng3OEY2bWt6Q2dUUlJOWG84T2tVenBlTE8wZnp0V3JleXRnNGpKeWhPX0hRSlY1VC01Qmc0S1htZnhCbncxa3B3cjZjRzNuZFJ5R0psZmI1ZHJJeVZvUVpuTTBnWGN1Z3RYX2hBRmo?oc=5",
-      "source": "MarketWatch",
-      "summary": "",
-      "published": "",
-      "image": "",
-      "competitor": "Moody's",
-      "ticker": "MCO",
-      "segment": "Ratings / Risk Analytics",
-      "origin": "premium_google_news",
-      "related": "MCO",
-      "finnhub_category": "",
-      "category": "Private Assets / Alternatives",
-      "sentiment": "Neutral",
-      "product_line": "Private Capital",
-      "segments": [
-        "Non-core"
-      ],
-      "non_core": false,
-      "importance_score": 45,
-      "importance": "Medium",
-      "impact_level": "Medium",
-      "id": "483038334fc18e4a",
-      "signals": [
-        "Index / ETF",
-        "Private Assets / Alternatives"
-      ],
-      "why_it_matters": "Private-markets move — adjacent to MSCI's Burgiss/PrivatePulse stack.",
-      "key_points": [],
-      "reading_time": "<1 min read"
-    },
-    {
       "title": "Iran war impact seeps ever deeper into global economy",
       "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxOOFBpdENISHR1UmJScGk5RlJyWUhER3pUN3hBd1MteF9wSUdyWXJMX1ZaV1dZc25Rb3N5UEpneU80NEhUcmwwOFlHcDREalZETFkzeTR5Z3FBWFhDTDNjTWlqZHBnbVRSWXdmVkFUUnBIWmRwMFBvVmtkdE1yUTkwa09mbkdnRFNwTmNOdDZoRm5PNlRibGtlNXcxNFlpNVcwbE10bg?oc=5",
       "source": "Reuters",
@@ -6332,35 +6300,6 @@
       "reading_time": "<1 min read"
     },
     {
-      "title": "UnitedHealth posts quarterly profit above Wall Street estimates, on track for turnaround",
-      "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxNY2E1NHNkQUJLSU9FZ2hYQldQc0REbEM1LUliVjRPd2lBdy1pNDBWdkJ0X1hRWW9McFhpMXd4N192STZiS0hRMXFFYkZrQ21HU3Y3V1hXOU1vZXViaTN2RGdJb1hZQzk2ZGVwTjJsSUtESDk5ZlZvZDRGeFo5NFBZOExlNS1TT3RMWlJiS0lUOVVsNlU3QTkxX2ZOSGxDWUxsTnQ2U0V4TDlpdW9IZ1pDQWxudFdZRnhfNlpZX0JyV0c3b2c2UVJ4Tk1ibi1TUQ?oc=5",
-      "source": "Reuters",
-      "summary": "",
-      "published": "",
-      "image": "",
-      "competitor": "Morningstar",
-      "ticker": "MORN",
-      "segment": "Research / ESG / Ratings",
-      "origin": "premium_google_news",
-      "related": "MORN",
-      "finnhub_category": "",
-      "category": "General",
-      "sentiment": "Neutral",
-      "product_line": "Non-core",
-      "segments": [
-        "Non-core"
-      ],
-      "non_core": true,
-      "importance_score": 20,
-      "importance": "Low",
-      "impact_level": "Low",
-      "id": "e9140909736a9e6c",
-      "signals": [],
-      "why_it_matters": "News mention involving Morningstar in Research / ESG / Ratings.",
-      "key_points": [],
-      "reading_time": "<1 min read"
-    },
-    {
       "title": "Struggling Nike will cut around 1,400 jobs in efficiency push",
       "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE5SeTZBQkRhelZvZ0lDYjNuZk50LUxPODdnRHpxWmN4MUEtbkxybFAwN09URUo3ZUhwYzJNZjdBWXptZ1RBNDVpcmV1czcxczd1MVdSX09KbjJHeGM2cG5Idmg1M1hqcDlCazdmWXQwZVY?oc=5",
       "source": "Reuters",
@@ -6384,6 +6323,35 @@
       "importance": "Low",
       "impact_level": "Low",
       "id": "09a0e1c45ce029a1",
+      "signals": [],
+      "why_it_matters": "News mention involving Morningstar in Research / ESG / Ratings.",
+      "key_points": [],
+      "reading_time": "<1 min read"
+    },
+    {
+      "title": "SLB seeks to pass on costs as Iran war disrupts supply chains",
+      "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNVHRLMnNmYmdLUlZ4U3lXNWUxemJUcXhHdDJoYjBjZXpBVmN4UktHTjlqTVZ6Y09NU3E5MnNNd2syQk41eXQxUFBEY09PMk1GOFE0NVNhUDBzQlhFV2VxNThtZ09ydk50cFdpNjBqYVYtMlN2VUtRYlJ0bXFuV01pSHpycEdmWXpIcmpCYWdVR1dzMGZnRXdyVUVNTmNRSnZnUEh6ZXhXYWdoUnFlUGlxbFZxdS1iMVVDUW9oYlFSaGVoZw?oc=5",
+      "source": "Reuters",
+      "summary": "",
+      "published": "",
+      "image": "",
+      "competitor": "Morningstar",
+      "ticker": "MORN",
+      "segment": "Research / ESG / Ratings",
+      "origin": "premium_google_news",
+      "related": "MORN",
+      "finnhub_category": "",
+      "category": "General",
+      "sentiment": "Neutral",
+      "product_line": "Non-core",
+      "segments": [
+        "Non-core"
+      ],
+      "non_core": true,
+      "importance_score": 20,
+      "importance": "Low",
+      "impact_level": "Low",
+      "id": "3cb6d9c0bc01f599",
       "signals": [],
       "why_it_matters": "News mention involving Morningstar in Research / ESG / Ratings.",
       "key_points": [],
@@ -6421,7 +6389,7 @@
     {
       "title": "US Probes Suspicious Oil Trades Made Before Trump Pivots",
       "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOLUh1cXNtVVdWMmY4ZHJ3UDUwVFpXRXhoNmxiR29TdUhpR0c0QVRzY0N4YXduSm1QOW1vY1VZS3B5c3BpVnBuWHlDYmplalJYYjIyQWxfb050UTBLZElkWi1SSWdTZmVJR01IOE10T1RjTGU4WFlpUm9lUlJMWWgxN1dJTXJ3My1IX0gzS0VHNmZlbFZ0elVGdWlnSHJWUTFzVE5lQ1R4UnN4cDVsdzhDZnh3?oc=5",
-      "source": "Bloomberg.com",
+      "source": "Bloomberg",
       "summary": "",
       "published": "",
       "image": "",
@@ -6765,6 +6733,37 @@
       "id": "6008648bfc0c0478",
       "signals": [],
       "why_it_matters": "News mention involving FactSet in Analytics / Data Platform.",
+      "key_points": [],
+      "reading_time": "<1 min read"
+    },
+    {
+      "title": "Here’s what will really matter to Tesla investors when the company reports earnings",
+      "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNNk9OcUNTZFZ4TGJ0WFR2NjY5ZmVSTkNnWHhoTWhXVGFMNW9wWmN3Vy1PNDh5blhDbHljbzFlZmpaVzJJODFxZTd0UmluUlUyZ1MwUHBMcW1kc3J5ZE1ZU21UOWVUa20ta3ZORS1oTEZ2MVQzWWtmUmlDbTk0RWZGSDZCeS13WG9CX1lIMHRORWtBU1hKRzhZT0pock5pekF4TmQ4cjJNcXlzMWxhSC01V3lYd2MtQTA?oc=5",
+      "source": "MarketWatch",
+      "summary": "",
+      "published": "",
+      "image": "",
+      "competitor": "FactSet",
+      "ticker": "FDS",
+      "segment": "Analytics / Data Platform",
+      "origin": "premium_google_news",
+      "related": "FDS",
+      "finnhub_category": "",
+      "category": "Earnings",
+      "sentiment": "Neutral",
+      "product_line": "Non-core",
+      "segments": [
+        "Non-core"
+      ],
+      "non_core": true,
+      "importance_score": 35,
+      "importance": "Low",
+      "impact_level": "Low",
+      "id": "43df6088a713f609",
+      "signals": [
+        "Earnings"
+      ],
+      "why_it_matters": "Financial print signals competitor health and client-spend implications.",
       "key_points": [],
       "reading_time": "<1 min read"
     }
