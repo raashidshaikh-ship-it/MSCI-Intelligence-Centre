@@ -1,8 +1,27 @@
 {
-  "last_updated": "2026-04-25T08:45:57.561521Z",
-  "total_activities": 19,
+  "last_updated": "2026-04-25T16:36:19.206107Z",
+  "total_activities": 20,
   "clients_tracked": 30,
   "activities": [
+    {
+      "title": "Invesco India Nifty Bank Index Fund Regular-Growth - The Economic Times",
+      "source": "The Economic Times",
+      "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxONHRVazBPSlNkSzM4SWY2TnJfZ0pFZEtscnU1UGszRXlNaHlSUlZVZkEwV3NoclRGT0lwT25jNEFmWTJiZ1llaVBfcVVmM2lmR0lBUjNmQ19QU18zZWhVdFUwQ2dMem83TFVBcklZSzVuUV9kQl9JN3BsUC11YjBpODFiNmNaU2hURE5GdDZJQ1VIcFZfaFo2OVRMMUxoWHN1UlRXR0VrblJzUG1wZzlR?oc=5",
+      "published": "Thu, 23 Apr 2026 23:21:31 GMT",
+      "client": "Invesco",
+      "client_type": "Asset Manager",
+      "id": "13f7c1daf021",
+      "activity_type": "M&A / Expansion",
+      "msci_linked": false,
+      "msci_product": "N/A",
+      "deal_value": "N/A",
+      "opportunity_type": "Monitor",
+      "opportunity_signal": "Track for future opportunity signals",
+      "competitor_risk": "None detected",
+      "region": "Asia-Pacific",
+      "priority": "Low",
+      "scraped_at": "2026-04-25T16:36:12.016943Z"
+    },
     {
       "title": "NBIM beats benchmark in Q1, as thee of SWF’s four asset classes contract - Investment & Pensions Europe",
       "source": "Investment & Pensions Europe",

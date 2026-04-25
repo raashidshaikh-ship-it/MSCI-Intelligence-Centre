@@ -1,5 +1,5 @@
 {
-  "last_run": "2026-04-25T08:45:23.365607+00:00",
+  "last_run": "2026-04-25T16:35:37.173251+00:00",
   "sources": [
     {
       "name": "Finnhub-SPGI",
@@ -78,7 +78,7 @@
     {
       "name": "Premium-Intercontinental Exchange",
       "status": "ok",
-      "items": 5
+      "items": 0
     },
     {
       "name": "Premium-Nasdaq",
@@ -88,7 +88,7 @@
     {
       "name": "Premium-CME Group",
       "status": "ok",
-      "items": 5
+      "items": 0
     },
     {
       "name": "Premium-FactSet",

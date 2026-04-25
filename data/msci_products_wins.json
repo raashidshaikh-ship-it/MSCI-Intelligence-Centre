@@ -1,7 +1,33 @@
 {
-  "last_updated": "2026-04-25T08:46:18.113064Z",
-  "total_items": 47,
+  "last_updated": "2026-04-25T16:36:43.517200Z",
+  "total_items": 49,
   "products": [
+    {
+      "title": "MSCI’s PM Insights deal adds data on private firms worth $5.5T - Stock Titan",
+      "source": "Stock Titan",
+      "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxQNWhMRllwNWZLY1puWTh1MFAwdnozMEl6WGwwRkRCcTZpNkxlb0duMEF2cHkya1pzaDRDeUZLMWhKS2pTZm0tdTFnWmxxZERRSElPeXVSMHQ0MXVleTh6M0gtMU9UMExiSW5LNmN4ZVNPbGhnajNpTWE2WWk1a0FzS1RuWUF2LWxaQUs2WnlSbVFLejd3TldyN0NKTEltbHBHUTN3ZTVFNndqbl93cUxHQmZnaDBSbC1uWkFRanhrSGY?oc=5",
+      "published": "Tue, 07 Apr 2026 07:00:00 GMT",
+      "id": "f0092f009b49",
+      "product_line": "Data & Content",
+      "launch_type": "Enhancement",
+      "section": "Product",
+      "summary": "Details not available.",
+      "competitive_edge": "N/A",
+      "scraped_at": "2026-04-25T16:36:41.253064Z"
+    },
+    {
+      "title": "MSCI Inc. stock (US55354G1004): Is index dominance still the unbeatable edge in a data-driven market - AD HOC NEWS",
+      "source": "AD HOC NEWS",
+      "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPSmY4UzRNZDYtY2xIWm9wQUQ1TVpCMEx3M0xDSk9nT0lWWmJDRkl0RWhtamVPZC1BNTRTVEhSRlFSZXZfSUNoSjFLaTMxMHAyemo3akR2UDNWZW1Vd2l6ZFJqS1ltNm5JNjlPN0hxQjZoNmlWRlo0SVgxOVJhdkJHU2NjVUp4WHpGSVc1WmpoU3ByQy05QmZTSzBzWm9aV2UxVncyZzJZUHcxX1I2YzEtRVFNeUlDMkFjbFhzeVNn?oc=5",
+      "published": "Tue, 14 Apr 2026 06:28:54 GMT",
+      "id": "96e657e76159",
+      "product_line": "Index Solutions",
+      "launch_type": "Announcement",
+      "section": "Product",
+      "summary": "Details not available.",
+      "competitive_edge": "N/A",
+      "scraped_at": "2026-04-25T16:36:42.517014Z"
+    },
     {
       "title": "MSCI acquires PM Insights to expand private markets data - Investing.com",
       "source": "Investing.com",
