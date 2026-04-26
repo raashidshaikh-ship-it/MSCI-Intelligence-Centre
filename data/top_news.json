@@ -1,7 +1,41 @@
 {
-  "last_updated": "2026-04-26T08:54:48.079760+00:00",
+  "last_updated": "2026-04-26T16:37:19.166695+00:00",
   "total": 200,
   "articles": [
+    {
+      "title": "Nasdaq: My Multiple Target Has Been Reached, So I Am Upgrading To A Buy",
+      "url": "https://finnhub.io/api/news?id=ed0347d027d499af92dd252440ce5ecc464a505509986c776649eaf88fff24c6",
+      "source": "SeekingAlpha",
+      "summary": "Nasdaq increased net revenues by 14% and raised its dividend by 15%, reinforcing its dividend growth track record. Read why NDAQ stock is a Buy.",
+      "published": "2026-04-26T07:00:00+00:00",
+      "image": "https://static.seekingalpha.com/cdn/s3/uploads/getty_images/2173740083/image_2173740083.jpg?io=getty-c-w1536",
+      "competitor": "Nasdaq",
+      "ticker": "NDAQ",
+      "segment": "Exchanges / Index Licensing",
+      "origin": "finnhub",
+      "related": "NDAQ",
+      "finnhub_category": "company",
+      "category": "General",
+      "sentiment": "Positive",
+      "product_line": "Non-core",
+      "segments": [
+        "Non-core"
+      ],
+      "non_core": true,
+      "importance_score": 65,
+      "importance": "High",
+      "impact_level": "High",
+      "id": "ac97b3ac2d646284",
+      "signals": [
+        "Breaking (<24h)"
+      ],
+      "why_it_matters": "News mention involving Nasdaq in Exchanges / Index Licensing.",
+      "key_points": [
+        "Nasdaq increased net revenues by 14% and raised its dividend by 15%, reinforcing its dividend growth track record.",
+        "Read why NDAQ stock is a Buy."
+      ],
+      "reading_time": "1 min read"
+    },
     {
       "title": "S&P Global Reshapes Energy Data With Titan And Expanded SLB Partnership",
       "url": "https://finnhub.io/api/news?id=193620c7503b074cdac206d52ae15d2ae68fb8b440999788f17b900745d27d77",
@@ -582,7 +616,7 @@
       "impact_level": "High",
       "id": "3a14ca27078ead69",
       "signals": [
-        "Breaking (<24h)"
+        "Recent (<3d)"
       ],
       "why_it_matters": "News mention involving CME Group in Derivatives / Indices.",
       "key_points": [
@@ -617,7 +651,7 @@
       "impact_level": "High",
       "id": "7d4909baa60ac6f9",
       "signals": [
-        "Breaking (<24h)"
+        "Recent (<3d)"
       ],
       "why_it_matters": "News mention involving Nasdaq in Exchanges / Index Licensing.",
       "key_points": [
@@ -650,7 +684,7 @@
       "impact_level": "Medium",
       "id": "393eeb044ddcc0ea",
       "signals": [
-        "Breaking (<24h)"
+        "Recent (<3d)"
       ],
       "why_it_matters": "News mention involving FactSet in Analytics / Data Platform.",
       "key_points": [
@@ -683,7 +717,7 @@
       "impact_level": "Medium",
       "id": "04371f043e557147",
       "signals": [
-        "Breaking (<24h)"
+        "Recent (<3d)"
       ],
       "why_it_matters": "News mention involving Intercontinental Exchange in Exchanges / Data / Indices.",
       "key_points": [
@@ -718,7 +752,7 @@
       "id": "a096fe069f443259",
       "signals": [
         "Earnings",
-        "Breaking (<24h)"
+        "Recent (<3d)"
       ],
       "why_it_matters": "Financial print signals competitor health and client-spend implications.",
       "key_points": [
@@ -752,7 +786,7 @@
       "id": "ac935c42e3f60cab",
       "signals": [
         "Earnings",
-        "Breaking (<24h)",
+        "Recent (<3d)",
         "High priority"
       ],
       "why_it_matters": "Financial print signals competitor health and client-spend implications.",
@@ -788,7 +822,7 @@
       "impact_level": "High",
       "id": "766ae53ed46ee0de",
       "signals": [
-        "Breaking (<24h)"
+        "Recent (<3d)"
       ],
       "why_it_matters": "News mention involving Intercontinental Exchange in Exchanges / Data / Indices.",
       "key_points": [
@@ -824,7 +858,7 @@
       "id": "f1b82d42ef814d51",
       "signals": [
         "Technology / AI",
-        "Breaking (<24h)"
+        "Recent (<3d)"
       ],
       "why_it_matters": "Tech / AI move — potential differentiation versus MSCI analytics.",
       "key_points": [
@@ -858,7 +892,7 @@
       "impact_level": "High",
       "id": "dabc30077fd70109",
       "signals": [
-        "Breaking (<24h)"
+        "Recent (<3d)"
       ],
       "why_it_matters": "News mention involving Nasdaq in Exchanges / Index Licensing.",
       "key_points": [
@@ -892,7 +926,7 @@
       "id": "a5eb34320c2fd439",
       "signals": [
         "Macro / Markets",
-        "Breaking (<24h)"
+        "Recent (<3d)"
       ],
       "why_it_matters": "Macro backdrop — shapes client risk appetite and spend cycle.",
       "key_points": [
@@ -925,7 +959,7 @@
       "impact_level": "High",
       "id": "3118dfec80bbd980",
       "signals": [
-        "Breaking (<24h)"
+        "Recent (<3d)"
       ],
       "why_it_matters": "News mention involving S&P Global in Indices / Ratings / Data.",
       "key_points": [
@@ -960,7 +994,7 @@
       "impact_level": "Medium",
       "id": "340878e868a42f4c",
       "signals": [
-        "Breaking (<24h)"
+        "Recent (<3d)"
       ],
       "why_it_matters": "News mention involving Intercontinental Exchange in Exchanges / Data / Indices.",
       "key_points": [
@@ -993,7 +1027,7 @@
       "impact_level": "High",
       "id": "02991abafe26b71e",
       "signals": [
-        "Breaking (<24h)"
+        "Recent (<3d)"
       ],
       "why_it_matters": "News mention involving Intercontinental Exchange in Exchanges / Data / Indices.",
       "key_points": [
@@ -1026,7 +1060,7 @@
       "impact_level": "Medium",
       "id": "82d5322163aa2fd4",
       "signals": [
-        "Breaking (<24h)"
+        "Recent (<3d)"
       ],
       "why_it_matters": "News mention involving S&P Global in Indices / Ratings / Data.",
       "key_points": [
@@ -3315,42 +3349,6 @@
       "reading_time": "1 min read"
     },
     {
-      "title": "Nasdaq, Inc. Reports Earnings Results for the First Quarter Ended March 31, 2026",
-      "url": "https://finnhub.io/api/news?id=e5312e26147a379b22cda6bd066f12f741276987e9947d7fb9b769fbb18743f5",
-      "source": "Finnhub",
-      "summary": "Nasdaq, Inc. reported earnings results for the first quarter ended March 31, 2026. For the first quarter, the company reported revenue was USD 1,407 million compared to USD 1,237 million a year ago....",
-      "published": "2026-04-23T09:07:17+00:00",
-      "image": "",
-      "competitor": "Nasdaq",
-      "ticker": "NDAQ",
-      "segment": "Exchanges / Index Licensing",
-      "origin": "finnhub",
-      "related": "NDAQ",
-      "finnhub_category": "company",
-      "category": "Earnings",
-      "sentiment": "Neutral",
-      "product_line": "Non-core",
-      "segments": [
-        "Non-core"
-      ],
-      "non_core": true,
-      "importance_score": 80,
-      "importance": "Critical",
-      "impact_level": "Critical",
-      "id": "f206a7abbbf895b0",
-      "signals": [
-        "Earnings",
-        "Recent (<3d)",
-        "High priority"
-      ],
-      "why_it_matters": "Financial print signals competitor health and client-spend implications.",
-      "key_points": [
-        "reported earnings results for the first quarter ended March 31, 2026.",
-        "For the first quarter, the company reported revenue was USD 1,407 million compared to USD 1,237 million a year ago...."
-      ],
-      "reading_time": "1 min read"
-    },
-    {
       "title": "CME Group Q1 Earnings Show Strength, But The Stock Still Looks Expensive",
       "url": "https://finnhub.io/api/news?id=85e80736a346f304c689afe8474ed04f67973938b81ad774c31ef3076fdf0119",
       "source": "SeekingAlpha",
@@ -4032,13 +4030,12 @@
         "Non-core"
       ],
       "non_core": false,
-      "importance_score": 65,
-      "importance": "High",
-      "impact_level": "High",
+      "importance_score": 55,
+      "importance": "Medium",
+      "impact_level": "Medium",
       "id": "82d121eb94eb80ba",
       "signals": [
-        "Partnership",
-        "Recent (<3d)"
+        "Partnership"
       ],
       "why_it_matters": "Strategic alliance may alter distribution or data access in Ratings / Risk Analytics.",
       "key_points": [
@@ -4067,13 +4064,11 @@
         "Non-core"
       ],
       "non_core": true,
-      "importance_score": 40,
-      "importance": "Medium",
-      "impact_level": "Medium",
+      "importance_score": 30,
+      "importance": "Low",
+      "impact_level": "Low",
       "id": "8690c1008c3cfbd8",
-      "signals": [
-        "Recent (<3d)"
-      ],
+      "signals": [],
       "why_it_matters": "News mention involving FactSet in Analytics / Data Platform.",
       "key_points": [
         "The brokerage firm has been riding a surge of investor activity that has boosted account openings and trading volume."
@@ -4100,13 +4095,12 @@
         "Non-core"
       ],
       "non_core": false,
-      "importance_score": 55,
+      "importance_score": 45,
       "importance": "Medium",
       "impact_level": "Medium",
       "id": "b7972a083c086e4b",
       "signals": [
-        "Earnings",
-        "Recent (<3d)"
+        "Earnings"
       ],
       "why_it_matters": "Financial print signals competitor health and client-spend implications.",
       "key_points": [
@@ -4136,14 +4130,12 @@
         "Non-core"
       ],
       "non_core": true,
-      "importance_score": 80,
-      "importance": "Critical",
-      "impact_level": "Critical",
+      "importance_score": 70,
+      "importance": "High",
+      "impact_level": "High",
       "id": "9fb7eee43bf35ac3",
       "signals": [
-        "Earnings",
-        "Recent (<3d)",
-        "High priority"
+        "Earnings"
       ],
       "why_it_matters": "Financial print signals competitor health and client-spend implications.",
       "key_points": [
@@ -4173,13 +4165,12 @@
         "Non-core"
       ],
       "non_core": false,
-      "importance_score": 65,
-      "importance": "High",
-      "impact_level": "High",
+      "importance_score": 55,
+      "importance": "Medium",
+      "impact_level": "Medium",
       "id": "8c7f619c5735bb30",
       "signals": [
-        "Fixed Income / Credit",
-        "Recent (<3d)"
+        "Fixed Income / Credit"
       ],
       "why_it_matters": "Credit / fixed-income development — read across to credit analytics demand.",
       "key_points": [
@@ -4208,13 +4199,12 @@
         "Non-core"
       ],
       "non_core": false,
-      "importance_score": 40,
-      "importance": "Medium",
-      "impact_level": "Medium",
+      "importance_score": 30,
+      "importance": "Low",
+      "impact_level": "Low",
       "id": "7296618a5a732681",
       "signals": [
-        "Partnership",
-        "Recent (<3d)"
+        "Partnership"
       ],
       "why_it_matters": "Strategic alliance may alter distribution or data access in Analytics / Data Platform.",
       "key_points": [
@@ -4242,14 +4232,12 @@
         "Non-core"
       ],
       "non_core": true,
-      "importance_score": 80,
-      "importance": "Critical",
-      "impact_level": "Critical",
+      "importance_score": 70,
+      "importance": "High",
+      "impact_level": "High",
       "id": "fa955a9f288a2a03",
       "signals": [
-        "Earnings",
-        "Recent (<3d)",
-        "High priority"
+        "Earnings"
       ],
       "why_it_matters": "Financial print signals competitor health and client-spend implications.",
       "key_points": [
@@ -4277,14 +4265,12 @@
         "Corporates"
       ],
       "non_core": false,
-      "importance_score": 80,
-      "importance": "Critical",
-      "impact_level": "Critical",
+      "importance_score": 70,
+      "importance": "High",
+      "impact_level": "High",
       "id": "a95aead416a943bf",
       "signals": [
-        "Earnings",
-        "Recent (<3d)",
-        "High priority"
+        "Earnings"
       ],
       "why_it_matters": "Financial print signals competitor health and client-spend implications.",
       "key_points": [
@@ -4312,13 +4298,11 @@
         "Non-core"
       ],
       "non_core": true,
-      "importance_score": 40,
-      "importance": "Medium",
-      "impact_level": "Medium",
+      "importance_score": 30,
+      "importance": "Low",
+      "impact_level": "Low",
       "id": "1452a1d7a357eaea",
-      "signals": [
-        "Recent (<3d)"
-      ],
+      "signals": [],
       "why_it_matters": "News mention involving FactSet in Analytics / Data Platform.",
       "key_points": [
         "AT&T (T) reported better-than-expected first-quarter results on Wednesday, while the telecommunicati"
@@ -4345,13 +4329,12 @@
         "Non-core"
       ],
       "non_core": true,
-      "importance_score": 65,
-      "importance": "High",
-      "impact_level": "High",
+      "importance_score": 55,
+      "importance": "Medium",
+      "impact_level": "Medium",
       "id": "558962d753a9a1b2",
       "signals": [
-        "Product Launch",
-        "Recent (<3d)"
+        "Product Launch"
       ],
       "why_it_matters": "New Exchanges / Data / Indices offering — potential pressure on MSCI's roadmap.",
       "key_points": [
@@ -4380,13 +4363,12 @@
         "Corporates"
       ],
       "non_core": false,
-      "importance_score": 55,
+      "importance_score": 45,
       "importance": "Medium",
       "impact_level": "Medium",
       "id": "c5a99347d22d5550",
       "signals": [
-        "Earnings",
-        "Recent (<3d)"
+        "Earnings"
       ],
       "why_it_matters": "Financial print signals competitor health and client-spend implications.",
       "key_points": [
@@ -4415,14 +4397,12 @@
         "Non-core"
       ],
       "non_core": true,
-      "importance_score": 80,
-      "importance": "Critical",
-      "impact_level": "Critical",
+      "importance_score": 70,
+      "importance": "High",
+      "impact_level": "High",
       "id": "7de8b1e337044d96",
       "signals": [
-        "Earnings",
-        "Recent (<3d)",
-        "High priority"
+        "Earnings"
       ],
       "why_it_matters": "Financial print signals competitor health and client-spend implications.",
       "key_points": [
@@ -4451,14 +4431,12 @@
         "Non-core"
       ],
       "non_core": true,
-      "importance_score": 80,
-      "importance": "Critical",
-      "impact_level": "Critical",
+      "importance_score": 70,
+      "importance": "High",
+      "impact_level": "High",
       "id": "425ebd3c031f79ce",
       "signals": [
-        "Earnings",
-        "Recent (<3d)",
-        "High priority"
+        "Earnings"
       ],
       "why_it_matters": "Financial print signals competitor health and client-spend implications.",
       "key_points": [
@@ -4487,13 +4465,12 @@
         "Non-core"
       ],
       "non_core": true,
-      "importance_score": 65,
-      "importance": "High",
-      "impact_level": "High",
+      "importance_score": 55,
+      "importance": "Medium",
+      "impact_level": "Medium",
       "id": "87343f676c0eaf0f",
       "signals": [
-        "Fixed Income / Credit",
-        "Recent (<3d)"
+        "Fixed Income / Credit"
       ],
       "why_it_matters": "Credit / fixed-income development — read across to credit analytics demand.",
       "key_points": [
@@ -4522,13 +4499,12 @@
         "Corporates"
       ],
       "non_core": false,
-      "importance_score": 90,
+      "importance_score": 80,
       "importance": "Critical",
       "impact_level": "Critical",
       "id": "01ae994f80ed3a69",
       "signals": [
         "Client Wins / Market Share",
-        "Recent (<3d)",
         "High priority"
       ],
       "why_it_matters": "Mandate / win signal — possible displacement risk in Ratings / Risk Analytics.",
@@ -4557,13 +4533,12 @@
         "Non-core"
       ],
       "non_core": true,
-      "importance_score": 55,
+      "importance_score": 45,
       "importance": "Medium",
       "impact_level": "Medium",
       "id": "f33cf577265afa28",
       "signals": [
-        "Earnings",
-        "Recent (<3d)"
+        "Earnings"
       ],
       "why_it_matters": "Financial print signals competitor health and client-spend implications.",
       "key_points": [
@@ -4592,14 +4567,12 @@
         "Corporates"
       ],
       "non_core": false,
-      "importance_score": 80,
-      "importance": "Critical",
-      "impact_level": "Critical",
+      "importance_score": 70,
+      "importance": "High",
+      "impact_level": "High",
       "id": "ec3dbb102a2dd5e8",
       "signals": [
-        "Earnings",
-        "Recent (<3d)",
-        "High priority"
+        "Earnings"
       ],
       "why_it_matters": "Financial print signals competitor health and client-spend implications.",
       "key_points": [
@@ -4628,13 +4601,12 @@
         "Non-core"
       ],
       "non_core": true,
-      "importance_score": 65,
-      "importance": "High",
-      "impact_level": "High",
+      "importance_score": 55,
+      "importance": "Medium",
+      "impact_level": "Medium",
       "id": "3601b56ad7652a06",
       "signals": [
-        "M&A",
-        "Recent (<3d)"
+        "M&A"
       ],
       "why_it_matters": "Deal activity reshapes the Analytics / Data Platform competitive landscape.",
       "key_points": [
@@ -4662,14 +4634,12 @@
         "Non-core"
       ],
       "non_core": true,
-      "importance_score": 80,
-      "importance": "Critical",
-      "impact_level": "Critical",
+      "importance_score": 70,
+      "importance": "High",
+      "impact_level": "High",
       "id": "bb3f74ec1923cdd9",
       "signals": [
-        "Earnings",
-        "Recent (<3d)",
-        "High priority"
+        "Earnings"
       ],
       "why_it_matters": "Financial print signals competitor health and client-spend implications.",
       "key_points": [],
@@ -4695,13 +4665,11 @@
         "Non-core"
       ],
       "non_core": true,
-      "importance_score": 40,
-      "importance": "Medium",
-      "impact_level": "Medium",
+      "importance_score": 30,
+      "importance": "Low",
+      "impact_level": "Low",
       "id": "6fe7849256ad4953",
-      "signals": [
-        "Recent (<3d)"
-      ],
+      "signals": [],
       "why_it_matters": "News mention involving FactSet in Analytics / Data Platform.",
       "key_points": [
         "The airline has been one of the better performers in the sector this year but earnings will be test of its resilience."
@@ -4728,13 +4696,12 @@
         "Non-core"
       ],
       "non_core": true,
-      "importance_score": 55,
+      "importance_score": 45,
       "importance": "Medium",
       "impact_level": "Medium",
       "id": "8d41703c5cf57ea5",
       "signals": [
-        "Legal / Litigation",
-        "Recent (<3d)"
+        "Legal / Litigation"
       ],
       "why_it_matters": "Litigation risk — may constrain Intercontinental Exchange's near-term posture.",
       "key_points": [
@@ -4762,14 +4729,12 @@
         "Corporates"
       ],
       "non_core": false,
-      "importance_score": 80,
-      "importance": "Critical",
-      "impact_level": "Critical",
+      "importance_score": 70,
+      "importance": "High",
+      "impact_level": "High",
       "id": "31aface5ece21547",
       "signals": [
-        "Earnings",
-        "Recent (<3d)",
-        "High priority"
+        "Earnings"
       ],
       "why_it_matters": "Financial print signals competitor health and client-spend implications.",
       "key_points": [
@@ -5520,9 +5485,9 @@
         "Asset Managers"
       ],
       "non_core": false,
-      "importance_score": 65,
-      "importance": "High",
-      "impact_level": "High",
+      "importance_score": 55,
+      "importance": "Medium",
+      "impact_level": "Medium",
       "id": "47270572c80283b2",
       "signals": [
         "Technology / AI"
@@ -6008,35 +5973,6 @@
       "reading_time": "<1 min read"
     },
     {
-      "title": "Intel Surge Propels S&P 500, Nasdaq to New Records",
-      "url": "https://www.wsj.com/finance/stocks/intel-surge-propels-s-p-500-nasdaq-to-new-records-2447af94?mod=rss_markets_main",
-      "source": "WSJ — Markets",
-      "summary": "",
-      "published": "",
-      "image": "",
-      "competitor": "Nasdaq",
-      "ticker": "NDAQ",
-      "segment": "Exchanges / Index Licensing",
-      "origin": "premium_section_feed",
-      "related": "NDAQ",
-      "finnhub_category": "",
-      "category": "General",
-      "sentiment": "Positive",
-      "product_line": "Non-core",
-      "segments": [
-        "Non-core"
-      ],
-      "non_core": true,
-      "importance_score": 45,
-      "importance": "Medium",
-      "impact_level": "Medium",
-      "id": "be6412429c7b3cad",
-      "signals": [],
-      "why_it_matters": "News mention involving Nasdaq in Exchanges / Index Licensing.",
-      "key_points": [],
-      "reading_time": "<1 min read"
-    },
-    {
       "title": "Trading Day: Nasdaq hits new high",
       "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQd0JNRjNqQ0ppc2t3c04xUUpkSHBPX1FCLXlPdjVmSnRzTG5WWVVJdUNVdVc4c0dEQk1QLWxnSVB1WmhIZG5OaGptWWV4QXZFQU9uZUhrVnNSTXVCRDBXRFpKQllfalY5d3BKUzBmYWF1ZFF4WGZvanY4YTVGYXdkajNxMUFQNzkwNGd3TjdfSEIyaGc?oc=5",
       "source": "Reuters",
@@ -6060,6 +5996,35 @@
       "importance": "Medium",
       "impact_level": "Medium",
       "id": "4406cb2e40731b78",
+      "signals": [],
+      "why_it_matters": "News mention involving Nasdaq in Exchanges / Index Licensing.",
+      "key_points": [],
+      "reading_time": "<1 min read"
+    },
+    {
+      "title": "Intel Surge Propels S&P 500, Nasdaq to New Records",
+      "url": "https://www.wsj.com/finance/stocks/intel-surge-propels-s-p-500-nasdaq-to-new-records-2447af94?mod=rss_markets_main",
+      "source": "WSJ — Markets",
+      "summary": "",
+      "published": "",
+      "image": "",
+      "competitor": "Nasdaq",
+      "ticker": "NDAQ",
+      "segment": "Exchanges / Index Licensing",
+      "origin": "premium_section_feed",
+      "related": "NDAQ",
+      "finnhub_category": "",
+      "category": "General",
+      "sentiment": "Positive",
+      "product_line": "Non-core",
+      "segments": [
+        "Non-core"
+      ],
+      "non_core": true,
+      "importance_score": 45,
+      "importance": "Medium",
+      "impact_level": "Medium",
+      "id": "be6412429c7b3cad",
       "signals": [],
       "why_it_matters": "News mention involving Nasdaq in Exchanges / Index Licensing.",
       "key_points": [],
@@ -6124,48 +6089,17 @@
       "reading_time": "<1 min read"
     },
     {
-      "title": "Here’s what American Airlines’ CEO just said about a possible merger with United",
-      "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxQdzdITUFQTmtlQ0tvc2hIRG5Ja2tXY0NRdmV6QU42MElRODR4WmJTUUw0VGFMb2lzWUI1UzdfWFFjdEV3c3NPWlZ2Q1ZsclZhVEtEdUk4azJLbmZLVlBCRjUzWGdfUEY5QVlfeDBKYTJSS3Nfd29FX0U5Z3RZQTVpTTl4MXMybFdGNmdiZ2dKYjlNVUZMNzJmU1FuZmI3NHVZUUVBSE1rRDZGa09fNElaSXpTSXB3b29UcFRhX1lkeXRRTzRna2c0N2IyYXI0UQ?oc=5",
+      "title": "CME Group Inc. Cl A stock outperforms competitors despite losses on the day",
+      "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxOUnoyVE0wRUhpZjNaTGxoTEZKZGt5MEVDRUpfUVZ1ang5VmpVQWZKenJEM01mNllkQnpxVm00aVN5OF9sSTlzY3JtLTJXQWhTb2x4eC1yMXZONUxNTzdnZXpRNE1tVEM1NnlPYUliREdFTUpMZGVCRXl3dmIySFpnT3pDS3hLaVRobF83c1ptM1JKTW03UmVZakx1Zll2LTJ5LW5IdHFlNTF5eS1aRkRvV3FoYTUzNnhhVGpfYVpFcEo2UmREZ2YtSGVDc043SnM?oc=5",
       "source": "MarketWatch",
       "summary": "",
       "published": "",
       "image": "",
-      "competitor": "FactSet",
-      "ticker": "FDS",
-      "segment": "Analytics / Data Platform",
+      "competitor": "CME Group",
+      "ticker": "CME",
+      "segment": "Derivatives / Indices",
       "origin": "premium_google_news",
-      "related": "FDS",
-      "finnhub_category": "",
-      "category": "M&A",
-      "sentiment": "Neutral",
-      "product_line": "Non-core",
-      "segments": [
-        "Non-core"
-      ],
-      "non_core": true,
-      "importance_score": 45,
-      "importance": "Medium",
-      "impact_level": "Medium",
-      "id": "29fec693b39500b0",
-      "signals": [
-        "M&A"
-      ],
-      "why_it_matters": "Deal activity reshapes the Analytics / Data Platform competitive landscape.",
-      "key_points": [],
-      "reading_time": "<1 min read"
-    },
-    {
-      "title": "Prolonged energy disruption to widen India trade deficit, strain fiscal account, Moody's says",
-      "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxOQW9fRkk3M3B5YXZnZzg0bmxQdUNhOWF4bU5iQkZ5WnFiZHZHd3BFczM5cXlsb2txVWk4YnIteHpkWWZZSXZscmpld1N0cnBPd1Z5dlozaTI1WDAzWHY3a2I3WklZZFNaOWd0T0ZzMXJpQjBkOHZIdXB4ZUluRnpPcWJBTGpIVWwwVHh3U2c5REthLUFFZzV5ZFlvQ1R5RXI5WEJpQ2NKWEJlQlZSQml2QUQ5ODVobXpKbFFHek5ncXI?oc=5",
-      "source": "Reuters",
-      "summary": "",
-      "published": "",
-      "image": "",
-      "competitor": "Moody's",
-      "ticker": "MCO",
-      "segment": "Ratings / Risk Analytics",
-      "origin": "premium_google_news",
-      "related": "MCO",
+      "related": "CME",
       "finnhub_category": "",
       "category": "General",
       "sentiment": "Neutral",
@@ -6177,9 +6111,41 @@
       "importance_score": 45,
       "importance": "Medium",
       "impact_level": "Medium",
-      "id": "805043d95811f600",
+      "id": "8bd70646fbf177ff",
       "signals": [],
-      "why_it_matters": "News mention involving Moody's in Ratings / Risk Analytics.",
+      "why_it_matters": "News mention involving CME Group in Derivatives / Indices.",
+      "key_points": [],
+      "reading_time": "<1 min read"
+    },
+    {
+      "title": "Investors are worried about private credit’s close ties to software stocks. So, why is money flooding into these ETFs?",
+      "url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxPbzN2Zk1OUVJmNU1YTE5UOW8xbGxDYkZvR09qMW1BNHVFSEpsbGYzSFVLaHh5cWtNYUZUTWxwUmcxaVpwZlFQMFhWOWJYa2g1Xy03bUs4Q0U5NjM3TFhmNFFtbUh2cENudkFGeEtRS3V1eng3OEY2bWt6Q2dUUlJOWG84T2tVenBlTE8wZnp0V3JleXRnNGpKeWhPX0hRSlY1VC01Qmc0S1htZnhCbncxa3B3cjZjRzNuZFJ5R0psZmI1ZHJJeVZvUVpuTTBnWGN1Z3RYX2hBRmo?oc=5",
+      "source": "MarketWatch",
+      "summary": "",
+      "published": "",
+      "image": "",
+      "competitor": "Moody's",
+      "ticker": "MCO",
+      "segment": "Ratings / Risk Analytics",
+      "origin": "premium_google_news",
+      "related": "MCO",
+      "finnhub_category": "",
+      "category": "Private Assets / Alternatives",
+      "sentiment": "Neutral",
+      "product_line": "Private Capital",
+      "segments": [
+        "Non-core"
+      ],
+      "non_core": false,
+      "importance_score": 45,
+      "importance": "Medium",
+      "impact_level": "Medium",
+      "id": "483038334fc18e4a",
+      "signals": [
+        "Index / ETF",
+        "Private Assets / Alternatives"
+      ],
+      "why_it_matters": "Private-markets move — adjacent to MSCI's Burgiss/PrivatePulse stack.",
       "key_points": [],
       "reading_time": "<1 min read"
     },
@@ -6331,35 +6297,6 @@
       "reading_time": "<1 min read"
     },
     {
-      "title": "US Probes Suspicious Oil Trades Made Before Trump Pivots",
-      "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOLUh1cXNtVVdWMmY4ZHJ3UDUwVFpXRXhoNmxiR29TdUhpR0c0QVRzY0N4YXduSm1QOW1vY1VZS3B5c3BpVnBuWHlDYmplalJYYjIyQWxfb050UTBLZElkWi1SSWdTZmVJR01IOE10T1RjTGU4WFlpUm9lUlJMWWgxN1dJTXJ3My1IX0gzS0VHNmZlbFZ0elVGdWlnSHJWUTFzVE5lQ1R4UnN4cDVsdzhDZnh3?oc=5",
-      "source": "Bloomberg.com",
-      "summary": "",
-      "published": "",
-      "image": "",
-      "competitor": "Intercontinental Exchange",
-      "ticker": "ICE",
-      "segment": "Exchanges / Data / Indices",
-      "origin": "premium_google_news",
-      "related": "CME,ICE",
-      "finnhub_category": "",
-      "category": "General",
-      "sentiment": "Neutral",
-      "product_line": "Non-core",
-      "segments": [
-        "Non-core"
-      ],
-      "non_core": true,
-      "importance_score": 20,
-      "importance": "Low",
-      "impact_level": "Low",
-      "id": "5c73170bcbdf2c4c",
-      "signals": [],
-      "why_it_matters": "News mention involving Intercontinental Exchange in Exchanges / Data / Indices.",
-      "key_points": [],
-      "reading_time": "<1 min read"
-    },
-    {
       "title": "Wall Street’s Elite Team of Coffee Tasters Who Keep the Global Market Running",
       "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPY2o5aW4xRjhmc2tzRkJlNzJZdmNqNEk2eHRubnBBcXl6NHprRzVCQmpweVhvSUJuVDk2ZF9zdjREaGxYTDh6Z1RWZ1dMbi1NdHFzNXRQa1p5aFQwaVNMbHhfeWZVYUxweGZ3UnpIcnhsVml2WFJVN3BsWGtzSkR2eDZ4eFUweHNtczllX1hqUFhxcEQ5NGEyYmgzYVMtckR0Z1pjV1k5MHlNWS1qa2RvR1hoZUtzOXg5YXpxbXpON1Uwdw?oc=5",
       "source": "WSJ",
@@ -6441,6 +6378,35 @@
       "importance": "Low",
       "impact_level": "Low",
       "id": "41043bb893a04218",
+      "signals": [],
+      "why_it_matters": "News mention involving Intercontinental Exchange in Exchanges / Data / Indices.",
+      "key_points": [],
+      "reading_time": "<1 min read"
+    },
+    {
+      "title": "Polymarket in talks to raise money at about $15 billion valuation, The Information reports",
+      "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNZ0FpUHl0R1dVb3J6WmRFbW9iWDBOeEJhSVdpTC1XbFRSaUJDSmtZU3VmWHYzeEJCQVplRlBfdGtHaXVRckxRTC04eVlrekNSSVJDSjR4OG5BVm1xbTdQQnRVV3RrR2ZRWEZaOU5YN3NaV1NpMEtvSzNsZktDY0NTYjVDUGRhT1g5TlFJV2pHY1h1Z25iU2FGd2tfbzZFSVlRS3hvR0U4NmxEQk9sQWlBRmdJc3Z3SFcya0oxaQ?oc=5",
+      "source": "Reuters",
+      "summary": "",
+      "published": "",
+      "image": "",
+      "competitor": "Intercontinental Exchange",
+      "ticker": "ICE",
+      "segment": "Exchanges / Data / Indices",
+      "origin": "premium_google_news",
+      "related": "ICE",
+      "finnhub_category": "",
+      "category": "General",
+      "sentiment": "Neutral",
+      "product_line": "Non-core",
+      "segments": [
+        "Non-core"
+      ],
+      "non_core": true,
+      "importance_score": 20,
+      "importance": "Low",
+      "impact_level": "Low",
+      "id": "428818453f5eb8b4",
       "signals": [],
       "why_it_matters": "News mention involving Intercontinental Exchange in Exchanges / Data / Indices.",
       "key_points": [],
@@ -6623,9 +6589,9 @@
       "reading_time": "<1 min read"
     },
     {
-      "title": "BONDS & RATES",
-      "url": "https://news.google.com/rss/articles/CBMiTkFVX3lxTE5OOXhJUE1OdWhPcU1kbFNwZ0ZVTzR5Vm9JVEdpQURBYmJiZ0tJY3ZkYVlvekliSEZrNWZzSmwtYllOZDEtMnZSaUZOZDN1QQ?oc=5",
-      "source": "WSJ",
+      "title": "Ameriprise Financial Beat Earnings Estimates, but Advisor Asset Gathering Slowed",
+      "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxPM016X3U1c0I4X09QU2VES0RTdU9rNHBpUGRZZkEyZUFTNlpJbG9ucVU0WWp2a3pMU0VpMU9nMWRULWNrYjd5T0l0eFNmV3cxNzM4TlpXOFJONURyYVlzNUxpWmRQRFQ0ZVhWaUlvblE0LTVuUm9lWEFFX0pmOWlfVTJVeTVNLVpUTG1wb2RCbkRzRzBFRnVTMU53?oc=5",
+      "source": "Barron's",
       "summary": "",
       "published": "",
       "image": "",
@@ -6635,8 +6601,8 @@
       "origin": "premium_google_news",
       "related": "FDS",
       "finnhub_category": "",
-      "category": "Fixed Income / Credit",
-      "sentiment": "Neutral",
+      "category": "General",
+      "sentiment": "Positive",
       "product_line": "Non-core",
       "segments": [
         "Non-core"
@@ -6645,17 +6611,15 @@
       "importance_score": 20,
       "importance": "Low",
       "impact_level": "Low",
-      "id": "a49a7a16c261b8ed",
-      "signals": [
-        "Fixed Income / Credit"
-      ],
-      "why_it_matters": "Credit / fixed-income development — read across to credit analytics demand.",
+      "id": "81906408ff249daf",
+      "signals": [],
+      "why_it_matters": "News mention involving FactSet in Analytics / Data Platform.",
       "key_points": [],
       "reading_time": "<1 min read"
     },
     {
-      "title": "Memory-chip maker triples revenue and says demand to outstrip supply for at least three more years",
-      "url": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxONGZJeXlRYmVzRklCc253a0hKUVIxNFF3dFNUOUtBaXN4ZUxWcS1EOHZ5RjhJMkdneU5KcFN6WXBOWkNJSFM1N1F0VmZrTVk4ZWhSdnJpWlNnQU1oSVQ3SXVfVmlYTGppTzlLZUNUcUk4V3ZicTJsUzc0SmRYOVRTblY1MkI5YnZXekJIQ1l4aTgtRjFzbmtlenJVZERRazMwTXRpdzMwZzJ2SDBjMUhkWGUtUkZwUTZfS29HcUxISDlWNldLUDQzYmVwRXBPMUh5clEtaFhlRXlMUkxX?oc=5",
+      "title": "Energy stocks are trouncing the rest of the stock market in 2026. Why the Iran war could erode those gains from here.",
+      "url": "https://news.google.com/rss/articles/CBMi7wFBVV95cUxQbEFkRnVfbmlKQVR3M2hWclVsYUk0emFWVHY5Z2kwc21uLUNIc1BuNzBqTjRIOHVOTUQ0c3k2MG5FUVY5c08wNVVlTzQtdEZONkIzN0dnenllNXlfY1BNbFBrU19yRFlBclktckF2S3RQVVUxYkZRLTFoRlNoYlZLd0dYeXJ3LWJFX0pSdGkwdkRuaksyVDR1eTlQS3VveFVEWkxsM0xZbmpxOFFSMUVQb2IzOHZJN1VMUkNiNTNvMmxUemhaZ2hCdTM5OVJHYldtUzFkRzRjeWFsVDcxbnBsT2xVRDdyVU0zVl84d3BLVQ?oc=5",
       "source": "MarketWatch",
       "summary": "",
       "published": "",
@@ -6676,7 +6640,36 @@
       "importance_score": 20,
       "importance": "Low",
       "impact_level": "Low",
-      "id": "22c309147d972c16",
+      "id": "2481ec85eeabee0b",
+      "signals": [],
+      "why_it_matters": "News mention involving FactSet in Analytics / Data Platform.",
+      "key_points": [],
+      "reading_time": "<1 min read"
+    },
+    {
+      "title": "UnitedHealth’s stock surged as profit beat expectations by widest margin in five years",
+      "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxQUFdLTUExbHdlMk9CQ0M3OXhCRm5kNFhBSDNCZ2xBdThJNVd0SUtHTHFmeTNSZW1mY01Sck5EU2E1Q3V1Qnk4bGttTkpNQlE2QnR3T3pBbkxPVnpnQ193LVJqS2xVaFYxRktCY1Z4LUIwMGhRUDhSTHp4Z01ndTJUOG9NY3kwQlM0RHlpc3RZZ2txTkUxZVJSaE04emx5TWxBWkQxX1RIdi1jRGZaaFhlTlVKczJ4ZG1zemZOSTBMczRKQjA5QnVGZA?oc=5",
+      "source": "MarketWatch",
+      "summary": "",
+      "published": "",
+      "image": "",
+      "competitor": "FactSet",
+      "ticker": "FDS",
+      "segment": "Analytics / Data Platform",
+      "origin": "premium_google_news",
+      "related": "FDS",
+      "finnhub_category": "",
+      "category": "General",
+      "sentiment": "Positive",
+      "product_line": "Non-core",
+      "segments": [
+        "Non-core"
+      ],
+      "non_core": true,
+      "importance_score": 20,
+      "importance": "Low",
+      "impact_level": "Low",
+      "id": "0bf8cd6596c9d282",
       "signals": [],
       "why_it_matters": "News mention involving FactSet in Analytics / Data Platform.",
       "key_points": [],
@@ -6706,37 +6699,6 @@
       "importance": "Low",
       "impact_level": "Low",
       "id": "5045f9b983d39530",
-      "signals": [
-        "Private Assets / Alternatives"
-      ],
-      "why_it_matters": "Private-markets move — adjacent to MSCI's Burgiss/PrivatePulse stack.",
-      "key_points": [],
-      "reading_time": "<1 min read"
-    },
-    {
-      "title": "Private credit funds' shares trade at steep discounts as concerns grow",
-      "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxPMTJCYjlQSS01SnVuQU9vdEotbldrM3poU012cFU2U09jalVIcXYwTU51cVBINzZTTDJnT0Z4VEllM2s1Y3RrZW9vaXM1N2JTbDY1MzlnMTJzVURFZFVoc2YwcGJmOW5Sc2h5NEFYNGhudGttem9uSUo5ZXoxQ2xQZjFoek13UUlraUlERllvNkZuX0ZFRGhtT2ZoTExKQ0ZpdHlJRDliU2RHTWtlTUo0Skc3UFVzdmR5YmNR?oc=5",
-      "source": "Reuters",
-      "summary": "",
-      "published": "",
-      "image": "",
-      "competitor": "Moody's",
-      "ticker": "MCO",
-      "segment": "Ratings / Risk Analytics",
-      "origin": "premium_google_news",
-      "related": "MCO",
-      "finnhub_category": "",
-      "category": "Private Assets / Alternatives",
-      "sentiment": "Neutral",
-      "product_line": "Private Capital",
-      "segments": [
-        "Non-core"
-      ],
-      "non_core": false,
-      "importance_score": 30,
-      "importance": "Low",
-      "impact_level": "Low",
-      "id": "0a4e55f20c520b90",
       "signals": [
         "Private Assets / Alternatives"
       ],
