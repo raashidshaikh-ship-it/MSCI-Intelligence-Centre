@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-26T02:11:31.299017Z",
+  "last_updated": "2026-04-26T08:55:47.500228Z",
   "data_source": "wikipedia+news+vader+sov+autocomplete+yfinance",
   "sources_attempted": [
     "wiki_trend:wikipedia_pageviews",
@@ -722,6 +722,14 @@
       "FTSE Russell": 3,
       "Bloomberg Terminal": 25,
       "Morningstar": 11
+    },
+    {
+      "date": "2026-04-25",
+      "MSCI": 17,
+      "S&P Global": 19,
+      "FTSE Russell": 3,
+      "Bloomberg Terminal": 17,
+      "Morningstar": 7
     }
   ],
   "top_queries": [
@@ -731,39 +739,39 @@
     },
     {
       "query": "msci msci",
-      "volume_index": 44
+      "volume_index": 42
     },
     {
       "query": "msci earnings",
-      "volume_index": 30
+      "volume_index": 35
     },
     {
       "query": "msci data",
-      "volume_index": 26
+      "volume_index": 23
     },
     {
       "query": "msci ai",
       "volume_index": 19
     },
     {
+      "query": "msci world",
+      "volume_index": 15
+    },
+    {
       "query": "msci indexes",
-      "volume_index": 19
+      "volume_index": 15
     },
     {
       "query": "msci acquires",
-      "volume_index": 19
-    },
-    {
-      "query": "msci usa index",
-      "volume_index": 11
+      "volume_index": 15
     },
     {
       "query": "msci usa",
-      "volume_index": 11
+      "volume_index": 12
     },
     {
-      "query": "msci valuation",
-      "volume_index": 11
+      "query": "msci usa index",
+      "volume_index": 12
     }
   ],
   "rising_queries": [
@@ -772,31 +780,27 @@
       "growth": "Breakout"
     },
     {
-      "query": "msci valuation",
-      "growth": "Breakout"
-    },
-    {
-      "query": "msci msci valuation",
-      "growth": "Breakout"
-    },
-    {
       "query": "msci msci",
-      "growth": "+298%"
+      "growth": "+242%"
     },
     {
       "query": "msci esg",
       "growth": "+185%"
     },
     {
+      "query": "msci msci valuation",
+      "growth": "+185%"
+    },
+    {
+      "query": "msci valuation",
+      "growth": "+185%"
+    },
+    {
+      "query": "msci earnings",
+      "growth": "+128%"
+    },
+    {
       "query": "msci data",
-      "growth": "+113%"
-    },
-    {
-      "query": "msci indexes",
-      "growth": "+90%"
-    },
-    {
-      "query": "msci world",
       "growth": "+42%"
     }
   ],
@@ -831,7 +835,7 @@
     },
     {
       "country": "South Korea",
-      "interest": 1
+      "interest": 2
     },
     {
       "country": "Poland",
@@ -845,19 +849,19 @@
   "competitor_comparison": [
     {
       "brand": "S&P Global",
-      "interest": 25
-    },
-    {
-      "brand": "Bloomberg Terminal",
-      "interest": 25
+      "interest": 19
     },
     {
       "brand": "MSCI",
-      "interest": 21
+      "interest": 17
+    },
+    {
+      "brand": "Bloomberg Terminal",
+      "interest": 17
     },
     {
       "brand": "Morningstar",
-      "interest": 11
+      "interest": 7
     },
     {
       "brand": "FTSE Russell",
@@ -871,8 +875,8 @@
       "MSCI__n": 1,
       "S&P Global": 0.0,
       "S&P Global__n": 1,
-      "FTSE Russell": -0.25,
-      "FTSE Russell__n": 1,
+      "FTSE Russell": -0.125,
+      "FTSE Russell__n": 2,
       "Bloomberg Terminal": null,
       "Bloomberg Terminal__n": 0,
       "Morningstar": null,
@@ -886,10 +890,10 @@
       "S&P Global__n": 2,
       "FTSE Russell": null,
       "FTSE Russell__n": 0,
-      "Bloomberg Terminal": 0.457,
-      "Bloomberg Terminal__n": 3,
-      "Morningstar": 0.284,
-      "Morningstar__n": 4
+      "Bloomberg Terminal": 0.686,
+      "Bloomberg Terminal__n": 2,
+      "Morningstar": 0.181,
+      "Morningstar__n": 2
     },
     {
       "date": "2026-01-29",
@@ -945,25 +949,25 @@
     },
     {
       "date": "2026-02-02",
-      "MSCI": 0.0,
+      "MSCI": -0.176,
       "MSCI__n": 3,
       "S&P Global": 0.0,
       "S&P Global__n": 1,
       "FTSE Russell": 0.247,
       "FTSE Russell__n": 2,
-      "Bloomberg Terminal": 0.0,
-      "Bloomberg Terminal__n": 4,
+      "Bloomberg Terminal": 0.111,
+      "Bloomberg Terminal__n": 5,
       "Morningstar": null,
       "Morningstar__n": 0
     },
     {
       "date": "2026-02-03",
-      "MSCI": 0.216,
-      "MSCI__n": 5,
-      "S&P Global": 0.041,
-      "S&P Global__n": 3,
-      "FTSE Russell": 0.359,
-      "FTSE Russell__n": 2,
+      "MSCI": 0.401,
+      "MSCI__n": 4,
+      "S&P Global": -0.306,
+      "S&P Global__n": 2,
+      "FTSE Russell": 0.239,
+      "FTSE Russell__n": 3,
       "Bloomberg Terminal": -0.681,
       "Bloomberg Terminal__n": 1,
       "Morningstar": 0.428,
@@ -971,8 +975,8 @@
     },
     {
       "date": "2026-02-04",
-      "MSCI": -0.099,
-      "MSCI__n": 3,
+      "MSCI": 0.0,
+      "MSCI__n": 2,
       "S&P Global": null,
       "S&P Global__n": 0,
       "FTSE Russell": null,
@@ -1005,8 +1009,8 @@
       "FTSE Russell__n": 0,
       "Bloomberg Terminal": 0.679,
       "Bloomberg Terminal__n": 2,
-      "Morningstar": null,
-      "Morningstar__n": 0
+      "Morningstar": 0.0,
+      "Morningstar__n": 1
     },
     {
       "date": "2026-02-07",
@@ -1051,19 +1055,19 @@
       "date": "2026-02-10",
       "MSCI": 0.241,
       "MSCI__n": 2,
-      "S&P Global": 0.003,
-      "S&P Global__n": 10,
-      "FTSE Russell": 0.078,
-      "FTSE Russell__n": 6,
+      "S&P Global": -0.057,
+      "S&P Global__n": 11,
+      "FTSE Russell": -0.013,
+      "FTSE Russell__n": 7,
       "Bloomberg Terminal": 0.645,
       "Bloomberg Terminal__n": 2,
-      "Morningstar": 0.412,
+      "Morningstar": 0.34,
       "Morningstar__n": 3
     },
     {
       "date": "2026-02-11",
-      "MSCI": 0.618,
-      "MSCI__n": 3,
+      "MSCI": 0.697,
+      "MSCI__n": 2,
       "S&P Global": 0.34,
       "S&P Global__n": 1,
       "FTSE Russell": 0.0,
@@ -1097,7 +1101,7 @@
       "Bloomberg Terminal": 0.315,
       "Bloomberg Terminal__n": 2,
       "Morningstar": 0.0,
-      "Morningstar__n": 4
+      "Morningstar__n": 3
     },
     {
       "date": "2026-02-14",
@@ -1140,8 +1144,8 @@
     },
     {
       "date": "2026-02-17",
-      "MSCI": -0.681,
-      "MSCI__n": 1,
+      "MSCI": -0.149,
+      "MSCI__n": 2,
       "S&P Global": 0.477,
       "S&P Global__n": 1,
       "FTSE Russell": -0.361,
@@ -1174,8 +1178,8 @@
       "FTSE Russell__n": 2,
       "Bloomberg Terminal": null,
       "Bloomberg Terminal__n": 0,
-      "Morningstar": 0.461,
-      "Morningstar__n": 2
+      "Morningstar": 0.541,
+      "Morningstar__n": 3
     },
     {
       "date": "2026-02-20",
@@ -1211,8 +1215,8 @@
       "S&P Global__n": 0,
       "FTSE Russell": null,
       "FTSE Russell__n": 0,
-      "Bloomberg Terminal": null,
-      "Bloomberg Terminal__n": 0,
+      "Bloomberg Terminal": -0.421,
+      "Bloomberg Terminal__n": 1,
       "Morningstar": null,
       "Morningstar__n": 0
     },
@@ -1239,17 +1243,17 @@
       "FTSE Russell__n": 2,
       "Bloomberg Terminal": 0.293,
       "Bloomberg Terminal__n": 2,
-      "Morningstar": 0.421,
-      "Morningstar__n": 1
+      "Morningstar": null,
+      "Morningstar__n": 0
     },
     {
       "date": "2026-02-25",
       "MSCI": 0.0,
-      "MSCI__n": 3,
+      "MSCI__n": 2,
       "S&P Global": 0.026,
       "S&P Global__n": 2,
-      "FTSE Russell": -0.052,
-      "FTSE Russell__n": 1,
+      "FTSE Russell": -0.026,
+      "FTSE Russell__n": 2,
       "Bloomberg Terminal": 0.0,
       "Bloomberg Terminal__n": 4,
       "Morningstar": -0.533,
@@ -1313,8 +1317,8 @@
       "MSCI__n": 0,
       "S&P Global": 0.0,
       "S&P Global__n": 1,
-      "FTSE Russell": 0.0,
-      "FTSE Russell__n": 1,
+      "FTSE Russell": null,
+      "FTSE Russell__n": 0,
       "Bloomberg Terminal": -0.208,
       "Bloomberg Terminal__n": 3,
       "Morningstar": 0.859,
@@ -1322,42 +1326,42 @@
     },
     {
       "date": "2026-03-03",
-      "MSCI": 0.35,
-      "MSCI__n": 2,
+      "MSCI": 0.233,
+      "MSCI__n": 3,
       "S&P Global": 0.283,
       "S&P Global__n": 2,
       "FTSE Russell": null,
       "FTSE Russell__n": 0,
       "Bloomberg Terminal": -0.195,
       "Bloomberg Terminal__n": 7,
-      "Morningstar": null,
-      "Morningstar__n": 0
+      "Morningstar": 0.637,
+      "Morningstar__n": 1
     },
     {
       "date": "2026-03-04",
       "MSCI": null,
       "MSCI__n": 0,
-      "S&P Global": null,
-      "S&P Global__n": 0,
+      "S&P Global": 0.0,
+      "S&P Global__n": 1,
       "FTSE Russell": 0.0,
       "FTSE Russell__n": 1,
-      "Bloomberg Terminal": 0.052,
-      "Bloomberg Terminal__n": 1,
-      "Morningstar": 0.791,
-      "Morningstar__n": 1
+      "Bloomberg Terminal": -0.324,
+      "Bloomberg Terminal__n": 2,
+      "Morningstar": 0.815,
+      "Morningstar__n": 2
     },
     {
       "date": "2026-03-05",
-      "MSCI": 0.557,
-      "MSCI__n": 2,
+      "MSCI": 0.659,
+      "MSCI__n": 3,
       "S&P Global": 0.153,
       "S&P Global__n": 1,
       "FTSE Russell": null,
       "FTSE Russell__n": 0,
       "Bloomberg Terminal": 0.0,
       "Bloomberg Terminal__n": 1,
-      "Morningstar": 0.428,
-      "Morningstar__n": 2
+      "Morningstar": 0.856,
+      "Morningstar__n": 1
     },
     {
       "date": "2026-03-06",
@@ -1365,8 +1369,8 @@
       "MSCI__n": 1,
       "S&P Global": null,
       "S&P Global__n": 0,
-      "FTSE Russell": 0.0,
-      "FTSE Russell__n": 1,
+      "FTSE Russell": null,
+      "FTSE Russell__n": 0,
       "Bloomberg Terminal": 0.856,
       "Bloomberg Terminal__n": 1,
       "Morningstar": 0.57,
@@ -1413,7 +1417,7 @@
     },
     {
       "date": "2026-03-10",
-      "MSCI": 0.262,
+      "MSCI": 0.0,
       "MSCI__n": 3,
       "S&P Global": null,
       "S&P Global__n": 0,
@@ -1447,8 +1451,8 @@
       "FTSE Russell__n": 1,
       "Bloomberg Terminal": -0.153,
       "Bloomberg Terminal__n": 3,
-      "Morningstar": -0.175,
-      "Morningstar__n": 4
+      "Morningstar": -0.06,
+      "Morningstar__n": 6
     },
     {
       "date": "2026-03-13",
@@ -1460,8 +1464,8 @@
       "FTSE Russell__n": 2,
       "Bloomberg Terminal": -0.35,
       "Bloomberg Terminal__n": 2,
-      "Morningstar": 0.103,
-      "Morningstar__n": 4
+      "Morningstar": 0.428,
+      "Morningstar__n": 2
     },
     {
       "date": "2026-03-14",
@@ -1525,15 +1529,15 @@
       "FTSE Russell__n": 2,
       "Bloomberg Terminal": 0.0,
       "Bloomberg Terminal__n": 1,
-      "Morningstar": 0.263,
-      "Morningstar__n": 2
+      "Morningstar": 0.176,
+      "Morningstar__n": 3
     },
     {
       "date": "2026-03-19",
       "MSCI": -0.875,
       "MSCI__n": 1,
-      "S&P Global": -0.142,
-      "S&P Global__n": 2,
+      "S&P Global": -0.001,
+      "S&P Global__n": 3,
       "FTSE Russell": 0.059,
       "FTSE Russell__n": 2,
       "Bloomberg Terminal": 0.056,
@@ -1547,8 +1551,8 @@
       "MSCI__n": 0,
       "S&P Global": 0.774,
       "S&P Global__n": 1,
-      "FTSE Russell": 0.099,
-      "FTSE Russell__n": 3,
+      "FTSE Russell": 0.148,
+      "FTSE Russell__n": 2,
       "Bloomberg Terminal": 0.0,
       "Bloomberg Terminal__n": 1,
       "Morningstar": null,
@@ -1616,8 +1620,8 @@
       "FTSE Russell__n": 0,
       "Bloomberg Terminal": null,
       "Bloomberg Terminal__n": 0,
-      "Morningstar": 0.152,
-      "Morningstar__n": 2
+      "Morningstar": 0.101,
+      "Morningstar__n": 3
     },
     {
       "date": "2026-03-26",
@@ -1629,13 +1633,13 @@
       "FTSE Russell__n": 1,
       "Bloomberg Terminal": -0.165,
       "Bloomberg Terminal__n": 3,
-      "Morningstar": -0.018,
-      "Morningstar__n": 2
+      "Morningstar": -0.267,
+      "Morningstar__n": 3
     },
     {
       "date": "2026-03-27",
-      "MSCI": 0.637,
-      "MSCI__n": 1,
+      "MSCI": 0.055,
+      "MSCI__n": 2,
       "S&P Global": null,
       "S&P Global__n": 0,
       "FTSE Russell": -0.25,
@@ -1653,8 +1657,8 @@
       "S&P Global__n": 0,
       "FTSE Russell": null,
       "FTSE Russell__n": 0,
-      "Bloomberg Terminal": -0.202,
-      "Bloomberg Terminal__n": 1,
+      "Bloomberg Terminal": null,
+      "Bloomberg Terminal__n": 0,
       "Morningstar": null,
       "Morningstar__n": 0
     },
@@ -1679,15 +1683,15 @@
       "S&P Global__n": 1,
       "FTSE Russell": null,
       "FTSE Russell__n": 0,
-      "Bloomberg Terminal": 0.637,
-      "Bloomberg Terminal__n": 1,
+      "Bloomberg Terminal": null,
+      "Bloomberg Terminal__n": 0,
       "Morningstar": 0.269,
       "Morningstar__n": 3
     },
     {
       "date": "2026-03-31",
-      "MSCI": 0.0,
-      "MSCI__n": 3,
+      "MSCI": 0.206,
+      "MSCI__n": 4,
       "S&P Global": 0.451,
       "S&P Global__n": 3,
       "FTSE Russell": 0.306,
@@ -1703,32 +1707,32 @@
       "MSCI__n": 2,
       "S&P Global": 0.0,
       "S&P Global__n": 1,
-      "FTSE Russell": 0.159,
-      "FTSE Russell__n": 4,
+      "FTSE Russell": 0.127,
+      "FTSE Russell__n": 5,
       "Bloomberg Terminal": null,
       "Bloomberg Terminal__n": 0,
-      "Morningstar": 0.933,
-      "Morningstar__n": 1
+      "Morningstar": 0.467,
+      "Morningstar__n": 2
     },
     {
       "date": "2026-04-02",
-      "MSCI": null,
-      "MSCI__n": 0,
+      "MSCI": 0.718,
+      "MSCI__n": 1,
       "S&P Global": null,
       "S&P Global__n": 0,
-      "FTSE Russell": 0.507,
-      "FTSE Russell__n": 2,
+      "FTSE Russell": 0.886,
+      "FTSE Russell__n": 1,
       "Bloomberg Terminal": -0.813,
       "Bloomberg Terminal__n": 1,
       "Morningstar": 0.856,
-      "Morningstar__n": 1
+      "Morningstar__n": 2
     },
     {
       "date": "2026-04-03",
       "MSCI": null,
       "MSCI__n": 0,
-      "S&P Global": -0.456,
-      "S&P Global__n": 2,
+      "S&P Global": 0.0,
+      "S&P Global__n": 1,
       "FTSE Russell": null,
       "FTSE Russell__n": 0,
       "Bloomberg Terminal": null,
@@ -1744,8 +1748,8 @@
       "S&P Global__n": 1,
       "FTSE Russell": null,
       "FTSE Russell__n": 0,
-      "Bloomberg Terminal": null,
-      "Bloomberg Terminal__n": 0,
+      "Bloomberg Terminal": 0.0,
+      "Bloomberg Terminal__n": 1,
       "Morningstar": null,
       "Morningstar__n": 0
     },
@@ -1770,23 +1774,23 @@
       "S&P Global__n": 1,
       "FTSE Russell": null,
       "FTSE Russell__n": 0,
-      "Bloomberg Terminal": -0.522,
-      "Bloomberg Terminal__n": 2,
-      "Morningstar": 0.0,
-      "Morningstar__n": 1
+      "Bloomberg Terminal": -0.121,
+      "Bloomberg Terminal__n": 3,
+      "Morningstar": 0.428,
+      "Morningstar__n": 2
     },
     {
       "date": "2026-04-07",
-      "MSCI": -0.159,
-      "MSCI__n": 2,
+      "MSCI": -0.875,
+      "MSCI__n": 1,
       "S&P Global": 0.0,
       "S&P Global__n": 1,
       "FTSE Russell": 0.111,
       "FTSE Russell__n": 5,
       "Bloomberg Terminal": null,
       "Bloomberg Terminal__n": 0,
-      "Morningstar": 0.0,
-      "Morningstar__n": 1
+      "Morningstar": null,
+      "Morningstar__n": 0
     },
     {
       "date": "2026-04-08",
@@ -1794,8 +1798,8 @@
       "MSCI__n": 0,
       "S&P Global": null,
       "S&P Global__n": 0,
-      "FTSE Russell": 0.19,
-      "FTSE Russell__n": 8,
+      "FTSE Russell": 0.169,
+      "FTSE Russell__n": 9,
       "Bloomberg Terminal": null,
       "Bloomberg Terminal__n": 0,
       "Morningstar": 0.946,
@@ -1857,14 +1861,14 @@
       "date": "2026-04-13",
       "MSCI": null,
       "MSCI__n": 0,
-      "S&P Global": null,
-      "S&P Global__n": 0,
-      "FTSE Russell": null,
-      "FTSE Russell__n": 0,
+      "S&P Global": 0.0,
+      "S&P Global__n": 1,
+      "FTSE Russell": 0.86,
+      "FTSE Russell__n": 1,
       "Bloomberg Terminal": null,
       "Bloomberg Terminal__n": 0,
       "Morningstar": 0.694,
-      "Morningstar__n": 2
+      "Morningstar__n": 3
     },
     {
       "date": "2026-04-14",
@@ -1881,16 +1885,16 @@
     },
     {
       "date": "2026-04-15",
-      "MSCI": 0.379,
-      "MSCI__n": 2,
+      "MSCI": 0.153,
+      "MSCI__n": 1,
       "S&P Global": null,
       "S&P Global__n": 0,
-      "FTSE Russell": 0.202,
-      "FTSE Russell__n": 1,
+      "FTSE Russell": null,
+      "FTSE Russell__n": 0,
       "Bloomberg Terminal": null,
       "Bloomberg Terminal__n": 0,
-      "Morningstar": -0.427,
-      "Morningstar__n": 2
+      "Morningstar": -0.002,
+      "Morningstar__n": 3
     },
     {
       "date": "2026-04-16",
@@ -1902,8 +1906,8 @@
       "FTSE Russell__n": 1,
       "Bloomberg Terminal": 0.0,
       "Bloomberg Terminal__n": 2,
-      "Morningstar": 0.013,
-      "Morningstar__n": 4
+      "Morningstar": 0.018,
+      "Morningstar__n": 3
     },
     {
       "date": "2026-04-17",
@@ -1946,8 +1950,8 @@
     },
     {
       "date": "2026-04-20",
-      "MSCI": -0.025,
-      "MSCI__n": 4,
+      "MSCI": -0.245,
+      "MSCI__n": 3,
       "S&P Global": null,
       "S&P Global__n": 0,
       "FTSE Russell": 0.375,
@@ -1959,12 +1963,12 @@
     },
     {
       "date": "2026-04-21",
-      "MSCI": 0.061,
-      "MSCI__n": 4,
-      "S&P Global": 0.201,
-      "S&P Global__n": 3,
-      "FTSE Russell": null,
-      "FTSE Russell__n": 0,
+      "MSCI": 0.048,
+      "MSCI__n": 5,
+      "S&P Global": null,
+      "S&P Global__n": 0,
+      "FTSE Russell": -0.637,
+      "FTSE Russell__n": 1,
       "Bloomberg Terminal": null,
       "Bloomberg Terminal__n": 0,
       "Morningstar": 0.0,
@@ -1972,14 +1976,14 @@
     },
     {
       "date": "2026-04-22",
-      "MSCI": null,
-      "MSCI__n": 0,
+      "MSCI": 0.0,
+      "MSCI__n": 1,
       "S&P Global": 0.0,
-      "S&P Global__n": 3,
+      "S&P Global__n": 4,
       "FTSE Russell": 0.0,
       "FTSE Russell__n": 1,
-      "Bloomberg Terminal": 0.059,
-      "Bloomberg Terminal__n": 3,
+      "Bloomberg Terminal": 0.368,
+      "Bloomberg Terminal__n": 2,
       "Morningstar": 0.856,
       "Morningstar__n": 2
     },
@@ -1987,21 +1991,21 @@
       "date": "2026-04-23",
       "MSCI": null,
       "MSCI__n": 0,
-      "S&P Global": -0.139,
-      "S&P Global__n": 10,
+      "S&P Global": -0.163,
+      "S&P Global__n": 11,
       "FTSE Russell": 0.375,
       "FTSE Russell__n": 6,
       "Bloomberg Terminal": null,
       "Bloomberg Terminal__n": 0,
-      "Morningstar": 0.089,
-      "Morningstar__n": 3
+      "Morningstar": 0.0,
+      "Morningstar__n": 2
     },
     {
       "date": "2026-04-24",
       "MSCI": null,
       "MSCI__n": 0,
-      "S&P Global": 0.374,
-      "S&P Global__n": 7,
+      "S&P Global": 0.327,
+      "S&P Global__n": 8,
       "FTSE Russell": null,
       "FTSE Russell__n": 0,
       "Bloomberg Terminal": null,
@@ -2013,11 +2017,11 @@
       "date": "2026-04-25",
       "MSCI": null,
       "MSCI__n": 0,
-      "S&P Global": 0.406,
-      "S&P Global__n": 4,
+      "S&P Global": 0.376,
+      "S&P Global__n": 3,
       "FTSE Russell": null,
       "FTSE Russell__n": 0,
-      "Bloomberg Terminal": 0.612,
+      "Bloomberg Terminal": 0.0,
       "Bloomberg Terminal__n": 1,
       "Morningstar": null,
       "Morningstar__n": 0
@@ -2038,67 +2042,67 @@
   ],
   "sentiment_summary": {
     "MSCI": {
-      "sentiment_7d": 0.018,
-      "sentiment_30d": 0.119,
-      "sentiment_prior_30d": 0.135,
-      "delta_30d_vs_prior": -0.016,
-      "articles_7d": 8,
-      "articles_30d": 25,
-      "label_7d": "neutral"
+      "sentiment_7d": -0.066,
+      "sentiment_30d": 0.084,
+      "sentiment_prior_30d": 0.073,
+      "delta_30d_vs_prior": 0.011,
+      "articles_7d": 9,
+      "articles_30d": 26,
+      "label_7d": "negative"
     },
     "S&P Global": {
-      "sentiment_7d": 0.168,
-      "sentiment_30d": 0.106,
-      "sentiment_prior_30d": 0.29,
-      "delta_30d_vs_prior": -0.184,
-      "articles_7d": 27,
-      "articles_30d": 40,
+      "sentiment_7d": 0.135,
+      "sentiment_30d": 0.116,
+      "sentiment_prior_30d": 0.282,
+      "delta_30d_vs_prior": -0.166,
+      "articles_7d": 26,
+      "articles_30d": 39,
       "label_7d": "positive"
     },
     "FTSE Russell": {
-      "sentiment_7d": 0.25,
-      "sentiment_30d": 0.221,
-      "sentiment_prior_30d": -0.003,
-      "delta_30d_vs_prior": 0.224,
-      "articles_7d": 9,
-      "articles_30d": 37,
-      "label_7d": "very positive"
+      "sentiment_7d": 0.028,
+      "sentiment_30d": 0.23,
+      "sentiment_prior_30d": 0.001,
+      "delta_30d_vs_prior": 0.229,
+      "articles_7d": 10,
+      "articles_30d": 39,
+      "label_7d": "neutral"
     },
     "Bloomberg Terminal": {
-      "sentiment_7d": 0.337,
-      "sentiment_30d": -0.002,
-      "sentiment_prior_30d": -0.103,
-      "delta_30d_vs_prior": 0.101,
-      "articles_7d": 5,
-      "articles_30d": 14,
-      "label_7d": "very positive"
+      "sentiment_7d": 0.236,
+      "sentiment_30d": -0.039,
+      "sentiment_prior_30d": -0.119,
+      "delta_30d_vs_prior": 0.08,
+      "articles_7d": 4,
+      "articles_30d": 13,
+      "label_7d": "positive"
     },
     "Morningstar": {
-      "sentiment_7d": 0.189,
-      "sentiment_30d": 0.373,
-      "sentiment_prior_30d": 0.232,
-      "delta_30d_vs_prior": 0.141,
-      "articles_7d": 8,
-      "articles_30d": 30,
+      "sentiment_7d": 0.171,
+      "sentiment_30d": 0.411,
+      "sentiment_prior_30d": 0.286,
+      "delta_30d_vs_prior": 0.125,
+      "articles_7d": 7,
+      "articles_30d": 32,
       "label_7d": "positive"
     }
   },
   "share_of_voice": [
     {
       "date": "2026-01-27",
-      "MSCI": 33.3,
-      "S&P Global": 33.3,
-      "FTSE Russell": 33.3,
+      "MSCI": 25.0,
+      "S&P Global": 25.0,
+      "FTSE Russell": 50.0,
       "Bloomberg Terminal": 0.0,
       "Morningstar": 0.0
     },
     {
       "date": "2026-01-28",
-      "MSCI": 55.0,
-      "S&P Global": 10.0,
+      "MSCI": 64.7,
+      "S&P Global": 11.8,
       "FTSE Russell": 0.0,
-      "Bloomberg Terminal": 15.0,
-      "Morningstar": 20.0
+      "Bloomberg Terminal": 11.8,
+      "Morningstar": 11.8
     },
     {
       "date": "2026-01-29",
@@ -2134,27 +2138,27 @@
     },
     {
       "date": "2026-02-02",
-      "MSCI": 30.0,
-      "S&P Global": 10.0,
-      "FTSE Russell": 20.0,
-      "Bloomberg Terminal": 40.0,
+      "MSCI": 27.3,
+      "S&P Global": 9.1,
+      "FTSE Russell": 18.2,
+      "Bloomberg Terminal": 45.5,
       "Morningstar": 0.0
     },
     {
       "date": "2026-02-03",
-      "MSCI": 38.5,
-      "S&P Global": 23.1,
-      "FTSE Russell": 15.4,
-      "Bloomberg Terminal": 7.7,
-      "Morningstar": 15.4
+      "MSCI": 33.3,
+      "S&P Global": 16.7,
+      "FTSE Russell": 25.0,
+      "Bloomberg Terminal": 8.3,
+      "Morningstar": 16.7
     },
     {
       "date": "2026-02-04",
-      "MSCI": 50.0,
+      "MSCI": 40.0,
       "S&P Global": 0.0,
       "FTSE Russell": 0.0,
-      "Bloomberg Terminal": 16.7,
-      "Morningstar": 33.3
+      "Bloomberg Terminal": 20.0,
+      "Morningstar": 40.0
     },
     {
       "date": "2026-02-05",
@@ -2167,10 +2171,10 @@
     {
       "date": "2026-02-06",
       "MSCI": 0.0,
-      "S&P Global": 33.3,
+      "S&P Global": 25.0,
       "FTSE Russell": 0.0,
-      "Bloomberg Terminal": 66.7,
-      "Morningstar": 0.0
+      "Bloomberg Terminal": 50.0,
+      "Morningstar": 25.0
     },
     {
       "date": "2026-02-07",
@@ -2198,17 +2202,17 @@
     },
     {
       "date": "2026-02-10",
-      "MSCI": 8.7,
-      "S&P Global": 43.5,
-      "FTSE Russell": 26.1,
-      "Bloomberg Terminal": 8.7,
-      "Morningstar": 13.0
+      "MSCI": 8.0,
+      "S&P Global": 44.0,
+      "FTSE Russell": 28.0,
+      "Bloomberg Terminal": 8.0,
+      "Morningstar": 12.0
     },
     {
       "date": "2026-02-11",
-      "MSCI": 60.0,
-      "S&P Global": 20.0,
-      "FTSE Russell": 20.0,
+      "MSCI": 50.0,
+      "S&P Global": 25.0,
+      "FTSE Russell": 25.0,
       "Bloomberg Terminal": 0.0,
       "Morningstar": 0.0
     },
@@ -2222,11 +2226,11 @@
     },
     {
       "date": "2026-02-13",
-      "MSCI": 18.2,
-      "S&P Global": 18.2,
-      "FTSE Russell": 9.1,
-      "Bloomberg Terminal": 18.2,
-      "Morningstar": 36.4
+      "MSCI": 20.0,
+      "S&P Global": 20.0,
+      "FTSE Russell": 10.0,
+      "Bloomberg Terminal": 20.0,
+      "Morningstar": 30.0
     },
     {
       "date": "2026-02-14",
@@ -2254,11 +2258,11 @@
     },
     {
       "date": "2026-02-17",
-      "MSCI": 16.7,
-      "S&P Global": 16.7,
-      "FTSE Russell": 16.7,
-      "Bloomberg Terminal": 16.7,
-      "Morningstar": 33.3
+      "MSCI": 28.6,
+      "S&P Global": 14.3,
+      "FTSE Russell": 14.3,
+      "Bloomberg Terminal": 14.3,
+      "Morningstar": 28.6
     },
     {
       "date": "2026-02-18",
@@ -2271,10 +2275,10 @@
     {
       "date": "2026-02-19",
       "MSCI": 0.0,
-      "S&P Global": 20.0,
-      "FTSE Russell": 40.0,
+      "S&P Global": 16.7,
+      "FTSE Russell": 33.3,
       "Bloomberg Terminal": 0.0,
-      "Morningstar": 40.0
+      "Morningstar": 50.0
     },
     {
       "date": "2026-02-20",
@@ -2294,10 +2298,10 @@
     },
     {
       "date": "2026-02-22",
-      "MSCI": 100.0,
+      "MSCI": 50.0,
       "S&P Global": 0.0,
       "FTSE Russell": 0.0,
-      "Bloomberg Terminal": 0.0,
+      "Bloomberg Terminal": 50.0,
       "Morningstar": 0.0
     },
     {
@@ -2310,17 +2314,17 @@
     },
     {
       "date": "2026-02-24",
-      "MSCI": 25.0,
-      "S&P Global": 12.5,
-      "FTSE Russell": 25.0,
-      "Bloomberg Terminal": 25.0,
-      "Morningstar": 12.5
+      "MSCI": 28.6,
+      "S&P Global": 14.3,
+      "FTSE Russell": 28.6,
+      "Bloomberg Terminal": 28.6,
+      "Morningstar": 0.0
     },
     {
       "date": "2026-02-25",
-      "MSCI": 27.3,
+      "MSCI": 18.2,
       "S&P Global": 18.2,
-      "FTSE Russell": 9.1,
+      "FTSE Russell": 18.2,
       "Bloomberg Terminal": 36.4,
       "Morningstar": 9.1
     },
@@ -2359,42 +2363,42 @@
     {
       "date": "2026-03-02",
       "MSCI": 0.0,
-      "S&P Global": 14.3,
-      "FTSE Russell": 14.3,
-      "Bloomberg Terminal": 42.9,
-      "Morningstar": 28.6
+      "S&P Global": 16.7,
+      "FTSE Russell": 0.0,
+      "Bloomberg Terminal": 50.0,
+      "Morningstar": 33.3
     },
     {
       "date": "2026-03-03",
-      "MSCI": 18.2,
-      "S&P Global": 18.2,
+      "MSCI": 23.1,
+      "S&P Global": 15.4,
       "FTSE Russell": 0.0,
-      "Bloomberg Terminal": 63.6,
-      "Morningstar": 0.0
+      "Bloomberg Terminal": 53.8,
+      "Morningstar": 7.7
     },
     {
       "date": "2026-03-04",
       "MSCI": 0.0,
-      "S&P Global": 0.0,
-      "FTSE Russell": 33.3,
+      "S&P Global": 16.7,
+      "FTSE Russell": 16.7,
       "Bloomberg Terminal": 33.3,
       "Morningstar": 33.3
     },
     {
       "date": "2026-03-05",
-      "MSCI": 33.3,
+      "MSCI": 50.0,
       "S&P Global": 16.7,
       "FTSE Russell": 0.0,
       "Bloomberg Terminal": 16.7,
-      "Morningstar": 33.3
+      "Morningstar": 16.7
     },
     {
       "date": "2026-03-06",
-      "MSCI": 16.7,
+      "MSCI": 20.0,
       "S&P Global": 0.0,
-      "FTSE Russell": 16.7,
-      "Bloomberg Terminal": 16.7,
-      "Morningstar": 50.0
+      "FTSE Russell": 0.0,
+      "Bloomberg Terminal": 20.0,
+      "Morningstar": 60.0
     },
     {
       "date": "2026-03-07",
@@ -2438,19 +2442,19 @@
     },
     {
       "date": "2026-03-12",
-      "MSCI": 15.4,
-      "S&P Global": 23.1,
-      "FTSE Russell": 7.7,
-      "Bloomberg Terminal": 23.1,
-      "Morningstar": 30.8
+      "MSCI": 13.3,
+      "S&P Global": 20.0,
+      "FTSE Russell": 6.7,
+      "Bloomberg Terminal": 20.0,
+      "Morningstar": 40.0
     },
     {
       "date": "2026-03-13",
       "MSCI": 0.0,
       "S&P Global": 0.0,
-      "FTSE Russell": 25.0,
-      "Bloomberg Terminal": 25.0,
-      "Morningstar": 50.0
+      "FTSE Russell": 33.3,
+      "Bloomberg Terminal": 33.3,
+      "Morningstar": 33.3
     },
     {
       "date": "2026-03-14",
@@ -2486,26 +2490,26 @@
     },
     {
       "date": "2026-03-18",
-      "MSCI": 14.3,
-      "S&P Global": 14.3,
-      "FTSE Russell": 28.6,
-      "Bloomberg Terminal": 14.3,
-      "Morningstar": 28.6
+      "MSCI": 12.5,
+      "S&P Global": 12.5,
+      "FTSE Russell": 25.0,
+      "Bloomberg Terminal": 12.5,
+      "Morningstar": 37.5
     },
     {
       "date": "2026-03-19",
-      "MSCI": 11.1,
-      "S&P Global": 22.2,
-      "FTSE Russell": 22.2,
-      "Bloomberg Terminal": 22.2,
-      "Morningstar": 22.2
+      "MSCI": 10.0,
+      "S&P Global": 30.0,
+      "FTSE Russell": 20.0,
+      "Bloomberg Terminal": 20.0,
+      "Morningstar": 20.0
     },
     {
       "date": "2026-03-20",
       "MSCI": 0.0,
-      "S&P Global": 20.0,
-      "FTSE Russell": 60.0,
-      "Bloomberg Terminal": 20.0,
+      "S&P Global": 25.0,
+      "FTSE Russell": 50.0,
+      "Bloomberg Terminal": 25.0,
       "Morningstar": 0.0
     },
     {
@@ -2542,34 +2546,34 @@
     },
     {
       "date": "2026-03-25",
-      "MSCI": 33.3,
-      "S&P Global": 33.3,
+      "MSCI": 28.6,
+      "S&P Global": 28.6,
       "FTSE Russell": 0.0,
       "Bloomberg Terminal": 0.0,
-      "Morningstar": 33.3
+      "Morningstar": 42.9
     },
     {
       "date": "2026-03-26",
-      "MSCI": 12.5,
-      "S&P Global": 12.5,
-      "FTSE Russell": 12.5,
-      "Bloomberg Terminal": 37.5,
-      "Morningstar": 25.0
+      "MSCI": 11.1,
+      "S&P Global": 11.1,
+      "FTSE Russell": 11.1,
+      "Bloomberg Terminal": 33.3,
+      "Morningstar": 33.3
     },
     {
       "date": "2026-03-27",
-      "MSCI": 50.0,
+      "MSCI": 66.7,
       "S&P Global": 0.0,
-      "FTSE Russell": 50.0,
+      "FTSE Russell": 33.3,
       "Bloomberg Terminal": 0.0,
       "Morningstar": 0.0
     },
     {
       "date": "2026-03-28",
-      "MSCI": 66.7,
+      "MSCI": 100.0,
       "S&P Global": 0.0,
       "FTSE Russell": 0.0,
-      "Bloomberg Terminal": 33.3,
+      "Bloomberg Terminal": 0.0,
       "Morningstar": 0.0
     },
     {
@@ -2582,50 +2586,50 @@
     },
     {
       "date": "2026-03-30",
-      "MSCI": 28.6,
-      "S&P Global": 14.3,
+      "MSCI": 33.3,
+      "S&P Global": 16.7,
       "FTSE Russell": 0.0,
-      "Bloomberg Terminal": 14.3,
-      "Morningstar": 42.9
+      "Bloomberg Terminal": 0.0,
+      "Morningstar": 50.0
     },
     {
       "date": "2026-03-31",
-      "MSCI": 30.0,
-      "S&P Global": 30.0,
-      "FTSE Russell": 20.0,
-      "Bloomberg Terminal": 10.0,
-      "Morningstar": 10.0
+      "MSCI": 36.4,
+      "S&P Global": 27.3,
+      "FTSE Russell": 18.2,
+      "Bloomberg Terminal": 9.1,
+      "Morningstar": 9.1
     },
     {
       "date": "2026-04-01",
-      "MSCI": 25.0,
-      "S&P Global": 12.5,
+      "MSCI": 20.0,
+      "S&P Global": 10.0,
       "FTSE Russell": 50.0,
       "Bloomberg Terminal": 0.0,
-      "Morningstar": 12.5
+      "Morningstar": 20.0
     },
     {
       "date": "2026-04-02",
-      "MSCI": 0.0,
+      "MSCI": 20.0,
       "S&P Global": 0.0,
-      "FTSE Russell": 50.0,
-      "Bloomberg Terminal": 25.0,
-      "Morningstar": 25.0
+      "FTSE Russell": 20.0,
+      "Bloomberg Terminal": 20.0,
+      "Morningstar": 40.0
     },
     {
       "date": "2026-04-03",
       "MSCI": 0.0,
-      "S&P Global": 66.7,
+      "S&P Global": 50.0,
       "FTSE Russell": 0.0,
       "Bloomberg Terminal": 0.0,
-      "Morningstar": 33.3
+      "Morningstar": 50.0
     },
     {
       "date": "2026-04-04",
       "MSCI": 0.0,
-      "S&P Global": 100.0,
+      "S&P Global": 50.0,
       "FTSE Russell": 0.0,
-      "Bloomberg Terminal": 0.0,
+      "Bloomberg Terminal": 50.0,
       "Morningstar": 0.0
     },
     {
@@ -2638,27 +2642,27 @@
     },
     {
       "date": "2026-04-06",
-      "MSCI": 20.0,
-      "S&P Global": 20.0,
+      "MSCI": 14.3,
+      "S&P Global": 14.3,
       "FTSE Russell": 0.0,
-      "Bloomberg Terminal": 40.0,
-      "Morningstar": 20.0
+      "Bloomberg Terminal": 42.9,
+      "Morningstar": 28.6
     },
     {
       "date": "2026-04-07",
-      "MSCI": 22.2,
-      "S&P Global": 11.1,
-      "FTSE Russell": 55.6,
+      "MSCI": 14.3,
+      "S&P Global": 14.3,
+      "FTSE Russell": 71.4,
       "Bloomberg Terminal": 0.0,
-      "Morningstar": 11.1
+      "Morningstar": 0.0
     },
     {
       "date": "2026-04-08",
       "MSCI": 0.0,
       "S&P Global": 0.0,
-      "FTSE Russell": 88.9,
+      "FTSE Russell": 90.0,
       "Bloomberg Terminal": 0.0,
-      "Morningstar": 11.1
+      "Morningstar": 10.0
     },
     {
       "date": "2026-04-09",
@@ -2695,10 +2699,10 @@
     {
       "date": "2026-04-13",
       "MSCI": 0.0,
-      "S&P Global": 0.0,
-      "FTSE Russell": 0.0,
+      "S&P Global": 20.0,
+      "FTSE Russell": 20.0,
       "Bloomberg Terminal": 0.0,
-      "Morningstar": 100.0
+      "Morningstar": 60.0
     },
     {
       "date": "2026-04-14",
@@ -2710,19 +2714,19 @@
     },
     {
       "date": "2026-04-15",
-      "MSCI": 40.0,
+      "MSCI": 25.0,
       "S&P Global": 0.0,
-      "FTSE Russell": 20.0,
+      "FTSE Russell": 0.0,
       "Bloomberg Terminal": 0.0,
-      "Morningstar": 40.0
+      "Morningstar": 75.0
     },
     {
       "date": "2026-04-16",
       "MSCI": 0.0,
       "S&P Global": 0.0,
-      "FTSE Russell": 14.3,
-      "Bloomberg Terminal": 28.6,
-      "Morningstar": 57.1
+      "FTSE Russell": 16.7,
+      "Bloomberg Terminal": 33.3,
+      "Morningstar": 50.0
     },
     {
       "date": "2026-04-17",
@@ -2750,50 +2754,50 @@
     },
     {
       "date": "2026-04-20",
-      "MSCI": 57.1,
+      "MSCI": 50.0,
       "S&P Global": 0.0,
-      "FTSE Russell": 28.6,
+      "FTSE Russell": 33.3,
+      "Bloomberg Terminal": 0.0,
+      "Morningstar": 16.7
+    },
+    {
+      "date": "2026-04-21",
+      "MSCI": 71.4,
+      "S&P Global": 0.0,
+      "FTSE Russell": 14.3,
       "Bloomberg Terminal": 0.0,
       "Morningstar": 14.3
     },
     {
-      "date": "2026-04-21",
-      "MSCI": 50.0,
-      "S&P Global": 37.5,
-      "FTSE Russell": 0.0,
-      "Bloomberg Terminal": 0.0,
-      "Morningstar": 12.5
-    },
-    {
       "date": "2026-04-22",
-      "MSCI": 0.0,
-      "S&P Global": 33.3,
-      "FTSE Russell": 11.1,
-      "Bloomberg Terminal": 33.3,
-      "Morningstar": 22.2
+      "MSCI": 10.0,
+      "S&P Global": 40.0,
+      "FTSE Russell": 10.0,
+      "Bloomberg Terminal": 20.0,
+      "Morningstar": 20.0
     },
     {
       "date": "2026-04-23",
       "MSCI": 0.0,
-      "S&P Global": 52.6,
+      "S&P Global": 57.9,
       "FTSE Russell": 31.6,
       "Bloomberg Terminal": 0.0,
-      "Morningstar": 15.8
+      "Morningstar": 10.5
     },
     {
       "date": "2026-04-24",
       "MSCI": 0.0,
-      "S&P Global": 87.5,
+      "S&P Global": 88.9,
       "FTSE Russell": 0.0,
       "Bloomberg Terminal": 0.0,
-      "Morningstar": 12.5
+      "Morningstar": 11.1
     },
     {
       "date": "2026-04-25",
       "MSCI": 0.0,
-      "S&P Global": 80.0,
+      "S&P Global": 75.0,
       "FTSE Russell": 0.0,
-      "Bloomberg Terminal": 20.0,
+      "Bloomberg Terminal": 25.0,
       "Morningstar": 0.0
     },
     {
@@ -2807,274 +2811,274 @@
   ],
   "share_of_voice_summary": {
     "MSCI": {
-      "sov_7d_pct": 15.3,
-      "sov_prior_7d_pct": 10.5,
-      "delta_pct_points": 4.8,
+      "sov_7d_pct": 18.8,
+      "sov_prior_7d_pct": 8.3,
+      "delta_pct_points": 10.4,
       "rank": 3
     },
     "S&P Global": {
-      "sov_7d_pct": 41.6,
-      "sov_prior_7d_pct": 7.1,
-      "delta_pct_points": 34.4,
+      "sov_7d_pct": 37.4,
+      "sov_prior_7d_pct": 10.0,
+      "delta_pct_points": 27.4,
       "rank": 1
     },
     "FTSE Russell": {
-      "sov_7d_pct": 10.2,
-      "sov_prior_7d_pct": 9.7,
-      "delta_pct_points": 0.5,
-      "rank": 5
+      "sov_7d_pct": 12.7,
+      "sov_prior_7d_pct": 10.0,
+      "delta_pct_points": 2.7,
+      "rank": 4
     },
     "Bloomberg Terminal": {
-      "sov_7d_pct": 21.9,
-      "sov_prior_7d_pct": 4.1,
-      "delta_pct_points": 17.8,
+      "sov_7d_pct": 20.7,
+      "sov_prior_7d_pct": 4.8,
+      "delta_pct_points": 16.0,
       "rank": 2
     },
     "Morningstar": {
-      "sov_7d_pct": 11.0,
-      "sov_prior_7d_pct": 40.1,
-      "delta_pct_points": -29.0,
-      "rank": 4
+      "sov_7d_pct": 10.4,
+      "sov_prior_7d_pct": 38.3,
+      "delta_pct_points": -28.0,
+      "rank": 5
     }
   },
   "autocomplete_suggestions": [
     {
-      "suggestion": "msci board of directors",
+      "suggestion": "is msci a good investment",
+      "prefix": "is MSCI",
+      "first_seen": "2026-04-26",
+      "is_new": true
+    },
+    {
+      "suggestion": "is msci a good stock to buy",
+      "prefix": "is MSCI",
+      "first_seen": "2026-04-26",
+      "is_new": true
+    },
+    {
+      "suggestion": "is msci an etf",
+      "prefix": "is MSCI",
+      "first_seen": "2026-04-26",
+      "is_new": true
+    },
+    {
+      "suggestion": "is msci an index",
+      "prefix": "is MSCI",
+      "first_seen": "2026-04-26",
+      "is_new": true
+    },
+    {
+      "suggestion": "is msci eafe intl k",
+      "prefix": "is MSCI",
+      "first_seen": "2026-04-26",
+      "is_new": true
+    },
+    {
+      "suggestion": "is msci morgan stanley",
+      "prefix": "is MSCI",
+      "first_seen": "2026-04-26",
+      "is_new": true
+    },
+    {
+      "suggestion": "is msci owned by morgan stanley",
+      "prefix": "is MSCI",
+      "first_seen": "2026-04-26",
+      "is_new": true
+    },
+    {
+      "suggestion": "is msci part of morgan stanley",
+      "prefix": "is MSCI",
+      "first_seen": "2026-04-26",
+      "is_new": true
+    },
+    {
+      "suggestion": "is msci stock a buy",
+      "prefix": "is MSCI",
+      "first_seen": "2026-04-26",
+      "is_new": true
+    },
+    {
+      "suggestion": "is msci total intl k",
+      "prefix": "is MSCI",
+      "first_seen": "2026-04-26",
+      "is_new": true
+    },
+    {
+      "suggestion": "msci",
+      "prefix": "MSCI",
+      "first_seen": "2026-04-26",
+      "is_new": true
+    },
+    {
+      "suggestion": "msci acwi",
+      "prefix": "MSCI",
+      "first_seen": "2026-04-26",
+      "is_new": true
+    },
+    {
+      "suggestion": "msci acwi etf",
+      "prefix": "MSCI a",
+      "first_seen": "2026-04-26",
+      "is_new": true
+    },
+    {
+      "suggestion": "msci acwi ex us",
+      "prefix": "MSCI a",
+      "first_seen": "2026-04-26",
+      "is_new": true
+    },
+    {
+      "suggestion": "msci acwi ex usa",
+      "prefix": "MSCI",
+      "first_seen": "2026-04-26",
+      "is_new": true
+    },
+    {
+      "suggestion": "msci acwi ex usa index",
+      "prefix": "MSCI a",
+      "first_seen": "2026-04-26",
+      "is_new": true
+    },
+    {
+      "suggestion": "msci acwi imi",
+      "prefix": "MSCI a",
+      "first_seen": "2026-04-26",
+      "is_new": true
+    },
+    {
+      "suggestion": "msci acwi imi index",
+      "prefix": "MSCI a",
+      "first_seen": "2026-04-26",
+      "is_new": true
+    },
+    {
+      "suggestion": "msci acwi index",
+      "prefix": "MSCI a",
+      "first_seen": "2026-04-26",
+      "is_new": true
+    },
+    {
+      "suggestion": "msci acwi nr usd",
+      "prefix": "MSCI a",
+      "first_seen": "2026-04-26",
+      "is_new": true
+    },
+    {
+      "suggestion": "msci all country world index",
+      "prefix": "MSCI a",
+      "first_seen": "2026-04-26",
+      "is_new": true
+    },
+    {
+      "suggestion": "msci barra",
       "prefix": "MSCI b",
       "first_seen": "2026-04-26",
       "is_new": true
     },
     {
-      "suggestion": "msci country classification",
+      "suggestion": "msci benchmark",
+      "prefix": "MSCI b",
+      "first_seen": "2026-04-26",
+      "is_new": true
+    },
+    {
+      "suggestion": "msci brazil",
+      "prefix": "MSCI b",
+      "first_seen": "2026-04-26",
+      "is_new": true
+    },
+    {
+      "suggestion": "msci brazil etf",
+      "prefix": "MSCI b",
+      "first_seen": "2026-04-26",
+      "is_new": true
+    },
+    {
+      "suggestion": "msci brazil etf stock",
+      "prefix": "MSCI b",
+      "first_seen": "2026-04-26",
+      "is_new": true
+    },
+    {
+      "suggestion": "msci brazil index",
+      "prefix": "MSCI b",
+      "first_seen": "2026-04-26",
+      "is_new": true
+    },
+    {
+      "suggestion": "msci brazil stock",
+      "prefix": "MSCI b",
+      "first_seen": "2026-04-26",
+      "is_new": true
+    },
+    {
+      "suggestion": "msci broad market index",
+      "prefix": "MSCI b",
+      "first_seen": "2026-04-26",
+      "is_new": true
+    },
+    {
+      "suggestion": "msci burgiss",
+      "prefix": "MSCI b",
+      "first_seen": "2026-04-26",
+      "is_new": true
+    },
+    {
+      "suggestion": "msci canada",
       "prefix": "MSCI c",
       "first_seen": "2026-04-26",
       "is_new": true
     },
     {
-      "suggestion": "msci data",
+      "suggestion": "msci careers",
+      "prefix": "MSCI c",
+      "first_seen": "2026-04-26",
+      "is_new": true
+    },
+    {
+      "suggestion": "msci ceo",
+      "prefix": "MSCI c",
+      "first_seen": "2026-04-26",
+      "is_new": true
+    },
+    {
+      "suggestion": "msci chart",
+      "prefix": "MSCI c",
+      "first_seen": "2026-04-26",
+      "is_new": true
+    },
+    {
+      "suggestion": "msci china",
+      "prefix": "MSCI c",
+      "first_seen": "2026-04-26",
+      "is_new": true
+    },
+    {
+      "suggestion": "msci china etf",
+      "prefix": "MSCI c",
+      "first_seen": "2026-04-26",
+      "is_new": true
+    },
+    {
+      "suggestion": "msci china index",
+      "prefix": "MSCI c",
+      "first_seen": "2026-04-26",
+      "is_new": true
+    },
+    {
+      "suggestion": "msci china stock",
+      "prefix": "MSCI c",
+      "first_seen": "2026-04-26",
+      "is_new": true
+    },
+    {
+      "suggestion": "msci company",
+      "prefix": "MSCI c",
+      "first_seen": "2026-04-26",
+      "is_new": true
+    },
+    {
+      "suggestion": "msci developed market countries",
       "prefix": "MSCI d",
-      "first_seen": "2026-04-26",
-      "is_new": true
-    },
-    {
-      "suggestion": "msci definition",
-      "prefix": "MSCI d",
-      "first_seen": "2026-04-26",
-      "is_new": true
-    },
-    {
-      "suggestion": "msci degree",
-      "prefix": "MSCI d",
-      "first_seen": "2026-04-26",
-      "is_new": true
-    },
-    {
-      "suggestion": "msci degree meaning",
-      "prefix": "MSCI d",
-      "first_seen": "2026-04-26",
-      "is_new": true
-    },
-    {
-      "suggestion": "msci developed markets",
-      "prefix": "MSCI d",
-      "first_seen": "2026-04-26",
-      "is_new": true
-    },
-    {
-      "suggestion": "msci developed markets etf",
-      "prefix": "MSCI d",
-      "first_seen": "2026-04-26",
-      "is_new": true
-    },
-    {
-      "suggestion": "msci developed markets index",
-      "prefix": "MSCI d",
-      "first_seen": "2026-04-26",
-      "is_new": true
-    },
-    {
-      "suggestion": "msci dividend",
-      "prefix": "MSCI d",
-      "first_seen": "2026-04-26",
-      "is_new": true
-    },
-    {
-      "suggestion": "msci dividend history",
-      "prefix": "MSCI d",
-      "first_seen": "2026-04-26",
-      "is_new": true
-    },
-    {
-      "suggestion": "msci eafe",
-      "prefix": "MSCI",
-      "first_seen": "2026-04-26",
-      "is_new": true
-    },
-    {
-      "suggestion": "msci eafe etf",
-      "prefix": "MSCI e",
-      "first_seen": "2026-04-26",
-      "is_new": true
-    },
-    {
-      "suggestion": "msci eafe index",
-      "prefix": "MSCI",
-      "first_seen": "2026-04-26",
-      "is_new": true
-    },
-    {
-      "suggestion": "msci eafe index performance",
-      "prefix": "MSCI e",
-      "first_seen": "2026-04-26",
-      "is_new": true
-    },
-    {
-      "suggestion": "msci em",
-      "prefix": "MSCI e",
-      "first_seen": "2026-04-26",
-      "is_new": true
-    },
-    {
-      "suggestion": "msci emerging markets",
-      "prefix": "MSCI e",
-      "first_seen": "2026-04-26",
-      "is_new": true
-    },
-    {
-      "suggestion": "msci emerging markets index",
-      "prefix": "MSCI",
-      "first_seen": "2026-04-26",
-      "is_new": true
-    },
-    {
-      "suggestion": "msci emerging markets index etf",
-      "prefix": "MSCI e",
-      "first_seen": "2026-04-26",
-      "is_new": true
-    },
-    {
-      "suggestion": "msci esg",
-      "prefix": "MSCI esg",
-      "first_seen": "2026-04-26",
-      "is_new": true
-    },
-    {
-      "suggestion": "msci esg index",
-      "prefix": "MSCI esg",
-      "first_seen": "2026-04-26",
-      "is_new": true
-    },
-    {
-      "suggestion": "msci esg manager",
-      "prefix": "MSCI esg",
-      "first_seen": "2026-04-26",
-      "is_new": true
-    },
-    {
-      "suggestion": "msci esg ratings",
-      "prefix": "MSCI e",
-      "first_seen": "2026-04-26",
-      "is_new": true
-    },
-    {
-      "suggestion": "msci esg ratings & climate search tool",
-      "prefix": "MSCI esg",
-      "first_seen": "2026-04-26",
-      "is_new": true
-    },
-    {
-      "suggestion": "msci esg ratings list",
-      "prefix": "MSCI esg",
-      "first_seen": "2026-04-26",
-      "is_new": true
-    },
-    {
-      "suggestion": "msci esg ratings meaning",
-      "prefix": "MSCI esg",
-      "first_seen": "2026-04-26",
-      "is_new": true
-    },
-    {
-      "suggestion": "msci esg ratings methodology",
-      "prefix": "MSCI esg",
-      "first_seen": "2026-04-26",
-      "is_new": true
-    },
-    {
-      "suggestion": "msci esg research",
-      "prefix": "MSCI esg",
-      "first_seen": "2026-04-26",
-      "is_new": true
-    },
-    {
-      "suggestion": "msci esg scores",
-      "prefix": "MSCI esg",
-      "first_seen": "2026-04-26",
-      "is_new": true
-    },
-    {
-      "suggestion": "msci etf",
-      "prefix": "MSCI",
-      "first_seen": "2026-04-26",
-      "is_new": true
-    },
-    {
-      "suggestion": "msci factor indexes",
-      "prefix": "MSCI f",
-      "first_seen": "2026-04-26",
-      "is_new": true
-    },
-    {
-      "suggestion": "msci factors",
-      "prefix": "MSCI f",
-      "first_seen": "2026-04-26",
-      "is_new": true
-    },
-    {
-      "suggestion": "msci fidelity",
-      "prefix": "MSCI f",
-      "first_seen": "2026-04-26",
-      "is_new": true
-    },
-    {
-      "suggestion": "msci fidelity fund",
-      "prefix": "MSCI f",
-      "first_seen": "2026-04-26",
-      "is_new": true
-    },
-    {
-      "suggestion": "msci france",
-      "prefix": "MSCI f",
-      "first_seen": "2026-04-26",
-      "is_new": true
-    },
-    {
-      "suggestion": "msci frontier markets",
-      "prefix": "MSCI f",
-      "first_seen": "2026-04-26",
-      "is_new": true
-    },
-    {
-      "suggestion": "msci frontier markets index",
-      "prefix": "MSCI f",
-      "first_seen": "2026-04-26",
-      "is_new": true
-    },
-    {
-      "suggestion": "msci full form",
-      "prefix": "MSCI f",
-      "first_seen": "2026-04-26",
-      "is_new": true
-    },
-    {
-      "suggestion": "msci fund",
-      "prefix": "MSCI f",
-      "first_seen": "2026-04-26",
-      "is_new": true
-    },
-    {
-      "suggestion": "msci futures",
-      "prefix": "MSCI f",
       "first_seen": "2026-04-26",
       "is_new": true
     }

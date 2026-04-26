@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-26T02:10:28.880765+00:00",
+  "last_updated": "2026-04-26T08:54:48.079760+00:00",
   "total": 200,
   "articles": [
     {
@@ -1061,7 +1061,7 @@
       "impact_level": "Medium",
       "id": "eb6cdc4792c40e8b",
       "signals": [
-        "Breaking (<24h)"
+        "Recent (<3d)"
       ],
       "why_it_matters": "News mention involving Morningstar in Research / ESG / Ratings.",
       "key_points": [
@@ -1094,7 +1094,7 @@
       "impact_level": "High",
       "id": "0b648c0a7b37d0a4",
       "signals": [
-        "Breaking (<24h)"
+        "Recent (<3d)"
       ],
       "why_it_matters": "News mention involving Nasdaq in Exchanges / Index Licensing.",
       "key_points": [
@@ -1129,7 +1129,7 @@
       "id": "fedadbcd341f6edf",
       "signals": [
         "Earnings",
-        "Breaking (<24h)"
+        "Recent (<3d)"
       ],
       "why_it_matters": "Financial print signals competitor health and client-spend implications.",
       "key_points": [
@@ -1163,7 +1163,7 @@
       "id": "4bdf6a72a733d274",
       "signals": [
         "Technology / AI",
-        "Breaking (<24h)",
+        "Recent (<3d)",
         "High priority"
       ],
       "why_it_matters": "Tech / AI move — potential differentiation versus MSCI analytics.",
@@ -1198,7 +1198,7 @@
       "impact_level": "Medium",
       "id": "ef5f86d702ecc781",
       "signals": [
-        "Breaking (<24h)"
+        "Recent (<3d)"
       ],
       "why_it_matters": "News mention involving S&P Global in Indices / Ratings / Data.",
       "key_points": [
@@ -1232,7 +1232,7 @@
       "id": "4071250d2a94d2d1",
       "signals": [
         "Data / Market Data",
-        "Breaking (<24h)"
+        "Recent (<3d)"
       ],
       "why_it_matters": "Market-data move — pricing or distribution implications for data vendors.",
       "key_points": [
@@ -1266,7 +1266,7 @@
       "id": "460b1aaa8c6080e1",
       "signals": [
         "Earnings",
-        "Breaking (<24h)"
+        "Recent (<3d)"
       ],
       "why_it_matters": "Financial print signals competitor health and client-spend implications.",
       "key_points": [
@@ -1300,7 +1300,7 @@
       "id": "a51a1bf6f60d945a",
       "signals": [
         "Technology / AI",
-        "Breaking (<24h)",
+        "Recent (<3d)",
         "High priority"
       ],
       "why_it_matters": "Tech / AI move — potential differentiation versus MSCI analytics.",
@@ -1335,7 +1335,7 @@
       "id": "41fe3a4e4c9442ab",
       "signals": [
         "Partnership",
-        "Breaking (<24h)"
+        "Recent (<3d)"
       ],
       "why_it_matters": "Strategic alliance may alter distribution or data access in Indices / Ratings / Data.",
       "key_points": [],
@@ -1366,7 +1366,7 @@
       "impact_level": "Medium",
       "id": "a8596955246b4245",
       "signals": [
-        "Breaking (<24h)"
+        "Recent (<3d)"
       ],
       "why_it_matters": "News mention involving S&P Global in Indices / Ratings / Data.",
       "key_points": [
@@ -1400,7 +1400,7 @@
       "id": "f2dceb6c87ba1d53",
       "signals": [
         "Earnings",
-        "Breaking (<24h)",
+        "Recent (<3d)",
         "High priority"
       ],
       "why_it_matters": "Financial print signals competitor health and client-spend implications.",
@@ -4797,13 +4797,11 @@
         "Non-core"
       ],
       "non_core": true,
-      "importance_score": 65,
-      "importance": "High",
-      "impact_level": "High",
+      "importance_score": 55,
+      "importance": "Medium",
+      "impact_level": "Medium",
       "id": "209805851d77cc92",
-      "signals": [
-        "Recent (<3d)"
-      ],
+      "signals": [],
       "why_it_matters": "News mention involving FactSet in Analytics / Data Platform.",
       "key_points": [
         "Deckers, Matador and FactSet have been highlighted in this Screen of The Week article."
@@ -4830,13 +4828,11 @@
         "Non-core"
       ],
       "non_core": true,
-      "importance_score": 40,
-      "importance": "Medium",
-      "impact_level": "Medium",
+      "importance_score": 30,
+      "importance": "Low",
+      "impact_level": "Low",
       "id": "651dbf5b047dd6ac",
-      "signals": [
-        "Recent (<3d)"
-      ],
+      "signals": [],
       "why_it_matters": "News mention involving Intercontinental Exchange in Exchanges / Data / Indices.",
       "key_points": [],
       "reading_time": "1 min read"
@@ -6041,35 +6037,6 @@
       "reading_time": "<1 min read"
     },
     {
-      "title": "S&P 500, Nasdaq close at records on tech lift, Iran peace talk hopes",
-      "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNeFI0QnNnNVVVckNHY3RrNk9MQTd1aS1ZRzFVZ2FzZEIycjhqSjdndzdyYkdXdGNPSThqc1lrSURHeUdQQk9JLW1KTHlUWkZweGxibG1YRVJhN2F6b0dhb0loZGo1NUtWU3FOeVNIcG1oWDY2QnppRXdVTkh5LTE4MkZoaGxWNmFTQ3JoQkxGWWRVb0c2TjRSTnMxUzA3cHp5ZDc2N1d1Z2tMOThqcFE?oc=5",
-      "source": "Reuters",
-      "summary": "",
-      "published": "",
-      "image": "",
-      "competitor": "Nasdaq",
-      "ticker": "NDAQ",
-      "segment": "Exchanges / Index Licensing",
-      "origin": "premium_google_news",
-      "related": "NDAQ",
-      "finnhub_category": "",
-      "category": "General",
-      "sentiment": "Neutral",
-      "product_line": "Non-core",
-      "segments": [
-        "Non-core"
-      ],
-      "non_core": true,
-      "importance_score": 45,
-      "importance": "Medium",
-      "impact_level": "Medium",
-      "id": "65c5042e84dab95e",
-      "signals": [],
-      "why_it_matters": "News mention involving Nasdaq in Exchanges / Index Licensing.",
-      "key_points": [],
-      "reading_time": "<1 min read"
-    },
-    {
       "title": "Trading Day: Nasdaq hits new high",
       "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQd0JNRjNqQ0ppc2t3c04xUUpkSHBPX1FCLXlPdjVmSnRzTG5WWVVJdUNVdVc4c0dEQk1QLWxnSVB1WmhIZG5OaGptWWV4QXZFQU9uZUhrVnNSTXVCRDBXRFpKQllfalY5d3BKUzBmYWF1ZFF4WGZvanY4YTVGYXdkajNxMUFQNzkwNGd3TjdfSEIyaGc?oc=5",
       "source": "Reuters",
@@ -6124,6 +6091,66 @@
       "id": "43a8091d54794867",
       "signals": [],
       "why_it_matters": "News mention involving Nasdaq in Exchanges / Index Licensing.",
+      "key_points": [],
+      "reading_time": "<1 min read"
+    },
+    {
+      "title": "S&P 500, Nasdaq close at records on tech lift, Iran peace talk hopes",
+      "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNeFI0QnNnNVVVckNHY3RrNk9MQTd1aS1ZRzFVZ2FzZEIycjhqSjdndzdyYkdXdGNPSThqc1lrSURHeUdQQk9JLW1KTHlUWkZweGxibG1YRVJhN2F6b0dhb0loZGo1NUtWU3FOeVNIcG1oWDY2QnppRXdVTkh5LTE4MkZoaGxWNmFTQ3JoQkxGWWRVb0c2TjRSTnMxUzA3cHp5ZDc2N1d1Z2tMOThqcFE?oc=5",
+      "source": "Reuters",
+      "summary": "",
+      "published": "",
+      "image": "",
+      "competitor": "Nasdaq",
+      "ticker": "NDAQ",
+      "segment": "Exchanges / Index Licensing",
+      "origin": "premium_google_news",
+      "related": "NDAQ",
+      "finnhub_category": "",
+      "category": "General",
+      "sentiment": "Neutral",
+      "product_line": "Non-core",
+      "segments": [
+        "Non-core"
+      ],
+      "non_core": true,
+      "importance_score": 45,
+      "importance": "Medium",
+      "impact_level": "Medium",
+      "id": "65c5042e84dab95e",
+      "signals": [],
+      "why_it_matters": "News mention involving Nasdaq in Exchanges / Index Licensing.",
+      "key_points": [],
+      "reading_time": "<1 min read"
+    },
+    {
+      "title": "Here’s what American Airlines’ CEO just said about a possible merger with United",
+      "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxQdzdITUFQTmtlQ0tvc2hIRG5Ja2tXY0NRdmV6QU42MElRODR4WmJTUUw0VGFMb2lzWUI1UzdfWFFjdEV3c3NPWlZ2Q1ZsclZhVEtEdUk4azJLbmZLVlBCRjUzWGdfUEY5QVlfeDBKYTJSS3Nfd29FX0U5Z3RZQTVpTTl4MXMybFdGNmdiZ2dKYjlNVUZMNzJmU1FuZmI3NHVZUUVBSE1rRDZGa09fNElaSXpTSXB3b29UcFRhX1lkeXRRTzRna2c0N2IyYXI0UQ?oc=5",
+      "source": "MarketWatch",
+      "summary": "",
+      "published": "",
+      "image": "",
+      "competitor": "FactSet",
+      "ticker": "FDS",
+      "segment": "Analytics / Data Platform",
+      "origin": "premium_google_news",
+      "related": "FDS",
+      "finnhub_category": "",
+      "category": "M&A",
+      "sentiment": "Neutral",
+      "product_line": "Non-core",
+      "segments": [
+        "Non-core"
+      ],
+      "non_core": true,
+      "importance_score": 45,
+      "importance": "Medium",
+      "impact_level": "Medium",
+      "id": "29fec693b39500b0",
+      "signals": [
+        "M&A"
+      ],
+      "why_it_matters": "Deal activity reshapes the Analytics / Data Platform competitive landscape.",
       "key_points": [],
       "reading_time": "<1 min read"
     },
@@ -6538,35 +6565,6 @@
       "reading_time": "<1 min read"
     },
     {
-      "title": "U.S. STOCKS",
-      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE52S2Z3UklHMkFvSlNJSG9sSkNaTkpRUFdta2hzNEtkc2MwMFVjVktvMnhIeXFlblE4bUlSRHFnMWMyWVJFSW1Id3VZY2d6Qk0?oc=5",
-      "source": "WSJ",
-      "summary": "",
-      "published": "",
-      "image": "",
-      "competitor": "FactSet",
-      "ticker": "FDS",
-      "segment": "Analytics / Data Platform",
-      "origin": "premium_google_news",
-      "related": "FDS",
-      "finnhub_category": "",
-      "category": "General",
-      "sentiment": "Neutral",
-      "product_line": "Non-core",
-      "segments": [
-        "Non-core"
-      ],
-      "non_core": true,
-      "importance_score": 20,
-      "importance": "Low",
-      "impact_level": "Low",
-      "id": "c518a0cfe41cadc7",
-      "signals": [],
-      "why_it_matters": "News mention involving FactSet in Analytics / Data Platform.",
-      "key_points": [],
-      "reading_time": "<1 min read"
-    },
-    {
       "title": "Emerging-market stocks are back on top in April after punishing Iran selloff. Why they can keep on climbing.",
       "url": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxOS1NjWnMyQ3U3ajlVRkJQOG1sbks3NDVDUXIwazJNamo1VmtEQWdWb2kzdlJNQlAtcGxRU0xOMEJELXhkajZTWFd1YmdkNnduU3k4Nms2eVVKTl9XREU5U1NrNlc1OFcyTV82Y1VRZjRPV2FNZjIybGR4anhFbWZsVXROZUVjZlVzNEtadnRYMkhmVXpobjlMVk56Xy0zRDd5WlBmNGFLTlNuYjRRQW1zUjlnMGxYVlMweDFUUWdUWVY5Yk9ELWlkZFBBTHdxSGx0NnBoMGlfbnBldk5OaHFCbWJwbw?oc=5",
       "source": "MarketWatch",
@@ -6625,9 +6623,9 @@
       "reading_time": "<1 min read"
     },
     {
-      "title": "Boeing’s defense business is booming at a time when airplanes are disappointing",
-      "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxOUUtIa2d1SzJwLU82a2VQR0dEYkhkRGZ5aW4tRTgxWVAzZ0RCTjB0R1NOTWVXSC1vQlFOTThBZWxVV1p1cTFIQ3ViN0EzOWhoOWFqZ3RyRXo4RkxibU9Ma3Z2eHVjOTNCbHowUDBBekl1czB2cVRsRTROQzY0UWRER0F4akQyaGdkQjZISEFLZno2cEVHZXpYUTBaUW03U2pVZEJtXzd4VVM0S3ZCT0RqWGc5OEliY29zVWRYbWRR?oc=5",
-      "source": "MarketWatch",
+      "title": "BONDS & RATES",
+      "url": "https://news.google.com/rss/articles/CBMiTkFVX3lxTE5OOXhJUE1OdWhPcU1kbFNwZ0ZVTzR5Vm9JVEdpQURBYmJiZ0tJY3ZkYVlvekliSEZrNWZzSmwtYllOZDEtMnZSaUZOZDN1QQ?oc=5",
+      "source": "WSJ",
       "summary": "",
       "published": "",
       "image": "",
@@ -6637,7 +6635,7 @@
       "origin": "premium_google_news",
       "related": "FDS",
       "finnhub_category": "",
-      "category": "General",
+      "category": "Fixed Income / Credit",
       "sentiment": "Neutral",
       "product_line": "Non-core",
       "segments": [
@@ -6647,15 +6645,17 @@
       "importance_score": 20,
       "importance": "Low",
       "impact_level": "Low",
-      "id": "f97a7a9ae468c76f",
-      "signals": [],
-      "why_it_matters": "News mention involving FactSet in Analytics / Data Platform.",
+      "id": "a49a7a16c261b8ed",
+      "signals": [
+        "Fixed Income / Credit"
+      ],
+      "why_it_matters": "Credit / fixed-income development — read across to credit analytics demand.",
       "key_points": [],
       "reading_time": "<1 min read"
     },
     {
-      "title": "How SaaSpocalypse fears actually bolstered SAP profits by over $150 million",
-      "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxQanFJTDlzbW1XckZDLTU0bFpDX0VGc2NrZUJZQnFkd2lpclFWdDNBbmlQT1hSWDVDbWo3NjRfM19XQk5PRXpCWVc4T2d4UmNxYmcySFFKRHZCcEZKR3NnYVBtTmdjMkFTaVJFQXJ1UGxkTUdSRW1wSjMyS2dtVzljZjFDUGdNS19yWklQaFdaUzhMRk5VR2tQdjRtN1RoZmkwQXZWempPVHZxSVdxTG84ZDN1bVQ4d3N5?oc=5",
+      "title": "Memory-chip maker triples revenue and says demand to outstrip supply for at least three more years",
+      "url": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxONGZJeXlRYmVzRklCc253a0hKUVIxNFF3dFNUOUtBaXN4ZUxWcS1EOHZ5RjhJMkdneU5KcFN6WXBOWkNJSFM1N1F0VmZrTVk4ZWhSdnJpWlNnQU1oSVQ3SXVfVmlYTGppTzlLZUNUcUk4V3ZicTJsUzc0SmRYOVRTblY1MkI5YnZXekJIQ1l4aTgtRjFzbmtlenJVZERRazMwTXRpdzMwZzJ2SDBjMUhkWGUtUkZwUTZfS29HcUxISDlWNldLUDQzYmVwRXBPMUh5clEtaFhlRXlMUkxX?oc=5",
       "source": "MarketWatch",
       "summary": "",
       "published": "",
@@ -6676,7 +6676,7 @@
       "importance_score": 20,
       "importance": "Low",
       "impact_level": "Low",
-      "id": "14122dc327de3147",
+      "id": "22c309147d972c16",
       "signals": [],
       "why_it_matters": "News mention involving FactSet in Analytics / Data Platform.",
       "key_points": [],
@@ -6714,9 +6714,9 @@
       "reading_time": "<1 min read"
     },
     {
-      "title": "Moody’s Lifts Thai Outlook to Stable on Easing Tariff Shocks",
-      "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNcWZnTjg1VDdWWVRZdHhzRTBLdzZlQVl0dzFoYVZiaTFGc3F1WkdlaUE4MEd1Q2dZcVJhdGJvRHVKbmtQNm1Ba1Y5cGJMOTRUTTdacGZRZk9PdEwtV0tfdDdGdnJqUkswWlM5NDVIYmc3VDlHMmtaTDVyRFR3U2xrdlZVSDMwZE1va285dHE5V09iNEtfd0FkRTZHLWtPSnJTOVhiNDBfSTFHZlFJVFh3elU5S0g?oc=5",
-      "source": "Bloomberg.com",
+      "title": "Private credit funds' shares trade at steep discounts as concerns grow",
+      "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxPMTJCYjlQSS01SnVuQU9vdEotbldrM3poU012cFU2U09jalVIcXYwTU51cVBINzZTTDJnT0Z4VEllM2s1Y3RrZW9vaXM1N2JTbDY1MzlnMTJzVURFZFVoc2YwcGJmOW5Sc2h5NEFYNGhudGttem9uSUo5ZXoxQ2xQZjFoek13UUlraUlERllvNkZuX0ZFRGhtT2ZoTExKQ0ZpdHlJRDliU2RHTWtlTUo0Skc3UFVzdmR5YmNR?oc=5",
+      "source": "Reuters",
       "summary": "",
       "published": "",
       "image": "",
@@ -6726,19 +6726,21 @@
       "origin": "premium_google_news",
       "related": "MCO",
       "finnhub_category": "",
-      "category": "General",
+      "category": "Private Assets / Alternatives",
       "sentiment": "Neutral",
-      "product_line": "Non-core",
+      "product_line": "Private Capital",
       "segments": [
         "Non-core"
       ],
-      "non_core": true,
-      "importance_score": 20,
+      "non_core": false,
+      "importance_score": 30,
       "importance": "Low",
       "impact_level": "Low",
-      "id": "5338fd44684f8648",
-      "signals": [],
-      "why_it_matters": "News mention involving Moody's in Ratings / Risk Analytics.",
+      "id": "0a4e55f20c520b90",
+      "signals": [
+        "Private Assets / Alternatives"
+      ],
+      "why_it_matters": "Private-markets move — adjacent to MSCI's Burgiss/PrivatePulse stack.",
       "key_points": [],
       "reading_time": "<1 min read"
     }
