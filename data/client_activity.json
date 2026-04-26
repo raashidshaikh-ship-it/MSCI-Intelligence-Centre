@@ -1,8 +1,27 @@
 {
-  "last_updated": "2026-04-25T16:36:19.206107Z",
-  "total_activities": 20,
+  "last_updated": "2026-04-26T02:11:08.459179Z",
+  "total_activities": 21,
   "clients_tracked": 30,
   "activities": [
+    {
+      "title": "Invesco India Nifty Bank Index Fund - Regular Plan Fund info - The Economic Times",
+      "source": "The Economic Times",
+      "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNQVRDakdPU1JoaTlBRzU4bDUwUkdTWFl5YzRoenlEMmdVaXFudWEyQTFhREYwdjVzQ2RLc2FualB1Q092Z1VxQzBTc2U2UGRtblV0VUZyb3NTQ3NGcGlfZER2VmhZR0h0ZmpDYkJSM3Qyam1idmZlZTJzcFBWbGhKWmxDSUpiZUNHTXYta0RTc1JWaWZxb0FTRHc5Y2ZCWGszeFppNnhSRlhwbGZG?oc=5",
+      "published": "Sat, 25 Apr 2026 23:33:17 GMT",
+      "client": "Invesco",
+      "client_type": "Asset Manager",
+      "id": "d27a8e01dc86",
+      "activity_type": "General Activity",
+      "msci_linked": false,
+      "msci_product": "N/A",
+      "deal_value": "N/A",
+      "opportunity_type": "Monitor",
+      "opportunity_signal": "Track for future opportunity signals",
+      "competitor_risk": "None detected",
+      "region": "Asia-Pacific",
+      "priority": "Low",
+      "scraped_at": "2026-04-26T02:11:02.122105Z"
+    },
     {
       "title": "Invesco India Nifty Bank Index Fund Regular-Growth - The Economic Times",
       "source": "The Economic Times",

@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-04-25T16:35:37.167152+00:00",
-  "total": 197,
+  "last_updated": "2026-04-26T02:10:28.880765+00:00",
+  "total": 200,
   "articles": [
     {
       "title": "S&P Global Reshapes Energy Data With Titan And Expanded SLB Partnership",
@@ -834,6 +834,39 @@
       "reading_time": "1 min read"
     },
     {
+      "title": "Keefe, Bruyette & Woods Maintains Market Perform on Nasdaq, Raises Price Target to $97",
+      "url": "https://finnhub.io/api/news?id=d234341e015395da56f473b4ff8aeea7b313d4fe948e54109b8f3db86af434b6",
+      "source": "Benzinga",
+      "summary": "Keefe, Bruyette &amp; Woods  analyst Chris Allen   maintains Nasdaq (NASDAQ:NDAQ) with a Market Perform and raises the price target from $92 to $97.",
+      "published": "2026-04-24T12:10:35+00:00",
+      "image": "",
+      "competitor": "Nasdaq",
+      "ticker": "NDAQ",
+      "segment": "Exchanges / Index Licensing",
+      "origin": "finnhub",
+      "related": "NDAQ",
+      "finnhub_category": "company",
+      "category": "General",
+      "sentiment": "Neutral",
+      "product_line": "Non-core",
+      "segments": [
+        "Non-core"
+      ],
+      "non_core": true,
+      "importance_score": 65,
+      "importance": "High",
+      "impact_level": "High",
+      "id": "dabc30077fd70109",
+      "signals": [
+        "Breaking (<24h)"
+      ],
+      "why_it_matters": "News mention involving Nasdaq in Exchanges / Index Licensing.",
+      "key_points": [
+        "Keefe, Bruyette &amp; Woods  analyst Chris Allen   maintains Nasdaq (NASDAQ:NDAQ) with a Market Perform and raises the price target from $92 to $97."
+      ],
+      "reading_time": "1 min read"
+    },
+    {
       "title": "Fed is likely to hold rates steady — here's how that impacts consumer costs",
       "url": "https://finnhub.io/api/news?id=be20d46db5aea0bf7c08794c09a80afd57f6c438a3443bb1cb62c45a97d6f5cc",
       "source": "CNBC",
@@ -1404,7 +1437,7 @@
         "Index / ETF",
         "ESG / Climate",
         "ESG / Sustainability",
-        "Breaking (<24h)"
+        "Recent (<3d)"
       ],
       "why_it_matters": "ESG product or policy move — direct overlap with MSCI ESG franchise. Index/benchmark angle present.",
       "key_points": [
@@ -1439,7 +1472,7 @@
       "id": "1eb0245a0146a494",
       "signals": [
         "Earnings",
-        "Breaking (<24h)"
+        "Recent (<3d)"
       ],
       "why_it_matters": "Financial print signals competitor health and client-spend implications.",
       "key_points": [
@@ -1472,7 +1505,7 @@
       "impact_level": "Medium",
       "id": "e4610a8bfd723e8d",
       "signals": [
-        "Breaking (<24h)"
+        "Recent (<3d)"
       ],
       "why_it_matters": "News mention involving Intercontinental Exchange in Exchanges / Data / Indices.",
       "key_points": [
@@ -1507,7 +1540,7 @@
       "id": "30d72adc541df9b7",
       "signals": [
         "Earnings",
-        "Breaking (<24h)",
+        "Recent (<3d)",
         "High priority"
       ],
       "why_it_matters": "Financial print signals competitor health and client-spend implications.",
@@ -1542,7 +1575,7 @@
       "id": "b0f350ac8b367d15",
       "signals": [
         "Macro / Markets",
-        "Breaking (<24h)"
+        "Recent (<3d)"
       ],
       "why_it_matters": "Macro backdrop — shapes client risk appetite and spend cycle.",
       "key_points": [
@@ -1577,7 +1610,7 @@
       "id": "a2210713e550bd69",
       "signals": [
         "Earnings",
-        "Breaking (<24h)"
+        "Recent (<3d)"
       ],
       "why_it_matters": "Financial print signals competitor health and client-spend implications.",
       "key_points": [
@@ -1612,7 +1645,7 @@
       "id": "22ca59652a5b8533",
       "signals": [
         "ESG / Sustainability",
-        "Breaking (<24h)"
+        "Recent (<3d)"
       ],
       "why_it_matters": "ESG product or policy move — direct overlap with MSCI ESG franchise.",
       "key_points": [
@@ -1646,7 +1679,7 @@
       "impact_level": "Medium",
       "id": "0c82c05d216b9b54",
       "signals": [
-        "Breaking (<24h)"
+        "Recent (<3d)"
       ],
       "why_it_matters": "News mention involving CME Group in Derivatives / Indices.",
       "key_points": [
@@ -1681,7 +1714,7 @@
       "id": "ef852b87bb1b8e8d",
       "signals": [
         "Private Assets / Alternatives",
-        "Breaking (<24h)"
+        "Recent (<3d)"
       ],
       "why_it_matters": "Private-markets move — adjacent to MSCI's Burgiss/PrivatePulse stack.",
       "key_points": [
@@ -1717,7 +1750,7 @@
       "id": "68b1495cd3bf9cf7",
       "signals": [
         "Earnings",
-        "Breaking (<24h)"
+        "Recent (<3d)"
       ],
       "why_it_matters": "Financial print signals competitor health and client-spend implications.",
       "key_points": [
@@ -1753,7 +1786,7 @@
       "id": "f285370d566ba3be",
       "signals": [
         "Earnings",
-        "Breaking (<24h)",
+        "Recent (<3d)",
         "High priority"
       ],
       "why_it_matters": "Financial print signals competitor health and client-spend implications.",
@@ -1787,7 +1820,7 @@
       "impact_level": "Medium",
       "id": "63627e6681770012",
       "signals": [
-        "Breaking (<24h)"
+        "Recent (<3d)"
       ],
       "why_it_matters": "News mention involving FactSet in Analytics / Data Platform.",
       "key_points": [
@@ -3318,41 +3351,6 @@
       "reading_time": "1 min read"
     },
     {
-      "title": "Nasdaq, Inc. 2026 Q1 - Results - Earnings Call Presentation",
-      "url": "https://finnhub.io/api/news?id=4135bd7677337542d7dd28256ebab6fec753840e38242f515f93bb5a20285834",
-      "source": "SeekingAlpha",
-      "summary": "2026-04-23. The following slide deck was published by Nasdaq, Inc.",
-      "published": "2026-04-23T08:32:43+00:00",
-      "image": "https://static.seekingalpha.com/assets/og_image_1200-29b2bfe1a595477db6826bd2126c63ac2091efb7ec76347a8e7f81ba17e3de6c.png",
-      "competitor": "Nasdaq",
-      "ticker": "NDAQ",
-      "segment": "Exchanges / Index Licensing",
-      "origin": "finnhub",
-      "related": "NDAQ",
-      "finnhub_category": "company",
-      "category": "Earnings",
-      "sentiment": "Neutral",
-      "product_line": "Non-core",
-      "segments": [
-        "Non-core"
-      ],
-      "non_core": true,
-      "importance_score": 80,
-      "importance": "Critical",
-      "impact_level": "Critical",
-      "id": "fdc8ab5488161c47",
-      "signals": [
-        "Earnings",
-        "Recent (<3d)",
-        "High priority"
-      ],
-      "why_it_matters": "Financial print signals competitor health and client-spend implications.",
-      "key_points": [
-        "The following slide deck was published by Nasdaq, Inc."
-      ],
-      "reading_time": "1 min read"
-    },
-    {
       "title": "CME Group Q1 Earnings Show Strength, But The Stock Still Looks Expensive",
       "url": "https://finnhub.io/api/news?id=85e80736a346f304c689afe8474ed04f67973938b81ad774c31ef3076fdf0119",
       "source": "SeekingAlpha",
@@ -4863,13 +4861,11 @@
         "Non-core"
       ],
       "non_core": true,
-      "importance_score": 40,
-      "importance": "Medium",
-      "impact_level": "Medium",
+      "importance_score": 30,
+      "importance": "Low",
+      "impact_level": "Low",
       "id": "575f5b5ce0cea613",
-      "signals": [
-        "Recent (<3d)"
-      ],
+      "signals": [],
       "why_it_matters": "News mention involving FactSet in Analytics / Data Platform.",
       "key_points": [
         "Wall Street is looking for earnings per share of $1.97, up from $1.07 a year ago."
@@ -4896,13 +4892,12 @@
         "Non-core"
       ],
       "non_core": true,
-      "importance_score": 50,
+      "importance_score": 40,
       "importance": "Medium",
       "impact_level": "Medium",
       "id": "567b9e0ea0b71023",
       "signals": [
-        "Technology / AI",
-        "Recent (<3d)"
+        "Technology / AI"
       ],
       "why_it_matters": "Tech / AI move — potential differentiation versus MSCI analytics.",
       "key_points": [
@@ -4931,14 +4926,13 @@
         "Non-core"
       ],
       "non_core": false,
-      "importance_score": 65,
-      "importance": "High",
-      "impact_level": "High",
+      "importance_score": 55,
+      "importance": "Medium",
+      "impact_level": "Medium",
       "id": "22023449644a4b31",
       "signals": [
         "Index / ETF",
-        "ETF / Fund Flows",
-        "Recent (<3d)"
+        "ETF / Fund Flows"
       ],
       "why_it_matters": "ETF / fund-flow signal — read-through for index licensing revenue.",
       "key_points": [
@@ -4966,13 +4960,11 @@
         "Non-core"
       ],
       "non_core": true,
-      "importance_score": 65,
-      "importance": "High",
-      "impact_level": "High",
+      "importance_score": 55,
+      "importance": "Medium",
+      "impact_level": "Medium",
       "id": "9220f2818809a12c",
-      "signals": [
-        "Recent (<3d)"
-      ],
+      "signals": [],
       "why_it_matters": "News mention involving Morningstar in Research / ESG / Ratings.",
       "key_points": [
         "Joe Mansueto of Morningstar with Sundar Pinchai of Google and the Thompson Center in Chicago (Morningstar, Getty, Google Maps)Google isn’t keeping the Loop’s most closely watched office redevelopment all to itself.",
@@ -5567,7 +5559,7 @@
         "Non-core"
       ],
       "non_core": false,
-      "importance_score": 55,
+      "importance_score": 45,
       "importance": "Medium",
       "impact_level": "Medium",
       "id": "0e65e40e26976f40",
@@ -5817,37 +5809,6 @@
         "It’s harder and harder to find U.S.",
         "stock-focused mutual funds that boast generous dividend yields.",
         "Fortunately, there are a handful of foreign and emerging markets funds that still offer payouts of 5% or more."
-      ],
-      "reading_time": "1 min read"
-    },
-    {
-      "title": "The Smartest Growth Stocks to Invest $1,000 in As Investors Rotate Out of Tech",
-      "url": "https://finnhub.io/api/news?id=9b21d0ce7640b1aaf3e3aba42ac4aeffa0f91c4baa265ec41b128384d046b85e",
-      "source": "Yahoo",
-      "summary": "Investors have been moving away from tech stocks in recent months, but that doesn't mean there's not more money to be made in this sector.",
-      "published": "2026-04-11T16:45:00+00:00",
-      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
-      "competitor": "Morningstar",
-      "ticker": "MORN",
-      "segment": "Research / ESG / Ratings",
-      "origin": "finnhub",
-      "related": "MORN",
-      "finnhub_category": "company",
-      "category": "General",
-      "sentiment": "Neutral",
-      "product_line": "Non-core",
-      "segments": [
-        "Non-core"
-      ],
-      "non_core": true,
-      "importance_score": 20,
-      "importance": "Low",
-      "impact_level": "Low",
-      "id": "a72b57cb5e5e212e",
-      "signals": [],
-      "why_it_matters": "News mention involving Morningstar in Research / ESG / Ratings.",
-      "key_points": [
-        "Investors have been moving away from tech stocks in recent months, but that doesn't mean there's not more money to be made in this sector."
       ],
       "reading_time": "1 min read"
     },
@@ -6225,9 +6186,9 @@
       "reading_time": "<1 min read"
     },
     {
-      "title": "Euro zone business activity contracted in April as costs rocketed, PMI shows",
-      "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPTHFWalQ5RzFXTWRKSGZiazBKVjdaZzRxeWptOFRpUDJ3QTRRMl8ya3pYSW8xcFVpdi1DbDFJT19GUHhYNXRVVVFvZWk3RjF4cmxvY1Y5RU1NLWpDMnJPQmx6bDRLeWgzdENuQTZLZFU5ekFKRzd0MjQ5OG1LZFhfeUxxeHU2V3VPbTB5NnA2MlFhS1hJeTEwSm16SGJnUmtuM3NiLWpLdlY0U3hiSVdCRk9kTVU?oc=5",
-      "source": "Reuters",
+      "title": "Tesla Cybertruck Sales Were Inflated by a SpaceX Buying Spree",
+      "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNN240N3N4X0hmMlRsajl0ZW1IT2EyRnl3SHlKblNMV29HbV85WXVwRHhmRmYxSzRkZU1INXFDQmdNbWdnWFQxbXJBZ2thTnBpc2hjdmRPZlRQdVhnLXp3ZXF3VXhYaC1MQnNrWTdTdXZRQ0pmQkVmWUc3UEtGT25oQmJCMW1DUFhQa1YwTEJIRkFtWWZQNHBKaGQ0d0xGRmlRd3ZQODJnNE1LZ1FUZ3BXWUxqRGFZdElG?oc=5",
+      "source": "Bloomberg.com",
       "summary": "",
       "published": "",
       "image": "",
@@ -6247,7 +6208,7 @@
       "importance_score": 20,
       "importance": "Low",
       "impact_level": "Low",
-      "id": "1326c7fc45973429",
+      "id": "c7a682fdc1f8082a",
       "signals": [],
       "why_it_matters": "News mention involving S&P Global in Indices / Ratings / Data.",
       "key_points": [],
@@ -6285,8 +6246,8 @@
       "reading_time": "<1 min read"
     },
     {
-      "title": "Netflix Stock Slumps 10%. Buy the Dip, This Analyst Says.",
-      "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTFBVUlk0STRuVkZUQjl6cnZXOGVHb0NndGg1TVJyT1JaNElma0prWGlvUVREM0IwZlYtOFlIRnRvamhnZkFxbzZkWDdrRkMwN1o0UnhFUVJUSmVLaDlTdUpmSmxvZkhwTnhVcWptdE5VR2l3NEF6eUExQ0N0Zw?oc=5",
+      "title": "Gold Funds Have Dipped. Are They Still a Good Hedge in This Market?",
+      "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE91M1J2ZVc1MmliS0NNNXd6X29naktEMWM1X2lOZTl6THk3RE41c3RLbUJHWGlsbnJCcWZoLVo5cEViTVoyMGdJUUxoZXE2dFpCcmF1aFI4TUZCVzlJMGhtSGJEQ2tBX1BSNEtROW13WlNDOTA?oc=5",
       "source": "Barron's",
       "summary": "",
       "published": "",
@@ -6304,13 +6265,11 @@
         "Non-core"
       ],
       "non_core": true,
-      "importance_score": 35,
+      "importance_score": 20,
       "importance": "Low",
       "impact_level": "Low",
-      "id": "c1c159258b7bd2f9",
-      "signals": [
-        "Index / ETF"
-      ],
+      "id": "54611f042621b561",
+      "signals": [],
       "why_it_matters": "News mention involving Morningstar in Research / ESG / Ratings.",
       "key_points": [],
       "reading_time": "<1 min read"
@@ -6341,6 +6300,240 @@
       "id": "09a0e1c45ce029a1",
       "signals": [],
       "why_it_matters": "News mention involving Morningstar in Research / ESG / Ratings.",
+      "key_points": [],
+      "reading_time": "<1 min read"
+    },
+    {
+      "title": "US Probes Suspicious Oil Trades Made Before Trump Pivots",
+      "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOLUh1cXNtVVdWMmY4ZHJ3UDUwVFpXRXhoNmxiR29TdUhpR0c0QVRzY0N4YXduSm1QOW1vY1VZS3B5c3BpVnBuWHlDYmplalJYYjIyQWxfb050UTBLZElkWi1SSWdTZmVJR01IOE10T1RjTGU4WFlpUm9lUlJMWWgxN1dJTXJ3My1IX0gzS0VHNmZlbFZ0elVGdWlnSHJWUTFzVE5lQ1R4UnN4cDVsdzhDZnh3?oc=5",
+      "source": "Bloomberg.com",
+      "summary": "",
+      "published": "",
+      "image": "",
+      "competitor": "Intercontinental Exchange",
+      "ticker": "ICE",
+      "segment": "Exchanges / Data / Indices",
+      "origin": "premium_google_news",
+      "related": "CME,ICE",
+      "finnhub_category": "",
+      "category": "General",
+      "sentiment": "Neutral",
+      "product_line": "Non-core",
+      "segments": [
+        "Non-core"
+      ],
+      "non_core": true,
+      "importance_score": 20,
+      "importance": "Low",
+      "impact_level": "Low",
+      "id": "5c73170bcbdf2c4c",
+      "signals": [],
+      "why_it_matters": "News mention involving Intercontinental Exchange in Exchanges / Data / Indices.",
+      "key_points": [],
+      "reading_time": "<1 min read"
+    },
+    {
+      "title": "Wall Street’s Elite Team of Coffee Tasters Who Keep the Global Market Running",
+      "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPY2o5aW4xRjhmc2tzRkJlNzJZdmNqNEk2eHRubnBBcXl6NHprRzVCQmpweVhvSUJuVDk2ZF9zdjREaGxYTDh6Z1RWZ1dMbi1NdHFzNXRQa1p5aFQwaVNMbHhfeWZVYUxweGZ3UnpIcnhsVml2WFJVN3BsWGtzSkR2eDZ4eFUweHNtczllX1hqUFhxcEQ5NGEyYmgzYVMtckR0Z1pjV1k5MHlNWS1qa2RvR1hoZUtzOXg5YXpxbXpON1Uwdw?oc=5",
+      "source": "WSJ",
+      "summary": "",
+      "published": "",
+      "image": "",
+      "competitor": "Intercontinental Exchange",
+      "ticker": "ICE",
+      "segment": "Exchanges / Data / Indices",
+      "origin": "premium_google_news",
+      "related": "ICE",
+      "finnhub_category": "",
+      "category": "General",
+      "sentiment": "Neutral",
+      "product_line": "Non-core",
+      "segments": [
+        "Non-core"
+      ],
+      "non_core": true,
+      "importance_score": 20,
+      "importance": "Low",
+      "impact_level": "Low",
+      "id": "9fb957abacea41b1",
+      "signals": [],
+      "why_it_matters": "News mention involving Intercontinental Exchange in Exchanges / Data / Indices.",
+      "key_points": [],
+      "reading_time": "<1 min read"
+    },
+    {
+      "title": "Traders place $430 million bet on lower oil price before Trump ceasefire extension",
+      "url": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxOSmI1YldXZU0xWWtRTnNrUDlDcGxfSXRqa1NXOWpKWC1vcE1ydTIwSFd1b2twanRmYTNvN3piaWNjdnFVd0I3R3BPSnM3U0VqWTYxUUJDLU14T2oxdHc0MjZ1Ri1iN1Fydlhjb2RySUVKc1JlTHY0YlQ0ZDVkWDVWVlQxZWxhUmFNRm5zM1hNbTh6TVVUdWQxSHVrR29udWhDd0lSMFJVQmxmcDBTNDZ6UXB4S3RrRzVRVGthSnlicFpsQk5ZUmVnNFFpVUw1cTZjRkdYTU5MaUQzZWFsX25zYWdqdzRkN0R1MWc?oc=5",
+      "source": "Reuters",
+      "summary": "",
+      "published": "",
+      "image": "",
+      "competitor": "Intercontinental Exchange",
+      "ticker": "ICE",
+      "segment": "Exchanges / Data / Indices",
+      "origin": "premium_google_news",
+      "related": "ICE",
+      "finnhub_category": "",
+      "category": "General",
+      "sentiment": "Neutral",
+      "product_line": "Non-core",
+      "segments": [
+        "Non-core"
+      ],
+      "non_core": true,
+      "importance_score": 20,
+      "importance": "Low",
+      "impact_level": "Low",
+      "id": "3a1c4686d7ed822c",
+      "signals": [],
+      "why_it_matters": "News mention involving Intercontinental Exchange in Exchanges / Data / Indices.",
+      "key_points": [],
+      "reading_time": "<1 min read"
+    },
+    {
+      "title": "Polymarket in Talks to Raise Money at About $15 Billion Valuation",
+      "url": "https://news.google.com/rss/articles/CBMimwVBVV95cUxQcklWQjhrM3Jvb3N5blZmWHBnN3Q0bFVKUkFGV3UxSHZENUtMM0hUYkFvc3RUXzBkUmktQ1IwZnpQUlB1ZFNaYzhKWEJVUG1yLUhjUzNOcHZsU2JHTzVOVkg0V1o5aUNDVFVsTElSSGNNbFc3eEItejYxYm5wOFI1UFp2QmlqSVZsVUx3NURCeG55RHZQMG5vZ1hUYmtiSUNDMmZwSDNPZW9RcklqWHQweThxakxoNmZMMThhZEdqZUZ1YUlnMEtqcFZoaFYweVlPdW56ejhDM1RjZ2tEdmY2YnAyVmhORUdYN2Y2V2MxQ1pxLTRVME5TNG5GTDhFejNwLXZOQ1c3T0dENF9SSDI1Q3c0UVltUk5lcmNUUllHOV9Ya2stY2VjTEJ4dzUyQTlFRVpPSVVxeGRWYmp3Z0p1a2ZoYnhGRDAyYXMtNnk5NjdZaDQ0TVBzeUJhbmJuU2lvZVBrV0t0WHRxcTlMX0lTMXVSeHI3TWJFU1E2dTRWTWxxdVlTcEI4NDF6NWhwNFR4VGg3anBuMlFHbEpvYnlVa3o4N2tRSEYySU9CNmczNk1ta3hsakFMTDNJNmRYTWpNd3lGNldsYzFrZjB0blBCYlk5bFF3Vm1FSDZJbjFOSjdlUWdwa05kaGFkMEFwY3RKMnVJQUhmSnB6MHRqd3ltM0lzWHU5N3ZxazMyQkJIaTFPdkJaUENzNUNIMndoQzNFTzU5S01CQUdQNWpZaEtUcFlKUVJmX0RIWTc3T01wa0RRbDluRWhSREszcXpUSEw3aFdndzJ4dnpOZV96RjBqenFnd3lqVnc4anQxdVpySXJfbUhIa0MwRGkycU9FbG8yNEhoNm14cXJwVzZtNkJHcDdrSGpIbTNNOXpF?oc=5",
+      "source": "links.message.bloomberg.com",
+      "summary": "",
+      "published": "",
+      "image": "",
+      "competitor": "Intercontinental Exchange",
+      "ticker": "ICE",
+      "segment": "Exchanges / Data / Indices",
+      "origin": "premium_google_news",
+      "related": "ICE",
+      "finnhub_category": "",
+      "category": "General",
+      "sentiment": "Neutral",
+      "product_line": "Non-core",
+      "segments": [
+        "Non-core"
+      ],
+      "non_core": true,
+      "importance_score": 20,
+      "importance": "Low",
+      "impact_level": "Low",
+      "id": "41043bb893a04218",
+      "signals": [],
+      "why_it_matters": "News mention involving Intercontinental Exchange in Exchanges / Data / Indices.",
+      "key_points": [],
+      "reading_time": "<1 min read"
+    },
+    {
+      "title": "Increasing market risk is driving record demand for ‘hedge’ trades, CME says",
+      "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNTmdBSGllWTBtNDY0YlQ0aHVlQVZVUVNGQmdkVXJ2VUdJbTVnaWd6X0NHcjhxRUoweWVQX05mSEZBUmNXTGFKaDdnYWdWaTdiNFlxNm1jTHI4a1k2MzFSSk9LU0x5eWFVY2ZIdTd0R1JBWHZTbjVxX0Z5aVNSa1ZxLTNFdFhzdm9TazF3bnRVdndqb1MxVThJcnltV0FORjlYenA4SnFhX3F5TVFzOElLN2I4b3pRc3RpYmU4?oc=5",
+      "source": "MarketWatch",
+      "summary": "",
+      "published": "",
+      "image": "",
+      "competitor": "CME Group",
+      "ticker": "CME",
+      "segment": "Derivatives / Indices",
+      "origin": "premium_google_news",
+      "related": "CME",
+      "finnhub_category": "",
+      "category": "General",
+      "sentiment": "Neutral",
+      "product_line": "Analytics",
+      "segments": [
+        "Non-core"
+      ],
+      "non_core": false,
+      "importance_score": 20,
+      "importance": "Low",
+      "impact_level": "Low",
+      "id": "82ae39f8682ac845",
+      "signals": [],
+      "why_it_matters": "News mention involving CME Group in Derivatives / Indices.",
+      "key_points": [],
+      "reading_time": "<1 min read"
+    },
+    {
+      "title": "Stocks Are Back at Records, but Bond Investors Haven’t Joined the Party",
+      "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPNzhHeG0zZXFLSkxBdzNIUXlLaTZSWXRrZ0Z5TXZ2cnRXOWdvWlotakxXZFpwTDI3QVQ2ZkpvZzRpeDV1ZUREdHhINkhBcklYN0xfUG1tRXNQTEhoOXVtbXhtdy1EbXJPNjl2QWtucFVCekVaSUpZS3pXS0FYMTZNWWJ6VXlBeVE0b1BGZkV6dVNaVmRBR3dqRDJfeDgtei1oZkFXRElQd2Z6WEFQUjVrTDU4ZVFRR2M?oc=5",
+      "source": "WSJ",
+      "summary": "",
+      "published": "",
+      "image": "",
+      "competitor": "CME Group",
+      "ticker": "CME",
+      "segment": "Derivatives / Indices",
+      "origin": "premium_google_news",
+      "related": "CME",
+      "finnhub_category": "",
+      "category": "Fixed Income / Credit",
+      "sentiment": "Neutral",
+      "product_line": "Non-core",
+      "segments": [
+        "Non-core"
+      ],
+      "non_core": true,
+      "importance_score": 20,
+      "importance": "Low",
+      "impact_level": "Low",
+      "id": "6514487d5085f227",
+      "signals": [
+        "Fixed Income / Credit"
+      ],
+      "why_it_matters": "Credit / fixed-income development — read across to credit analytics demand.",
+      "key_points": [],
+      "reading_time": "<1 min read"
+    },
+    {
+      "title": "Tesla, Intel, Boeing, Capital One, and Many More Stocks to Watch This Week",
+      "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxOTDVjTkd3ekVUTnhSc1c0dmdCQk9rMGRGSzExV3JtbzdMaTNUcWZoSHpZN3pYcmpHaGM0c3VWUUhVZlg2RFhaLS1rd2VtTUl2ZG9ER0I3RWQwTk9mazhDVkd0ZUlDX0U1ellWQVZaWm0taG5UYkhKMWNzc2N1ckxZZG5kTFlpZ2RVNVpkZVBMMW4?oc=5",
+      "source": "Barron's",
+      "summary": "",
+      "published": "",
+      "image": "",
+      "competitor": "CME Group",
+      "ticker": "CME",
+      "segment": "Derivatives / Indices",
+      "origin": "premium_google_news",
+      "related": "CME",
+      "finnhub_category": "",
+      "category": "General",
+      "sentiment": "Neutral",
+      "product_line": "Non-core",
+      "segments": [
+        "Non-core"
+      ],
+      "non_core": true,
+      "importance_score": 20,
+      "importance": "Low",
+      "impact_level": "Low",
+      "id": "c6f2ab7fcdf76365",
+      "signals": [],
+      "why_it_matters": "News mention involving CME Group in Derivatives / Indices.",
+      "key_points": [],
+      "reading_time": "<1 min read"
+    },
+    {
+      "title": "US probes suspicious oil trades made before Trump Iran pivots, source says",
+      "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxObEFvSkkyTHhwcFNwbTkyQW41S0hJRDFlZko1VTVEY09SNU1MYnFQYVczUXVHWk4zMnExT08yb0hYRi1GanB1azdIQ284NkpOLWlnLXpqa0NheWpILUxibzhCLXdWWW9RTlZTY2czdnotaUYwS3J5QjNJYWVQWF9aZzhrNU1YUTBjWU85SzB3TnAybDJhQzZnaGxzXzlnRmlMYnJLRFZUU3JDX3hWcDRNSlFxc3I1SEVXN2xXS0VwM0lxUGc?oc=5",
+      "source": "Reuters",
+      "summary": "",
+      "published": "",
+      "image": "",
+      "competitor": "CME Group",
+      "ticker": "CME",
+      "segment": "Derivatives / Indices",
+      "origin": "premium_google_news",
+      "related": "CME",
+      "finnhub_category": "",
+      "category": "General",
+      "sentiment": "Neutral",
+      "product_line": "Non-core",
+      "segments": [
+        "Non-core"
+      ],
+      "non_core": true,
+      "importance_score": 20,
+      "importance": "Low",
+      "impact_level": "Low",
+      "id": "8b7ee51e2716862a",
+      "signals": [],
+      "why_it_matters": "News mention involving CME Group in Derivatives / Indices.",
       "key_points": [],
       "reading_time": "<1 min read"
     },
@@ -6397,35 +6590,6 @@
       "importance": "Low",
       "impact_level": "Low",
       "id": "523cf9056bb80732",
-      "signals": [],
-      "why_it_matters": "News mention involving FactSet in Analytics / Data Platform.",
-      "key_points": [],
-      "reading_time": "<1 min read"
-    },
-    {
-      "title": "UnitedHealth’s stock surged as profit beat expectations by widest margin in five years",
-      "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxQUFdLTUExbHdlMk9CQ0M3OXhCRm5kNFhBSDNCZ2xBdThJNVd0SUtHTHFmeTNSZW1mY01Sck5EU2E1Q3V1Qnk4bGttTkpNQlE2QnR3T3pBbkxPVnpnQ193LVJqS2xVaFYxRktCY1Z4LUIwMGhRUDhSTHp4Z01ndTJUOG9NY3kwQlM0RHlpc3RZZ2txTkUxZVJSaE04emx5TWxBWkQxX1RIdi1jRGZaaFhlTlVKczJ4ZG1zemZOSTBMczRKQjA5QnVGZA?oc=5",
-      "source": "MarketWatch",
-      "summary": "",
-      "published": "",
-      "image": "",
-      "competitor": "FactSet",
-      "ticker": "FDS",
-      "segment": "Analytics / Data Platform",
-      "origin": "premium_google_news",
-      "related": "FDS",
-      "finnhub_category": "",
-      "category": "General",
-      "sentiment": "Positive",
-      "product_line": "Non-core",
-      "segments": [
-        "Non-core"
-      ],
-      "non_core": true,
-      "importance_score": 20,
-      "importance": "Low",
-      "impact_level": "Low",
-      "id": "0bf8cd6596c9d282",
       "signals": [],
       "why_it_matters": "News mention involving FactSet in Analytics / Data Platform.",
       "key_points": [],
@@ -6490,6 +6654,35 @@
       "reading_time": "<1 min read"
     },
     {
+      "title": "How SaaSpocalypse fears actually bolstered SAP profits by over $150 million",
+      "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxQanFJTDlzbW1XckZDLTU0bFpDX0VGc2NrZUJZQnFkd2lpclFWdDNBbmlQT1hSWDVDbWo3NjRfM19XQk5PRXpCWVc4T2d4UmNxYmcySFFKRHZCcEZKR3NnYVBtTmdjMkFTaVJFQXJ1UGxkTUdSRW1wSjMyS2dtVzljZjFDUGdNS19yWklQaFdaUzhMRk5VR2tQdjRtN1RoZmkwQXZWempPVHZxSVdxTG84ZDN1bVQ4d3N5?oc=5",
+      "source": "MarketWatch",
+      "summary": "",
+      "published": "",
+      "image": "",
+      "competitor": "FactSet",
+      "ticker": "FDS",
+      "segment": "Analytics / Data Platform",
+      "origin": "premium_google_news",
+      "related": "FDS",
+      "finnhub_category": "",
+      "category": "General",
+      "sentiment": "Neutral",
+      "product_line": "Non-core",
+      "segments": [
+        "Non-core"
+      ],
+      "non_core": true,
+      "importance_score": 20,
+      "importance": "Low",
+      "impact_level": "Low",
+      "id": "14122dc327de3147",
+      "signals": [],
+      "why_it_matters": "News mention involving FactSet in Analytics / Data Platform.",
+      "key_points": [],
+      "reading_time": "<1 min read"
+    },
+    {
       "title": "Private Credit BDCs’ 2028 Maturity Wall Poses Risk, Moody’s Says",
       "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNU2JoeVdzZ28tbXVWUlhBT1gtRkREbUNndVFDNE5GWXhydDA5VWNSMlRTdnVPYU5OZ1dTR2w0NHo5ckhjWUR0eG9KVnFpV2kxcDk3M0VUZXVCaVdtMmVfMnJGMGhPLUMtLWlfcW1jNHFLM1hnbUN1Zmh3blNraV9WWG5kbnFWTXdDeFAyTTJ5ejFsMWJwMmYtZXBWdW42SEc3NzFoTHBYQmtvUDRSUlJITlBlMA?oc=5",
       "source": "Bloomberg.com",
@@ -6546,130 +6739,6 @@
       "id": "5338fd44684f8648",
       "signals": [],
       "why_it_matters": "News mention involving Moody's in Ratings / Risk Analytics.",
-      "key_points": [],
-      "reading_time": "<1 min read"
-    },
-    {
-      "title": "Private credit funds' shares trade at steep discounts as concerns grow",
-      "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxPMTJCYjlQSS01SnVuQU9vdEotbldrM3poU012cFU2U09jalVIcXYwTU51cVBINzZTTDJnT0Z4VEllM2s1Y3RrZW9vaXM1N2JTbDY1MzlnMTJzVURFZFVoc2YwcGJmOW5Sc2h5NEFYNGhudGttem9uSUo5ZXoxQ2xQZjFoek13UUlraUlERllvNkZuX0ZFRGhtT2ZoTExKQ0ZpdHlJRDliU2RHTWtlTUo0Skc3UFVzdmR5YmNR?oc=5",
-      "source": "Reuters",
-      "summary": "",
-      "published": "",
-      "image": "",
-      "competitor": "Moody's",
-      "ticker": "MCO",
-      "segment": "Ratings / Risk Analytics",
-      "origin": "premium_google_news",
-      "related": "MCO",
-      "finnhub_category": "",
-      "category": "Private Assets / Alternatives",
-      "sentiment": "Neutral",
-      "product_line": "Private Capital",
-      "segments": [
-        "Non-core"
-      ],
-      "non_core": false,
-      "importance_score": 30,
-      "importance": "Low",
-      "impact_level": "Low",
-      "id": "0a4e55f20c520b90",
-      "signals": [
-        "Private Assets / Alternatives"
-      ],
-      "why_it_matters": "Private-markets move — adjacent to MSCI's Burgiss/PrivatePulse stack.",
-      "key_points": [],
-      "reading_time": "<1 min read"
-    },
-    {
-      "title": "One by One, Europe’s Safest Government Bonds Fall From Grace",
-      "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQVXo0TnVycWFmOURiSXE0TkR3c3gzV0tKLXIwb1dUbE5ZQ204OWxlaHppR0cydDF6enBCZlgyOGZfejUwai1XSFIwM3h3c0NETjg0OGRKaTllcWFYVnVFVmNYd3ltc3V5OUhlVGJTVGRKQ1AxX3pPX0F1a1NJOFdSdTRfc3lLZXladGFjbklaUlc4Y21NTWtLSnJMbDU0aWJMemlOVE5GZll6RUxFRl9v?oc=5",
-      "source": "Bloomberg.com",
-      "summary": "",
-      "published": "",
-      "image": "",
-      "competitor": "Moody's",
-      "ticker": "MCO",
-      "segment": "Ratings / Risk Analytics",
-      "origin": "premium_google_news",
-      "related": "MCO",
-      "finnhub_category": "",
-      "category": "Fixed Income / Credit",
-      "sentiment": "Neutral",
-      "product_line": "Non-core",
-      "segments": [
-        "Non-core"
-      ],
-      "non_core": true,
-      "importance_score": 20,
-      "importance": "Low",
-      "impact_level": "Low",
-      "id": "79bf8561bb269161",
-      "signals": [
-        "Fixed Income / Credit"
-      ],
-      "why_it_matters": "Credit / fixed-income development — read across to credit analytics demand.",
-      "key_points": [],
-      "reading_time": "<1 min read"
-    },
-    {
-      "title": "SLB Seen Acquiring S&P Global’s Subsurface Oil Software Business",
-      "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOWXpOaUxtTUwtU2M4QUZmOXM1bzdqSzlsa2N0VEU1bU5oWWNhMjJfdzd4b2V2OU9BaUg3M0kxVkI2UWtnYUxHeDdsT2x0cjMxb25SbUZIODBqejZxZjJqVHVlWkIzSmVzcW1ubzJITGUta1RVZExDZkpScUxSbXM0Znl6bnFQaDVIbGdnTkdUd2pCSUViazFjak1jcHRwaVN5TUFjS2NESnpJb3ZQMHB0YlZvc3pqUQ?oc=5",
-      "source": "Bloomberg.com",
-      "summary": "",
-      "published": "",
-      "image": "",
-      "competitor": "S&P Global",
-      "ticker": "SPGI",
-      "segment": "Indices / Ratings / Data",
-      "origin": "premium_google_news",
-      "related": "SPGI",
-      "finnhub_category": "",
-      "category": "M&A",
-      "sentiment": "Neutral",
-      "product_line": "Non-core",
-      "segments": [
-        "Non-core"
-      ],
-      "non_core": true,
-      "importance_score": 70,
-      "importance": "High",
-      "impact_level": "High",
-      "id": "119b9a8a8a8a2b7b",
-      "signals": [
-        "M&A"
-      ],
-      "why_it_matters": "Deal activity reshapes the Indices / Ratings / Data competitive landscape.",
-      "key_points": [],
-      "reading_time": "<1 min read"
-    },
-    {
-      "title": "Nuclear reactor maker X-Energy valued at $11.9 billion in stellar Nasdaq debut",
-      "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxPTXZCUEliU1Vnb3VrSDQ1dk05d3hsUnYyQWoxbFkzYV9sTEdDTWZXNkRZQ2FaMjhIZ285aVFDX2M4Vlo5YmpNRGh6bUVvdVFHNFhKT2pHOGpVMm42ZVRBek5uNHhJZ1cxVm1LT25ScDM3clA0UHFDN3NMR0NQTmlKakM4QzlBaTl5QVRuNTZpTFRKR0JHVEdPRXlwdGt6dTFUSmdTbWVydkpYdWJKUzB5UkVHcnREX2pTMlFoVFJ2cw?oc=5",
-      "source": "Reuters",
-      "summary": "",
-      "published": "",
-      "image": "",
-      "competitor": "Nasdaq",
-      "ticker": "NDAQ",
-      "segment": "Exchanges / Index Licensing",
-      "origin": "premium_google_news",
-      "related": "NDAQ",
-      "finnhub_category": "",
-      "category": "Product Launch",
-      "sentiment": "Neutral",
-      "product_line": "Non-core",
-      "segments": [
-        "Non-core"
-      ],
-      "non_core": true,
-      "importance_score": 70,
-      "importance": "High",
-      "impact_level": "High",
-      "id": "c55562fa50bd198e",
-      "signals": [
-        "Product Launch"
-      ],
-      "why_it_matters": "New Exchanges / Index Licensing offering — potential pressure on MSCI's roadmap.",
       "key_points": [],
       "reading_time": "<1 min read"
     }
