@@ -1,7 +1,76 @@
 {
-  "last_updated": "2026-04-27T02:13:07.552434+00:00",
+  "last_updated": "2026-04-27T10:10:40.614981+00:00",
   "total": 200,
   "articles": [
+    {
+      "title": "S&P Global Announces New Strategic Direction for Upstream Energy Business",
+      "url": "https://finnhub.io/api/news?id=e6025444a647e8e45552663e1308a32d1ab6c11feeffda2012a32e7e2408848d",
+      "source": "Finnhub",
+      "summary": "NEW YORK - Today, S&P Global announced strategic innovations and changes to its upstream energy business, beginning with a definitive agreement to sell S&P Global Energy's geoscience and petroleum...",
+      "published": "2026-04-27T05:16:03+00:00",
+      "image": "",
+      "competitor": "S&P Global",
+      "ticker": "SPGI",
+      "segment": "Indices / Ratings / Data",
+      "origin": "finnhub",
+      "related": "SPGI",
+      "finnhub_category": "company",
+      "category": "General",
+      "sentiment": "Neutral",
+      "product_line": "Non-core",
+      "segments": [
+        "Non-core"
+      ],
+      "non_core": true,
+      "importance_score": 65,
+      "importance": "High",
+      "impact_level": "High",
+      "id": "3118dfec80bbd980",
+      "signals": [
+        "Breaking (<24h)"
+      ],
+      "why_it_matters": "News mention involving S&P Global in Indices / Ratings / Data.",
+      "key_points": [
+        "NEW YORK - Today, S&P Global announced strategic innovations and changes to its upstream energy business, beginning with a definitive agreement to sell S&P Global Energy's geoscience and petroleum..."
+      ],
+      "reading_time": "1 min read"
+    },
+    {
+      "title": "How Investors Are Reacting To Nasdaq (NDAQ) FinTech Momentum, Capital Returns, And New Trading Approvals",
+      "url": "https://finnhub.io/api/news?id=819994371917bdbd83434e874d34370e04ef3dcef54f917e34919eaaaca9e806",
+      "source": "Yahoo",
+      "summary": "In April 2026, Nasdaq, Inc. reported first-quarter revenue of US$1,407 million and net income of US$519 million, alongside declaring a regular quarterly dividend of US$0.31 per share payable in June and completing a multi-year share repurchase program totaling 48,547,848 shares for US$4,613.07 million. The combination of double-digit year-on-year growth in revenue and earnings per share, record momentum in its Financial Technology division, and regulatory approvals for extended 23/5 trading...",
+      "published": "2026-04-27T02:06:34+00:00",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "competitor": "Nasdaq",
+      "ticker": "NDAQ",
+      "segment": "Exchanges / Index Licensing",
+      "origin": "finnhub",
+      "related": "NDAQ",
+      "finnhub_category": "company",
+      "category": "Regulatory",
+      "sentiment": "Positive",
+      "product_line": "Non-core",
+      "segments": [
+        "Non-core"
+      ],
+      "non_core": true,
+      "importance_score": 80,
+      "importance": "Critical",
+      "impact_level": "Critical",
+      "id": "504ab9bcda647c71",
+      "signals": [
+        "Regulatory",
+        "Breaking (<24h)",
+        "High priority"
+      ],
+      "why_it_matters": "Regulatory development affecting Exchanges / Index Licensing market structure.",
+      "key_points": [
+        "reported first-quarter revenue of US$1,407 million and net income of US$519 million, alongside declaring a regular quarterly dividend of US$0.31 per share payable in June and completing a multi-year share repurchase program totaling 48,547,848 shares for US$4,613.07 million.",
+        "The combination of double-digit year-on-year growth in revenue and earnings per share, record momentum in its Financial Technology division, and regulatory approvals for extended 23/5 trading..."
+      ],
+      "reading_time": "1 min read"
+    },
     {
       "title": "Nasdaq: My Multiple Target Has Been Reached, So I Am Upgrading To A Buy",
       "url": "https://finnhub.io/api/news?id=ed0347d027d499af92dd252440ce5ecc464a505509986c776649eaf88fff24c6",
@@ -63,7 +132,7 @@
       "signals": [
         "Index / ETF",
         "Partnership",
-        "Breaking (<24h)",
+        "Recent (<3d)",
         "High priority"
       ],
       "why_it_matters": "Strategic alliance may alter distribution or data access in Indices / Ratings / Data. Index/benchmark angle present.",
@@ -968,41 +1037,6 @@
       "why_it_matters": "Macro backdrop — shapes client risk appetite and spend cycle.",
       "key_points": [
         "The Federal Reserve's April meeting, potentially Jerome Powell's last as chair, may impact many consumer borrowing and savings rates."
-      ],
-      "reading_time": "1 min read"
-    },
-    {
-      "title": "S&P Global Announces New Strategic Direction for Upstream Energy Business",
-      "url": "https://finnhub.io/api/news?id=f6917548a420a404a2520722fb558f0c7a9eb15a4c79bec8939baab075c09744",
-      "source": "Yahoo",
-      "summary": "Today, S&P Global announced strategic innovations and changes to its upstream energy business, beginning with a definitive agreement to sell S&P Global Energy's geoscience and petroleum engineering software portfolio to SLB, a global technology company driving energy innovation across more than 100 countries. This portfolio of subsurface and engineering software, widely used by U.S. onshore and unconventional operators, includes Kingdom Software, Petra, Harmony Enterprise, Analytics Explorer, Su",
-      "published": "2026-04-24T10:50:00+00:00",
-      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
-      "competitor": "S&P Global",
-      "ticker": "SPGI",
-      "segment": "Indices / Ratings / Data",
-      "origin": "finnhub",
-      "related": "SPGI",
-      "finnhub_category": "company",
-      "category": "General",
-      "sentiment": "Positive",
-      "product_line": "Analytics",
-      "segments": [
-        "Non-core"
-      ],
-      "non_core": false,
-      "importance_score": 65,
-      "importance": "High",
-      "impact_level": "High",
-      "id": "3118dfec80bbd980",
-      "signals": [
-        "Recent (<3d)"
-      ],
-      "why_it_matters": "News mention involving S&P Global in Indices / Ratings / Data.",
-      "key_points": [
-        "Today, S&P Global announced strategic innovations and changes to its upstream energy business, beginning with a definitive agreement to sell S&P Global Energy's geoscience and petroleum engineering software portfolio to SLB, a global technology company driving energy innovation across more than 100 countries.",
-        "This portfolio of subsurface and engineering software, widely used by U.S.",
-        "onshore and unconventional operators, includes Kingdom Software, Petra, Harmony Enterprise, Analytics Explorer, Su"
       ],
       "reading_time": "1 min read"
     },
@@ -3249,43 +3283,6 @@
       "reading_time": "1 min read"
     },
     {
-      "title": "Transcript : Nasdaq, Inc., Q1 2026 Earnings Call, Apr 23, 2026",
-      "url": "https://finnhub.io/api/news?id=8427d1404f628d02a718ef87de46c288896776742dc224822995aeb0734024aa",
-      "source": "Finnhub",
-      "summary": "Presentation Operator MessageOperator Good day, and thank you for standing by. Welcome to Nasdaq's First Quarter 2026 Results Conference Call. [Operator Instructions] Please be advised that today's...",
-      "published": "2026-04-23T10:05:31+00:00",
-      "image": "",
-      "competitor": "Nasdaq",
-      "ticker": "NDAQ",
-      "segment": "Exchanges / Index Licensing",
-      "origin": "finnhub",
-      "related": "NDAQ",
-      "finnhub_category": "company",
-      "category": "Earnings",
-      "sentiment": "Neutral",
-      "product_line": "Non-core",
-      "segments": [
-        "Non-core"
-      ],
-      "non_core": true,
-      "importance_score": 80,
-      "importance": "Critical",
-      "impact_level": "Critical",
-      "id": "6f08fcd5617c6090",
-      "signals": [
-        "Earnings",
-        "Recent (<3d)",
-        "High priority"
-      ],
-      "why_it_matters": "Financial print signals competitor health and client-spend implications.",
-      "key_points": [
-        "Presentation Operator MessageOperator Good day, and thank you for standing by.",
-        "Welcome to Nasdaq's First Quarter 2026 Results Conference Call.",
-        "[Operator Instructions] Please be advised that today's..."
-      ],
-      "reading_time": "1 min read"
-    },
-    {
       "title": "Wells Fargo Maintains Overweight on Moodys, Raises Price Target to $590",
       "url": "https://finnhub.io/api/news?id=bf006c8e589a2373caaaa5b32934e877dd818334705ae0f173626c20cab8cd0c",
       "source": "Benzinga",
@@ -3305,13 +3302,11 @@
         "Banks"
       ],
       "non_core": false,
-      "importance_score": 40,
-      "importance": "Medium",
-      "impact_level": "Medium",
+      "importance_score": 30,
+      "importance": "Low",
+      "impact_level": "Low",
       "id": "9acd673c820742cd",
-      "signals": [
-        "Recent (<3d)"
-      ],
+      "signals": [],
       "why_it_matters": "News mention involving Moody's in Ratings / Risk Analytics.",
       "key_points": [
         "Wells Fargo  analyst Jason Haas   maintains Moodys (NYSE:MCO) with a Overweight and raises the price target from $560 to $590."
@@ -3338,13 +3333,11 @@
         "Non-core"
       ],
       "non_core": true,
-      "importance_score": 40,
-      "importance": "Medium",
-      "impact_level": "Medium",
+      "importance_score": 30,
+      "importance": "Low",
+      "impact_level": "Low",
       "id": "b0fd69f5a2ab5627",
-      "signals": [
-        "Recent (<3d)"
-      ],
+      "signals": [],
       "why_it_matters": "News mention involving S&P Global in Indices / Ratings / Data.",
       "key_points": [
         "Stewart OTTAWA--Factory activity in Canada continued to see solid growth last month, with an early estimate pointing a further rise in sales driven by the petroleum sector where energy..."
@@ -3371,13 +3364,11 @@
         "Non-core"
       ],
       "non_core": true,
-      "importance_score": 40,
-      "importance": "Medium",
-      "impact_level": "Medium",
+      "importance_score": 30,
+      "importance": "Low",
+      "impact_level": "Low",
       "id": "21e986c9b0231e9c",
-      "signals": [
-        "Recent (<3d)"
-      ],
+      "signals": [],
       "why_it_matters": "News mention involving S&P Global in Indices / Ratings / Data.",
       "key_points": [
         "Brent crude has climbed back above $100 per barrel and the Strait of Hormuz remains closed.",
@@ -3405,14 +3396,12 @@
         "Non-core"
       ],
       "non_core": true,
-      "importance_score": 80,
-      "importance": "Critical",
-      "impact_level": "Critical",
+      "importance_score": 70,
+      "importance": "High",
+      "impact_level": "High",
       "id": "21a0033c3052b4b1",
       "signals": [
-        "Earnings",
-        "Recent (<3d)",
-        "High priority"
+        "Earnings"
       ],
       "why_it_matters": "Financial print signals competitor health and client-spend implications.",
       "key_points": [
@@ -3441,13 +3430,12 @@
         "Non-core"
       ],
       "non_core": true,
-      "importance_score": 40,
-      "importance": "Medium",
-      "impact_level": "Medium",
+      "importance_score": 30,
+      "importance": "Low",
+      "impact_level": "Low",
       "id": "7091b96285cffc90",
       "signals": [
-        "Fixed Income / Credit",
-        "Recent (<3d)"
+        "Fixed Income / Credit"
       ],
       "why_it_matters": "Credit / fixed-income development — read across to credit analytics demand.",
       "key_points": [
@@ -3475,13 +3463,12 @@
         "Non-core"
       ],
       "non_core": true,
-      "importance_score": 55,
+      "importance_score": 45,
       "importance": "Medium",
       "impact_level": "Medium",
       "id": "31dd2ca0ed972a21",
       "signals": [
-        "Earnings",
-        "Recent (<3d)"
+        "Earnings"
       ],
       "why_it_matters": "Financial print signals competitor health and client-spend implications.",
       "key_points": [
@@ -3509,14 +3496,12 @@
         "Non-core"
       ],
       "non_core": true,
-      "importance_score": 80,
-      "importance": "Critical",
-      "impact_level": "Critical",
+      "importance_score": 70,
+      "importance": "High",
+      "impact_level": "High",
       "id": "ab8f271d2af1825e",
       "signals": [
-        "Regulatory",
-        "Recent (<3d)",
-        "High priority"
+        "Regulatory"
       ],
       "why_it_matters": "Regulatory development affecting Derivatives / Indices market structure.",
       "key_points": [
@@ -3544,13 +3529,12 @@
         "Non-core"
       ],
       "non_core": true,
-      "importance_score": 50,
+      "importance_score": 40,
       "importance": "Medium",
       "impact_level": "Medium",
       "id": "485cf16fcea1ea69",
       "signals": [
-        "Technology / AI",
-        "Recent (<3d)"
+        "Technology / AI"
       ],
       "why_it_matters": "Tech / AI move — potential differentiation versus MSCI analytics.",
       "key_points": [
@@ -5922,35 +5906,6 @@
       "reading_time": "<1 min read"
     },
     {
-      "title": "S&P, Nasdaq close at records on Iran ceasefire extension, earnings",
-      "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxOTE1IRDNDTDNBUmcwZFVXOW40dldfSmc0YzU3WHZGb3pxZzJCY1RVWmotelJHa0g4SURfUHQwdFh3cTk5LTUwR283Z2NxWE5IdjVrUnNScERKaU56TkpnbkhaTk5ucGZCWHpDVVRmdUpGMjRDUjBHV3BSSGdDSFdrbzB4NVd3T0doSnhzajQwMWFYdjRRRVpxLU4tSm04R05WR0IzbUNTNA?oc=5",
-      "source": "Reuters",
-      "summary": "",
-      "published": "",
-      "image": "",
-      "competitor": "Nasdaq",
-      "ticker": "NDAQ",
-      "segment": "Exchanges / Index Licensing",
-      "origin": "premium_google_news",
-      "related": "NDAQ",
-      "finnhub_category": "",
-      "category": "General",
-      "sentiment": "Neutral",
-      "product_line": "Non-core",
-      "segments": [
-        "Non-core"
-      ],
-      "non_core": true,
-      "importance_score": 45,
-      "importance": "Medium",
-      "impact_level": "Medium",
-      "id": "43a8091d54794867",
-      "signals": [],
-      "why_it_matters": "News mention involving Nasdaq in Exchanges / Index Licensing.",
-      "key_points": [],
-      "reading_time": "<1 min read"
-    },
-    {
       "title": "Trading Day: Nasdaq hits new high",
       "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQd0JNRjNqQ0ppc2t3c04xUUpkSHBPX1FCLXlPdjVmSnRzTG5WWVVJdUNVdVc4c0dEQk1QLWxnSVB1WmhIZG5OaGptWWV4QXZFQU9uZUhrVnNSTXVCRDBXRFpKQllfalY5d3BKUzBmYWF1ZFF4WGZvanY4YTVGYXdkajNxMUFQNzkwNGd3TjdfSEIyaGc?oc=5",
       "source": "Reuters",
@@ -5974,6 +5929,35 @@
       "importance": "Medium",
       "impact_level": "Medium",
       "id": "4406cb2e40731b78",
+      "signals": [],
+      "why_it_matters": "News mention involving Nasdaq in Exchanges / Index Licensing.",
+      "key_points": [],
+      "reading_time": "<1 min read"
+    },
+    {
+      "title": "S&P, Nasdaq close at records on Iran ceasefire extension, earnings",
+      "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxOTE1IRDNDTDNBUmcwZFVXOW40dldfSmc0YzU3WHZGb3pxZzJCY1RVWmotelJHa0g4SURfUHQwdFh3cTk5LTUwR283Z2NxWE5IdjVrUnNScERKaU56TkpnbkhaTk5ucGZCWHpDVVRmdUpGMjRDUjBHV3BSSGdDSFdrbzB4NVd3T0doSnhzajQwMWFYdjRRRVpxLU4tSm04R05WR0IzbUNTNA?oc=5",
+      "source": "Reuters",
+      "summary": "",
+      "published": "",
+      "image": "",
+      "competitor": "Nasdaq",
+      "ticker": "NDAQ",
+      "segment": "Exchanges / Index Licensing",
+      "origin": "premium_google_news",
+      "related": "NDAQ",
+      "finnhub_category": "",
+      "category": "General",
+      "sentiment": "Neutral",
+      "product_line": "Non-core",
+      "segments": [
+        "Non-core"
+      ],
+      "non_core": true,
+      "importance_score": 45,
+      "importance": "Medium",
+      "impact_level": "Medium",
+      "id": "43a8091d54794867",
       "signals": [],
       "why_it_matters": "News mention involving Nasdaq in Exchanges / Index Licensing.",
       "key_points": [],
@@ -6009,9 +5993,9 @@
       "reading_time": "<1 min read"
     },
     {
-      "title": "Nasdaq Futures Jump as Intel’s Blockbuster Sales View Impresses",
-      "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQbHlsa0lPZ1BmV09ETlFScHktaWw2UnVMQmxLVlF0ejhsTFRockdMdGkyLWFla2NpRXFIeGpTMGhrNWNnYWN2Q3pxdUF1TkFyZHFraEcwbEtGVzRscWlaZlFHMXdOSXNWS2hQeFJvS1QzWFQtRmhZMHM1aUlkNllBTndqUmNxc3AxalBPSXplbTIxSzhpMTdtb21LQmxlZlNsbzlyaV9XODhrTzd1d2tKa2xjZko?oc=5",
-      "source": "Bloomberg",
+      "title": "Review & Preview: The Nasdaq’s Historic Week",
+      "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE5sdnF5djhZYzFyRXhEUm00VU5OOVphVFY5Umx4SUlXU1Z1TVRlMW93cEc5MzVyM1AtUjE2dEdIM2sxbGp1VjR4VU03UUhnUWt0MEhDM0JHR0JQUTE4RWk2NGZFSjVoUWRTcENpYVVDeEVFN1hpbkVZN1JOSGM?oc=5",
+      "source": "Barron's",
       "summary": "",
       "published": "",
       "image": "",
@@ -6031,7 +6015,7 @@
       "importance_score": 45,
       "importance": "Medium",
       "impact_level": "Medium",
-      "id": "837d6d53d877476c",
+      "id": "d53b3ea5606c824b",
       "signals": [],
       "why_it_matters": "News mention involving Nasdaq in Exchanges / Index Licensing.",
       "key_points": [],
@@ -6096,9 +6080,9 @@
       "reading_time": "<1 min read"
     },
     {
-      "title": "Investors are worried about private credit’s close ties to software stocks. So, why is money flooding into these ETFs?",
-      "url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxPbzN2Zk1OUVJmNU1YTE5UOW8xbGxDYkZvR09qMW1BNHVFSEpsbGYzSFVLaHh5cWtNYUZUTWxwUmcxaVpwZlFQMFhWOWJYa2g1Xy03bUs4Q0U5NjM3TFhmNFFtbUh2cENudkFGeEtRS3V1eng3OEY2bWt6Q2dUUlJOWG84T2tVenBlTE8wZnp0V3JleXRnNGpKeWhPX0hRSlY1VC01Qmc0S1htZnhCbncxa3B3cjZjRzNuZFJ5R0psZmI1ZHJJeVZvUVpuTTBnWGN1Z3RYX2hBRmo?oc=5",
-      "source": "MarketWatch",
+      "title": "Prolonged energy disruption to widen India trade deficit, strain fiscal account, Moody's says",
+      "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxOQW9fRkk3M3B5YXZnZzg0bmxQdUNhOWF4bU5iQkZ5WnFiZHZHd3BFczM5cXlsb2txVWk4YnIteHpkWWZZSXZscmpld1N0cnBPd1Z5dlozaTI1WDAzWHY3a2I3WklZZFNaOWd0T0ZzMXJpQjBkOHZIdXB4ZUluRnpPcWJBTGpIVWwwVHh3U2c5REthLUFFZzV5ZFlvQ1R5RXI5WEJpQ2NKWEJlQlZSQml2QUQ5ODVobXpKbFFHek5ncXI?oc=5",
+      "source": "Reuters",
       "summary": "",
       "published": "",
       "image": "",
@@ -6108,22 +6092,19 @@
       "origin": "premium_google_news",
       "related": "MCO",
       "finnhub_category": "",
-      "category": "Private Assets / Alternatives",
+      "category": "General",
       "sentiment": "Neutral",
-      "product_line": "Private Capital",
+      "product_line": "Non-core",
       "segments": [
         "Non-core"
       ],
-      "non_core": false,
+      "non_core": true,
       "importance_score": 45,
       "importance": "Medium",
       "impact_level": "Medium",
-      "id": "483038334fc18e4a",
-      "signals": [
-        "Index / ETF",
-        "Private Assets / Alternatives"
-      ],
-      "why_it_matters": "Private-markets move — adjacent to MSCI's Burgiss/PrivatePulse stack.",
+      "id": "805043d95811f600",
+      "signals": [],
+      "why_it_matters": "News mention involving Moody's in Ratings / Risk Analytics.",
       "key_points": [],
       "reading_time": "<1 min read"
     },
@@ -6182,6 +6163,37 @@
       "id": "c7a682fdc1f8082a",
       "signals": [],
       "why_it_matters": "News mention involving S&P Global in Indices / Ratings / Data.",
+      "key_points": [],
+      "reading_time": "<1 min read"
+    },
+    {
+      "title": "Global Dividend ETFs Are Crushing the S&P 500. 3 ETFs With Yields Above 5%.",
+      "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxNdEFQVVVBcEVtaHA4d3BwdFFnVHlXOVpBa2lDOHViTnRUNjhOajNheF9PSnRJMkl1RWRFd2ZUTTlPdE1RSHNwazJKRTBJSXNodUk1VHFMWGFrZFN4UkNKM2Q2NUN4dUN1anVsWldHWV82ZGtPcGl5M3NtMllBN0JoWWRNREF5T21YZDJ3?oc=5",
+      "source": "Barron's",
+      "summary": "",
+      "published": "",
+      "image": "",
+      "competitor": "Morningstar",
+      "ticker": "MORN",
+      "segment": "Research / ESG / Ratings",
+      "origin": "premium_google_news",
+      "related": "MORN",
+      "finnhub_category": "",
+      "category": "General",
+      "sentiment": "Neutral",
+      "product_line": "Non-core",
+      "segments": [
+        "Non-core"
+      ],
+      "non_core": true,
+      "importance_score": 35,
+      "importance": "Low",
+      "impact_level": "Low",
+      "id": "30a0f07c3376bbd4",
+      "signals": [
+        "Index / ETF"
+      ],
+      "why_it_matters": "News mention involving Morningstar in Research / ESG / Ratings.",
       "key_points": [],
       "reading_time": "<1 min read"
     },
@@ -6246,35 +6258,6 @@
       "reading_time": "<1 min read"
     },
     {
-      "title": "Struggling Nike will cut around 1,400 jobs in efficiency push",
-      "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE5SeTZBQkRhelZvZ0lDYjNuZk50LUxPODdnRHpxWmN4MUEtbkxybFAwN09URUo3ZUhwYzJNZjdBWXptZ1RBNDVpcmV1czcxczd1MVdSX09KbjJHeGM2cG5Idmg1M1hqcDlCazdmWXQwZVY?oc=5",
-      "source": "Reuters",
-      "summary": "",
-      "published": "",
-      "image": "",
-      "competitor": "Morningstar",
-      "ticker": "MORN",
-      "segment": "Research / ESG / Ratings",
-      "origin": "premium_google_news",
-      "related": "MORN",
-      "finnhub_category": "",
-      "category": "General",
-      "sentiment": "Neutral",
-      "product_line": "Non-core",
-      "segments": [
-        "Non-core"
-      ],
-      "non_core": true,
-      "importance_score": 20,
-      "importance": "Low",
-      "impact_level": "Low",
-      "id": "09a0e1c45ce029a1",
-      "signals": [],
-      "why_it_matters": "News mention involving Morningstar in Research / ESG / Ratings.",
-      "key_points": [],
-      "reading_time": "<1 min read"
-    },
-    {
       "title": "Wall Street’s Elite Team of Coffee Tasters Who Keep the Global Market Running",
       "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPY2o5aW4xRjhmc2tzRkJlNzJZdmNqNEk2eHRubnBBcXl6NHprRzVCQmpweVhvSUJuVDk2ZF9zdjREaGxYTDh6Z1RWZ1dMbi1NdHFzNXRQa1p5aFQwaVNMbHhfeWZVYUxweGZ3UnpIcnhsVml2WFJVN3BsWGtzSkR2eDZ4eFUweHNtczllX1hqUFhxcEQ5NGEyYmgzYVMtckR0Z1pjV1k5MHlNWS1qa2RvR1hoZUtzOXg5YXpxbXpON1Uwdw?oc=5",
       "source": "WSJ",
@@ -6333,6 +6316,35 @@
       "reading_time": "<1 min read"
     },
     {
+      "title": "Polymarket in Talks to Raise Money at About $15 Billion Valuation",
+      "url": "https://news.google.com/rss/articles/CBMimwVBVV95cUxQcklWQjhrM3Jvb3N5blZmWHBnN3Q0bFVKUkFGV3UxSHZENUtMM0hUYkFvc3RUXzBkUmktQ1IwZnpQUlB1ZFNaYzhKWEJVUG1yLUhjUzNOcHZsU2JHTzVOVkg0V1o5aUNDVFVsTElSSGNNbFc3eEItejYxYm5wOFI1UFp2QmlqSVZsVUx3NURCeG55RHZQMG5vZ1hUYmtiSUNDMmZwSDNPZW9RcklqWHQweThxakxoNmZMMThhZEdqZUZ1YUlnMEtqcFZoaFYweVlPdW56ejhDM1RjZ2tEdmY2YnAyVmhORUdYN2Y2V2MxQ1pxLTRVME5TNG5GTDhFejNwLXZOQ1c3T0dENF9SSDI1Q3c0UVltUk5lcmNUUllHOV9Ya2stY2VjTEJ4dzUyQTlFRVpPSVVxeGRWYmp3Z0p1a2ZoYnhGRDAyYXMtNnk5NjdZaDQ0TVBzeUJhbmJuU2lvZVBrV0t0WHRxcTlMX0lTMXVSeHI3TWJFU1E2dTRWTWxxdVlTcEI4NDF6NWhwNFR4VGg3anBuMlFHbEpvYnlVa3o4N2tRSEYySU9CNmczNk1ta3hsakFMTDNJNmRYTWpNd3lGNldsYzFrZjB0blBCYlk5bFF3Vm1FSDZJbjFOSjdlUWdwa05kaGFkMEFwY3RKMnVJQUhmSnB6MHRqd3ltM0lzWHU5N3ZxazMyQkJIaTFPdkJaUENzNUNIMndoQzNFTzU5S01CQUdQNWpZaEtUcFlKUVJmX0RIWTc3T01wa0RRbDluRWhSREszcXpUSEw3aFdndzJ4dnpOZV96RjBqenFnd3lqVnc4anQxdVpySXJfbUhIa0MwRGkycU9FbG8yNEhoNm14cXJwVzZtNkJHcDdrSGpIbTNNOXpF?oc=5",
+      "source": "links.message.bloomberg.com",
+      "summary": "",
+      "published": "",
+      "image": "",
+      "competitor": "Intercontinental Exchange",
+      "ticker": "ICE",
+      "segment": "Exchanges / Data / Indices",
+      "origin": "premium_google_news",
+      "related": "ICE",
+      "finnhub_category": "",
+      "category": "General",
+      "sentiment": "Neutral",
+      "product_line": "Non-core",
+      "segments": [
+        "Non-core"
+      ],
+      "non_core": true,
+      "importance_score": 20,
+      "importance": "Low",
+      "impact_level": "Low",
+      "id": "41043bb893a04218",
+      "signals": [],
+      "why_it_matters": "News mention involving Intercontinental Exchange in Exchanges / Data / Indices.",
+      "key_points": [],
+      "reading_time": "<1 min read"
+    },
+    {
       "title": "Polymarket in talks to raise money at about $15 billion valuation, The Information reports",
       "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNZ0FpUHl0R1dVb3J6WmRFbW9iWDBOeEJhSVdpTC1XbFRSaUJDSmtZU3VmWHYzeEJCQVplRlBfdGtHaXVRckxRTC04eVlrekNSSVJDSjR4OG5BVm1xbTdQQnRVV3RrR2ZRWEZaOU5YN3NaV1NpMEtvSzNsZktDY0NTYjVDUGRhT1g5TlFJV2pHY1h1Z25iU2FGd2tfbzZFSVlRS3hvR0U4NmxEQk9sQWlBRmdJc3Z3SFcya0oxaQ?oc=5",
       "source": "Reuters",
@@ -6356,35 +6368,6 @@
       "importance": "Low",
       "impact_level": "Low",
       "id": "428818453f5eb8b4",
-      "signals": [],
-      "why_it_matters": "News mention involving Intercontinental Exchange in Exchanges / Data / Indices.",
-      "key_points": [],
-      "reading_time": "<1 min read"
-    },
-    {
-      "title": "Polymarket In Talks For New Investment At $15 Billion Valuation",
-      "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxONFo5VDNMemxQblV2a0NJb1AzWUdYVjhEMnZkcFNRUTIxMnBHZVlGaVo1d2JBODFXMktoQUpmM3pDb0NBWFV0QXRRT1JhZUx6b0J5dWxEOEdneUcydFRUNXRHUzJyNmJqNV84RGFNUk50cXdialdVNUhSZkZsZElCemxRUHRNTnZQVUlrazVwWkZ2V0YyUThxVHlxSXB4SUN4MGVnWE5pMXpoZGd3dUdvenp1OA?oc=5",
-      "source": "Bloomberg",
-      "summary": "",
-      "published": "",
-      "image": "",
-      "competitor": "Intercontinental Exchange",
-      "ticker": "ICE",
-      "segment": "Exchanges / Data / Indices",
-      "origin": "premium_google_news",
-      "related": "ICE",
-      "finnhub_category": "",
-      "category": "General",
-      "sentiment": "Neutral",
-      "product_line": "Non-core",
-      "segments": [
-        "Non-core"
-      ],
-      "non_core": true,
-      "importance_score": 20,
-      "importance": "Low",
-      "impact_level": "Low",
-      "id": "a479cbe290922834",
       "signals": [],
       "why_it_matters": "News mention involving Intercontinental Exchange in Exchanges / Data / Indices.",
       "key_points": [],
@@ -6480,35 +6463,6 @@
       "reading_time": "<1 min read"
     },
     {
-      "title": "Emerging-market stocks are back on top in April after punishing Iran selloff. Why they can keep on climbing.",
-      "url": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxOS1NjWnMyQ3U3ajlVRkJQOG1sbks3NDVDUXIwazJNamo1VmtEQWdWb2kzdlJNQlAtcGxRU0xOMEJELXhkajZTWFd1YmdkNnduU3k4Nms2eVVKTl9XREU5U1NrNlc1OFcyTV82Y1VRZjRPV2FNZjIybGR4anhFbWZsVXROZUVjZlVzNEtadnRYMkhmVXpobjlMVk56Xy0zRDd5WlBmNGFLTlNuYjRRQW1zUjlnMGxYVlMweDFUUWdUWVY5Yk9ELWlkZFBBTHdxSGx0NnBoMGlfbnBldk5OaHFCbWJwbw?oc=5",
-      "source": "MarketWatch",
-      "summary": "",
-      "published": "",
-      "image": "",
-      "competitor": "FactSet",
-      "ticker": "FDS",
-      "segment": "Analytics / Data Platform",
-      "origin": "premium_google_news",
-      "related": "FDS",
-      "finnhub_category": "",
-      "category": "General",
-      "sentiment": "Neutral",
-      "product_line": "Non-core",
-      "segments": [
-        "Non-core"
-      ],
-      "non_core": true,
-      "importance_score": 20,
-      "importance": "Low",
-      "impact_level": "Low",
-      "id": "523cf9056bb80732",
-      "signals": [],
-      "why_it_matters": "News mention involving FactSet in Analytics / Data Platform.",
-      "key_points": [],
-      "reading_time": "<1 min read"
-    },
-    {
       "title": "IBM’s stock falls as software revenue underwhelms",
       "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxQaEZ0TDl0Y0JxSHBOcGlHM2J3TG1YMkljNnZTanhSM2tlbHhJMXJBTzZIUG90eVFmZzNkQkJLTUhyajhFNVFnZzh5WFlReGlGLWVuX2RndnoxTjVIU2sweHNlZ0kwNmhPeVZsQ25sZE82VzZKdXo5aEtaRTdWYVF4Unc0ZTBFQzJoWlNDVEszejV1VmszdHc?oc=5",
       "source": "MarketWatch",
@@ -6590,6 +6544,35 @@
       "importance": "Low",
       "impact_level": "Low",
       "id": "2481ec85eeabee0b",
+      "signals": [],
+      "why_it_matters": "News mention involving FactSet in Analytics / Data Platform.",
+      "key_points": [],
+      "reading_time": "<1 min read"
+    },
+    {
+      "title": "How SaaSpocalypse fears actually bolstered SAP profits by over $150 million",
+      "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxQanFJTDlzbW1XckZDLTU0bFpDX0VGc2NrZUJZQnFkd2lpclFWdDNBbmlQT1hSWDVDbWo3NjRfM19XQk5PRXpCWVc4T2d4UmNxYmcySFFKRHZCcEZKR3NnYVBtTmdjMkFTaVJFQXJ1UGxkTUdSRW1wSjMyS2dtVzljZjFDUGdNS19yWklQaFdaUzhMRk5VR2tQdjRtN1RoZmkwQXZWempPVHZxSVdxTG84ZDN1bVQ4d3N5?oc=5",
+      "source": "MarketWatch",
+      "summary": "",
+      "published": "",
+      "image": "",
+      "competitor": "FactSet",
+      "ticker": "FDS",
+      "segment": "Analytics / Data Platform",
+      "origin": "premium_google_news",
+      "related": "FDS",
+      "finnhub_category": "",
+      "category": "General",
+      "sentiment": "Neutral",
+      "product_line": "Non-core",
+      "segments": [
+        "Non-core"
+      ],
+      "non_core": true,
+      "importance_score": 20,
+      "importance": "Low",
+      "impact_level": "Low",
+      "id": "14122dc327de3147",
       "signals": [],
       "why_it_matters": "News mention involving FactSet in Analytics / Data Platform.",
       "key_points": [],

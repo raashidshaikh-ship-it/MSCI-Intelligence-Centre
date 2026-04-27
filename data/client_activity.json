@@ -1,8 +1,27 @@
 {
-  "last_updated": "2026-04-27T02:13:46.294575Z",
-  "total_activities": 22,
+  "last_updated": "2026-04-27T10:11:23.427320Z",
+  "total_activities": 23,
   "clients_tracked": 30,
   "activities": [
+    {
+      "title": "BlackRock Dynamic High Income Portfolio's iShares Core MSCI Emerging Markets ETF(IEMG) Holding History - GuruFocus",
+      "source": "GuruFocus",
+      "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQWEt5c2VTcWVER3N3ZG1XSm0zQTBHWTNYd080T0ZYWHNWNlQyalctZDdTN2ROdWhMU1ZmMFR5NmZocUpkaUczczdtV1hkUGNHYUEzS1EyRENkVl9pZ3NHWEhkZmtJLTRSVnZya1Y3cFhoT194dnd5VDhoU29oem91aFp5T2tMV0ZUV3dfN1duUTJnOUdUcDRWaA?oc=5",
+      "published": "Fri, 24 Apr 2026 22:27:41 GMT",
+      "client": "BlackRock",
+      "client_type": "Asset Manager",
+      "id": "e7a3fa669963",
+      "activity_type": "General Activity",
+      "msci_linked": true,
+      "msci_product": "MSCI EM",
+      "deal_value": "N/A",
+      "opportunity_type": "Defend",
+      "opportunity_signal": "Existing MSCI relationship — monitor for renewal signals",
+      "competitor_risk": "None detected",
+      "region": "Global",
+      "priority": "High",
+      "scraped_at": "2026-04-27T10:11:09.989161Z"
+    },
     {
       "title": "The Best Global Large-Cap Growth Equity Funds - Morningstar Canada",
       "source": "Morningstar Canada",

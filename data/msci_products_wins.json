@@ -1,7 +1,20 @@
 {
-  "last_updated": "2026-04-27T02:14:08.974836Z",
-  "total_items": 51,
+  "last_updated": "2026-04-27T10:11:48.446791Z",
+  "total_items": 53,
   "products": [
+    {
+      "title": "China stocks win most MSCI index additions in nearly three years - MSN",
+      "source": "MSN",
+      "url": "https://news.google.com/rss/articles/CBMiiwNBVV95cUxOcVJrS2ljVUNMcHNoQmo3cHVyQk14OE1IUmE0YnNDWnRUSTZpRVU2cmg1Vy1VM0lsVjlFRGQ4ckpRNHBLckgwMlFseGtyTHVVZW5vTkRRTDVNdFl3QV9HNnBZa0hvRnFJcjNKMUY5S1lRZm9Sc2d6NURpS0xPenVHMFZuRXNaYkhWY3p1anZGOHRLZDdXT284UldCR2RxMlJkZnhJTkM4VllCOTZlM3VsY1k0VnB4UDNuQU5USDBaT3Y1RFdRQVZ5TzV0MmF3MVd1dFlVdEZuNVdGT01PZ3VqZXU2RUVKWXRieEdkRkd4UnVDQTlwckgzSDVPdXU1Q3o3bFdGWTNGbTlVUUdyTnJLaGFPclp0Z2kyQ3AyOVlxRThjYm9rS0xTMDRzdjk2UmJIc1V0QU5PT0ZKQm1IWFE1bnRBcWl2Q2s1SzRCTGFhLTZYN19QUzRSd0NSYTBBY3RubkZGbVBTT0MxcGoxQUprdzdQXzJHY3pwRW5JUUROcTRWM2RWejN1c19iaw?oc=5",
+      "published": "Sun, 26 Apr 2026 17:03:45 GMT",
+      "id": "53431b2df02b",
+      "product_line": "Index Solutions",
+      "launch_type": "Announcement",
+      "section": "Product",
+      "summary": "Details not available.",
+      "competitive_edge": "N/A",
+      "scraped_at": "2026-04-27T10:11:46.167187Z"
+    },
     {
       "title": "Ping An Bank Upgraded to AAA in MSCI ESG Ratings, Ranking Among the Leading Global Banks - Yahoo Finance",
       "source": "Yahoo Finance",
@@ -489,6 +502,19 @@
     }
   ],
   "milestones": [
+    {
+      "title": "MSCI (MSCI) earnings expected to grow: Should you buy? - MSN",
+      "source": "MSN",
+      "url": "https://news.google.com/rss/articles/CBMivgJBVV95cUxNMmNoM1M4Vm1fTFRxNnJMb2ZBVTRIaXBpSWVSWVBfeVU4VzNUR1E2Z3k5OGZya09MTkI0ZFhNTkx2d1k4dWVWU05HQy14VkRJNE54S3BZUFNDWFJqdnQ0T3lwcW9JMEdCQ2MxRU5KbWlib3dqeGtuTWQxVGhtRU85WmJXRWdwdmhhUFpZa3RPd3F6UE9iVk5GbTBQcjR4bEdKU1k4UF8yMnExa3ZSVXV1OW0zUjEyX3FQX1c2MGo4eEJLZHNieTcyRWFTODhkZ1Jqd2N4a3Zrd3FvV1RqbGszclpBRXYzdzVvM2tyRkxUeERWanhjVEw3bjlaQkJfU0ZCQzlwd3oyZEJ3emlRZHVkdmNGM1E3N3pTUmRFWUFIbGR2elVtNEhWeHJRb0o1MHBPRG9FajBneTRJRC1JaVE?oc=5",
+      "published": "Wed, 15 Apr 2026 07:00:45 GMT",
+      "id": "d589fdd40a47",
+      "product_line": "General",
+      "launch_type": "Milestone",
+      "section": "Milestone",
+      "summary": "Details not available.",
+      "competitive_edge": "N/A",
+      "scraped_at": "2026-04-27T10:11:47.446637Z"
+    },
     {
       "title": "MSCI Set to Post Q1 Earnings: What's in Store for the Stock? - TradingView",
       "source": "TradingView",
