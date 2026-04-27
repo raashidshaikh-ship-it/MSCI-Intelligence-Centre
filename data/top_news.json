@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-26T16:37:19.166695+00:00",
+  "last_updated": "2026-04-27T02:13:07.552434+00:00",
   "total": 200,
   "articles": [
     {
@@ -100,7 +100,7 @@
       "id": "d7813ea3091b8c71",
       "signals": [
         "Technology / AI",
-        "Breaking (<24h)",
+        "Recent (<3d)",
         "High priority"
       ],
       "why_it_matters": "Tech / AI move — potential differentiation versus MSCI analytics.",
@@ -135,7 +135,7 @@
       "impact_level": "Medium",
       "id": "59927c05a787a17c",
       "signals": [
-        "Breaking (<24h)"
+        "Recent (<3d)"
       ],
       "why_it_matters": "News mention involving Nasdaq in Exchanges / Index Licensing.",
       "key_points": [
@@ -168,7 +168,7 @@
       "impact_level": "Medium",
       "id": "821ecf70c21e41a9",
       "signals": [
-        "Breaking (<24h)"
+        "Recent (<3d)"
       ],
       "why_it_matters": "News mention involving S&P Global in Indices / Ratings / Data.",
       "key_points": [
@@ -201,7 +201,7 @@
       "impact_level": "High",
       "id": "cffcdd6191663c67",
       "signals": [
-        "Breaking (<24h)"
+        "Recent (<3d)"
       ],
       "why_it_matters": "News mention involving S&P Global in Indices / Ratings / Data.",
       "key_points": [
@@ -237,7 +237,7 @@
       "id": "34179cab1a8a29f3",
       "signals": [
         "Legal / Litigation",
-        "Breaking (<24h)",
+        "Recent (<3d)",
         "High priority"
       ],
       "why_it_matters": "Litigation risk — may constrain Nasdaq's near-term posture.",
@@ -245,6 +245,43 @@
         "NEW YORK, April 24, 2026 (GLOBE NEWSWIRE) -- At the end of the settlement date of April 15, 2026, short interest in 3,689 Nasdaq Global MarketSM securities totaled 16,579,123,734 shares compared with 16,513,796,397 shares in 3,694 Global Market issues reported for the prior settlement date of March 31, 2026.",
         "The mid-April short interest represents 2.71 days compared with 2.73 days for the prior reporting period.",
         "Short interest in 1,643 securities on The Nasdaq Capital MarketSM totaled 3,919,142,"
+      ],
+      "reading_time": "1 min read"
+    },
+    {
+      "title": "ETFs Have Added $600 Billion YTD: See the Winning ETFs Here",
+      "url": "https://finnhub.io/api/news?id=b12d9813eb8939b3a7819a7a06b12ab70d762e419f50954d5135cf178ba33690",
+      "source": "Yahoo",
+      "summary": "ETFs are a huge part of the investing landscape, having exploded in popularity since the 2019 ETF rule. The funds offer greater tax efficiency, transparency, and tradability than their mutual fund counterparts. In fact, this year has already seen ETFs add more than $600 billion YTD — a massive influx even amid global instability and [...]",
+      "published": "2026-04-24T19:46:38+00:00",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "competitor": "FactSet",
+      "ticker": "FDS",
+      "segment": "Analytics / Data Platform",
+      "origin": "finnhub",
+      "related": "FDS",
+      "finnhub_category": "company",
+      "category": "ETF / Fund Flows",
+      "sentiment": "Neutral",
+      "product_line": "Index",
+      "segments": [
+        "Asset Managers"
+      ],
+      "non_core": false,
+      "importance_score": 65,
+      "importance": "High",
+      "impact_level": "High",
+      "id": "6ddfdab34598da65",
+      "signals": [
+        "Index / ETF",
+        "ETF / Fund Flows",
+        "Recent (<3d)"
+      ],
+      "why_it_matters": "ETF / fund-flow signal — read-through for index licensing revenue.",
+      "key_points": [
+        "ETFs are a huge part of the investing landscape, having exploded in popularity since the 2019 ETF rule.",
+        "The funds offer greater tax efficiency, transparency, and tradability than their mutual fund counterparts.",
+        "In fact, this year has already seen ETFs add more than $600 billion YTD — a massive influx even amid global instability and [...]"
       ],
       "reading_time": "1 min read"
     },
@@ -274,7 +311,7 @@
       "id": "8d8f9dc3d26ae999",
       "signals": [
         "Technology / AI",
-        "Breaking (<24h)",
+        "Recent (<3d)",
         "High priority"
       ],
       "why_it_matters": "Tech / AI move — potential differentiation versus MSCI analytics.",
@@ -308,7 +345,7 @@
       "impact_level": "Medium",
       "id": "aa41ef766460ab1c",
       "signals": [
-        "Breaking (<24h)"
+        "Recent (<3d)"
       ],
       "why_it_matters": "News mention involving CME Group in Derivatives / Indices.",
       "key_points": [
@@ -342,7 +379,7 @@
       "impact_level": "Medium",
       "id": "8f0b069e9065c1a5",
       "signals": [
-        "Breaking (<24h)"
+        "Recent (<3d)"
       ],
       "why_it_matters": "News mention involving CME Group in Derivatives / Indices.",
       "key_points": [
@@ -376,7 +413,7 @@
       "impact_level": "Medium",
       "id": "6e9ae1e3dca5c728",
       "signals": [
-        "Breaking (<24h)"
+        "Recent (<3d)"
       ],
       "why_it_matters": "News mention involving CME Group in Derivatives / Indices.",
       "key_points": [
@@ -411,7 +448,7 @@
       "id": "349fef52783be04d",
       "signals": [
         "Fixed Income / Credit",
-        "Breaking (<24h)"
+        "Recent (<3d)"
       ],
       "why_it_matters": "Credit / fixed-income development — read across to credit analytics demand.",
       "key_points": [
@@ -445,7 +482,7 @@
       "id": "9a2387aa1b02c1aa",
       "signals": [
         "Regulatory",
-        "Breaking (<24h)",
+        "Recent (<3d)",
         "High priority"
       ],
       "why_it_matters": "Regulatory development affecting Exchanges / Index Licensing market structure.",
@@ -481,7 +518,7 @@
       "id": "7f00203bab0a0ca3",
       "signals": [
         "Fixed Income / Credit",
-        "Breaking (<24h)"
+        "Recent (<3d)"
       ],
       "why_it_matters": "Credit / fixed-income development — read across to credit analytics demand.",
       "key_points": [
@@ -515,7 +552,7 @@
       "id": "54b4407b2b0b3309",
       "signals": [
         "Earnings",
-        "Breaking (<24h)"
+        "Recent (<3d)"
       ],
       "why_it_matters": "Financial print signals competitor health and client-spend implications.",
       "key_points": [
@@ -548,7 +585,7 @@
       "impact_level": "High",
       "id": "85c4c52cd3c581ee",
       "signals": [
-        "Breaking (<24h)"
+        "Recent (<3d)"
       ],
       "why_it_matters": "News mention involving Nasdaq in Exchanges / Index Licensing.",
       "key_points": [
@@ -582,7 +619,7 @@
       "impact_level": "Medium",
       "id": "88a5d034913030b4",
       "signals": [
-        "Breaking (<24h)"
+        "Recent (<3d)"
       ],
       "why_it_matters": "News mention involving S&P Global in Indices / Ratings / Data.",
       "key_points": [
@@ -3541,13 +3578,11 @@
         "Non-core"
       ],
       "non_core": true,
-      "importance_score": 40,
-      "importance": "Medium",
-      "impact_level": "Medium",
+      "importance_score": 30,
+      "importance": "Low",
+      "impact_level": "Low",
       "id": "f89b252227d73666",
-      "signals": [
-        "Recent (<3d)"
-      ],
+      "signals": [],
       "why_it_matters": "News mention involving FactSet in Analytics / Data Platform.",
       "key_points": [
         "Waste Connections (WCN.TO, WCN) was up 2.9% in after-hours Nasdaq trading Wednesday as it reported h"
@@ -3574,13 +3609,12 @@
         "Non-core"
       ],
       "non_core": false,
-      "importance_score": 50,
+      "importance_score": 40,
       "importance": "Medium",
       "impact_level": "Medium",
       "id": "79f6d89d392bac3b",
       "signals": [
-        "Private Assets / Alternatives",
-        "Recent (<3d)"
+        "Private Assets / Alternatives"
       ],
       "why_it_matters": "Private-markets move — adjacent to MSCI's Burgiss/PrivatePulse stack.",
       "key_points": [
@@ -3610,13 +3644,11 @@
         "Non-core"
       ],
       "non_core": true,
-      "importance_score": 40,
-      "importance": "Medium",
-      "impact_level": "Medium",
+      "importance_score": 30,
+      "importance": "Low",
+      "impact_level": "Low",
       "id": "10a7a427ce3363c2",
-      "signals": [
-        "Recent (<3d)"
-      ],
+      "signals": [],
       "why_it_matters": "News mention involving Intercontinental Exchange in Exchanges / Data / Indices.",
       "key_points": [
         "Wall Street is overwhelmingly bullish on the stocks in this article, with price targets suggesting significant upside potential.",
@@ -3644,14 +3676,13 @@
         "Non-core"
       ],
       "non_core": false,
-      "importance_score": 95,
+      "importance_score": 85,
       "importance": "Critical",
       "impact_level": "Critical",
       "id": "2509649dfab75681",
       "signals": [
         "Index / ETF",
         "Indices / Benchmarks",
-        "Recent (<3d)",
         "High priority"
       ],
       "why_it_matters": "Benchmark move — watch for licensing / AUM impact on index franchise. Index/benchmark angle present.",
@@ -3682,13 +3713,12 @@
         "Non-core"
       ],
       "non_core": true,
-      "importance_score": 65,
-      "importance": "High",
-      "impact_level": "High",
+      "importance_score": 55,
+      "importance": "Medium",
+      "impact_level": "Medium",
       "id": "959b904a5e6a20f0",
       "signals": [
-        "Product Launch",
-        "Recent (<3d)"
+        "Product Launch"
       ],
       "why_it_matters": "New Derivatives / Indices offering — potential pressure on MSCI's roadmap.",
       "key_points": [
@@ -3716,14 +3746,13 @@
         "Non-core"
       ],
       "non_core": false,
-      "importance_score": 90,
+      "importance_score": 80,
       "importance": "Critical",
       "impact_level": "Critical",
       "id": "69fca277f83e0ab6",
       "signals": [
         "Index / ETF",
         "ETF / Fund Flows",
-        "Recent (<3d)",
         "High priority"
       ],
       "why_it_matters": "ETF / fund-flow signal — read-through for index licensing revenue.",
@@ -3753,13 +3782,11 @@
         "Non-core"
       ],
       "non_core": true,
-      "importance_score": 40,
-      "importance": "Medium",
-      "impact_level": "Medium",
+      "importance_score": 30,
+      "importance": "Low",
+      "impact_level": "Low",
       "id": "fa8e255df2b5263b",
-      "signals": [
-        "Recent (<3d)"
-      ],
+      "signals": [],
       "why_it_matters": "News mention involving Morningstar in Research / ESG / Ratings.",
       "key_points": [
         "The stocks in this article have caught Wall Street’s attention in a big way, with price targets implying returns above 20%.",
@@ -3787,14 +3814,13 @@
         "Non-core"
       ],
       "non_core": false,
-      "importance_score": 95,
+      "importance_score": 85,
       "importance": "Critical",
       "impact_level": "Critical",
       "id": "da0e74b1c6565bef",
       "signals": [
         "Index / ETF",
         "Indices / Benchmarks",
-        "Recent (<3d)",
         "High priority"
       ],
       "why_it_matters": "Benchmark move — watch for licensing / AUM impact on index franchise. Index/benchmark angle present.",
@@ -3825,13 +3851,12 @@
         "Non-core"
       ],
       "non_core": true,
-      "importance_score": 55,
+      "importance_score": 45,
       "importance": "Medium",
       "impact_level": "Medium",
       "id": "d8193a03ea860149",
       "signals": [
-        "Earnings",
-        "Recent (<3d)"
+        "Earnings"
       ],
       "why_it_matters": "Financial print signals competitor health and client-spend implications.",
       "key_points": [
@@ -3859,13 +3884,11 @@
         "Non-core"
       ],
       "non_core": true,
-      "importance_score": 40,
-      "importance": "Medium",
-      "impact_level": "Medium",
+      "importance_score": 30,
+      "importance": "Low",
+      "impact_level": "Low",
       "id": "cf414af5d5126d9c",
-      "signals": [
-        "Recent (<3d)"
-      ],
+      "signals": [],
       "why_it_matters": "News mention involving CME Group in Derivatives / Indices.",
       "key_points": [
         "In the grain markets, Soybean futures traded mixed, remaining locked in a five-week sideways pattern as global headlines overshadowed typical weather and planting acreage market drivers."
@@ -3892,14 +3915,12 @@
         "Non-core"
       ],
       "non_core": false,
-      "importance_score": 75,
+      "importance_score": 65,
       "importance": "High",
       "impact_level": "High",
       "id": "21b0de81519de071",
       "signals": [
-        "Technology / AI",
-        "Recent (<3d)",
-        "High priority"
+        "Technology / AI"
       ],
       "why_it_matters": "Tech / AI move — potential differentiation versus MSCI analytics.",
       "key_points": [
@@ -3927,13 +3948,11 @@
         "Non-core"
       ],
       "non_core": true,
-      "importance_score": 40,
-      "importance": "Medium",
-      "impact_level": "Medium",
+      "importance_score": 30,
+      "importance": "Low",
+      "impact_level": "Low",
       "id": "6772e29c8a53ab88",
-      "signals": [
-        "Recent (<3d)"
-      ],
+      "signals": [],
       "why_it_matters": "News mention involving CME Group in Derivatives / Indices.",
       "key_points": [
         "WTI Crude Oil futures maintained levels above $90 a barrel following stalled U.S.-Iran negotiations and continued closures at the Strait of Hormuz."
@@ -3960,14 +3979,12 @@
         "Non-core"
       ],
       "non_core": true,
-      "importance_score": 80,
-      "importance": "Critical",
-      "impact_level": "Critical",
+      "importance_score": 70,
+      "importance": "High",
+      "impact_level": "High",
       "id": "6f33ee1efbac0f8a",
       "signals": [
-        "Earnings",
-        "Recent (<3d)",
-        "High priority"
+        "Earnings"
       ],
       "why_it_matters": "Financial print signals competitor health and client-spend implications.",
       "key_points": [
@@ -3995,14 +4012,12 @@
         "Corporates"
       ],
       "non_core": false,
-      "importance_score": 80,
-      "importance": "Critical",
-      "impact_level": "Critical",
+      "importance_score": 70,
+      "importance": "High",
+      "impact_level": "High",
       "id": "474846935c0163c4",
       "signals": [
-        "Earnings",
-        "Recent (<3d)",
-        "High priority"
+        "Earnings"
       ],
       "why_it_matters": "Financial print signals competitor health and client-spend implications.",
       "key_points": [
@@ -4966,37 +4981,6 @@
       "reading_time": "1 min read"
     },
     {
-      "title": "This Covered Call On Target Stock Can Increase Retail Giant's Yield",
-      "url": "https://finnhub.io/api/news?id=943b2c55b1308e703c973c972bafc27cc9ee6fda49bf643e5d3b8a2ac023cfd0",
-      "source": "Yahoo",
-      "summary": "Target stock just broke out to a new 52-week high, making a covered call trade a good way to capitalize on its good fortunes.",
-      "published": "2026-04-21T16:29:46+00:00",
-      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
-      "competitor": "FactSet",
-      "ticker": "FDS",
-      "segment": "Analytics / Data Platform",
-      "origin": "finnhub",
-      "related": "FDS",
-      "finnhub_category": "company",
-      "category": "General",
-      "sentiment": "Neutral",
-      "product_line": "Non-core",
-      "segments": [
-        "Non-core"
-      ],
-      "non_core": true,
-      "importance_score": 30,
-      "importance": "Low",
-      "impact_level": "Low",
-      "id": "dd82b805620b78f6",
-      "signals": [],
-      "why_it_matters": "News mention involving FactSet in Analytics / Data Platform.",
-      "key_points": [
-        "Target stock just broke out to a new 52-week high, making a covered call trade a good way to capitalize on its good fortunes."
-      ],
-      "reading_time": "1 min read"
-    },
-    {
       "title": "Why ICE (ICE) is Poised to Beat Earnings Estimates Again",
       "url": "https://finnhub.io/api/news?id=f0ac2fcfb6738941895c61b18b8b99af9cade7a27b89475f1716b2b4a602c56c",
       "source": "Yahoo",
@@ -5739,41 +5723,6 @@
       "reading_time": "1 min read"
     },
     {
-      "title": "Global Dividend ETFs Are Crushing the S&P 500. 3 ETFs With Yields Above 5%",
-      "url": "https://finnhub.io/api/news?id=2a6c167d7a125e67c5f82c321bb541b41da73357ac989bf7b4f9525f40ff2adf",
-      "source": "Yahoo",
-      "summary": "It’s harder and harder to find U.S. stock-focused mutual funds that boast generous dividend yields.  Fortunately, there are a handful of foreign and emerging markets funds that still offer payouts of 5% or more.  With the U.S. stock market dominated by growth-focused technology companies, the yield of the  has shrunk to just 1.2%, its lowest levels since the early ‘90s-era dot-com bubble.",
-      "published": "2026-04-12T06:00:00+00:00",
-      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
-      "competitor": "Morningstar",
-      "ticker": "MORN",
-      "segment": "Research / ESG / Ratings",
-      "origin": "finnhub",
-      "related": "MORN",
-      "finnhub_category": "company",
-      "category": "General",
-      "sentiment": "Positive",
-      "product_line": "Non-core",
-      "segments": [
-        "Non-core"
-      ],
-      "non_core": true,
-      "importance_score": 35,
-      "importance": "Low",
-      "impact_level": "Low",
-      "id": "30a0f07c3376bbd4",
-      "signals": [
-        "Index / ETF"
-      ],
-      "why_it_matters": "News mention involving Morningstar in Research / ESG / Ratings.",
-      "key_points": [
-        "It’s harder and harder to find U.S.",
-        "stock-focused mutual funds that boast generous dividend yields.",
-        "Fortunately, there are a handful of foreign and emerging markets funds that still offer payouts of 5% or more."
-      ],
-      "reading_time": "1 min read"
-    },
-    {
       "title": "Aladdin Wealth Launches AI Auto-Commentary With Morgan Stanley",
       "url": "https://www.blackrock.com/aladdin/discover/aladdin-wealth-launches-ai-enabled-commentary-tool-at-morgan-stanley",
       "source": "BlackRock / Aladdin",
@@ -5973,6 +5922,35 @@
       "reading_time": "<1 min read"
     },
     {
+      "title": "S&P, Nasdaq close at records on Iran ceasefire extension, earnings",
+      "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxOTE1IRDNDTDNBUmcwZFVXOW40dldfSmc0YzU3WHZGb3pxZzJCY1RVWmotelJHa0g4SURfUHQwdFh3cTk5LTUwR283Z2NxWE5IdjVrUnNScERKaU56TkpnbkhaTk5ucGZCWHpDVVRmdUpGMjRDUjBHV3BSSGdDSFdrbzB4NVd3T0doSnhzajQwMWFYdjRRRVpxLU4tSm04R05WR0IzbUNTNA?oc=5",
+      "source": "Reuters",
+      "summary": "",
+      "published": "",
+      "image": "",
+      "competitor": "Nasdaq",
+      "ticker": "NDAQ",
+      "segment": "Exchanges / Index Licensing",
+      "origin": "premium_google_news",
+      "related": "NDAQ",
+      "finnhub_category": "",
+      "category": "General",
+      "sentiment": "Neutral",
+      "product_line": "Non-core",
+      "segments": [
+        "Non-core"
+      ],
+      "non_core": true,
+      "importance_score": 45,
+      "importance": "Medium",
+      "impact_level": "Medium",
+      "id": "43a8091d54794867",
+      "signals": [],
+      "why_it_matters": "News mention involving Nasdaq in Exchanges / Index Licensing.",
+      "key_points": [],
+      "reading_time": "<1 min read"
+    },
+    {
       "title": "Trading Day: Nasdaq hits new high",
       "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQd0JNRjNqQ0ppc2t3c04xUUpkSHBPX1FCLXlPdjVmSnRzTG5WWVVJdUNVdVc4c0dEQk1QLWxnSVB1WmhIZG5OaGptWWV4QXZFQU9uZUhrVnNSTXVCRDBXRFpKQllfalY5d3BKUzBmYWF1ZFF4WGZvanY4YTVGYXdkajNxMUFQNzkwNGd3TjdfSEIyaGc?oc=5",
       "source": "Reuters",
@@ -6031,9 +6009,9 @@
       "reading_time": "<1 min read"
     },
     {
-      "title": "S&P, Nasdaq close at records on Iran ceasefire extension, earnings",
-      "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxOTE1IRDNDTDNBUmcwZFVXOW40dldfSmc0YzU3WHZGb3pxZzJCY1RVWmotelJHa0g4SURfUHQwdFh3cTk5LTUwR283Z2NxWE5IdjVrUnNScERKaU56TkpnbkhaTk5ucGZCWHpDVVRmdUpGMjRDUjBHV3BSSGdDSFdrbzB4NVd3T0doSnhzajQwMWFYdjRRRVpxLU4tSm04R05WR0IzbUNTNA?oc=5",
-      "source": "Reuters",
+      "title": "Nasdaq Futures Jump as Intel’s Blockbuster Sales View Impresses",
+      "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQbHlsa0lPZ1BmV09ETlFScHktaWw2UnVMQmxLVlF0ejhsTFRockdMdGkyLWFla2NpRXFIeGpTMGhrNWNnYWN2Q3pxdUF1TkFyZHFraEcwbEtGVzRscWlaZlFHMXdOSXNWS2hQeFJvS1QzWFQtRmhZMHM1aUlkNllBTndqUmNxc3AxalBPSXplbTIxSzhpMTdtb21LQmxlZlNsbzlyaV9XODhrTzd1d2tKa2xjZko?oc=5",
+      "source": "Bloomberg",
       "summary": "",
       "published": "",
       "image": "",
@@ -6053,36 +6031,7 @@
       "importance_score": 45,
       "importance": "Medium",
       "impact_level": "Medium",
-      "id": "43a8091d54794867",
-      "signals": [],
-      "why_it_matters": "News mention involving Nasdaq in Exchanges / Index Licensing.",
-      "key_points": [],
-      "reading_time": "<1 min read"
-    },
-    {
-      "title": "S&P 500, Nasdaq close at records on tech lift, Iran peace talk hopes",
-      "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNeFI0QnNnNVVVckNHY3RrNk9MQTd1aS1ZRzFVZ2FzZEIycjhqSjdndzdyYkdXdGNPSThqc1lrSURHeUdQQk9JLW1KTHlUWkZweGxibG1YRVJhN2F6b0dhb0loZGo1NUtWU3FOeVNIcG1oWDY2QnppRXdVTkh5LTE4MkZoaGxWNmFTQ3JoQkxGWWRVb0c2TjRSTnMxUzA3cHp5ZDc2N1d1Z2tMOThqcFE?oc=5",
-      "source": "Reuters",
-      "summary": "",
-      "published": "",
-      "image": "",
-      "competitor": "Nasdaq",
-      "ticker": "NDAQ",
-      "segment": "Exchanges / Index Licensing",
-      "origin": "premium_google_news",
-      "related": "NDAQ",
-      "finnhub_category": "",
-      "category": "General",
-      "sentiment": "Neutral",
-      "product_line": "Non-core",
-      "segments": [
-        "Non-core"
-      ],
-      "non_core": true,
-      "importance_score": 45,
-      "importance": "Medium",
-      "impact_level": "Medium",
-      "id": "65c5042e84dab95e",
+      "id": "837d6d53d877476c",
       "signals": [],
       "why_it_matters": "News mention involving Nasdaq in Exchanges / Index Licensing.",
       "key_points": [],
@@ -6112,6 +6061,35 @@
       "importance": "Medium",
       "impact_level": "Medium",
       "id": "8bd70646fbf177ff",
+      "signals": [],
+      "why_it_matters": "News mention involving CME Group in Derivatives / Indices.",
+      "key_points": [],
+      "reading_time": "<1 min read"
+    },
+    {
+      "title": "CME Group Posts Higher 1Q Profit, Revenue on Robust Demand",
+      "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxOelkwYkFpT21yWmRIRVN5dEFfNm8wZzJwVV9Tb0hET3p6M1Ita3dCSDZwTVQ0NkhVbjNCeEdyZ0tkeWhlcm9TNEFEbHd5WWZJS1dCeHRiZC1IS0puTUxUU01QTVVJaXFrZW1kdlJPSHVvTFBhOFJuVnd1ZlR0LUdWYThJTjRnckQxM3ZudkZ5X3pyRUVzazVmQmg4RHNpcW9pVnc?oc=5",
+      "source": "MarketWatch",
+      "summary": "",
+      "published": "",
+      "image": "",
+      "competitor": "CME Group",
+      "ticker": "CME",
+      "segment": "Derivatives / Indices",
+      "origin": "premium_google_news",
+      "related": "CME",
+      "finnhub_category": "",
+      "category": "General",
+      "sentiment": "Neutral",
+      "product_line": "Non-core",
+      "segments": [
+        "Non-core"
+      ],
+      "non_core": true,
+      "importance_score": 45,
+      "importance": "Medium",
+      "impact_level": "Medium",
+      "id": "31cce207bcd50c2d",
       "signals": [],
       "why_it_matters": "News mention involving CME Group in Derivatives / Indices.",
       "key_points": [],
@@ -6181,7 +6159,7 @@
     {
       "title": "Tesla Cybertruck Sales Were Inflated by a SpaceX Buying Spree",
       "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNN240N3N4X0hmMlRsajl0ZW1IT2EyRnl3SHlKblNMV29HbV85WXVwRHhmRmYxSzRkZU1INXFDQmdNbWdnWFQxbXJBZ2thTnBpc2hjdmRPZlRQdVhnLXp3ZXF3VXhYaC1MQnNrWTdTdXZRQ0pmQkVmWUc3UEtGT25oQmJCMW1DUFhQa1YwTEJIRkFtWWZQNHBKaGQ0d0xGRmlRd3ZQODJnNE1LZ1FUZ3BXWUxqRGFZdElG?oc=5",
-      "source": "Bloomberg.com",
+      "source": "Bloomberg",
       "summary": "",
       "published": "",
       "image": "",
@@ -6355,35 +6333,6 @@
       "reading_time": "<1 min read"
     },
     {
-      "title": "Polymarket in Talks to Raise Money at About $15 Billion Valuation",
-      "url": "https://news.google.com/rss/articles/CBMimwVBVV95cUxQcklWQjhrM3Jvb3N5blZmWHBnN3Q0bFVKUkFGV3UxSHZENUtMM0hUYkFvc3RUXzBkUmktQ1IwZnpQUlB1ZFNaYzhKWEJVUG1yLUhjUzNOcHZsU2JHTzVOVkg0V1o5aUNDVFVsTElSSGNNbFc3eEItejYxYm5wOFI1UFp2QmlqSVZsVUx3NURCeG55RHZQMG5vZ1hUYmtiSUNDMmZwSDNPZW9RcklqWHQweThxakxoNmZMMThhZEdqZUZ1YUlnMEtqcFZoaFYweVlPdW56ejhDM1RjZ2tEdmY2YnAyVmhORUdYN2Y2V2MxQ1pxLTRVME5TNG5GTDhFejNwLXZOQ1c3T0dENF9SSDI1Q3c0UVltUk5lcmNUUllHOV9Ya2stY2VjTEJ4dzUyQTlFRVpPSVVxeGRWYmp3Z0p1a2ZoYnhGRDAyYXMtNnk5NjdZaDQ0TVBzeUJhbmJuU2lvZVBrV0t0WHRxcTlMX0lTMXVSeHI3TWJFU1E2dTRWTWxxdVlTcEI4NDF6NWhwNFR4VGg3anBuMlFHbEpvYnlVa3o4N2tRSEYySU9CNmczNk1ta3hsakFMTDNJNmRYTWpNd3lGNldsYzFrZjB0blBCYlk5bFF3Vm1FSDZJbjFOSjdlUWdwa05kaGFkMEFwY3RKMnVJQUhmSnB6MHRqd3ltM0lzWHU5N3ZxazMyQkJIaTFPdkJaUENzNUNIMndoQzNFTzU5S01CQUdQNWpZaEtUcFlKUVJmX0RIWTc3T01wa0RRbDluRWhSREszcXpUSEw3aFdndzJ4dnpOZV96RjBqenFnd3lqVnc4anQxdVpySXJfbUhIa0MwRGkycU9FbG8yNEhoNm14cXJwVzZtNkJHcDdrSGpIbTNNOXpF?oc=5",
-      "source": "links.message.bloomberg.com",
-      "summary": "",
-      "published": "",
-      "image": "",
-      "competitor": "Intercontinental Exchange",
-      "ticker": "ICE",
-      "segment": "Exchanges / Data / Indices",
-      "origin": "premium_google_news",
-      "related": "ICE",
-      "finnhub_category": "",
-      "category": "General",
-      "sentiment": "Neutral",
-      "product_line": "Non-core",
-      "segments": [
-        "Non-core"
-      ],
-      "non_core": true,
-      "importance_score": 20,
-      "importance": "Low",
-      "impact_level": "Low",
-      "id": "41043bb893a04218",
-      "signals": [],
-      "why_it_matters": "News mention involving Intercontinental Exchange in Exchanges / Data / Indices.",
-      "key_points": [],
-      "reading_time": "<1 min read"
-    },
-    {
       "title": "Polymarket in talks to raise money at about $15 billion valuation, The Information reports",
       "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNZ0FpUHl0R1dVb3J6WmRFbW9iWDBOeEJhSVdpTC1XbFRSaUJDSmtZU3VmWHYzeEJCQVplRlBfdGtHaXVRckxRTC04eVlrekNSSVJDSjR4OG5BVm1xbTdQQnRVV3RrR2ZRWEZaOU5YN3NaV1NpMEtvSzNsZktDY0NTYjVDUGRhT1g5TlFJV2pHY1h1Z25iU2FGd2tfbzZFSVlRS3hvR0U4NmxEQk9sQWlBRmdJc3Z3SFcya0oxaQ?oc=5",
       "source": "Reuters",
@@ -6407,6 +6356,35 @@
       "importance": "Low",
       "impact_level": "Low",
       "id": "428818453f5eb8b4",
+      "signals": [],
+      "why_it_matters": "News mention involving Intercontinental Exchange in Exchanges / Data / Indices.",
+      "key_points": [],
+      "reading_time": "<1 min read"
+    },
+    {
+      "title": "Polymarket In Talks For New Investment At $15 Billion Valuation",
+      "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxONFo5VDNMemxQblV2a0NJb1AzWUdYVjhEMnZkcFNRUTIxMnBHZVlGaVo1d2JBODFXMktoQUpmM3pDb0NBWFV0QXRRT1JhZUx6b0J5dWxEOEdneUcydFRUNXRHUzJyNmJqNV84RGFNUk50cXdialdVNUhSZkZsZElCemxRUHRNTnZQVUlrazVwWkZ2V0YyUThxVHlxSXB4SUN4MGVnWE5pMXpoZGd3dUdvenp1OA?oc=5",
+      "source": "Bloomberg",
+      "summary": "",
+      "published": "",
+      "image": "",
+      "competitor": "Intercontinental Exchange",
+      "ticker": "ICE",
+      "segment": "Exchanges / Data / Indices",
+      "origin": "premium_google_news",
+      "related": "ICE",
+      "finnhub_category": "",
+      "category": "General",
+      "sentiment": "Neutral",
+      "product_line": "Non-core",
+      "segments": [
+        "Non-core"
+      ],
+      "non_core": true,
+      "importance_score": 20,
+      "importance": "Low",
+      "impact_level": "Low",
+      "id": "a479cbe290922834",
       "signals": [],
       "why_it_matters": "News mention involving Intercontinental Exchange in Exchanges / Data / Indices.",
       "key_points": [],
@@ -6496,35 +6474,6 @@
       "importance": "Low",
       "impact_level": "Low",
       "id": "c6f2ab7fcdf76365",
-      "signals": [],
-      "why_it_matters": "News mention involving CME Group in Derivatives / Indices.",
-      "key_points": [],
-      "reading_time": "<1 min read"
-    },
-    {
-      "title": "US probes suspicious oil trades made before Trump Iran pivots, source says",
-      "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxObEFvSkkyTHhwcFNwbTkyQW41S0hJRDFlZko1VTVEY09SNU1MYnFQYVczUXVHWk4zMnExT08yb0hYRi1GanB1azdIQ284NkpOLWlnLXpqa0NheWpILUxibzhCLXdWWW9RTlZTY2czdnotaUYwS3J5QjNJYWVQWF9aZzhrNU1YUTBjWU85SzB3TnAybDJhQzZnaGxzXzlnRmlMYnJLRFZUU3JDX3hWcDRNSlFxc3I1SEVXN2xXS0VwM0lxUGc?oc=5",
-      "source": "Reuters",
-      "summary": "",
-      "published": "",
-      "image": "",
-      "competitor": "CME Group",
-      "ticker": "CME",
-      "segment": "Derivatives / Indices",
-      "origin": "premium_google_news",
-      "related": "CME",
-      "finnhub_category": "",
-      "category": "General",
-      "sentiment": "Neutral",
-      "product_line": "Non-core",
-      "segments": [
-        "Non-core"
-      ],
-      "non_core": true,
-      "importance_score": 20,
-      "importance": "Low",
-      "impact_level": "Low",
-      "id": "8b7ee51e2716862a",
       "signals": [],
       "why_it_matters": "News mention involving CME Group in Derivatives / Indices.",
       "key_points": [],
@@ -6647,9 +6596,9 @@
       "reading_time": "<1 min read"
     },
     {
-      "title": "UnitedHealth’s stock surged as profit beat expectations by widest margin in five years",
-      "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxQUFdLTUExbHdlMk9CQ0M3OXhCRm5kNFhBSDNCZ2xBdThJNVd0SUtHTHFmeTNSZW1mY01Sck5EU2E1Q3V1Qnk4bGttTkpNQlE2QnR3T3pBbkxPVnpnQ193LVJqS2xVaFYxRktCY1Z4LUIwMGhRUDhSTHp4Z01ndTJUOG9NY3kwQlM0RHlpc3RZZ2txTkUxZVJSaE04emx5TWxBWkQxX1RIdi1jRGZaaFhlTlVKczJ4ZG1zemZOSTBMczRKQjA5QnVGZA?oc=5",
-      "source": "MarketWatch",
+      "title": "PulteGroup Earnings Show the Housing Market’s Decline—and a Silver Lining. What It Means for the Stock.",
+      "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxNeTFnRzJBVUtmVVpGbXRuams4LWU1ejZwRFBDUTFWd2toM2RmY1JJb0NBeDY3VEp3cGtPdmZhZWRCNENBemc2RUZoSlp3eExmaWRnM1MwcFI1M3gyV1ZET0lKOEI3Z3VnNXpzcDZ5aVBaR21QMENqRWZxcm5FSFBRSDhjWnJDVkVQS2c?oc=5",
+      "source": "Barron's",
       "summary": "",
       "published": "",
       "image": "",
@@ -6660,7 +6609,7 @@
       "related": "FDS",
       "finnhub_category": "",
       "category": "General",
-      "sentiment": "Positive",
+      "sentiment": "Neutral",
       "product_line": "Non-core",
       "segments": [
         "Non-core"
@@ -6669,16 +6618,45 @@
       "importance_score": 20,
       "importance": "Low",
       "impact_level": "Low",
-      "id": "0bf8cd6596c9d282",
+      "id": "62355422fea0f088",
       "signals": [],
       "why_it_matters": "News mention involving FactSet in Analytics / Data Platform.",
       "key_points": [],
       "reading_time": "<1 min read"
     },
     {
+      "title": "Moody’s Lifts Thai Outlook to Stable on Easing Tariff Shocks",
+      "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNcWZnTjg1VDdWWVRZdHhzRTBLdzZlQVl0dzFoYVZiaTFGc3F1WkdlaUE4MEd1Q2dZcVJhdGJvRHVKbmtQNm1Ba1Y5cGJMOTRUTTdacGZRZk9PdEwtV0tfdDdGdnJqUkswWlM5NDVIYmc3VDlHMmtaTDVyRFR3U2xrdlZVSDMwZE1va285dHE5V09iNEtfd0FkRTZHLWtPSnJTOVhiNDBfSTFHZlFJVFh3elU5S0g?oc=5",
+      "source": "Bloomberg",
+      "summary": "",
+      "published": "",
+      "image": "",
+      "competitor": "Moody's",
+      "ticker": "MCO",
+      "segment": "Ratings / Risk Analytics",
+      "origin": "premium_google_news",
+      "related": "MCO",
+      "finnhub_category": "",
+      "category": "General",
+      "sentiment": "Neutral",
+      "product_line": "Non-core",
+      "segments": [
+        "Non-core"
+      ],
+      "non_core": true,
+      "importance_score": 20,
+      "importance": "Low",
+      "impact_level": "Low",
+      "id": "5338fd44684f8648",
+      "signals": [],
+      "why_it_matters": "News mention involving Moody's in Ratings / Risk Analytics.",
+      "key_points": [],
+      "reading_time": "<1 min read"
+    },
+    {
       "title": "Private Credit BDCs’ 2028 Maturity Wall Poses Risk, Moody’s Says",
       "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNU2JoeVdzZ28tbXVWUlhBT1gtRkREbUNndVFDNE5GWXhydDA5VWNSMlRTdnVPYU5OZ1dTR2w0NHo5ckhjWUR0eG9KVnFpV2kxcDk3M0VUZXVCaVdtMmVfMnJGMGhPLUMtLWlfcW1jNHFLM1hnbUN1Zmh3blNraV9WWG5kbnFWTXdDeFAyTTJ5ejFsMWJwMmYtZXBWdW42SEc3NzFoTHBYQmtvUDRSUlJITlBlMA?oc=5",
-      "source": "Bloomberg.com",
+      "source": "Bloomberg",
       "summary": "",
       "published": "",
       "image": "",

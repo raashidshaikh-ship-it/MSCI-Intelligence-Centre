@@ -1,8 +1,27 @@
 {
-  "last_updated": "2026-04-26T16:37:54.495538Z",
-  "total_activities": 21,
+  "last_updated": "2026-04-27T02:13:46.294575Z",
+  "total_activities": 22,
   "clients_tracked": 30,
   "activities": [
+    {
+      "title": "The Best Global Large-Cap Growth Equity Funds - Morningstar Canada",
+      "source": "Morningstar Canada",
+      "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxNaHFKc3lDcG5hUktSSTlwY3NGc3RrdmF2d3NRRTA4VERCa25sdFV6OUxhSkhkZHJWNG9fUlNyYjVkMm9HaHFoQ3UzYnpSbmQ2N3oteVU5UklTRVJhVHc5UTNwQzZub2FvYThFRHlnbmh6X1U2bEdNVmcwWUdSREFlcU5ObWN1NUFuTmFWbQ?oc=5",
+      "published": "Fri, 24 Apr 2026 09:48:50 GMT",
+      "client": "T. Rowe Price",
+      "client_type": "Asset Manager",
+      "id": "2f1156019e6b",
+      "activity_type": "M&A / Expansion",
+      "msci_linked": false,
+      "msci_product": "N/A",
+      "deal_value": "N/A",
+      "opportunity_type": "Monitor",
+      "opportunity_signal": "Track for future opportunity signals",
+      "competitor_risk": "Morningstar",
+      "region": "Global",
+      "priority": "Low",
+      "scraped_at": "2026-04-27T02:13:44.430486Z"
+    },
     {
       "title": "Invesco India Nifty Bank Index Fund - Regular Plan Fund info - The Economic Times",
       "source": "The Economic Times",
